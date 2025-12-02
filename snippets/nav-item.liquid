@@ -153,7 +153,7 @@
                             {%- endfor -%}
                           {%- endif -%}
 
-													<div class="header__dropdown__image-wrapper"
+													<div class="header__dropdown__image-wrapper 2"
 															 style="--border-radius: {{ border_radius }}px;--border-color: {{ border_color }};--image-background: {{ image_background }};">
                             {%- if badge_capture != blank -%}
                               <div class="badge__nav">
@@ -168,7 +168,7 @@
 																aspect_ratio: aspect_ratio,
 																sizes: 1024,
 																loading: 'lazy',
-																fetchpriority: 'high'
+																fetchpriority: 'auto'
 															-%}
 														</a>
 													</div>
@@ -308,34 +308,16 @@
                       {% endfor %}
                     </div>
                   {% endfor %}
-
                 {% elsif link.levels == 1 %}
 									{%- assign items_count = link.links.size -%}
-									{%- assign link_image_block = false -%}
-									{% for block in section.blocks %}
-										{% if block.settings.position == index and block.type == 'image' %}
-											{%- assign link_image_block = true -%}
-										{% endif %}
-									{% endfor %}
-
 									{% for link in link.links %}
 										{%- assign link_title_handleize = link.title | handleize -%}
 										{% if link_title_handleize contains 'shop-all' %}
 											{%- assign items_count = items_count | minus: 1 -%}
 										{% endif %}
-
-										{% if link_image_block == false %}
-											{% if items_count == 3 %}
-												{%- assign items_count = 3 -%}
-											{% else %}
-												{%- assign items_count = 4 -%}
-											{% endif %}
-										{% elsif link_image_block == true %}
-											{%- assign items_count = 3 -%}
-										{% endif %}
 									{% endfor %}
 
-                  <div data-item="{{ link_image_block }}" class="dropdown__family-without-childlinks" style="--item-counts: {{ items_count }}">
+                  <div class="dropdown__family-without-childlinks" style="--item-counts: {{ items_count }}">
                     {% for link in link.links %}
                       {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
 											{%- assign link_title_handleize = link.title | handleize -%}
@@ -377,7 +359,7 @@
 															{%- endfor -%}
 														{%- endif -%}
 
-														<div class="header__dropdown__image-wrapper"
+														<div class="header__dropdown__image-wrapper 1"
 																 style="--border-radius: {{ border_radius }}%;--border-color: {{ border_color }};--image-background: {{ image_background }};">
 															{%- if badge_capture != blank -%}
 																<div class="badge__nav">
@@ -390,9 +372,9 @@
 																{%- render 'image',
 																	image: image,
 																	aspect_ratio: aspect_ratio,
-																	sizes: 1024,
+																	sizes: '(max-width: 415px) 120px, (max-width: 1351px) 120px, 100vw',
 																	loading: 'lazy',
-																	fetchpriority: 'high'
+																	fetchpriority: 'auto'
 																-%}
 															</a>
 														</div>

@@ -20,7 +20,6 @@
   assign enable_video_looping = section.settings.enable_video_looping
   assign featured_media = current_variant.featured_media | default: product.featured_media
   assign featured_media_aspect_ratio = featured_media.aspect_ratio | default: 1
-	assign variant_badge = current_variant.metafields.custom.specific_badge.value
 -%}
 
 <product-images
@@ -62,20 +61,6 @@
         -%}
       </div>
     {%- endif -%}
-
-		{% if variant_badge != blank %}
-			<div class="product-variant__images-badge">
-				{%- render 'image',
-					image: variant_badge,
-					aspect_ratio: variant_badge.aspect_ratio,
-					widths: '120, 180, 240, 300, 360',
-					width: '240',
-					sizes: '120px',
-					loading: 'lazy',
-					fetchpriority: 'auto'
-				-%}
-			</div>
-		{% endif %}
 
     {%- if product.has_only_default_variant -%}
       {%- for media in product.media -%}

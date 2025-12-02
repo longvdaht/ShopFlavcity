@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -33,7 +24,7 @@
         "text_y3zP6d": {
           "type": "text",
           "settings": {
-            "text": "<p>Smart Food Swaps for Clean Eating</p>",
+            "text": "<p>Smart Food Swaps for Clean Eating<\/p>",
             "text_font_size": "body-x-large",
             "padding_bottom": 16
           }
@@ -41,7 +32,7 @@
         "text_6PqFMN": {
           "type": "text",
           "settings": {
-            "text": "<p>Making healthier choices doesn’t mean giving up the flavors you love. Our better-for-you swaps are crafted with real ingredients, no junk, and all the satisfaction—so you can enjoy every sip, scoop, and bite without second-guessing.</p>",
+            "text": "<p>Making healthier choices doesn’t mean giving up the flavors you love. Our better-for-you swaps are crafted with real ingredients, no junk, and all the satisfaction—so you can enjoy every sip, scoop, and bite without second-guessing.<\/p>",
             "text_font_size": "body-medium",
             "padding_bottom": 16
           }
@@ -71,7 +62,7 @@
         "featured_collection": "coffee",
         "heading": "Break Up with Your Barista",
         "heading_font_size": "heading-large",
-        "description": "<p>Same morning ritual, upgraded ingredients. </p><p>Get your caffeine and protein all in one scoop.</p>",
+        "description": "<p>Same morning ritual, upgraded ingredients. <\/p><p>Get your caffeine and protein all in one scoop.<\/p>",
         "text_font_size": "body-medium",
         "layout": "inline",
         "link_text": "",
@@ -98,7 +89,7 @@
         "featured_collection": "chocolate",
         "heading": "Get Your Chocolate Fix",
         "heading_font_size": "heading-large",
-        "description": "<p>Indulge without compromise. </p><p>Enjoy the rich chocolate flavor you crave with clean, feel-good ingredients.</p>",
+        "description": "<p>Indulge without compromise. <\/p><p>Enjoy the rich chocolate flavor you crave with clean, feel-good ingredients.<\/p>",
         "text_font_size": "body-medium",
         "layout": "inline",
         "link_text": "",
@@ -125,7 +116,7 @@
         "featured_collection": "nostalgia",
         "heading": "Nostalgic Tastes Reinvented",
         "heading_font_size": "heading-large",
-        "description": "<p>Take a sip down memory lane with reimagined flavors from your childhood. Enjoy classic flavors, but made better.﻿</p>",
+        "description": "<p>Take a sip down memory lane with reimagined flavors from your childhood. Enjoy classic flavors, but made better.﻿<\/p>",
         "text_font_size": "body-medium",
         "layout": "inline",
         "link_text": "",
@@ -167,7 +158,7 @@
         "rows": 1,
         "color_scheme": "",
         "button_text": "Explore Recipes",
-        "button_url": "shopify://blogs/recipes",
+        "button_url": "shopify:\/\/blogs\/recipes",
         "button_type": "btn--primary",
         "button_style": "btn--solid",
         "padding_top": 100,

@@ -53,8 +53,11 @@
 		if section.index < 2
 			assign preload = true
 			assign loading = 'eager'
+      assign fetchpriority = 'high'
 		else
 			assign preload = false
+      assign loading = 'lazy'
+      assign fetchpriority = 'auto'
 		endif
 
 		render 'image-hero', image_desktop: image_desktop, image_mobile: image_mobile, desktop_height: desktop_height, mobile_height: mobile_height, alt: alt, loading: loading, fetchpriority: fetchpriority, preload: preload, aspect_ratio: image_desktop.aspect_ratio, aspect_ratio_mobile: image_mobile.aspect_ratio

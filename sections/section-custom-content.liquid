@@ -192,7 +192,7 @@
 
                       {%- for product in block_collection.products -%}
                         {%- liquid
-                          if product.tags contains 'hide-from-search'
+                          if product.tags contains 'hide'
                             continue
                           endif
                         -%}

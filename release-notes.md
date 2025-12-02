@@ -1,1 +1,0 @@
-### Fixes and other improvements

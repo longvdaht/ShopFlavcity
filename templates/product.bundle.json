@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -21,7 +12,7 @@
           }
         },
         "judge_me_reviews_preview_badge_affkdk": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
         "badges_LzQMUE": {
@@ -86,29 +77,16 @@
             "padding_bottom_mobile": 8
           }
         },
-        "icon_cXkY7R": {
-          "type": "icon",
-          "settings": {
-            "icon_name": "icon-gift",
-            "icon_size": 20,
-            "icon_color": "",
-            "text": "<p>FREE gift on all orders & BONUS mystery gift on orders $100+</p>",
-            "text_font_size": "body-small",
-            "width": "full",
-            "padding_bottom": 16
-          }
-        },
         "code_EUhnwR": {
           "type": "code",
-          "disabled": true,
           "settings": {
-            "code": "<p>Free Domestic Shipping On Orders Over ${{settings.free_shipping_limit}}</p>",
+            "code": "<p>Free Domestic Shipping On Orders Over ${{settings.free_shipping_limit}}<\/p>",
             "padding_bottom": 24,
             "padding_bottom_mobile": 8
           }
         },
         "novel_shoppable_video_novel_product_wHzxjF": {
-          "type": "shopify://apps/novel-shoppable-video/blocks/novel-product/67e3531b-60c1-40d3-83d1-8f5aba7081ef",
+          "type": "shopify:\/\/apps\/novel-shoppable-video\/blocks\/novel-product\/67e3531b-60c1-40d3-83d1-8f5aba7081ef",
           "disabled": true,
           "settings": {
             "journeyid": "{{ product.metafields.custom.novel_journey_id.value }}"
@@ -143,7 +121,7 @@
             "show_read_more": false,
             "default_open": false,
             "heading": "Ingredients",
-            "text": "<p>{{ product.metafields.additional.ingredients | metafield_tag }}</p>",
+            "text": "<p>{{ product.metafields.additional.ingredients | metafield_tag }}<\/p>",
             "padding_bottom": 24,
             "padding_bottom_mobile": 16
           }
@@ -157,7 +135,7 @@
             "show_read_more": false,
             "default_open": false,
             "heading": "FAQ",
-            "text": "<p>{{ product.metafields.additional.faq | metafield_tag }}</p>",
+            "text": "<p>{{ product.metafields.additional.faq | metafield_tag }}<\/p>",
             "padding_bottom": 0,
             "padding_bottom_mobile": 0
           }
@@ -172,7 +150,7 @@
             "show_read_more": true,
             "default_open": false,
             "heading": "Shipping & returns",
-            "text": "<p>Due to the nature of this product, all sales are final. Please double check the address you are shipping to, as we are unable to change it after the order is placed.</p>",
+            "text": "<p>Due to the nature of this product, all sales are final. Please double check the address you are shipping to, as we are unable to change it after the order is placed.<\/p>",
             "padding_bottom": 24,
             "padding_bottom_mobile": 16
           }
@@ -187,7 +165,6 @@
         "price",
         "bundle_w7nR7c",
         "buttons",
-        "icon_cXkY7R",
         "code_EUhnwR",
         "novel_shoppable_video_novel_product_wHzxjF",
         "novel_embed_67HgNN",
@@ -216,7 +193,7 @@
         "image_with_text_AHphtb": {
           "type": "image_with_text",
           "settings": {
-            "image": "shopify://shop_images/gluten.svg",
+            "image": "shopify:\/\/shop_images\/gluten.svg",
             "image_width": 60,
             "image_width_mobile": 40,
             "heading": "Gluten Free",
@@ -226,7 +203,7 @@
         "image_with_text_GDJizC": {
           "type": "image_with_text",
           "settings": {
-            "image": "shopify://shop_images/vegan.svg",
+            "image": "shopify:\/\/shop_images\/vegan.svg",
             "image_width": 60,
             "image_width_mobile": 40,
             "heading": "Vegan",
@@ -236,7 +213,7 @@
         "image_with_text_NCjmjV": {
           "type": "image_with_text",
           "settings": {
-            "image": "shopify://shop_images/paleo.svg",
+            "image": "shopify:\/\/shop_images\/paleo.svg",
             "image_width": 60,
             "image_width_mobile": 40,
             "heading": "paleo friendly",
@@ -269,8 +246,6 @@
           "type": "heading",
           "settings": {
             "title": "Real Customers, Real Reviews",
-            "color": "#005261",
-            "heading_font_family": "primary-heading__font",
             "heading_font_size": "heading-large",
             "padding_bottom": 0,
             "heading_tag": "automatic"
@@ -299,13 +274,13 @@
         "review_t6EQgP": {
           "type": "review",
           "settings": {
-            "additional_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"98\" height=\"18\" viewBox=\"0 0 98 18\" fill=\"none\">\n<path d=\"M9 0L11.116 6.08754L17.5595 6.21885L12.4238 10.1125L14.2901 16.2812L9 12.6L3.70993 16.2812L5.5762 10.1125L0.440492 6.21885L6.88397 6.08754L9 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M29 0L31.116 6.08754L37.5595 6.21885L32.4238 10.1125L34.2901 16.2812L29 12.6L23.7099 16.2812L25.5762 10.1125L20.4405 6.21885L26.884 6.08754L29 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M49 0L51.116 6.08754L57.5595 6.21885L52.4238 10.1125L54.2901 16.2812L49 12.6L43.7099 16.2812L45.5762 10.1125L40.4405 6.21885L46.884 6.08754L49 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M69 0L71.116 6.08754L77.5595 6.21885L72.4238 10.1125L74.2901 16.2812L69 12.6L63.7099 16.2812L65.5762 10.1125L60.4405 6.21885L66.884 6.08754L69 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M89 0L91.116 6.08754L97.5595 6.21885L92.4238 10.1125L94.2901 16.2812L89 12.6L83.7099 16.2812L85.5762 10.1125L80.4405 6.21885L86.884 6.08754L89 0Z\" fill=\"#00B9B9\"/>\n</svg>",
+            "additional_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"98\" height=\"18\" viewBox=\"0 0 98 18\" fill=\"none\">\n<path d=\"M9 0L11.116 6.08754L17.5595 6.21885L12.4238 10.1125L14.2901 16.2812L9 12.6L3.70993 16.2812L5.5762 10.1125L0.440492 6.21885L6.88397 6.08754L9 0Z\" fill=\"#00B9B9\"\/>\n<path d=\"M29 0L31.116 6.08754L37.5595 6.21885L32.4238 10.1125L34.2901 16.2812L29 12.6L23.7099 16.2812L25.5762 10.1125L20.4405 6.21885L26.884 6.08754L29 0Z\" fill=\"#00B9B9\"\/>\n<path d=\"M49 0L51.116 6.08754L57.5595 6.21885L52.4238 10.1125L54.2901 16.2812L49 12.6L43.7099 16.2812L45.5762 10.1125L40.4405 6.21885L46.884 6.08754L49 0Z\" fill=\"#00B9B9\"\/>\n<path d=\"M69 0L71.116 6.08754L77.5595 6.21885L72.4238 10.1125L74.2901 16.2812L69 12.6L63.7099 16.2812L65.5762 10.1125L60.4405 6.21885L66.884 6.08754L69 0Z\" fill=\"#00B9B9\"\/>\n<path d=\"M89 0L91.116 6.08754L97.5595 6.21885L92.4238 10.1125L94.2901 16.2812L89 12.6L83.7099 16.2812L85.5762 10.1125L80.4405 6.21885L86.884 6.08754L89 0Z\" fill=\"#00B9B9\"\/>\n<\/svg>",
             "title": "Chad S.",
-            "subheading_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\">\n<g clip-path=\"url(#clip0_2305_561)\">\n<path d=\"M9 1.6875C7.55373 1.6875 6.13993 2.11637 4.9374 2.91988C3.73486 3.72339 2.7976 4.86544 2.24413 6.20163C1.69067 7.53781 1.54586 9.00811 1.82801 10.4266C2.11017 11.8451 2.80661 13.148 3.82928 14.1707C4.85196 15.1934 6.15492 15.8898 7.57341 16.172C8.99189 16.4541 10.4622 16.3093 11.7984 15.7559C13.1346 15.2024 14.2766 14.2651 15.0801 13.0626C15.8836 11.8601 16.3125 10.4463 16.3125 9C16.3105 7.06123 15.5394 5.20246 14.1685 3.83154C12.7975 2.46063 10.9388 1.68955 9 1.6875ZM12.2105 7.71047L8.27297 11.648C8.22073 11.7003 8.15869 11.7418 8.09041 11.7701C8.02212 11.7984 7.94892 11.8129 7.875 11.8129C7.80108 11.8129 7.72789 11.7984 7.6596 11.7701C7.59131 11.7418 7.52928 11.7003 7.47703 11.648L5.78953 9.96047C5.68399 9.85492 5.62469 9.71177 5.62469 9.5625C5.62469 9.41323 5.68399 9.27008 5.78953 9.16453C5.89508 9.05898 6.03824 8.99969 6.1875 8.99969C6.33677 8.99969 6.47992 9.05898 6.58547 9.16453L7.875 10.4548L11.4145 6.91453C11.4668 6.86227 11.5288 6.82081 11.5971 6.79253C11.6654 6.76424 11.7386 6.74969 11.8125 6.74969C11.8864 6.74969 11.9596 6.76424 12.0279 6.79253C12.0962 6.82081 12.1582 6.86227 12.2105 6.91453C12.2627 6.96679 12.3042 7.02884 12.3325 7.09712C12.3608 7.1654 12.3753 7.23859 12.3753 7.3125C12.3753 7.38641 12.3608 7.4596 12.3325 7.52788C12.3042 7.59616 12.2627 7.65821 12.2105 7.71047Z\" fill=\"#F68C59\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_2305_561\">\n<rect width=\"18\" height=\"18\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>",
+            "subheading_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\">\n<g clip-path=\"url(#clip0_2305_561)\">\n<path d=\"M9 1.6875C7.55373 1.6875 6.13993 2.11637 4.9374 2.91988C3.73486 3.72339 2.7976 4.86544 2.24413 6.20163C1.69067 7.53781 1.54586 9.00811 1.82801 10.4266C2.11017 11.8451 2.80661 13.148 3.82928 14.1707C4.85196 15.1934 6.15492 15.8898 7.57341 16.172C8.99189 16.4541 10.4622 16.3093 11.7984 15.7559C13.1346 15.2024 14.2766 14.2651 15.0801 13.0626C15.8836 11.8601 16.3125 10.4463 16.3125 9C16.3105 7.06123 15.5394 5.20246 14.1685 3.83154C12.7975 2.46063 10.9388 1.68955 9 1.6875ZM12.2105 7.71047L8.27297 11.648C8.22073 11.7003 8.15869 11.7418 8.09041 11.7701C8.02212 11.7984 7.94892 11.8129 7.875 11.8129C7.80108 11.8129 7.72789 11.7984 7.6596 11.7701C7.59131 11.7418 7.52928 11.7003 7.47703 11.648L5.78953 9.96047C5.68399 9.85492 5.62469 9.71177 5.62469 9.5625C5.62469 9.41323 5.68399 9.27008 5.78953 9.16453C5.89508 9.05898 6.03824 8.99969 6.1875 8.99969C6.33677 8.99969 6.47992 9.05898 6.58547 9.16453L7.875 10.4548L11.4145 6.91453C11.4668 6.86227 11.5288 6.82081 11.5971 6.79253C11.6654 6.76424 11.7386 6.74969 11.8125 6.74969C11.8864 6.74969 11.9596 6.76424 12.0279 6.79253C12.0962 6.82081 12.1582 6.86227 12.2105 6.91453C12.2627 6.96679 12.3042 7.02884 12.3325 7.09712C12.3608 7.1654 12.3753 7.23859 12.3753 7.3125C12.3753 7.38641 12.3608 7.4596 12.3325 7.52788C12.3042 7.59616 12.2627 7.65821 12.2105 7.71047Z\" fill=\"#F68C59\"\/>\n<\/g>\n<defs>\n<clipPath id=\"clip0_2305_561\">\n<rect width=\"18\" height=\"18\" fill=\"white\"\/>\n<\/clipPath>\n<\/defs>\n<\/svg>",
             "subheading": "Verified Buyer",
-            "review_content": "<p>If you’ve ever had a shamrock shake from McDonald’s growing up, this tastes just like it in the best way.</p>",
-            "featured_image": "shopify://shop_images/Mask_group.jpg",
-            "review_url": "/"
+            "review_content": "<p>If you’ve ever had a shamrock shake from McDonald’s growing up, this tastes just like it in the best way.<\/p>",
+            "featured_image": "shopify:\/\/shop_images\/Mask_group.jpg",
+            "review_url": "\/"
           }
         },
         "review_4zQqLw": {
@@ -315,19 +290,19 @@
             "title": "Example Customer",
             "subheading_code": "",
             "subheading": "Industry Expert",
-            "review_content": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.</p>",
+            "review_content": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.<\/p>",
             "review_url": ""
           }
         },
         "review_jbDMMK": {
           "type": "review",
           "settings": {
-            "additional_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"98\" height=\"18\" viewBox=\"0 0 98 18\" fill=\"none\">\n<path d=\"M9 0L11.116 6.08754L17.5595 6.21885L12.4238 10.1125L14.2901 16.2812L9 12.6L3.70993 16.2812L5.5762 10.1125L0.440492 6.21885L6.88397 6.08754L9 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M29 0L31.116 6.08754L37.5595 6.21885L32.4238 10.1125L34.2901 16.2812L29 12.6L23.7099 16.2812L25.5762 10.1125L20.4405 6.21885L26.884 6.08754L29 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M49 0L51.116 6.08754L57.5595 6.21885L52.4238 10.1125L54.2901 16.2812L49 12.6L43.7099 16.2812L45.5762 10.1125L40.4405 6.21885L46.884 6.08754L49 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M69 0L71.116 6.08754L77.5595 6.21885L72.4238 10.1125L74.2901 16.2812L69 12.6L63.7099 16.2812L65.5762 10.1125L60.4405 6.21885L66.884 6.08754L69 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M89 0L91.116 6.08754L97.5595 6.21885L92.4238 10.1125L94.2901 16.2812L89 12.6L83.7099 16.2812L85.5762 10.1125L80.4405 6.21885L86.884 6.08754L89 0Z\" fill=\"#00B9B9\"/>\n</svg>",
+            "additional_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"98\" height=\"18\" viewBox=\"0 0 98 18\" fill=\"none\">\n<path d=\"M9 0L11.116 6.08754L17.5595 6.21885L12.4238 10.1125L14.2901 16.2812L9 12.6L3.70993 16.2812L5.5762 10.1125L0.440492 6.21885L6.88397 6.08754L9 0Z\" fill=\"#00B9B9\"\/>\n<path d=\"M29 0L31.116 6.08754L37.5595 6.21885L32.4238 10.1125L34.2901 16.2812L29 12.6L23.7099 16.2812L25.5762 10.1125L20.4405 6.21885L26.884 6.08754L29 0Z\" fill=\"#00B9B9\"\/>\n<path d=\"M49 0L51.116 6.08754L57.5595 6.21885L52.4238 10.1125L54.2901 16.2812L49 12.6L43.7099 16.2812L45.5762 10.1125L40.4405 6.21885L46.884 6.08754L49 0Z\" fill=\"#00B9B9\"\/>\n<path d=\"M69 0L71.116 6.08754L77.5595 6.21885L72.4238 10.1125L74.2901 16.2812L69 12.6L63.7099 16.2812L65.5762 10.1125L60.4405 6.21885L66.884 6.08754L69 0Z\" fill=\"#00B9B9\"\/>\n<path d=\"M89 0L91.116 6.08754L97.5595 6.21885L92.4238 10.1125L94.2901 16.2812L89 12.6L83.7099 16.2812L85.5762 10.1125L80.4405 6.21885L86.884 6.08754L89 0Z\" fill=\"#00B9B9\"\/>\n<\/svg>",
             "title": "Chad S.",
-            "subheading_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\">\n<g clip-path=\"url(#clip0_2305_561)\">\n<path d=\"M9 1.6875C7.55373 1.6875 6.13993 2.11637 4.9374 2.91988C3.73486 3.72339 2.7976 4.86544 2.24413 6.20163C1.69067 7.53781 1.54586 9.00811 1.82801 10.4266C2.11017 11.8451 2.80661 13.148 3.82928 14.1707C4.85196 15.1934 6.15492 15.8898 7.57341 16.172C8.99189 16.4541 10.4622 16.3093 11.7984 15.7559C13.1346 15.2024 14.2766 14.2651 15.0801 13.0626C15.8836 11.8601 16.3125 10.4463 16.3125 9C16.3105 7.06123 15.5394 5.20246 14.1685 3.83154C12.7975 2.46063 10.9388 1.68955 9 1.6875ZM12.2105 7.71047L8.27297 11.648C8.22073 11.7003 8.15869 11.7418 8.09041 11.7701C8.02212 11.7984 7.94892 11.8129 7.875 11.8129C7.80108 11.8129 7.72789 11.7984 7.6596 11.7701C7.59131 11.7418 7.52928 11.7003 7.47703 11.648L5.78953 9.96047C5.68399 9.85492 5.62469 9.71177 5.62469 9.5625C5.62469 9.41323 5.68399 9.27008 5.78953 9.16453C5.89508 9.05898 6.03824 8.99969 6.1875 8.99969C6.33677 8.99969 6.47992 9.05898 6.58547 9.16453L7.875 10.4548L11.4145 6.91453C11.4668 6.86227 11.5288 6.82081 11.5971 6.79253C11.6654 6.76424 11.7386 6.74969 11.8125 6.74969C11.8864 6.74969 11.9596 6.76424 12.0279 6.79253C12.0962 6.82081 12.1582 6.86227 12.2105 6.91453C12.2627 6.96679 12.3042 7.02884 12.3325 7.09712C12.3608 7.1654 12.3753 7.23859 12.3753 7.3125C12.3753 7.38641 12.3608 7.4596 12.3325 7.52788C12.3042 7.59616 12.2627 7.65821 12.2105 7.71047Z\" fill=\"#F68C59\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_2305_561\">\n<rect width=\"18\" height=\"18\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>",
+            "subheading_code": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\">\n<g clip-path=\"url(#clip0_2305_561)\">\n<path d=\"M9 1.6875C7.55373 1.6875 6.13993 2.11637 4.9374 2.91988C3.73486 3.72339 2.7976 4.86544 2.24413 6.20163C1.69067 7.53781 1.54586 9.00811 1.82801 10.4266C2.11017 11.8451 2.80661 13.148 3.82928 14.1707C4.85196 15.1934 6.15492 15.8898 7.57341 16.172C8.99189 16.4541 10.4622 16.3093 11.7984 15.7559C13.1346 15.2024 14.2766 14.2651 15.0801 13.0626C15.8836 11.8601 16.3125 10.4463 16.3125 9C16.3105 7.06123 15.5394 5.20246 14.1685 3.83154C12.7975 2.46063 10.9388 1.68955 9 1.6875ZM12.2105 7.71047L8.27297 11.648C8.22073 11.7003 8.15869 11.7418 8.09041 11.7701C8.02212 11.7984 7.94892 11.8129 7.875 11.8129C7.80108 11.8129 7.72789 11.7984 7.6596 11.7701C7.59131 11.7418 7.52928 11.7003 7.47703 11.648L5.78953 9.96047C5.68399 9.85492 5.62469 9.71177 5.62469 9.5625C5.62469 9.41323 5.68399 9.27008 5.78953 9.16453C5.89508 9.05898 6.03824 8.99969 6.1875 8.99969C6.33677 8.99969 6.47992 9.05898 6.58547 9.16453L7.875 10.4548L11.4145 6.91453C11.4668 6.86227 11.5288 6.82081 11.5971 6.79253C11.6654 6.76424 11.7386 6.74969 11.8125 6.74969C11.8864 6.74969 11.9596 6.76424 12.0279 6.79253C12.0962 6.82081 12.1582 6.86227 12.2105 6.91453C12.2627 6.96679 12.3042 7.02884 12.3325 7.09712C12.3608 7.1654 12.3753 7.23859 12.3753 7.3125C12.3753 7.38641 12.3608 7.4596 12.3325 7.52788C12.3042 7.59616 12.2627 7.65821 12.2105 7.71047Z\" fill=\"#F68C59\"\/>\n<\/g>\n<defs>\n<clipPath id=\"clip0_2305_561\">\n<rect width=\"18\" height=\"18\" fill=\"white\"\/>\n<\/clipPath>\n<\/defs>\n<\/svg>",
             "subheading": "Verified Buyer",
-            "review_content": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.</p>",
-            "featured_image": "shopify://shop_images/Mask_group_1.jpg",
+            "review_content": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.<\/p>",
+            "featured_image": "shopify:\/\/shop_images\/Mask_group_1.jpg",
             "review_url": ""
           }
         },
@@ -338,7 +313,7 @@
             "title": "Chad S.",
             "subheading_code": "",
             "subheading": "Verified Buyer",
-            "review_content": "<p>\"Better flavor, better hydration. I've tried a lot of hydration products, this one outperforms them all.\"</p>",
+            "review_content": "<p>\"Better flavor, better hydration. I've tried a lot of hydration products, this one outperforms them all.\"<\/p>",
             "review_url": ""
           }
         },
@@ -349,7 +324,7 @@
             "title": "Kenneth Powell",
             "subheading_code": "",
             "subheading": "Verified Buyer",
-            "review_content": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.</p>",
+            "review_content": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.<\/p>",
             "review_url": ""
           }
         }
@@ -395,7 +370,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p> We used real, organic green spirulina powder to give it a vibrant, nutritious and all-natural green color. And a touch of pure peppermint oil delivers a cool and refreshing, minty flavor. Instead of stocking your kitchen with protein powder, collagen, fruit, and more</p>",
+            "text": "<p> We used real, organic green spirulina powder to give it a vibrant, nutritious and all-natural green color. And a touch of pure peppermint oil delivers a cool and refreshing, minty flavor. Instead of stocking your kitchen with protein powder, collagen, fruit, and more<\/p>",
             "text_font_family": "primary-text__font",
             "text_font_size": "body-large",
             "pin_to_bottom": false,
@@ -412,7 +387,7 @@
       "settings": {
         "section_mode": "flavcity-shop",
         "custom_selector": "product-page_image",
-        "image_1": "shopify://shop_images/Mask_group_2.png",
+        "image_1": "shopify:\/\/shop_images\/Mask_group_2.png",
         "image_shape": "normal",
         "image_width": "one-half",
         "text_alignment": "text-left",
@@ -447,7 +422,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p> We used real, organic green spirulina powder to give it a vibrant, nutritious and all-natural green color. And a touch of pure peppermint oil delivers a cool and refreshing, minty flavor. Instead of stocking your kitchen with protein powder, collagen, fruit, and more</p>",
+            "text": "<p> We used real, organic green spirulina powder to give it a vibrant, nutritious and all-natural green color. And a touch of pure peppermint oil delivers a cool and refreshing, minty flavor. Instead of stocking your kitchen with protein powder, collagen, fruit, and more<\/p>",
             "text_font_family": "primary-text__font",
             "text_font_size": "body-large",
             "pin_to_bottom": false,
@@ -464,7 +439,7 @@
       "settings": {
         "section_mode": "flavcity-shop",
         "custom_selector": "product-page_image",
-        "image_1": "shopify://shop_images/Mask_group_3.png",
+        "image_1": "shopify:\/\/shop_images\/Mask_group_3.png",
         "image_shape": "normal",
         "image_width": "one-half",
         "text_alignment": "text-left",
@@ -499,7 +474,7 @@
           "settings": {
             "default_open": false,
             "title": "{{ product.metafields.faq.question_first.value }}",
-            "content": "<p>{{ product.metafields.faq.answer_first | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.faq.answer_first | metafield_tag }}<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -511,7 +486,7 @@
           "settings": {
             "default_open": true,
             "title": "What beverages can I use to mix my drink?",
-            "content": "<p>You can mix in any liquid of your choice, however we recommend using water or any milk of your choice for the FlavCity Protein Smoothie!</p>",
+            "content": "<p>You can mix in any liquid of your choice, however we recommend using water or any milk of your choice for the FlavCity Protein Smoothie!<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 40,
@@ -523,7 +498,7 @@
           "settings": {
             "default_open": false,
             "title": "Is your protein smoothie a meal replacement?",
-            "content": "<p>Our Protein Smoothie was designed to have a great balance of protein, carbs and fat. Before replacing any meals, please check with your doctor.</p>",
+            "content": "<p>Our Protein Smoothie was designed to have a great balance of protein, carbs and fat. Before replacing any meals, please check with your doctor.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -535,7 +510,7 @@
           "settings": {
             "default_open": false,
             "title": "What type of collagen is used in the protein smoothie?",
-            "content": "<p>Our Protein Smoothie contains 100% grass-fed collagen derived from bovine! Each scoop has 10g of collagen.</p>",
+            "content": "<p>Our Protein Smoothie contains 100% grass-fed collagen derived from bovine! Each scoop has 10g of collagen.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -626,8 +601,6 @@
           "type": "heading",
           "settings": {
             "title": "Customer Reviews",
-            "color": "#005261",
-            "heading_font_family": "primary-heading__font",
             "heading_font_size": "heading-large",
             "padding_bottom": 0,
             "heading_tag": "automatic"
@@ -654,7 +627,7 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_review_widget_k7m3bp": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
             "max_width": 1200,
@@ -682,8 +655,6 @@
           "type": "heading",
           "settings": {
             "title": "WHAT OUR CUSTOMERS SAY",
-            "color": "#005261",
-            "heading_font_family": "primary-heading__font",
             "heading_font_size": "heading-large",
             "padding_bottom": 0,
             "heading_tag": "automatic"
@@ -710,7 +681,7 @@
       "type": "apps",
       "blocks": {
         "okendo_reviews_widget_mMpyVB": {
-          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "type": "shopify:\/\/apps\/okendo\/blocks\/reviews-widget\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
             "product": "{{product}}",
             "widget_type": "reviews_widget"
@@ -732,7 +703,7 @@
       "type": "apps",
       "blocks": {
         "instafeed_app_block_kG9nMW": {
-          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "type": "shopify:\/\/apps\/instafeed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
             "title": "on instagram",
             "title_color": "#ffffff",

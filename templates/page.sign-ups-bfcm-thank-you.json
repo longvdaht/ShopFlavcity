@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "double": {
@@ -27,7 +18,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Thanks for signing up. Keep an eye on your inbox — your early access invite will arrive <strong>48 hours before Black Friday</strong>. Your exclusive gift is waiting!</p>",
+            "text": "<p>Thanks for signing up. Keep an eye on your inbox — your early access invite will arrive <strong>48 hours before Black Friday<\/strong>. Your exclusive gift is waiting!<\/p>",
             "text_font_family": "primary-text__font",
             "text_font_size": "body-large",
             "pin_to_bottom": false,
@@ -39,7 +30,7 @@
           "type": "buttons",
           "settings": {
             "button_text": "EXPLORE BEST SELLERS",
-            "button_url": "shopify://collections/featured",
+            "button_url": "shopify:\/\/collections\/featured",
             "button_type": "btn--primary",
             "button_size": "",
             "button_style": "",
@@ -57,7 +48,7 @@
       "settings": {
         "section_mode": "flavcity-shop",
         "custom_selector": "",
-        "image_1": "shopify://shop_images/peanut_butter_chocolate_protein_smoothie.png",
+        "image_1": "shopify:\/\/shop_images\/peanut_butter_chocolate_protein_smoothie.png",
         "image_shape": "circle",
         "image_width": "one-half",
         "text_alignment": "text-left",
@@ -96,7 +87,7 @@
         "text_6YiFrR": {
           "type": "text",
           "settings": {
-            "text": "<p>Explore healthy, flavorful recipes to try at home<br/></p>",
+            "text": "<p>Explore healthy, flavorful recipes to try at home<br\/><\/p>",
             "text_font_size": "body-medium",
             "padding_bottom": 16
           }
@@ -105,7 +96,7 @@
           "type": "buttons",
           "settings": {
             "button_text": "Explore Recipes",
-            "button_url": "shopify://blogs/recipes",
+            "button_url": "shopify:\/\/blogs\/recipes",
             "button_type": "btn--primary",
             "button_size": "",
             "button_style": "",
@@ -210,7 +201,7 @@
         "title": "Shop Your Favorites Year-Round",
         "heading_font_family": "primary-heading__font",
         "heading_font_size": "heading-large",
-        "text": "<p>From protein smoothies to superfood lemonades, discover our products that make everyday healthy swaps easy and delicious.</p>",
+        "text": "<p>From protein smoothies to superfood lemonades, discover our products that make everyday healthy swaps easy and delicious.<\/p>",
         "text_font_size": "body-medium",
         "layout": "left",
         "text_alight_mobile": "text_alight_mobile--center",

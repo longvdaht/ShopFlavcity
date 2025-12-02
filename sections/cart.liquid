@@ -11,11 +11,23 @@
   assign show_empty_cart_menu = settings.show_empty_cart_menu
   assign empty_cart_menu = settings.empty_cart_menu
   assign color_scheme = 'color-' | append: section.settings.color_scheme
+  assign free_shipping_block = section.blocks | where: 'type', 'free-shipping'
+  assign is_free_shipping_first = false
+  if section.blocks[0] == free_shipping_block[0]
+    assign is_free_shipping_first = true
+  endif
 
   if cart_item_count == 0
     assign empty_cart = true
   endif
 -%}
+
+{%- capture free_shipping -%}
+  {%- assign block = free_shipping_block[0] -%}
+  {%- if settings.free_shipping_limit != blank and block.settings.message != blank -%}
+    {%- render 'free-shipping' message: block.settings.message, gradient: block.settings.free_shipping_gradient, show_wheel: false, show_progress_bar: true -%}
+  {%- endif -%}
+{%- endcapture -%}
 
 {%- style -%}
   .cart {
@@ -176,11 +188,18 @@
 
         <div class="cart__aside" data-checkout-buttons>
           {%- assign animation_delay = animation_delay_initial -%}
-
-          <div class="cart-block"
-               data-cart-progress-bar-inner>
-            {%- assign animation_delay = animation_delay | plus: animation_delay_increment -%}
-          </div>
+          {%- if is_free_shipping_first -%}
+            <div
+              class="cart-block"
+              data-animation="{{ animation_name }}"
+              data-animation-duration="{{ animation_duration }}"
+              data-animation-delay="{{ animation_delay }}"
+              {{ free_shipping_block[0].shopify_attributes }}
+            >
+              {{- free_shipping -}}
+              {%- assign animation_delay = animation_delay | plus: animation_delay_increment -%}
+            </div>
+          {%- endif -%}
 
           <div
             class="cart__price__holder"
@@ -225,6 +244,11 @@
 
                   {%- when 'product-list' -%}
                     {%- render 'cart-block-upsell', block: block -%}
+
+                  {%- when 'free-shipping' -%}
+                    {%- unless is_free_shipping_first -%}
+                      {{- free_shipping -}}
+                    {%- endunless -%}
 
                   {%- when 'order-note' -%}
                     {%- render 'cart-block-order-note', block: block -%}
@@ -377,6 +401,29 @@
           "type": "color",
           "id": "cart_custom_message_color",
           "label": "Text color"
+        }
+      ]
+    },
+    {
+      "type": "free-shipping",
+      "name": "Free shipping message",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Set a minimum amount for free shipping in [Theme settings](/admin/themes/current/editor?context=theme)"
+        },
+        {
+          "type": "textarea",
+          "id": "message",
+          "label": "Message",
+          "info": "Use ||amount|| to display progress towards free shipping.",
+          "default": "You are ||amount|| away from free shipping."
+        },
+        {
+          "type": "color_background",
+          "id": "free_shipping_gradient",
+          "label": "Custom progress bar gradient"
         }
       ]
     },

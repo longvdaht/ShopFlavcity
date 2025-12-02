@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -34,7 +25,7 @@
         "image_FweRih": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/peanut_butter_chocolate_protein_smoothie.png",
+            "image": "shopify:\/\/shop_images\/peanut_butter_chocolate_protein_smoothie.png",
             "title": "",
             "heading_font_size": "heading-large",
             "text": "",
@@ -59,11 +50,11 @@
           "type": "newsletter",
           "settings": {
             "klaviyo_list_id": "RBT4w4",
-            "return_to_value": "shopify://pages/black-friday-cyber-monday-thank-you",
+            "return_to_value": "shopify:\/\/pages\/black-friday-cyber-monday-thank-you",
             "subheading": "",
             "heading": "Get Early Access to Black Friday & Cyber Monday Deals",
             "heading_font_size": "heading-medium",
-            "text": "<p>Sign up now and be the first to unlock exclusive savings — plus receive a special gift with every purchase during early access.<br/><br/>Claim Your Spot for Early Access.<br/></p>",
+            "text": "<p>Sign up now and be the first to unlock exclusive savings — plus receive a special gift with every purchase during early access.<br\/><br\/>Claim Your Spot for Early Access.<br\/><\/p>",
             "text_font_size": "body-large",
             "text_columns": 1,
             "align_text": "text-center",

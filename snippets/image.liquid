@@ -28,7 +28,7 @@
   assign width = width | default: image_width
   assign height = height | default: width | divided_by: aspect_ratio
   assign sizes = sizes | default: '100vw'
-  assign widths = widths | default: '180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1950, 2100, 2260, 2450, 2700, 3000, 3350, 3750, 4100, 4450, 4800, 5150, 5500, 5760'
+  assign widths = widths | default: '180, 200, 240, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1950, 2100, 2260, 2450, 2700, 3000, 3350, 3750, 4100, 4450, 4800, 5150, 5500, 5760'
   assign alt = alt | default: image.alt
   assign alt = alt | escape
   assign attributes = attributes | default: nil

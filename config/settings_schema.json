@@ -286,6 +286,23 @@
     ]
   },
   {
+    "name": "Homepage LCP elements",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info": "It should be the same with the image use from top section at homepage"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile image",
+        "info": "It should be the same with the image use from top section at homepage"
+      }
+    ]
+  },
+  {
     "name": "Colors",
     "settings": [
       {
@@ -546,6 +563,12 @@
         "content": "Header navigation"
       },
       {
+        "type": "font_picker",
+        "id": "type_nav_font",
+        "label": "Font",
+        "default": "montserrat_n4"
+      },
+      {
         "type": "range",
         "id": "nav_font_size",
         "min": 10,
@@ -574,6 +597,12 @@
       {
         "type": "header",
         "content": "Body text"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_base_font",
+        "label": "Font",
+        "default": "poppins_n4"
       },
       {
         "type": "range",
@@ -708,6 +737,12 @@
         "content": "Subheadings"
       },
       {
+        "type": "font_picker",
+        "id": "type_subheading_font",
+        "label": "Font",
+        "default": "poppins_n4"
+      },
+      {
         "type": "range",
         "id": "sub_letter_spacing",
         "min": -25,
@@ -746,6 +781,12 @@
       {
         "type": "header",
         "content": "Headings"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "label": "Font",
+        "default": "itc_novarese_n4"
       },
       {
         "type": "range",
@@ -896,6 +937,12 @@
   {
     "name": "Buttons",
     "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_btn_font",
+        "label": "Font",
+        "default": "poppins_n4"
+      },
       {
         "type": "select",
         "id": "btn_border_style",

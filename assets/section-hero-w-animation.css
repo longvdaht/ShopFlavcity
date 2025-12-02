@@ -1,0 +1,6 @@
+.index-hero--with-animation {
+  position: relative;
+}
+.index-hero--with-animation .hero__content__wrapper {
+  position: static;
+}

@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "type": "footer",
   "name": "Footer",
@@ -17,23 +8,23 @@
         "parallax_layers_YaK9G9": {
           "type": "parallax_layers",
           "settings": {
-            "static_image": "shopify://shop_images/Frame_1597881456_1_optimized.webp",
-            "first_layer": "shopify://shop_images/fotter-1-layer.png",
+            "static_image": "shopify:\/\/shop_images\/Frame_1597881456_1_optimized.webp",
+            "first_layer": "shopify:\/\/shop_images\/fotter-1-layer.png",
             "first_layer_delay": 0.2,
-            "second_layer": "shopify://shop_images/footer-2-layer.png",
+            "second_layer": "shopify:\/\/shop_images\/footer-2-layer.png",
             "second_layer_delay": 0.7,
-            "third_layer": "shopify://shop_images/Frame_1597881455_2_optimized.webp",
+            "third_layer": "shopify:\/\/shop_images\/Frame_1597881455_2_optimized.webp",
             "third_layer_delay": 1.3,
-            "mobile_image": "shopify://shop_images/footer-layer-3-mobile.png",
+            "mobile_image": "shopify:\/\/shop_images\/footer-layer-3-mobile.png",
             "use_animation": true,
-            "animated_image": "shopify://shop_images/footer-animated-image.png"
+            "animated_image": "shopify:\/\/shop_images\/footer-animated-image.png"
           }
         },
         "image_NnffYY": {
           "type": "image",
           "settings": {
-            "logo": "shopify://shop_images/logo-image-x4.png",
-            "additional_image": "shopify://shop_images/footer-mark.png"
+            "logo": "shopify:\/\/shop_images\/logo-image-x4.png",
+            "additional_image": "shopify:\/\/shop_images\/footer-mark.png"
           }
         },
         "linklist_HbmAXA": {
@@ -61,9 +52,9 @@
           "settings": {
             "klaviyo_list_id": "TLvpic",
             "return_to_value": "",
-            "title": "Sign up for emails",
+            "title": "SIGN UP & GET 15% OFF",
             "heading_font_size": "heading-large",
-            "text": "<p>Get smart swaps, flavor-packed tips, early access to launches, and recipes you’ll actually crave.</p>",
+            "text": "<p>Save on your first order, early access to new launches, and recipes you’ll want on repeat.<\/p>",
             "show_name": false,
             "button_text": "Join",
             "show_arrow": true,
@@ -81,7 +72,7 @@
             "image_width": 150,
             "title": "",
             "heading_font_size": "heading-medium",
-            "text": "<p>Statements appearing on this website have not been evaluated by the Food and Drug Administration (FDA). Products featured are not intended to diagnose, prevent, treat, or cure any disease. Information here is not intended as a substitute for or alternative to information from healthcare practitioners.</p><p>California Residents Warning: This product may contain chemicals known to the State of California to cause cancer or reproductive harm. Some of our products carry a Prop 65 warning due to naturally occurring lead and cadmium present in certain ingredients. Learn more about Prop 65 here: <a href=\"https://www.p65warnings.ca.gov/food\" target=\"_blank\" title=\"https://www.p65warnings.ca.gov/food\">www.p65warnings.ca.gov/food</a></p><ul><li>No code needed to receive 20% off your order. Valid on one-time and subscription purchases. Receive 20% off your first shipment of new subscription, and 10% off future subscription shipments. Offer is not valid on previous purchases. No code needed to receive a free bonus mystery gift on orders over $100. Offer ends December 1, 2025 at 11:59pm ET. Cannot be combined with other offers. Offer valid for a limited time and subject to change without notice.</li></ul>",
+            "text": "<p>Statements appearing on this website have not been evaluated by the Food and Drug Administration (FDA). Products featured are not intended to diagnose, prevent, treat, or cure any disease. Information here is not intended as a substitute for or alternative to information from healthcare practitioners.<\/p><p>California Residents Warning: Learn more about prop 65 here: <a href=\"https:\/\/www.p65warnings.ca.gov\/food\" target=\"_blank\" title=\"https:\/\/www.p65warnings.ca.gov\/food\">www.p65warnings.ca.gov\/food<\/a><\/p><p>Free Orange Shaker with purchase of Pumpkin Spice Latte Protein Smoothie. No code needed, free Shaker automatically added to cart. Limit to one per customer. Offer expires 11\/20\/2025. Cannot be combined with other offers. Offer valid for a limited time and subject to change without notice.<br\/><br\/><\/p>",
             "copyright": "FlavCity is a registered trademark of DTBE, LLC. Copyright © {{ 'now' | date: '%Y' }} DTBE, LLC. All rights reserved.",
             "column_width": 100,
             "enable_accordion": false

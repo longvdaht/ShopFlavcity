@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "type": "aside",
   "name": "Overlay",
@@ -17,7 +8,7 @@
         "cart-message": {
           "type": "cart-message",
           "settings": {
-            "cart_custom_message_text": "<p>Free domestic shipping on orders over $65.</p>",
+            "cart_custom_message_text": "<p>Free domestic shipping on orders over $65.<\/p>",
             "cart_custom_message_color": "#ffffff",
             "cart_custom_message_background": "#00bdb9",
             "pin_to_bottom": false
@@ -33,20 +24,11 @@
           "type": "free-shipping",
           "settings": {
             "message": "You are ||amount|| away from free shipping",
-            "free_shipping_logo": "shopify://shop_images/freeS.svg",
+            "free_shipping_logo": "shopify:\/\/shop_images\/freeS.svg",
             "free_shipping_text_color": "#0e5261",
             "free_shipping_bg_color": "#d6ebeb",
-            "free_shipping_gradient": "#DF0060"
-          }
-        },
-        "gwp_message_fg9VXC": {
-          "type": "gwp-message",
-          "settings": {
-            "message": "You are ||amount|| away from unlocking Free Bonus Mystery Gift (up to $39.99 value)",
-            "final_message": "Free Bonus Mystery Gift Unlocked!",
-            "text_color": "#0e5261",
-            "bg_color": "#d6ebeb",
-            "gradient": "linear-gradient(127deg, rgba(224, 0, 96, 1) 11%, rgba(224, 0, 96, 1) 81%)"
+            "free_shipping_gradient": "#DF0060",
+            "pin_to_bottom": false
           }
         },
         "products": {
@@ -91,52 +73,32 @@
             "upsell_auto_open": true,
             "pin_to_bottom": false
           }
-        },
-        "gwp_threshold_GqDnUk": {
-          "type": "gwp-threshold",
-          "settings": {
-            "gwp_product": "free-bfcm-gift",
-            "threshold": 100
-          }
-        },
-        "gwp_threshold_TeyNKN": {
-          "type": "gwp-threshold",
-          "settings": {
-            "gwp_product": "free-mystery-gift",
-            "threshold": 1
-          }
         }
       },
       "block_order": [
         "cart-message",
         "title",
         "free-shipping",
-        "gwp_message_fg9VXC",
         "products",
         "order-note",
         "gift-note",
         "checkout-buttons",
-        "cart_upsell_pGynhr",
-        "gwp_threshold_GqDnUk",
-        "gwp_threshold_TeyNKN"
-      ],
-      "custom_css": [
-        ".free-shipping__progress-bar-threshold {display: none;}"
+        "cart_upsell_pGynhr"
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "empty_state_subtitle": "<p>Stock up on what your body <br/>actually needs.</p>",
-        "empty_state_banner_image_1": "shopify://shop_images/Cafe_Vanilla_Front_on_Transparent_978ec6d4-6021-44dc-a73f-b4a0e4b4c828.png",
+        "empty_state_subtitle": "<p>Stock up on what your body <br\/>actually needs.<\/p>",
+        "empty_state_banner_image_1": "shopify:\/\/shop_images\/Cafe_Vanilla_Front_on_Transparent_978ec6d4-6021-44dc-a73f-b4a0e4b4c828.png",
         "empty_state_banner_title_1": "Café",
-        "empty_state_banner_url_1": "shopify://collections/instant-coffee",
-        "empty_state_banner_image_2": "shopify://shop_images/Product_Image_1e83a26d-8faf-4406-8370-a4222e5e78a5.png",
+        "empty_state_banner_url_1": "shopify:\/\/collections\/instant-coffee",
+        "empty_state_banner_image_2": "shopify:\/\/shop_images\/Product_Image_1e83a26d-8faf-4406-8370-a4222e5e78a5.png",
         "empty_state_banner_title_2": "Protein Smoothies",
-        "empty_state_banner_url_2": "shopify://collections/protein-smoothies",
-        "empty_state_banner_image_3": "shopify://shop_images/Product_Image2.png",
+        "empty_state_banner_url_2": "shopify:\/\/collections\/protein-smoothies",
+        "empty_state_banner_image_3": "shopify:\/\/shop_images\/Product_Image2.png",
         "empty_state_banner_title_3": "FUNCTIONAL BEVERAGES",
-        "empty_state_banner_url_3": "shopify://collections/functional-beverages",
+        "empty_state_banner_url_3": "shopify:\/\/collections\/functional-beverages",
         "empty_state_button_title": "Shop ALL",
-        "empty_state_button_url": "shopify://collections/all"
+        "empty_state_button_url": "shopify:\/\/collections\/all"
       }
     }
   },

@@ -58,7 +58,7 @@
             {%- else -%}
               {%- liquid
                 for item in search.results
-                  if item.tags contains 'hide-from-search'
+                  if item.tags contains 'hide'
                     assign hidden_products_count = hidden_products_count | plus: 1
                   endif
 

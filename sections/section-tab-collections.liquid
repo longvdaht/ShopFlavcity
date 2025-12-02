@@ -182,7 +182,7 @@
 									assign featured_collection_first_product_image = nil
 
 									for product in featured_collection.products
-									if product.tags contains 'hide-from-search'
+									if product.tags contains 'hide'
 									continue
 									else
 									assign featured_collection_first_product_image = product.featured_media.preview_image
@@ -225,11 +225,10 @@
 
 											{%- liquid
 												assign sizes = '(min-width: 990px) 28vw, (min-width: 750px) 38vw, calc(100vw - 32px - 50px)'
-												if block_index > 1
 												assign loading = 'lazy'
-												endif
+                        assign fetchpriority = 'lazy'
 
-												render 'image' image: image, sizes: sizes, cover: true, loading: loading, attributes: image_animations, placeholder: image_placeholder, attributes: 'data-featured-image'
+												render 'image' image: image, sizes: sizes, cover: true, loading: loading, preload: 'false', fetchpriority: fetchpriority, attributes: image_animations, placeholder: image_placeholder, attributes: 'data-featured-image'
 											-%}
 										</div>
 
@@ -325,7 +324,7 @@
 
 											{%- for product in product_array limit: block_product_limit -%}
 												{% liquid
-													if product.tags contains 'hide-from-search'
+													if product.tags contains 'hide'
 													assign hidden_products = hidden_products | plus: 1
 													endif
 													assign product_index = forloop.index | minus: hidden_products

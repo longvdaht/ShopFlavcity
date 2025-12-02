@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -74,7 +65,7 @@
           "settings": {
             "default_open": false,
             "title": "What Are Immune Support Supplements?",
-            "content": "<p>Immune support supplements are dietary products formulated to help maintain and strengthen the body’s natural defense system. These supplements often include vitamins, minerals, herbs, and other nutrients such as Vitamin C, Vitamin D, Zinc, elderberry, and probiotics, and come in various forms like liquid vitamins,  pills and capsules, chewable tablets, and more, all selected for their potential to support immune function. By providing key nutrients that may be lacking in a typical diet, immune support supplements aim to help the body respond to everyday stressors and environmental challenges. </p><p>While many people use these supplements to promote overall wellness, it’s important to remember that scientific evidence for their effectiveness varies, and consulting a healthcare professional before starting any new supplement is recommended. FlavCity’s commitment is to transparency, flavor, and quality, so you can confidently support your immune health with every scoop, sip, or capsule.</p>",
+            "content": "<p>Immune support supplements are dietary products formulated to help maintain and strengthen the body’s natural defense system. These supplements often include vitamins, minerals, herbs, and other nutrients such as Vitamin C, Vitamin D, Zinc, elderberry, and probiotics, and come in various forms like liquid vitamins,  pills and capsules, chewable tablets, and more, all selected for their potential to support immune function. By providing key nutrients that may be lacking in a typical diet, immune support supplements aim to help the body respond to everyday stressors and environmental challenges. <\/p><p>While many people use these supplements to promote overall wellness, it’s important to remember that scientific evidence for their effectiveness varies, and consulting a healthcare professional before starting any new supplement is recommended. FlavCity’s commitment is to transparency, flavor, and quality, so you can confidently support your immune health with every scoop, sip, or capsule.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -86,7 +77,7 @@
           "settings": {
             "default_open": false,
             "title": "Why Choose FlavCity Immune Support Supplements?",
-            "content": "<p>Choosing FlavCity supplements means fueling your body with flavor-packed formulas made from real ingredients you can trust. Every supplement is thoughtfully crafted to deliver functional benefits for the immune system, like bioavailable Vitamin C from superfoods, immune-boosting D3 and Zinc, and antioxidant-rich elderberry loaded with antioxidants, providing you with powerful immune boosters all in one scoop. FlavCity goes beyond basic supplements by combining powerful nutrients, real fruit, and functional ingredients into craveable blends that fit seamlessly into your busy lifestyle. With Bobby-Approved standards and a commitment to transparency, you can feel confident knowing you’re supporting your immune system and health with products that are as delicious as they are effective.</p>",
+            "content": "<p>Choosing FlavCity supplements means fueling your body with flavor-packed formulas made from real ingredients you can trust. Every supplement is thoughtfully crafted to deliver functional benefits for the immune system, like bioavailable Vitamin C from superfoods, immune-boosting D3 and Zinc, and antioxidant-rich elderberry loaded with antioxidants, providing you with powerful immune boosters all in one scoop. FlavCity goes beyond basic supplements by combining powerful nutrients, real fruit, and functional ingredients into craveable blends that fit seamlessly into your busy lifestyle. With Bobby-Approved standards and a commitment to transparency, you can feel confident knowing you’re supporting your immune system and health with products that are as delicious as they are effective.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -98,7 +89,7 @@
           "settings": {
             "default_open": false,
             "title": "How To Use FlavCity Immune Support Supplements",
-            "content": "<p>For daily immune support, take one capsule of C-Ya Later! or Triple Threat, or both with water, ideally alongside a meal to help your body absorb the nutrients.</p><p>When you want a comforting and flavorful boost, simply mix Immunity Tea with hot or cold water, and let it steep for a couple of minutes, then sip throughout the day, perfect for busy mornings, afternoon pick-me-ups, or whenever you feel your immune system could use a little extra love.</p>",
+            "content": "<p>For daily immune support, take one capsule of C-Ya Later! or Triple Threat, or both with water, ideally alongside a meal to help your body absorb the nutrients.<\/p><p>When you want a comforting and flavorful boost, simply mix Immunity Tea with hot or cold water, and let it steep for a couple of minutes, then sip throughout the day, perfect for busy mornings, afternoon pick-me-ups, or whenever you feel your immune system could use a little extra love.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -110,7 +101,7 @@
           "settings": {
             "default_open": false,
             "title": "When Is the Best Time to Take Immune Support Supplements?",
-            "content": "<p>The best time to take immune support supplements for boosting your immune system depends on you. We suggest taking supplements with meals, as this can help with absorption and make it easier to remember. Consistency is key, so choose a time that fits your daily routine, and consult your healthcare provider if you have specific health needs or take other medications.</p>",
+            "content": "<p>The best time to take immune support supplements for boosting your immune system depends on you. We suggest taking supplements with meals, as this can help with absorption and make it easier to remember. Consistency is key, so choose a time that fits your daily routine, and consult your healthcare provider if you have specific health needs or take other medications.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -122,7 +113,7 @@
           "settings": {
             "default_open": false,
             "title": "Can I Take Immune Support Supplements Every Day?",
-            "content": "<p>Yes, most immune support supplements, including those providing vitamin D, are designed for daily use and can be safely incorporated into your routine when taken as directed. However, it’s important to follow the recommended dosage on the label and consult your healthcare provider, especially if you have underlying health conditions or are taking other medications, to ensure they’re right for you.</p>",
+            "content": "<p>Yes, most immune support supplements, including those providing vitamin D, are designed for daily use and can be safely incorporated into your routine when taken as directed. However, it’s important to follow the recommended dosage on the label and consult your healthcare provider, especially if you have underlying health conditions or are taking other medications, to ensure they’re right for you.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -134,7 +125,7 @@
           "settings": {
             "default_open": false,
             "title": "How Much Immune Support Supplements Should I Take Per Day?",
-            "content": "<p>The ideal daily amount of immune support supplements depends on the specific product and its unique blend of ingredients, as well as your individual health needs. Most supplements provide clear dosage instructions on the label, which are based on safe and effective amounts for general use. It’s important to follow these guidelines to avoid taking too much or too little, as excessive intake of certain vitamins or minerals can have unwanted effects. If you have specific health concerns, dietary restrictions, or take other medications, consulting your healthcare provider can help you determine the right dosage for your personal needs and ensure you’re supporting your immune system safely and effectively. FlavCity's C-Ya Later! Vitamin C, Triple Threat Supplements, can be taken daily. Simply take one capsule of C-Ya Later and Triple Threat with water and sip on Immunity Teas throughout the day.</p>",
+            "content": "<p>The ideal daily amount of immune support supplements depends on the specific product and its unique blend of ingredients, as well as your individual health needs. Most supplements provide clear dosage instructions on the label, which are based on safe and effective amounts for general use. It’s important to follow these guidelines to avoid taking too much or too little, as excessive intake of certain vitamins or minerals can have unwanted effects. If you have specific health concerns, dietary restrictions, or take other medications, consulting your healthcare provider can help you determine the right dosage for your personal needs and ensure you’re supporting your immune system safely and effectively. FlavCity's C-Ya Later! Vitamin C, Triple Threat Supplements, can be taken daily. Simply take one capsule of C-Ya Later and Triple Threat with water and sip on Immunity Teas throughout the day.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -146,7 +137,7 @@
           "settings": {
             "default_open": false,
             "title": "How Do I Store Immune Health Supplements?",
-            "content": "<p>To keep your C-Ya Later! Vitamin C, Triple Threat Supplements, and FlavCity Gummies fresh and effective, store capsules and gummies in a cool, dry place with the container tightly closed, and always use a clean, dry scoop for powders. Our tea blends are shelf-stable and should be kept in their original packaging or an airtight container away from heat and light to preserve flavor and potency. Proper storage helps maintain quality and ensures you get the full benefits from every serving.</p>",
+            "content": "<p>To keep your C-Ya Later! Vitamin C, Triple Threat Supplements, and FlavCity Gummies fresh and effective, store capsules and gummies in a cool, dry place with the container tightly closed, and always use a clean, dry scoop for powders. Our tea blends are shelf-stable and should be kept in their original packaging or an airtight container away from heat and light to preserve flavor and potency. Proper storage helps maintain quality and ensures you get the full benefits from every serving.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -158,7 +149,7 @@
           "settings": {
             "default_open": false,
             "title": "Do Immune Support Supplements Expire?",
-            "content": "<p>Yes, immune support supplements do expire, and their potency can decrease over time, impacting the effectiveness of your immune system, so always check the expiration date before use. Proper storage helps maintain quality, but for the best results and safety, use supplements within their recommended shelf life and discard any that are expired or show signs of spoilage.</p>",
+            "content": "<p>Yes, immune support supplements do expire, and their potency can decrease over time, impacting the effectiveness of your immune system, so always check the expiration date before use. Proper storage helps maintain quality, but for the best results and safety, use supplements within their recommended shelf life and discard any that are expired or show signs of spoilage.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -196,7 +187,7 @@
       "type": "apps",
       "blocks": {
         "okendo_star_rating_b3GTLE": {
-          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "type": "shopify:\/\/apps\/okendo\/blocks\/star-rating\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
             "product": ""
           }

@@ -68,7 +68,7 @@
 				if section.settings.width == 'wrapper'
 					assign sizes = '(min-width: 1400px) calc(80vw / ' | append: columns_desktop | append: '), (min-width: 750px) calc(100vw / ' | append: columns_medium | append: '), (min-width: 480px) calc(100vw / ' | append: columns_small | append: '), calc(100vw / ' | append: columns_mobile | append: ')'
 				else
-					assign sizes = '(min-width: 1400px) calc(100vw / ' | append: columns_desktop | append: '), (min-width: 750px) calc(100vw / ' | append: columns_medium | append: '), (min-width: 480px) calc(100vw / ' | append: columns_small | append: '), calc(100vw / ' | append: columns_mobile | append: ')'
+					assign sizes = '(min-width: 1400px) calc(100vw / ' | append: columns_desktop | append: '), (min-width: 1349px) 160px, (min-width: 750px) calc(100vw / ' | append: columns_medium | append: '), (min-width: 480px) calc(100vw / ' | append: columns_small | append: '), calc(100vw / ' | append: columns_mobile | append: ')'
 				endif
 
 			when 'slider'
@@ -337,7 +337,7 @@
   endcapture
 
   assign hidden_product = false
-  if product.tags contains 'hide-from-search'
+  if product.tags contains 'hide'
     assign hidden_product = true
   endif
 -%}
@@ -377,11 +377,7 @@
             {%- liquid
               assign fetchpriority = 'auto'
               assign preload = false
-              if index <= eager_images_limit
-                assign fetchpriority = 'high'
-                assign preload = true
-              endif
-
+             
               capture featured_image
                 render 'image', image: product.featured_media.preview_image, aspect_ratio: aspect_ratio, sizes: sizes, widths: widths, loading: loading, fetchpriority: fetchpriority, preload: preload, attributes: image_animations, cover: true, preload_with_skeleton: true
               endcapture
@@ -460,7 +456,7 @@
                         widths: widths,
                         cover: true,
                         loading: 'lazy',
-                        fetchpriority: 'high',
+                        fetchpriority: 'auto',
                         preload_with_skeleton: true
                       -%}
                     {%- endif -%}

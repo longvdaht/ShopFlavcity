@@ -25,7 +25,7 @@
   assign focusable = focusable | default: false
 
   assign hidden_product = false
-  if product.tags contains 'hide-from-search'
+  if product.tags contains 'hide'
     assign hidden_product = true
   endif
 

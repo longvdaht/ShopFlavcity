@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -44,7 +35,7 @@
             "desktop_x_transform": 0,
             "desktop_y_position": 0,
             "desktop_y_transform": -36,
-            "image_mobile": "shopify://shop_images/falling_coffee_beans.png",
+            "image_mobile": "shopify:\/\/shop_images\/falling_coffee_beans.png",
             "max_width_mobile": 100,
             "mobile_x_position": 0,
             "mobile_x_transform": 0,
@@ -67,7 +58,7 @@
             "shown_on": "desktop",
             "z_index": "3",
             "overflow_hidden": false,
-            "image": "shopify://shop_images/Asset_3_3x_2_1.png",
+            "image": "shopify:\/\/shop_images\/Asset_3_3x_2_1.png",
             "image_scale": 1,
             "max_width_desktop": 100,
             "desktop_x_position": 0,
@@ -125,14 +116,14 @@
             "shown_on": "both",
             "z_index": "unset",
             "overflow_hidden": false,
-            "image": "shopify://shop_images/Asset_3_3x_2_1_4ee4ffd2-56bf-42e2-82f4-59b605994c33.png",
+            "image": "shopify:\/\/shop_images\/Asset_3_3x_2_1_4ee4ffd2-56bf-42e2-82f4-59b605994c33.png",
             "image_scale": 1.5,
             "max_width_desktop": 100,
             "desktop_x_position": 17,
             "desktop_x_transform": 0,
             "desktop_y_position": 0,
             "desktop_y_transform": 0,
-            "image_mobile": "shopify://shop_images/Asset_3_3x_2_1_4ee4ffd2-56bf-42e2-82f4-59b605994c33.png",
+            "image_mobile": "shopify:\/\/shop_images\/Asset_3_3x_2_1_4ee4ffd2-56bf-42e2-82f4-59b605994c33.png",
             "max_width_mobile": 100,
             "mobile_x_position": 7,
             "mobile_x_transform": 0,
@@ -153,7 +144,7 @@
             "shown_on": "desktop",
             "z_index": "5",
             "overflow_hidden": false,
-            "image": "shopify://shop_images/Asset_4_2x_92aeef0e-f38b-40c3-8b18-27eb8e314a38.webp",
+            "image": "shopify:\/\/shop_images\/Asset_4_2x_92aeef0e-f38b-40c3-8b18-27eb8e314a38.webp",
             "image_scale": 1,
             "max_width_desktop": 24,
             "desktop_x_position": 91,
@@ -180,7 +171,7 @@
             "shown_on": "desktop",
             "z_index": "5",
             "overflow_hidden": false,
-            "image": "shopify://shop_images/Asset_3_2x_275ad76d-e33d-49aa-8bc8-0a240a0dcdc4.webp",
+            "image": "shopify:\/\/shop_images\/Asset_3_2x_275ad76d-e33d-49aa-8bc8-0a240a0dcdc4.webp",
             "image_scale": 0.9,
             "max_width_desktop": 21,
             "desktop_x_position": 0,
@@ -204,7 +195,7 @@
         "heading_Hi8iCf": {
           "type": "heading",
           "settings": {
-            "text": "Your Moves + Our Flavors = <sup><br>\nThe Perfect Mix</sup>",
+            "text": "Your Moves + Our Flavors = <sup><br>\nThe Perfect Mix<\/sup>",
             "heading_font_family": "secondary-heading__font",
             "heading_font_size": "heading-x-large",
             "color": "#0e5261",
@@ -215,7 +206,7 @@
         "text_By7XkR": {
           "type": "text",
           "settings": {
-            "text": "<p>Join the #ShakenOrStirredDance Challenge on TikTok and Instagram for a chance to be featured and win an exclusive FlavCity Café PR box!</p>",
+            "text": "<p>Join the #ShakenOrStirredDance Challenge on TikTok and Instagram for a chance to be featured and win an exclusive FlavCity Café PR box!<\/p>",
             "text_font_family": "primary-text__font",
             "text_font_size": "body-x-large",
             "color": "#3f2021",
@@ -287,7 +278,7 @@
       "type": "apps",
       "blocks": {
         "lyve_shoppable_video_stream_carousel_app_block_XGTftn": {
-          "type": "shopify://apps/lyve-shoppable-video-stream/blocks/carousel-app-block/59c1ba16-2c38-422a-a2a9-23074d5a3fd9",
+          "type": "shopify:\/\/apps\/lyve-shoppable-video-stream\/blocks\/carousel-app-block\/59c1ba16-2c38-422a-a2a9-23074d5a3fd9",
           "settings": {
             "custom_id": "68e6a2c6178e28b9ad37e715"
           }
@@ -332,7 +323,7 @@
         "text_U3yHrw": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Grab your favorite FlavCity Café drink mix, shake (or stir) it your way, and show off your best moves because we’re turning flavor into a full-on vibe.<br/><br/>Don’t forget to tag us @flavcity and add the hashtag #ShakenOrStirredDance for a chance to be featured and win an exclusive FlavCity Café PR box!</strong></p>",
+            "text": "<p><strong>Grab your favorite FlavCity Café drink mix, shake (or stir) it your way, and show off your best moves because we’re turning flavor into a full-on vibe.<br\/><br\/>Don’t forget to tag us @flavcity and add the hashtag #ShakenOrStirredDance for a chance to be featured and win an exclusive FlavCity Café PR box!<\/strong><\/p>",
             "text_font_family": "primary-text__font",
             "text_font_size": "body-large",
             "padding_bottom": 22
@@ -342,7 +333,7 @@
           "type": "buttons",
           "settings": {
             "button_text": "Join The Fun",
-            "button_url": "https://www.tiktok.com/@flavcity",
+            "button_url": "https:\/\/www.tiktok.com\/@flavcity",
             "button_type": "btn--secondary",
             "button_size": "",
             "button_style": "btn--solid",
@@ -356,7 +347,7 @@
             "shown_on": "desktop",
             "z_index": "unset",
             "overflow_hidden": false,
-            "image": "shopify://shop_images/Asset_3_3x_14.png",
+            "image": "shopify:\/\/shop_images\/Asset_3_3x_14.png",
             "max_width_desktop": 30,
             "desktop_x_position": 2,
             "desktop_x_transform": -10,
@@ -380,7 +371,7 @@
             "shown_on": "desktop",
             "z_index": "unset",
             "overflow_hidden": false,
-            "image": "shopify://shop_images/Asset_3_3x_14.png",
+            "image": "shopify:\/\/shop_images\/Asset_3_3x_14.png",
             "max_width_desktop": 30,
             "desktop_x_position": 70,
             "desktop_x_transform": 0,
@@ -412,10 +403,10 @@
         "custom_selector": "image-with-text__bg",
         "background_color": "linear-gradient(180deg, rgba(214, 235, 235, 1) 25%, rgba(255, 248, 234, 0) 100%)",
         "enable_parallax": true,
-        "image_bg_desktop": "shopify://shop_images/Asset_1.webp",
-        "image_bg_desktop_secondary": "shopify://shop_images/Asset_1_100x_699aaa77-f520-44dd-9cfb-f202ac7750fa.webp",
-        "image_bg_mobile": "shopify://shop_images/Asset_1_ce00aff5-b795-43ea-a401-43f096ec944a.webp",
-        "video": "shopify://files/videos/FLAVCITY DANCE CHALLENGE VIDEO BANNER MB FINA_CompressedL (1).mp4",
+        "image_bg_desktop": "shopify:\/\/shop_images\/Asset_1.webp",
+        "image_bg_desktop_secondary": "shopify:\/\/shop_images\/Asset_1_100x_699aaa77-f520-44dd-9cfb-f202ac7750fa.webp",
+        "image_bg_mobile": "shopify:\/\/shop_images\/Asset_1_ce00aff5-b795-43ea-a401-43f096ec944a.webp",
+        "video": "shopify:\/\/files\/videos\/FLAVCITY DANCE CHALLENGE VIDEO BANNER MB FINA_CompressedL (1).mp4",
         "image_shape": "rounded",
         "image_width": "one-half",
         "text_alignment": "text-left",
@@ -565,7 +556,7 @@
       "type": "apps",
       "blocks": {
         "lyve_shoppable_video_stream_carousel_app_block_9THEkr": {
-          "type": "shopify://apps/lyve-shoppable-video-stream/blocks/carousel-app-block/59c1ba16-2c38-422a-a2a9-23074d5a3fd9",
+          "type": "shopify:\/\/apps\/lyve-shoppable-video-stream\/blocks\/carousel-app-block\/59c1ba16-2c38-422a-a2a9-23074d5a3fd9",
           "settings": {
             "custom_id": "68e68705da875cde5577551d"
           }

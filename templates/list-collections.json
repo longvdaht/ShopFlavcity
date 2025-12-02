@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -17,7 +8,7 @@
           "settings": {
             "collection": "protein-smoothies",
             "collection_name": "",
-            "image": "shopify://shop_images/Page_0000_Protein_Smoothies_New_Pack_V1.jpg"
+            "image": "shopify:\/\/shop_images\/Page_0000_Protein_Smoothies_New_Pack_V1.jpg"
           }
         },
         "collection_pTBpR6": {
@@ -85,36 +76,32 @@
           "type": "collection",
           "settings": {
             "collection": "protein-smoothies",
-            "collection_image": "shopify://shop_images/Flavcity_Protein_Smoothie_--Vanilla_Latte_Front_1.png",
-            "title": "Protein Smoothies",
-            "description": ""
+            "collection_image": "shopify:\/\/shop_images\/Flavcity_Protein_Smoothie_--Vanilla_Latte_Front_1.png",
+            "title": "Protein Smoothies"
           }
         },
         "collection_YGWaxz": {
           "type": "collection",
           "settings": {
             "collection": "functional-beverages",
-            "collection_image": "shopify://shop_images/EDM_Pouch_LEMONADE_Front.png",
-            "title": "Functional Beverages",
-            "description": ""
+            "collection_image": "shopify:\/\/shop_images\/Electrolyte_Variety_Pack_FRONT_mockup.png",
+            "title": "Functional Beverages"
           }
         },
         "collection_GWgXRq": {
           "type": "collection",
           "settings": {
             "collection": "vitamins",
-            "collection_image": "shopify://shop_images/Sleep_Gummy_mocap_01_new.png",
-            "title": "Vitamins",
-            "description": ""
+            "collection_image": "shopify:\/\/shop_images\/Sleep_Gummy_mocap_01_new.png",
+            "title": "Vitamins"
           }
         },
         "collection_zcHVgE": {
           "type": "collection",
           "settings": {
             "collection": "merch",
-            "collection_image": "shopify://shop_images/shaker_bottle_All_Summer_4_Shackers_V2.png",
-            "title": "Merch",
-            "description": ""
+            "collection_image": "shopify:\/\/shop_images\/shaker_bottle_All_Summer_4_Shackers_V2.png",
+            "title": "Merch"
           }
         }
       },
@@ -131,7 +118,7 @@
         "description": "",
         "text_font_size": "body-medium",
         "button_text": "",
-        "button_url": "shopify://collections",
+        "button_url": "shopify:\/\/collections",
         "button_type": "btn--primary",
         "button_size": "",
         "button_style": "",

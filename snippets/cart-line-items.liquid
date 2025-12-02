@@ -16,12 +16,6 @@
     assign line_item_original_price = line_item.original_price | money
     assign line_item_unit_price = line_item.unit_price | money
     assign cart_products = cart_products | append: line_item.product.id | append: ','
-    assign line_item_is_gwp = line_item.properties['_gwp'] | default: false
-    assign link_tag = 'a'
-
-    if line_item_is_gwp
-      assign link_tag = 'div'
-    endif
   -%}
 
   <div
@@ -30,38 +24,42 @@
     data-item-index="{{ forloop.index }}"
     data-item-title="{{ line_item.title | strip_html }}"
     data-item-product-id="{{ line_item.product.id }}"
-    data-item-is-gwp="{{ line_item_is_gwp }}"
     data-animation="{{ animation_name }}"
     data-animation-duration="500"
     data-animation-delay="{{ animation_delay }}"
     {%- assign animation_delay = animation_delay | plus: animation_delay_increment -%}
   >
     <div class="cart__item__image{% unless line_item.image %} image--empty{% endunless %}">
-      <{{ link_tag }} class="cart__item__image-wrapper {% if settings.show_image_bg != 'none' %} show-gray-bg {% endif %}"
-         {% unless line_item_is_gwp %} href="{{ line_item.url }}" {% endunless %}
-         aria-label="{{ line_item.title | escape }}"
+      <a
+        href="{{ line_item.url }}"
+        aria-label="{{ line_item.title | escape }}"
+        {% if settings.show_image_bg != 'none' %}
+          class="show-gray-bg"
+        {% endif %}
       >
         {%- if line_item.image -%}
           <div class="lazy-image is-loading">
-            {{ line_item.image
-            | image_url: width: 270
-            | image_tag:
-            widths: '90, 180, 270, 360',
-            sizes: '270px',
-            class: 'is-loading',
-            loading: 'lazy',
-            fetchpriority: fetchpriority }}
+            {{
+              line_item.image
+              | image_url: width: 270
+              | image_tag:
+                widths: '90, 180, 270, 360',
+                sizes: '270px',
+                class: 'is-loading',
+                loading: 'lazy',
+                fetchpriority: fetchpriority
+            }}
           </div>
         {%- endif -%}
-      </{{ link_tag }}>
+      </a>
     </div>
 
     <div class="cart__item__content">
       <div class="cart__item__content-inner">
         <h4 class="cart__item__title">
-          <{{ link_tag }} {% unless line_item_is_gwp %} href="{{ line_item.url }}" {% endunless %}>
+          <a href="{{ line_item.url }}">
             {{- line_item.product.title | strip_html -}}
-          </{{ link_tag }}>
+          </a>
         </h4>
 
         <div class="cart__item__meta">
@@ -228,54 +226,44 @@
           endif
         -%}
 
-        {%- if line_item_is_gwp -%}
-
-          {%- if line_item.final_price == 0 -%}
-            {{ 'general.money.free' | t }}
-          {%- else -%}
-            {{- line_item_final_price -}}
-          {%- endif -%}
-
-        {%- else -%}
-
-          {%- if sale or discounted -%}
-            <ins>
-              {%- if line_item.final_price == 0 -%}
-                {{ 'general.money.free' | t }}
-              {%- else -%}
-                {{- line_item_final_price -}}
-              {%- endif -%}
-            </ins>
-          {%- else -%}
+        {%- if sale or discounted -%}
+          <ins>
             {%- if line_item.final_price == 0 -%}
               {{ 'general.money.free' | t }}
             {%- else -%}
               {{- line_item_final_price -}}
             {%- endif -%}
+          </ins>
+        {%- else -%}
+          {%- if line_item.final_price == 0 -%}
+            {{ 'general.money.free' | t }}
+          {%- else -%}
+            {{- line_item_final_price -}}
           {%- endif -%}
+        {%- endif -%}
 
-          {%- if sale and discounted == false -%}
-            <del>{{- line_item_variant_compare_at_price -}}</del>
-          {%- endif -%}
+        {%- if sale and discounted == false -%}
+          <del>{{- line_item_variant_compare_at_price -}}</del>
+        {%- endif -%}
 
-          {%- if discounted -%}
-            <del>{{- line_item_original_price -}}</del>
-          {%- endif -%}
+        {%- if discounted -%}
+          <del>{{- line_item_original_price -}}</del>
+        {%- endif -%}
 
-          {%- if line_item.unit_price -%}
-            {%- capture unit_price_separator -%}
-              <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
-            {%- endcapture -%}
+        {%- if line_item.unit_price -%}
+          {%- capture unit_price_separator -%}
+            <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+          {%- endcapture -%}
 
-            {%- capture unit_price_base_unit -%}
-              {%- if line_item.unit_price_measurement.reference_value != 1 -%}
-                {{- line_item.unit_price_measurement.reference_value -}}
-              {%- endif -%}
+          {%- capture unit_price_base_unit -%}
+            {%- if line_item.unit_price_measurement.reference_value != 1 -%}
+              {{- line_item.unit_price_measurement.reference_value -}}
+            {%- endif -%}
 
-              {{- line_item.unit_price_measurement.reference_unit -}}
-            {%- endcapture -%}
+            {{- line_item.unit_price_measurement.reference_unit -}}
+          {%- endcapture -%}
 
-            <span class="line__price">
+          <span class="line__price">
             <small class="visually-hidden">{{ 'products.product.unit_price_label' | t }}</small>
 
             <small>
@@ -284,51 +272,10 @@
               {{- unit_price_base_unit -}}
             </small>
           </span>
-          {%- endif -%}
-
         {%- endif -%}
-
-				{%- if line_item.original_price > line_item.final_price -%}
-					{%- for discount in line_item.line_level_discount_allocations -%}
-						{% if discount.discount_application.value != 100 %}
-							<span class="cart__price-discount">
-								{{ discount.discount_application.title }}
-							</span>
-						{% endif %}
-					{%- endfor -%}
-				{%- endif -%}
       </p>
 
-			{%- if line_item.original_price > line_item.final_price -%}
-				{%- for discount in line_item.line_level_discount_allocations -%}
-					{% if discount.discount_application.value == 100 %}
-						<p class="cart__discount">
-							{%- render 'icon-tags' -%}
-
-							{%- assign discount_price = discount.amount | money -%}
-
-							<span>
-            {{-
-						'cart.general.discount_label'
-						| t: amount: discount_price, title: discount.discount_application.title
-						-}}
-          </span>
-						</p>
-					{% endif %}
-				{%- endfor -%}
-			{%- endif -%}
-
-      {%- assign quantity = line_item.quantity -%}
-
-      {%- if line_item.variant.inventory_policy == 'deny'
-        and line_item.variant.inventory_management != null
-        and line_item.variant.inventory_quantity < quantity
-      -%}
-        {%- assign quantity = line_item.variant.inventory_quantity -%}
-      {%- endif -%}
-
-      {%- if line_item_is_gwp == false -%}
-       <quantity-counter class="cart__quantity-counter">
+      <quantity-counter class="cart__quantity-counter">
         <div class="cart__quantity">
           <button
             class="cart__quantity-minus"
@@ -338,6 +285,15 @@
           >
             {%- render 'icon-minus' -%}
           </button>
+
+          {%- assign quantity = line_item.quantity -%}
+
+          {%- if line_item.variant.inventory_policy == 'deny'
+            and line_item.variant.inventory_management != null
+            and line_item.variant.inventory_quantity < quantity
+          -%}
+            {%- assign quantity = line_item.variant.inventory_quantity -%}
+          {%- endif -%}
 
           <input
             class="cart__quantity-field"
@@ -370,21 +326,23 @@
           {{- 'cart.general.remove' | t -}}
         </a>
       </quantity-counter>
-			{%- else -%}
-				<div class="cart__quantity-counter cart__quantity-counter-without">
-					<div class="cart__quantity"
-							 data-item-quantity="{{ quantity }}"></div>
-					<a
-						class="cart__item__remove cart__item__remove-without-quantity"
-						href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0"
-						data-item-remove
-						data-id="{{ line_item.key }}"
-						title="{{ 'cart.general.remove' | t }}"
-					>
-						{{- 'cart.general.remove' | t -}}
-					</a>
-				</div>
-			{%- endif -%}
     </div>
+
+    {%- if line_item.original_price > line_item.final_price -%}
+      {%- for discount in line_item.line_level_discount_allocations -%}
+        <p class="cart__discount">
+          {%- render 'icon-tags' -%}
+
+          {%- assign discount_price = discount.amount | money -%}
+
+          <span>
+            {{-
+              'cart.general.discount_label'
+              | t: amount: discount_price, title: discount.discount_application.title
+            -}}
+          </span>
+        </p>
+      {%- endfor -%}
+    {%- endif -%}
   </div>
 {%- endfor -%}

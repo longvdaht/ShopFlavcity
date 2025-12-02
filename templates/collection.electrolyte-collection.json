@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -74,7 +65,7 @@
           "settings": {
             "default_open": false,
             "title": "What Are Electrolytes?",
-            "content": "<p>Electrolytes are essential minerals, like sodium, potassium, calcium, and magnesium, that carry an electric charge and help your body function at its best. They play a vital role in keeping you hydrated, supporting muscle contractions, powering your nerves, and balancing your body’s fluids. Whether you’re powering through a workout, running errands, or just living your busy life, electrolytes help you stay energized and focused. Real foods like fruits, vegetables, and dairy naturally provide these minerals, making it easy to fuel your body with what it needs to thrive every day. With FlavCity, replenishing electrolytes is clean, easy, and delicious. No artificial flavors, no junk, just functional electrolyte powder packets you can trust.</p>",
+            "content": "<p>Electrolytes are essential minerals, like sodium, potassium, calcium, and magnesium, that carry an electric charge and help your body function at its best. They play a vital role in keeping you hydrated, supporting muscle contractions, powering your nerves, and balancing your body’s fluids. Whether you’re powering through a workout, running errands, or just living your busy life, electrolytes help you stay energized and focused. Real foods like fruits, vegetables, and dairy naturally provide these minerals, making it easy to fuel your body with what it needs to thrive every day. With FlavCity, replenishing electrolytes is clean, easy, and delicious. No artificial flavors, no junk, just functional electrolyte powder packets you can trust.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -86,7 +77,7 @@
           "settings": {
             "default_open": false,
             "title": "Why Electrolyte Balance Matters",
-            "content": "<p>Your body runs on balance when it comes to electrolytes. Electrolytes are charged minerals that play a role in almost every system in your body. They help keep your <a href=\"https://www.heart.org/en/news/2024/06/19/electrolytes-can-give-the-body-a-charge-but-try-not-to-overdo-it\" target=\"_blank\" title=\"https://www.heart.org/en/news/2024/06/19/electrolytes-can-give-the-body-a-charge-but-try-not-to-overdo-it\">heart beating steadily</a>, <a href=\"https://pubmed.ncbi.nlm.nih.gov/7854827/\" target=\"_blank\" title=\"https://pubmed.ncbi.nlm.nih.gov/7854827/\">support muscle movement</a>, aid in <a href=\"https://my.clevelandclinic.org/health/diagnostics/21790-electrolytes\" target=\"_blank\" title=\"https://my.clevelandclinic.org/health/diagnostics/21790-electrolytes\">nerve communication</a>, and <a href=\"https://medlineplus.gov/fluidandelectrolytebalance.html\" target=\"_blank\" title=\"https://medlineplus.gov/fluidandelectrolytebalance.html\">regulate hydration</a>. Each electrolyte has its own job, but together they work to keep your body balanced and energized. When levels fall out of balance, even slightly, from sweating, dehydration, or not drinking enough water, it can lead to muscle cramps, fatigue, or brain fog. Prioritizing electrolyte balance and monitoring your water intake means you’re giving your body the foundation it needs to feel strong, alert, and ready for whatever the day brings.</p>",
+            "content": "<p>Your body runs on balance when it comes to electrolytes. Electrolytes are charged minerals that play a role in almost every system in your body. They help keep your <a href=\"https:\/\/www.heart.org\/en\/news\/2024\/06\/19\/electrolytes-can-give-the-body-a-charge-but-try-not-to-overdo-it\" target=\"_blank\" title=\"https:\/\/www.heart.org\/en\/news\/2024\/06\/19\/electrolytes-can-give-the-body-a-charge-but-try-not-to-overdo-it\">heart beating steadily<\/a>, <a href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/7854827\/\" target=\"_blank\" title=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/7854827\/\">support muscle movement<\/a>, aid in <a href=\"https:\/\/my.clevelandclinic.org\/health\/diagnostics\/21790-electrolytes\" target=\"_blank\" title=\"https:\/\/my.clevelandclinic.org\/health\/diagnostics\/21790-electrolytes\">nerve communication<\/a>, and <a href=\"https:\/\/medlineplus.gov\/fluidandelectrolytebalance.html\" target=\"_blank\" title=\"https:\/\/medlineplus.gov\/fluidandelectrolytebalance.html\">regulate hydration<\/a>. Each electrolyte has its own job, but together they work to keep your body balanced and energized. When levels fall out of balance, even slightly, from sweating, dehydration, or not drinking enough water, it can lead to muscle cramps, fatigue, or brain fog. Prioritizing electrolyte balance and monitoring your water intake means you’re giving your body the foundation it needs to feel strong, alert, and ready for whatever the day brings.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -98,7 +89,7 @@
           "settings": {
             "default_open": false,
             "title": "Main Types of Electrolytes and Their Functions",
-            "content": "<p>The main electrolytes are sodium, potassium, calcium, magnesium, chloride, and phosphate. Each one plays a unique role in keeping your body functioning at its best. For example, sodium and potassium help regulate fluid balance and nerve signaling, calcium supports bone health and muscle movement, and magnesium is essential for energy production and enzyme function.</p><p>While they each have their own specific jobs, they also work together to maintain proper hydration, support muscle contractions, and keep your energy levels stable. This balance is what helps your body stay energized, focused, and ready for anything.</p>",
+            "content": "<p>The main electrolytes are sodium, potassium, calcium, magnesium, chloride, and phosphate. Each one plays a unique role in keeping your body functioning at its best. For example, sodium and potassium help regulate fluid balance and nerve signaling, calcium supports bone health and muscle movement, and magnesium is essential for energy production and enzyme function.<\/p><p>While they each have their own specific jobs, they also work together to maintain proper hydration, support muscle contractions, and keep your energy levels stable. This balance is what helps your body stay energized, focused, and ready for anything.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -110,7 +101,7 @@
           "settings": {
             "default_open": false,
             "title": "Why Choose FlavCity Electrolyte Powder?",
-            "content": "<p>FlavCity Electrolyte Powder stands out because it’s made with real ingredients. We use organic fruit powders for vibrant flavor, unrefined sea salt for natural sodium, and essential minerals to support hydration, muscle function, and energy. </p><p>Unlike many sports drinks and electrolyte packets that rely on artificial flavors and fillers, FlavCity delivers a mouth-watering, clean-label hydration boost that actually tastes good. It’s a smarter, more flavorful choice to keep you feeling hydrated throughout the day.</p>",
+            "content": "<p>FlavCity Electrolyte Powder stands out because it’s made with real ingredients. We use organic fruit powders for vibrant flavor, unrefined sea salt for natural sodium, and essential minerals to support hydration, muscle function, and energy. <\/p><p>Unlike many sports drinks and electrolyte packets that rely on artificial flavors and fillers, FlavCity delivers a mouth-watering, clean-label hydration boost that actually tastes good. It’s a smarter, more flavorful choice to keep you feeling hydrated throughout the day.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -122,7 +113,7 @@
           "settings": {
             "default_open": false,
             "title": "How To Use Electrolyte Powder Packets",
-            "content": "<p>For quick and delicious hydration, just open a FlavCity Electrolyte Powder packet, pour it into your water bottle or glass, give it a good stir or shake, and sip your way to balanced electrolytes and real fruit flavor, all in one easy step. Whether you’re at the gym, at work, or on the go, it’s a simple way to keep your body fueled and refreshed.</p>",
+            "content": "<p>For quick and delicious hydration, just open a FlavCity Electrolyte Powder packet, pour it into your water bottle or glass, give it a good stir or shake, and sip your way to balanced electrolytes and real fruit flavor, all in one easy step. Whether you’re at the gym, at work, or on the go, it’s a simple way to keep your body fueled and refreshed.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -134,7 +125,7 @@
           "settings": {
             "default_open": false,
             "title": "What Are Electrolyte Packets?",
-            "content": "<p>Electrolyte packets are convenient, single-serve sachets filled with a blend of essential minerals like sodium, potassium, magnesium, and calcium, designed to help you quickly replenish what your body loses through sweat, exercise, or busy days. Just mix a packet with water for a flavorful, on-the-go hydration boost that supports muscle function, energy, and focus. With real ingredients and craveable taste, FlavCity electrolyte packets make it easy to stay balanced and refreshed wherever life takes you.</p>",
+            "content": "<p>Electrolyte packets are convenient, single-serve sachets filled with a blend of essential minerals like sodium, potassium, magnesium, and calcium, designed to help you quickly replenish what your body loses through sweat, exercise, or busy days. Just mix a packet with water for a flavorful, on-the-go hydration boost that supports muscle function, energy, and focus. With real ingredients and craveable taste, FlavCity electrolyte packets make it easy to stay balanced and refreshed wherever life takes you.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -146,7 +137,7 @@
           "settings": {
             "default_open": false,
             "title": "When Should I Take Electrolyte Powder?",
-            "content": "<p>You can enjoy electrolyte powder whenever your body needs a hydration boost, as it replenishes lost electrolytes, such as before or after a workout, during a busy day, while traveling, or anytime you’re feeling low on energy or focus. It’s especially helpful after sweating, long periods in the sun, or when you’re simply not drinking enough water. With FlavCity Electrolyte Powder, you get a delicious, real-ingredient solution that helps you stay balanced and refreshed.</p>",
+            "content": "<p>You can enjoy electrolyte powder whenever your body needs a hydration boost, as it replenishes lost electrolytes, such as before or after a workout, during a busy day, while traveling, or anytime you’re feeling low on energy or focus. It’s especially helpful after sweating, long periods in the sun, or when you’re simply not drinking enough water. With FlavCity Electrolyte Powder, you get a delicious, real-ingredient solution that helps you stay balanced and refreshed.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -158,7 +149,7 @@
           "settings": {
             "default_open": false,
             "title": "Can I Drink Electrolyte Powder Every Day?",
-            "content": "<p>Absolutely, you can drink electrolyte powder every day to help maintain hydration, support energy, and keep your body’s electrolyte levels balanced—especially if you have an active lifestyle or need an extra boost during busy days.</p>",
+            "content": "<p>Absolutely, you can drink electrolyte powder every day to help maintain hydration, support energy, and keep your body’s electrolyte levels balanced—especially if you have an active lifestyle or need an extra boost during busy days.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -170,7 +161,7 @@
           "settings": {
             "default_open": false,
             "title": "How Do I Know If I Need More Electrolytes?",
-            "content": "<p>If you’re feeling tired, crampy, foggy, or recovering from being sick, your body may need more electrolytes, especially after sweating, exercise, time in the heat, or losing fluids. These signs are your body’s way of asking for hydration and a nutrient boost to help you stay energized and bounce back strong. FlavCity Electrolyte Powder Packets give you daily hydration all in one clean, craveable drink.</p>",
+            "content": "<p>If you’re feeling tired, crampy, foggy, or recovering from being sick, your body may need more electrolytes, especially after sweating, exercise, time in the heat, or losing fluids. These signs are your body’s way of asking for hydration and a nutrient boost to help you stay energized and bounce back strong. FlavCity Electrolyte Powder Packets give you daily hydration all in one clean, craveable drink.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -182,7 +173,7 @@
           "settings": {
             "default_open": false,
             "title": "Can I Get Enough Electrolytes From Food Alone?",
-            "content": "<p>You can get electrolytes from real foods like fruits, vegetables, dairy, and unrefined sea salt (sodium), which all provide important minerals your body needs. However, during times of intense activity, heat, illness, or busy days when you’re losing more fluids, it can be challenging to keep up through food alone. That’s when a high-quality electrolyte powder packet becomes a convenient, flavorful way to quickly replenish and support your body’s hydration and balance.</p>",
+            "content": "<p>You can get electrolytes from real foods like fruits, vegetables, dairy, and unrefined sea salt (sodium), which all provide important minerals your body needs. However, during times of intense activity, heat, illness, or busy days when you’re losing more fluids, it can be challenging to keep up through food alone. That’s when a high-quality electrolyte powder packet becomes a convenient, flavorful way to quickly replenish and support your body’s hydration and balance.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -194,7 +185,7 @@
           "settings": {
             "default_open": false,
             "title": "Are There Risks To Taking Too Many Electrolytes?",
-            "content": "<p>While electrolytes are essential for hydration and overall health, taking too much, especially through supplements, can throw off your body’s natural balance. Everyone’s needs are different, so if you’re unsure about the right amount for you, it’s best to talk with a healthcare professional who can give personalized guidance.</p>",
+            "content": "<p>While electrolytes are essential for hydration and overall health, taking too much, especially through supplements, can throw off your body’s natural balance. Everyone’s needs are different, so if you’re unsure about the right amount for you, it’s best to talk with a healthcare professional who can give personalized guidance.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -206,7 +197,7 @@
           "settings": {
             "default_open": false,
             "title": "How Should I Store Electrolyte Powder Packets?",
-            "content": "<p>Store your electrolyte powder packets in a cool, dry place away from direct sunlight and moisture to keep them fresh and flavorful. A pantry, kitchen drawer, or even your gym bag works perfectly, as long as the packets stay sealed and protected from heat and humidity. Proper storage ensures every packet delivers the same great taste and hydration boost whenever you need it.</p>",
+            "content": "<p>Store your electrolyte powder packets in a cool, dry place away from direct sunlight and moisture to keep them fresh and flavorful. A pantry, kitchen drawer, or even your gym bag works perfectly, as long as the packets stay sealed and protected from heat and humidity. Proper storage ensures every packet delivers the same great taste and hydration boost whenever you need it.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -218,7 +209,7 @@
           "settings": {
             "default_open": false,
             "title": "Does Electrolyte Powder Expire?",
-            "content": "<p>Yes, electrolyte powder does expire, so it’s important to check the expiration date on each packet or container to ensure you are getting the full benefits of the electrolytes. Over time, the flavor and effectiveness of the ingredients can fade, especially if the powder is exposed to heat or moisture. For the best taste and results, use your electrolyte powder before the expiration date and store it properly to keep every scoop fresh and effective.</p>",
+            "content": "<p>Yes, electrolyte powder does expire, so it’s important to check the expiration date on each packet or container to ensure you are getting the full benefits of the electrolytes. Over time, the flavor and effectiveness of the ingredients can fade, especially if the powder is exposed to heat or moisture. For the best taste and results, use your electrolyte powder before the expiration date and store it properly to keep every scoop fresh and effective.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -261,7 +252,7 @@
       "type": "apps",
       "blocks": {
         "okendo_star_rating_b3GTLE": {
-          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "type": "shopify:\/\/apps\/okendo\/blocks\/star-rating\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
             "product": ""
           }

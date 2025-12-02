@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "type": "header",
   "name": "Header",
@@ -16,18 +7,11 @@
       "blocks": {
         "announcement_7Q8Faw": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text_color": "#ffffff",
             "bg_color": "#df0060",
-            "text": "<p><strong>Save Up To 40% OFF + FREE GIFTS</strong>*</p>"
-          }
-        },
-        "announcement_g6688y": {
-          "type": "announcement",
-          "settings": {
-            "text_color": "#ffffff",
-            "bg_color": "#df0060",
-            "text": "<p>Free Bonus Mystery Gift ($39.99) On Orders $100+</p>"
+            "text": "<p>Shop 25% off <a href=\"\/collections\/flavcity-sale\" title=\"FlavCity Sale\">Select Favorites<\/a>! ENDS 10\/31<\/p>"
           }
         },
         "announcement_6wDnk6": {
@@ -35,7 +19,15 @@
           "settings": {
             "text_color": "#ffffff",
             "bg_color": "#df0060",
-            "text": "<p>Free domestic shipping on orders $65+ <a href=\"/collections/all\" title=\"All Products\">Shop now</a></p>"
+            "text": "<p>Free domestic shipping on orders $65+ <a href=\"\/collections\/all\" title=\"All Products\">Shop now<\/a><\/p>"
+          }
+        },
+        "announcement_g6688y": {
+          "type": "announcement",
+          "settings": {
+            "text_color": "#ffffff",
+            "bg_color": "#df0060",
+            "text": "<p>Buy <a href=\"https:\/\/www.shopflavcity.com\/products\/pumpkin-spice-latte-protein-smoothie\" title=\"Pumpkin Spice Latte Protein Smoothie\">Pumpkin Spice Protein<\/a>, Get a FREE Shaker!<\/p>"
           }
         },
         "announcement_zAzYd8": {
@@ -44,14 +36,14 @@
           "settings": {
             "text_color": "#ffffff",
             "bg_color": "#df0060",
-            "text": "<p>IT’S BACK: Shop <a href=\"https://www.shopflavcity.com/products/pumpkin-spice-latte-protein-smoothie\" title=\"https://www.shopflavcity.com/products/pumpkin-spice-latte-protein-smoothie\">Pumpkin Spice Latte Protein</a></p>"
+            "text": "<p>IT’S BACK: Shop <a href=\"https:\/\/www.shopflavcity.com\/products\/pumpkin-spice-latte-protein-smoothie\" title=\"https:\/\/www.shopflavcity.com\/products\/pumpkin-spice-latte-protein-smoothie\">Pumpkin Spice Latte Protein<\/a><\/p>"
           }
         }
       },
       "block_order": [
         "announcement_7Q8Faw",
-        "announcement_g6688y",
         "announcement_6wDnk6",
+        "announcement_g6688y",
         "announcement_zAzYd8"
       ],
       "settings": {
@@ -71,21 +63,9 @@
           "settings": {
             "position": "1",
             "title": "Whey",
-            "image": "shopify://shop_images/Flavcity_Protein_Smoothie_--Vanilla_Latte_Front_1.png",
+            "image": "shopify:\/\/shop_images\/Flavcity_Protein_Smoothie_--Vanilla_Latte_Front_1.png",
             "aspect_ratio": 1,
             "image_background": "#fbeda9",
-            "border_radius": 100,
-            "border_color": "rgba(0,0,0,0)"
-          }
-        },
-        "nav_image_LPQf7k": {
-          "type": "nav_image",
-          "settings": {
-            "position": "1",
-            "title": "Bundles",
-            "image": "shopify://shop_images/PDP_1500x1500_4.png",
-            "aspect_ratio": 1,
-            "image_background": "#f68c59",
             "border_radius": 100,
             "border_color": "rgba(0,0,0,0)"
           }
@@ -95,19 +75,19 @@
           "settings": {
             "position": "2",
             "title": "All Flavors",
-            "image": "shopify://shop_images/Cafe_Vanilla_Front_on_Transparent.png",
+            "image": "shopify:\/\/shop_images\/Cafe_Vanilla_Front_on_Transparent.png",
             "aspect_ratio": 1,
             "image_background": "#efdbb2",
             "border_radius": 100,
             "border_color": "rgba(0,0,0,0)"
           }
         },
-        "nav_image_XgwFrJ": {
+        "nav_image_LPQf7k": {
           "type": "nav_image",
           "settings": {
             "position": "2",
             "title": "Bundles",
-            "image": "shopify://shop_images/Daily_Ritual_Bundle.png",
+            "image": "shopify:\/\/shop_images\/Daily_Ritual_Bundle.png",
             "aspect_ratio": 1,
             "image_background": "#89532f",
             "border_radius": 100,
@@ -119,7 +99,7 @@
           "settings": {
             "position": "2",
             "title": "Try It Kits",
-            "image": "shopify://shop_images/Latte_Variety_Pack_Box.png",
+            "image": "shopify:\/\/shop_images\/Latte_Variety_Pack_Box.png",
             "aspect_ratio": 1,
             "image_background": "#b26447",
             "border_radius": 100,
@@ -131,7 +111,7 @@
           "settings": {
             "position": "1",
             "title": "Plant-Based",
-            "image": "shopify://shop_images/Plant-BasedChocolatePeanutButterProteinSmoothie.png",
+            "image": "shopify:\/\/shop_images\/Plant-BasedChocolatePeanutButterProteinSmoothie.png",
             "aspect_ratio": 1,
             "image_background": "#d5c1a5",
             "border_radius": 100,
@@ -140,11 +120,10 @@
         },
         "nav_image_BAbazJ": {
           "type": "nav_image",
-          "disabled": true,
           "settings": {
             "position": "1",
             "title": "Kids",
-            "image": "shopify://shop_images/MagicalBerryKidsProteinSmoothie.png",
+            "image": "shopify:\/\/shop_images\/MagicalBerryKidsProteinSmoothie.png",
             "aspect_ratio": 1,
             "image_background": "#e8a4c1",
             "border_radius": 100,
@@ -156,7 +135,7 @@
           "settings": {
             "position": "3",
             "title": "Anytime Essentials",
-            "image": "shopify://shop_images/EDM_Pouch_LEMONADE_Front.png",
+            "image": "shopify:\/\/shop_images\/EDM_Pouch_LEMONADE_Front.png",
             "aspect_ratio": 1,
             "image_background": "#fbeda9",
             "border_radius": 100,
@@ -178,20 +157,8 @@
           "type": "nav_image",
           "settings": {
             "position": "3",
-            "title": "Hot Chocolate",
-            "image": "shopify://shop_images/flavcity-hot-chocolate-1202904603.webp",
-            "aspect_ratio": 1,
-            "image_background": "#d6ebeb",
-            "border_radius": 100,
-            "border_color": "rgba(0,0,0,0)"
-          }
-        },
-        "nav_image_qNwAwK": {
-          "type": "nav_image",
-          "settings": {
-            "position": "3",
             "title": "Superfood Lemonades",
-            "image": "shopify://shop_images/flavcity-superfood-lemonade-1202904697.png",
+            "image": "shopify:\/\/shop_images\/flavcity-superfood-lemonade-1202904697.png",
             "aspect_ratio": 1,
             "image_background": "#d6ebeb",
             "border_radius": 100,
@@ -203,7 +170,7 @@
           "settings": {
             "position": "3",
             "title": "Electrolytes",
-            "image": "shopify://shop_images/flavcity-variety-pack-electrolyte-mix-1202904514.png",
+            "image": "shopify:\/\/shop_images\/flavcity-variety-pack-electrolyte-mix-1202904514.png",
             "aspect_ratio": 1,
             "image_background": "#f9b28f",
             "border_radius": 100,
@@ -215,7 +182,7 @@
           "settings": {
             "position": "3",
             "title": "Immunity Teas",
-            "image": "shopify://shop_images/flavcity-immunity-tea-elderberry-1202904563.png",
+            "image": "shopify:\/\/shop_images\/flavcity-immunity-tea-elderberry-1202904563.png",
             "aspect_ratio": 1,
             "image_background": "#a6bcd6",
             "border_radius": 100,
@@ -227,7 +194,7 @@
           "settings": {
             "position": "4",
             "title": "Immune Support",
-            "image": "shopify://shop_images/flavcity-c-ya-later-vitamin-c-1202904582.png",
+            "image": "shopify:\/\/shop_images\/flavcity-c-ya-later-vitamin-c-1202904582.png",
             "aspect_ratio": 1,
             "image_background": "#fbeda9",
             "border_radius": 100,
@@ -239,7 +206,7 @@
           "settings": {
             "position": "4",
             "title": "Multivitamins",
-            "image": "shopify://shop_images/flavcity-women-s-multivitamin-gummy-1202904695.png",
+            "image": "shopify:\/\/shop_images\/flavcity-men-s-multivitamin-gummy-1202904652.png",
             "aspect_ratio": 1,
             "image_background": "#d6ebeb",
             "border_radius": 100,
@@ -251,7 +218,7 @@
           "settings": {
             "position": "4",
             "title": "Sleep",
-            "image": "shopify://shop_images/Sleep_Gummy_mocap_01_new.png",
+            "image": "shopify:\/\/shop_images\/Sleep_Gummy_mocap_01_new.png",
             "aspect_ratio": 1,
             "image_background": "#a6bcd6",
             "border_radius": 100,
@@ -263,7 +230,7 @@
           "settings": {
             "position": "5",
             "title": "Shaker Bottles",
-            "image": "shopify://shop_images/flavcity-flavcity-shaker-bottle-1202904573.png",
+            "image": "shopify:\/\/shop_images\/flavcity-flavcity-shaker-bottle-1202904573.png",
             "aspect_ratio": 1,
             "image_background": "#f9d683",
             "border_radius": 100,
@@ -275,7 +242,7 @@
           "settings": {
             "position": "5",
             "title": "Straw Tumblers",
-            "image": "shopify://shop_images/flavcity-straw-tumbler-1202904755.png",
+            "image": "shopify:\/\/shop_images\/flavcity-straw-tumbler-1202904755.png",
             "aspect_ratio": 1,
             "image_background": "#d6ebeb",
             "border_radius": 100,
@@ -287,7 +254,7 @@
           "settings": {
             "position": "5",
             "title": "Hot Tumblers",
-            "image": "shopify://shop_images/hot_tumblers.png",
+            "image": "shopify:\/\/shop_images\/hot_tumblers.png",
             "aspect_ratio": 1,
             "image_background": "#8191a4",
             "border_radius": 100,
@@ -299,7 +266,7 @@
           "settings": {
             "position": "5",
             "title": "Gift Cards",
-            "image": "shopify://shop_images/e_gift_card.png",
+            "image": "shopify:\/\/shop_images\/e_gift_card.png",
             "aspect_ratio": 1,
             "image_background": "#fff8ea",
             "border_radius": 100,
@@ -311,7 +278,7 @@
           "settings": {
             "position": "4",
             "title": "Vitamins",
-            "image": "shopify://shop_images/Flavcity_Protein_Smoothie_--Vanilla_Latte_Front_1.png",
+            "image": "shopify:\/\/shop_images\/Flavcity_Protein_Smoothie_--Vanilla_Latte_Front_1.png",
             "aspect_ratio": 1,
             "image_background": "#fbeda9",
             "border_radius": 100,
@@ -323,7 +290,7 @@
           "settings": {
             "position": "3",
             "title": "Prebiotic Hot Chocolate",
-            "image": "shopify://shop_images/Prebiotic_Keto_Hot_Chocolate_Front.png",
+            "image": "shopify:\/\/shop_images\/Prebiotic_Keto_Hot_Chocolate_Front.png",
             "aspect_ratio": 1,
             "image_background": "#d6c5a3",
             "border_radius": 100,
@@ -334,12 +301,12 @@
           "type": "image",
           "settings": {
             "position": "1",
-            "image": "shopify://shop_images/Pro_bundle-promo.png",
+            "image": "shopify:\/\/shop_images\/Pro_bundle-promo.png",
             "aspect_ratio": 0.5,
             "title": "Build Your Protein Smoothie Variety Pack",
-            "text": "<p>Mix & match up to 10 flavors!</p>",
+            "text": "<p>Mix & match up to 10 flavors!<\/p>",
             "link_title": "Build My Variety Pack",
-            "link": "shopify://products/single-serve-packets",
+            "link": "shopify:\/\/products\/single-serve-packets",
             "bg_color": "#ffffff",
             "text_color": "#0e5261"
           }
@@ -348,12 +315,12 @@
           "type": "image",
           "settings": {
             "position": "4",
-            "image": "shopify://shop_images/Group_70.png",
+            "image": "shopify:\/\/shop_images\/Group_70.png",
             "aspect_ratio": 0.5,
             "title": "Build Your Daily Defense Set",
-            "text": "<p>Mix & match two bottles and save!</p>",
+            "text": "<p>Mix & match two bottles and save!<\/p>",
             "link_title": "BUILD MY BUNDLE",
-            "link": "shopify://products/vitamin-bundle",
+            "link": "shopify:\/\/products\/vitamin-bundle",
             "bg_color": "#ffffff",
             "text_color": "#0e5261"
           }
@@ -362,12 +329,12 @@
           "type": "image",
           "settings": {
             "position": "2",
-            "image": "shopify://shop_images/cafe_nav_promo.png",
+            "image": "shopify:\/\/shop_images\/cafe_nav_promo.png",
             "aspect_ratio": 0.5,
             "title": "Subscribe & Save 20%",
-            "text": "<p>on your daily coffee routine</p>",
+            "text": "<p>on your daily coffee routine<\/p>",
             "link_title": "Subscribe Now",
-            "link": "shopify://collections/instant-coffee",
+            "link": "shopify:\/\/collections\/instant-coffee",
             "bg_color": "#ffffff",
             "text_color": "#0e5261"
           }
@@ -376,14 +343,14 @@
           "type": "main_link_style",
           "settings": {
             "link_handle": "Shop all",
-            "show_as_btn": false,
-            "dropdown_bg": "#d6ebeb",
+            "show_as_btn": true,
+            "dropdown_bg": "#a6e0e3",
             "dropdown_color": "#0e5261",
-            "btn_bg": "#ffffff",
-            "btn_color": "#e94c09",
-            "btn_border": "#005261",
-            "btn_bg_hover": "#005261",
-            "btn_color_hover": "#ffffff",
+            "btn_bg": "#005261",
+            "btn_color": "#ffffff",
+            "btn_border": "",
+            "btn_bg_hover": "#00b9b9",
+            "btn_color_hover": "#005261",
             "btn_border_hover": ""
           }
         },
@@ -465,16 +432,14 @@
       },
       "block_order": [
         "nav_image_yXWDNp",
-        "nav_image_LPQf7k",
         "nav_image_yjpGzH",
-        "nav_image_XgwFrJ",
+        "nav_image_LPQf7k",
         "nav_image_qWqmdF",
         "nav_image_fheEF3",
         "nav_image_BAbazJ",
         "nav_image_e3aGmC",
         "badge_N8GRNG",
         "nav_image_gp9TEc",
-        "nav_image_qNwAwK",
         "nav_image_WwyCQr",
         "nav_image_dMMz6n",
         "nav_image_zTxV69",
@@ -503,15 +468,15 @@
         "show_icons": true,
         "icon_as_circle": false,
         "cart_icon_family": "cart",
-        "logo": "shopify://shop_images/fc_logo2025_rtm.svg",
+        "logo": "shopify:\/\/shop_images\/fc_logo2025_rtm.svg",
         "logo_max_limit": 130,
         "logo_max_limit_mobile": 100,
-        "main_menu_linklist": "dt-main-nav-menu-11-25-25",
+        "main_menu_linklist": "dt-main-nav-menu-update-10-15-25",
         "enable_search": true,
         "show_social_icons": true,
-        "button_text": "Shop All",
-        "button_link": "shopify://collections/all",
-        "button_type": "btn--secondary",
+        "button_text": "",
+        "button_link": "",
+        "button_type": "btn--primary",
         "show_locale_selector": false,
         "show_country_selector": false,
         "show_country_name": false,
@@ -532,12 +497,13 @@
       "blocks": {
         "collection_EtckMV": {
           "type": "collection",
+          "disabled": true,
           "settings": {
-            "collection": "all",
-            "collection_title": "Treat Yourself",
-            "image": "shopify://shop_images/MH_Copy_of_CPL_Images_1200x900_6.png",
-            "image_width": 45,
-            "badge_text": "Shop Now",
+            "collection": "instant-coffee",
+            "collection_title": "Bye Barista",
+            "image": "shopify:\/\/shop_images\/cafe_nav_promo.png",
+            "image_width": 50,
+            "badge_text": "10% Off",
             "badge_bg_color": "#df0060",
             "badge_text_color": "#ffffff",
             "heading_font_size": "heading-large",
@@ -547,9 +513,9 @@
         "nav_image_Tm9fA3": {
           "type": "nav_image",
           "settings": {
-            "position": "3",
-            "image": "shopify://shop_images/cafe_nav.png",
-            "aspect_ratio": 1.5,
+            "position": "2",
+            "image": "shopify:\/\/shop_images\/flavcity_cafe_padded_mockups_ss_1x1_VL_big_724c19d2-fb84-4e5c-9181-c9c972496d0f.png",
+            "aspect_ratio": 1,
             "background": "#ffffff",
             "border_radius": 8
           }
@@ -559,21 +525,21 @@
           "settings": {
             "position": "2",
             "title": "All Flavors",
-            "image": "shopify://shop_images/Cafe_Vanilla_Front_on_Transparent.png",
+            "image": "shopify:\/\/shop_images\/Cafe_Vanilla_Front_on_Transparent.png",
             "aspect_ratio": 1,
             "image_background": "#efdbb2",
             "border_radius": 100,
             "border_color": "rgba(0,0,0,0)"
           }
         },
-        "sub_nav_image_QUfWij": {
+        "sub_nav_image_qYt4td": {
           "type": "sub_nav_image",
           "settings": {
-            "position": "1",
+            "position": "2",
             "title": "Bundles",
-            "image": "shopify://shop_images/PDP_1500x1500_4.png",
+            "image": "shopify:\/\/shop_images\/Daily_Ritual_Bundle.png",
             "aspect_ratio": 1,
-            "image_background": "#f68c59",
+            "image_background": "#89532f",
             "border_radius": 100,
             "border_color": "rgba(0,0,0,0)"
           }
@@ -583,7 +549,7 @@
           "settings": {
             "position": "2",
             "title": "Try It Kits",
-            "image": "shopify://shop_images/Latte_Variety_Pack_Box.png",
+            "image": "shopify:\/\/shop_images\/Latte_Variety_Pack_Box.png",
             "aspect_ratio": 1,
             "image_background": "#b26447",
             "border_radius": 100,
@@ -594,8 +560,8 @@
           "type": "nav_image",
           "settings": {
             "position": "1",
-            "image": "shopify://shop_images/pro_nav.png",
-            "aspect_ratio": 1.5,
+            "image": "shopify:\/\/shop_images\/Flavcity_Protein_Smoothie_--Vanilla_Cream_Front_correct.png",
+            "aspect_ratio": 1,
             "background": "#ffffff",
             "border_radius": 8
           }
@@ -605,7 +571,7 @@
           "settings": {
             "position": "1",
             "title": "Whey",
-            "image": "shopify://shop_images/Flavcity_Protein_Smoothie_--Vanilla_Latte_Front_1.png",
+            "image": "shopify:\/\/shop_images\/Flavcity_Protein_Smoothie_--Vanilla_Latte_Front_1.png",
             "aspect_ratio": 1,
             "image_background": "#eed493",
             "border_radius": 100,
@@ -617,7 +583,7 @@
           "settings": {
             "position": "1",
             "title": "Plant-Based",
-            "image": "shopify://shop_images/Plant-BasedChocolatePeanutButterProteinSmoothie.png",
+            "image": "shopify:\/\/shop_images\/Plant-BasedChocolatePeanutButterProteinSmoothie.png",
             "aspect_ratio": 1,
             "image_background": "#ad9a76",
             "border_radius": 100,
@@ -629,7 +595,7 @@
           "settings": {
             "position": "1",
             "title": "Kids",
-            "image": "shopify://shop_images/MagicalBerryKidsProteinSmoothie.png",
+            "image": "shopify:\/\/shop_images\/MagicalBerryKidsProteinSmoothie.png",
             "aspect_ratio": 1,
             "image_background": "#ebc2d3",
             "border_radius": 100,
@@ -639,24 +605,11 @@
         "nav_image_XyTN6x": {
           "type": "nav_image",
           "settings": {
-            "position": "2",
-            "image": "shopify://shop_images/fb_nav.png",
+            "position": "3",
+            "image": "shopify:\/\/shop_images\/functional_drink_mobilenav.png",
             "aspect_ratio": 1.5,
             "background": "#ffffff",
             "border_radius": 8
-          }
-        },
-        "sub_nav_image_qYt4td": {
-          "type": "sub_nav_image",
-          "disabled": true,
-          "settings": {
-            "position": "2",
-            "title": "Bundles",
-            "image": "shopify://shop_images/Daily_Ritual_Bundle.png",
-            "aspect_ratio": 1,
-            "image_background": "#89532f",
-            "border_radius": 100,
-            "border_color": "rgba(0,0,0,0)"
           }
         },
         "sub_nav_image_H4NVyf": {
@@ -664,7 +617,7 @@
           "settings": {
             "position": "3",
             "title": "Anytime Essentials",
-            "image": "shopify://shop_images/EDM_Pouch_LEMONADE_Front.png",
+            "image": "shopify:\/\/shop_images\/EDM_Pouch_LEMONADE_Front.png",
             "aspect_ratio": 1,
             "image_background": "#ffc025",
             "border_radius": 100,
@@ -676,19 +629,7 @@
           "settings": {
             "position": "3",
             "title": "Superfood Lemonades",
-            "image": "shopify://shop_images/flavcity-superfood-lemonade-1202904697.png",
-            "aspect_ratio": 1,
-            "image_background": "#00bdb9",
-            "border_radius": 100,
-            "border_color": "rgba(0,0,0,0)"
-          }
-        },
-        "sub_nav_image_ryjf8c": {
-          "type": "sub_nav_image",
-          "settings": {
-            "position": "3",
-            "title": "Hot Chocolate",
-            "image": "shopify://shop_images/flavcity-hot-chocolate-1202904603.webp",
+            "image": "shopify:\/\/shop_images\/flavcity-superfood-lemonade-1202904697.png",
             "aspect_ratio": 1,
             "image_background": "#00bdb9",
             "border_radius": 100,
@@ -700,7 +641,7 @@
           "settings": {
             "position": "3",
             "title": "Electrolytes",
-            "image": "shopify://shop_images/flavcity-variety-pack-electrolyte-mix-1202904514.png",
+            "image": "shopify:\/\/shop_images\/flavcity-variety-pack-electrolyte-mix-1202904514.png",
             "aspect_ratio": 1,
             "image_background": "#f68c59",
             "border_radius": 100,
@@ -712,7 +653,7 @@
           "settings": {
             "position": "3",
             "title": "Immunity Teas",
-            "image": "shopify://shop_images/flavcity-immunity-tea-elderberry-1202904563.png",
+            "image": "shopify:\/\/shop_images\/flavcity-immunity-tea-elderberry-1202904563.png",
             "aspect_ratio": 1,
             "image_background": "#8191a4",
             "border_radius": 100,
@@ -723,7 +664,7 @@
           "type": "nav_image",
           "settings": {
             "position": "4",
-            "image": "shopify://shop_images/vit_nav.png",
+            "image": "shopify:\/\/shop_images\/Sleep_Gummy_mocap_01_new.png",
             "aspect_ratio": 1.5,
             "background": "#ffffff",
             "border_radius": 8
@@ -734,7 +675,7 @@
           "settings": {
             "position": "4",
             "title": "Immune Support",
-            "image": "shopify://shop_images/flavcity-c-ya-later-vitamin-c-1202904582.png",
+            "image": "shopify:\/\/shop_images\/flavcity-c-ya-later-vitamin-c-1202904582.png",
             "aspect_ratio": 1,
             "image_background": "#ffc025",
             "border_radius": 100,
@@ -746,7 +687,7 @@
           "settings": {
             "position": "4",
             "title": "Multivitamins",
-            "image": "shopify://shop_images/flavcity-women-s-multivitamin-gummy-1202904695.png",
+            "image": "shopify:\/\/shop_images\/flavcity-men-s-multivitamin-gummy-1202904652.png",
             "aspect_ratio": 1,
             "image_background": "#00bdb9",
             "border_radius": 100,
@@ -758,7 +699,7 @@
           "settings": {
             "position": "4",
             "title": "Sleep",
-            "image": "shopify://shop_images/Sleep_Gummy_mocap_01_new.png",
+            "image": "shopify:\/\/shop_images\/Sleep_Gummy_mocap_01_new.png",
             "aspect_ratio": 1,
             "image_background": "#8191a4",
             "border_radius": 100,
@@ -769,7 +710,7 @@
           "type": "nav_image",
           "settings": {
             "position": "5",
-            "image": "shopify://shop_images/merch_nav.png",
+            "image": "shopify:\/\/shop_images\/flavcity-flavcity-shaker-bottle-1202904573.png",
             "aspect_ratio": 1.2,
             "background": "#ffffff",
             "border_radius": 8
@@ -780,7 +721,7 @@
           "settings": {
             "position": "5",
             "title": "Shaker Bottles",
-            "image": "shopify://shop_images/flavcity-flavcity-shaker-bottle-1202904573.png",
+            "image": "shopify:\/\/shop_images\/flavcity-flavcity-shaker-bottle-1202904573.png",
             "aspect_ratio": 1,
             "image_background": "#8191a4",
             "border_radius": 100,
@@ -792,7 +733,7 @@
           "settings": {
             "position": "5",
             "title": "Straw Tumblers",
-            "image": "shopify://shop_images/flavcity-straw-tumbler-1202904755.png",
+            "image": "shopify:\/\/shop_images\/flavcity-straw-tumbler-1202904755.png",
             "aspect_ratio": 1,
             "image_background": "#f68c59",
             "border_radius": 100,
@@ -804,7 +745,7 @@
           "settings": {
             "position": "5",
             "title": "Hot Tumblers",
-            "image": "shopify://shop_images/hot_tumblers.png",
+            "image": "shopify:\/\/shop_images\/hot_tumblers.png",
             "aspect_ratio": 1,
             "image_background": "#e8ca85",
             "border_radius": 100,
@@ -816,7 +757,7 @@
           "settings": {
             "position": "5",
             "title": "Gift Cards",
-            "image": "shopify://shop_images/e_gift_card.png",
+            "image": "shopify:\/\/shop_images\/e_gift_card.png",
             "aspect_ratio": 1,
             "image_background": "#fff8ea",
             "border_radius": 100,
@@ -826,7 +767,7 @@
         "menu_T3HRni": {
           "type": "menu",
           "settings": {
-            "mobile_menu_linklist": "mobile-nav-11-25-25",
+            "mobile_menu_linklist": "dt-mobile-nav-menu-update-10-15-25",
             "text_font_size": "body-large",
             "highlight_item": "Sale",
             "highlight_item_color": "#d02e2e",
@@ -849,7 +790,7 @@
           "type": "button",
           "settings": {
             "button_text": "Shop All",
-            "button_url": "shopify://collections/all",
+            "button_url": "shopify:\/\/collections\/all",
             "type": "btn--primary"
           }
         },
@@ -869,17 +810,15 @@
         "collection_EtckMV",
         "nav_image_Tm9fA3",
         "sub_nav_image_LRb9Hc",
-        "sub_nav_image_QUfWij",
+        "sub_nav_image_qYt4td",
         "sub_nav_image_rht7Ya",
         "nav_image_ftpMCa",
         "sub_nav_image_aKaPBr",
         "sub_nav_image_zEUmmt",
         "sub_nav_image_QRkDQg",
         "nav_image_XyTN6x",
-        "sub_nav_image_qYt4td",
         "sub_nav_image_H4NVyf",
         "sub_nav_image_pY8xhx",
-        "sub_nav_image_ryjf8c",
         "sub_nav_image_rGrrwM",
         "sub_nav_image_UVHfhh",
         "nav_image_nmhVcV",

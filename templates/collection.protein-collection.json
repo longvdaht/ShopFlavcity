@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -74,7 +65,7 @@
           "settings": {
             "default_open": false,
             "title": "What Is Protein Powder and What Makes FlavCity Protein Different?",
-            "content": "<p>Protein powder is a supplement made by extracting and concentrating protein from animal sources like milk or egg, or plant sources such as soy, pea, rice, or hemp, and is added to foods and drinks to boost daily protein intake for muscle growth, recovery, weight management, or overall health. </p><p>Unlike ordinary powders that are often chalky and full of additives, FlavCity Protein Smoothies are crafted with real, nutrient-rich ingredients like 100% grass-fed non denatured whey protein and organic superfoods, delivering a smooth, delicious shake that tastes like a real smoothie while fueling your body with better nutrition.</p>",
+            "content": "<p>Protein powder is a supplement made by extracting and concentrating protein from animal sources like milk or egg, or plant sources such as soy, pea, rice, or hemp, and is added to foods and drinks to boost daily protein intake for muscle growth, recovery, weight management, or overall health. <\/p><p>Unlike ordinary powders that are often chalky and full of additives, FlavCity Protein Smoothies are crafted with real, nutrient-rich ingredients like 100% grass-fed non denatured whey protein and organic superfoods, delivering a smooth, delicious shake that tastes like a real smoothie while fueling your body with better nutrition.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -86,7 +77,7 @@
           "settings": {
             "default_open": false,
             "title": "Why Choose FlavCity Protein Smoothie?",
-            "content": "<p>FlavCity Protein Smoothie Powders offer 25g of protein per serving with a combination of 100% grass-fed undenatured whey protein and 10 grams of bovine collagen peptides. Unlike basic protein powders, we’ve built a complete, all-in-one protein powder formula that goes beyond basic protein. Our All-in-One Protein Smoothie includes organic reishi powder for focus, collagen for joint and skin support, and organic fruits for added nutrition, but we don’t stop there. Each scoop delivers a complete nutritional upgrade with a naturally sweetened formula using Bobby-Approved ingredients like organic stevia leaf extract and organic monk fruit extract. Making a sweet and delicious smoothie without any added sugar. It’s everything you need in one scoop.<br/>For those seeking a plant-based and/or dairy-free option, our <a href=\"/collections/plant-based-protein-smoothies\" title=\"Plant-Based Protein Smoothies\">Vegan Protein Smoothie</a> options provide 20g of high-grade almond protein along with functional mushrooms and fruit, complete, and crafted for real flavor without any of the junk.</p>",
+            "content": "<p>FlavCity Protein Smoothie Powders offer 25g of protein per serving with a combination of 100% grass-fed undenatured whey protein and 10 grams of bovine collagen peptides. Unlike basic protein powders, we’ve built a complete, all-in-one protein powder formula that goes beyond basic protein. Our All-in-One Protein Smoothie includes organic reishi powder for focus, collagen for joint and skin support, and organic fruits for added nutrition, but we don’t stop there. Each scoop delivers a complete nutritional upgrade with a naturally sweetened formula using Bobby-Approved ingredients like organic stevia leaf extract and organic monk fruit extract. Making a sweet and delicious smoothie without any added sugar. It’s everything you need in one scoop.<br\/>For those seeking a plant-based and\/or dairy-free option, our <a href=\"\/collections\/plant-based-protein-smoothies\" title=\"Plant-Based Protein Smoothies\">Vegan Protein Smoothie<\/a> options provide 20g of high-grade almond protein along with functional mushrooms and fruit, complete, and crafted for real flavor without any of the junk.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -98,7 +89,7 @@
           "settings": {
             "default_open": false,
             "title": "How To Make a Protein Smoothie",
-            "content": "<p>Making a protein smoothie with FlavCity couldn’t be easier, and that’s exactly how we designed it. There’s no messy prep, no long cleanup, and no blender required. All you need is one scoop of Protein Smoothie Powder and your choice of milk or water. Just shake it up, and in seconds you’ve got a smooth, flavorful protein smoothie that tastes like a treat made with real ingredients.</p><p>Each All-in-One scoop is packed with 25g of 100% grass-fed whey protein, collagen, functional mushrooms, and organic fruit. Everything you need is already built in, so you can skip the extra ingredients and still get a complete, nutrient-rich smoothie. Whether you’re heading to the gym, rushing out the door in the morning, or just want a quick, satisfying boost, it’s the easiest way to get real nutrition on the go. At only $2.99 per serving, it’s a smarter (and tastier) choice than most store-bought options.</p>",
+            "content": "<p>Making a protein smoothie with FlavCity couldn’t be easier, and that’s exactly how we designed it. There’s no messy prep, no long cleanup, and no blender required. All you need is one scoop of Protein Smoothie Powder and your choice of milk or water. Just shake it up, and in seconds you’ve got a smooth, flavorful protein smoothie that tastes like a treat made with real ingredients.<\/p><p>Each All-in-One scoop is packed with 25g of 100% grass-fed whey protein, collagen, functional mushrooms, and organic fruit. Everything you need is already built in, so you can skip the extra ingredients and still get a complete, nutrient-rich smoothie. Whether you’re heading to the gym, rushing out the door in the morning, or just want a quick, satisfying boost, it’s the easiest way to get real nutrition on the go. At only $2.99 per serving, it’s a smarter (and tastier) choice than most store-bought options.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -110,7 +101,7 @@
           "settings": {
             "default_open": false,
             "title": "How Much Protein Powder Can I Have Per Day?",
-            "content": "<p>The recommended daily protein intake varies based on individual needs and goals, typically ranging from <a href=\"https://www.health.harvard.edu/blog/how-much-protein-do-you-need-every-day-201506188096\" target=\"_blank\" title=\"https://www.health.harvard.edu/blog/how-much-protein-do-you-need-every-day-201506188096\">0.8 to 1.2 grams per kilogram</a> (0.36 to 0.8 grams per pound) of body weight, depending on activity levels. Most people can safely enjoy <a href=\"https://www.healthline.com/nutrition/is-powder-bad-for-you\" target=\"_blank\" title=\"https://www.healthline.com/nutrition/is-powder-bad-for-you\">one to two servings of protein powder per day</a>, depending on their individual protein goals and diet. For example, one scoop of FlavCity All-in-One Protein Smoothie provides 25g of high-quality protein, so two scoops can give you around 50g of your daily intake quickly and conveniently.<br/>For people who struggle to meet their daily protein intake, Protein Smoothie Powder can be a great way to increase their intake. However, it’s not a meal replacement for whole foods like meats, fruits, and veggies that are packed with essential nutrients our bodies need to function well.</p>",
+            "content": "<p>The recommended daily protein intake varies based on individual needs and goals, typically ranging from <a href=\"https:\/\/www.health.harvard.edu\/blog\/how-much-protein-do-you-need-every-day-201506188096\" target=\"_blank\" title=\"https:\/\/www.health.harvard.edu\/blog\/how-much-protein-do-you-need-every-day-201506188096\">0.8 to 1.2 grams per kilogram<\/a> (0.36 to 0.8 grams per pound) of body weight, depending on activity levels. Most people can safely enjoy <a href=\"https:\/\/www.healthline.com\/nutrition\/is-powder-bad-for-you\" target=\"_blank\" title=\"https:\/\/www.healthline.com\/nutrition\/is-powder-bad-for-you\">one to two servings of protein powder per day<\/a>, depending on their individual protein goals and diet. For example, one scoop of FlavCity All-in-One Protein Smoothie provides 25g of high-quality protein, so two scoops can give you around 50g of your daily intake quickly and conveniently.<br\/>For people who struggle to meet their daily protein intake, Protein Smoothie Powder can be a great way to increase their intake. However, it’s not a meal replacement for whole foods like meats, fruits, and veggies that are packed with essential nutrients our bodies need to function well.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -122,7 +113,7 @@
           "settings": {
             "default_open": false,
             "title": "When is the Best Time to Consume a Protein Powder Smoothie?",
-            "content": "<p>For muscle recovery and support, the best time to consume a protein powder smoothie is post-workout. But because FlavCity is more than just protein, it’s a complete All-In-One smoothie with collagen, functional mushrooms, and fruit, it’s also a perfect choice for breakfast, a midday snack, or whenever you need clean energy and real nutrition. Whether you're refueling or just getting started, it’s a convenient, craveable way to support your goals anytime.</p>",
+            "content": "<p>For muscle recovery and support, the best time to consume a protein powder smoothie is post-workout. But because FlavCity is more than just protein, it’s a complete All-In-One smoothie with collagen, functional mushrooms, and fruit, it’s also a perfect choice for breakfast, a midday snack, or whenever you need clean energy and real nutrition. Whether you're refueling or just getting started, it’s a convenient, craveable way to support your goals anytime.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -134,7 +125,7 @@
           "settings": {
             "default_open": false,
             "title": "Is It Okay to Drink Protein Smoothies Every Day?",
-            "content": "<p>Yes, it's generally okay to drink protein powder daily, as long as it fits within your nutritional needs and dietary goals. Consult with your primary care provider about any concerns. </p>",
+            "content": "<p>Yes, it's generally okay to drink protein powder daily, as long as it fits within your nutritional needs and dietary goals. Consult with your primary care provider about any concerns. <\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -146,7 +137,7 @@
           "settings": {
             "default_open": false,
             "title": "How Do I Store Protein Smoothie Powders?",
-            "content": "<p>Store protein smoothie powders in a cool, dry place to maintain their freshness and potency. Keep the container tightly sealed to prevent exposure to moisture and contaminants. For best results, avoid storing them in areas with fluctuating temperatures, such as near stoves or windows</p>",
+            "content": "<p>Store protein smoothie powders in a cool, dry place to maintain their freshness and potency. Keep the container tightly sealed to prevent exposure to moisture and contaminants. For best results, avoid storing them in areas with fluctuating temperatures, such as near stoves or windows<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -158,7 +149,7 @@
           "settings": {
             "default_open": false,
             "title": "Does Protein Powder Expire?",
-            "content": "<p>Yes, protein powder does expire, and it's important to check the expiration date on the packaging. Over time, the quality and effectiveness of the protein can degrade, affecting taste and nutritional value. To ensure safety and optimal benefits, store protein powder in a cool, dry place and use it before it expires.</p>",
+            "content": "<p>Yes, protein powder does expire, and it's important to check the expiration date on the packaging. Over time, the quality and effectiveness of the protein can degrade, affecting taste and nutritional value. To ensure safety and optimal benefits, store protein powder in a cool, dry place and use it before it expires.<\/p>",
             "show_icon": false,
             "icon_name": "icon-award",
             "icon_size": 20,
@@ -196,7 +187,7 @@
       "type": "apps",
       "blocks": {
         "okendo_star_rating_b3GTLE": {
-          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "type": "shopify:\/\/apps\/okendo\/blocks\/star-rating\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
             "product": ""
           }

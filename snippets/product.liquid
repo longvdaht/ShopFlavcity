@@ -783,17 +783,13 @@
                     {% liquid
                       assign bundle_object = product.metafields.bundle.metaobject.value
                       assign bundle_object_type = bundle_object.system.type
-                      assign bundle_variants_limit = bundle_object.product_variants_limit
-                      assign bundle_discount_percent = bundle_object.bundle_discount_percent
-
                       if bundle_object_type contains 'bundle_radio'
                         assign selection_type = 'single'
-                      elsif bundle_variants_limit != null
-                        assign selection_type = 'limitation'
                       endif
 
                       assign accordion_opent_state = bundle_object.accordion_state
                       assign threshold_value = bundle_object.threshold_value | default: 0
+
                       assign defined_block_variants = bundle_object.defined_block_variants
 
                       assign first_block_title = bundle_object.first_block_title
@@ -820,7 +816,7 @@
                             endif
 
                             assign product_index = product_index | plus: 1
-                            render 'card-product-bundle', variant: defined_block_variant, product_form_id: product_form_id, index: product_index, initial_quantity: initial_quantity, defined_product: true, bundle_discount_percent: bundle_discount_percent
+                            render 'card-product-bundle', variant: defined_block_variant, product_form_id: product_form_id, index: product_index, initial_quantity: initial_quantity, defined_product: true,
                           endunless
                         endfor
                       endcapture
@@ -841,12 +837,10 @@
                               else
                                 assign initial_quantity = 0
                               endif
-                            else
-                              assign initial_quantity = 0
                             endif
 
                             assign product_index = product_index | plus: 1
-                            render 'card-product-bundle', variant: first_block_variant, product_form_id: product_form_id, index: product_index, threshold_value: threshold_value, selection_type: selection_type, initial_quantity: initial_quantity, bundle_variants_limit: bundle_variants_limit, bundle_discount_percent: bundle_discount_percent
+                            render 'card-product-bundle', variant: first_block_variant, product_form_id: product_form_id, index: product_index, threshold_value: threshold_value, selection_type: selection_type, initial_quantity: initial_quantity
                           endunless
                         endfor
                       endcapture
@@ -858,18 +852,14 @@
 
                         for second_block_variant in second_block_variants
                           unless second_block_variant.product == empty or product_ids contains second_block_variant.id
-                            assign product_index = product_index | plus: 1
 
-                            render 'card-product-bundle', variant: second_block_variant, product_form_id: product_form_id, index: product_index, threshold_value: threshold_value, selection_type: selection_type, initial_quantity: initial_quantity, bundle_variants_limit: bundle_variants_limit, bundle_discount_percent: bundle_discount_percent
+                            assign product_index = product_index | plus: 1
+                            render 'card-product-bundle', variant: second_block_variant, product_form_id: product_form_id, index: product_index, threshold_value: threshold_value
                           endunless
                         endfor
                       endcapture
 
-                      if selection_type contains 'limitation'
-                        assign bundle_products_counter = bundle_variants_limit
-                      else
-                        assign bundle_products_counter = product_index
-                      endif
+                      assign bundle_products_counter = product_index
                     -%}
 
                   {%- if bundle_products_counter > 0 and bundle_object_type contains 'bundle_quantity'  -%}
@@ -880,9 +870,6 @@
                       data-parent-variant-id="{{ product.variants[0].id }}"
                       data-product-price="{{ product.variants[0].price }}"
                       data-calculate-price="true"
-                      {% if bundle_discount_percent != nil %}
-                        data-bundle-discount-percent="{{ bundle_discount_percent }}"
-                      {% endif %}
                       {{ block.shopify_attributes }}
                       {{ block_style }}
                       data-aos="hero"
@@ -904,41 +891,6 @@
 
                       <div class="product-bundle__contents">
                         {%- comment -%} <div class="product-bundle__contents-inner"></div>{%- endcomment -%}
-
-                        {%- if define_block_card_product != empty -%}
-                          <div class="product-bundle__block">
-                            <div class="product-bundle__block-content">
-                              {{ define_block_card_product }}
-                            </div>
-                          </div>
-                        {%- endif -%}
-
-                        {%- comment -%}
-                          {%- if define_block_card_product != empty -%}
-                            <div class="product-bundle__accordion">
-                              <collapsible-elements single="true">
-
-                                <details class="accordion" data-collapsible
-                                  {% if accordion_opent_state %}
-                                    open="true"
-                                  {% endif %}
-                                >
-                                  <summary class="accordion__title product-bundle__accordion-toggle" data-collapsible-trigger>
-                                    Defined block
-
-                                    {%- render 'icon-chevron-down' -%}
-                                  </summary>
-
-                                  <div class="accordion__body rte"{% if accordion_opent_state != blank %} style="height: auto;"{% endif %} data-collapsible-body>
-                                    <div class="accordion__content product-bundle__accordion-content" data-collapsible-content>
-                                      {{ define_block_card_product }}
-                                    </div>
-                                  </div>
-                                </details>
-                              </collapsible-elements>
-                            </div>
-                          {%- endif -%}
-                        {%- endcomment -%}
 
                         {%- if first_block_card_product != empty and second_block_card_product != blank -%}
                           {%- if first_block_card_product != empty -%}
@@ -1026,14 +978,11 @@
                     {%- assign parentVariantId = product.variants[0].id -%}
 
                       <bundle-block
-                        class="product__block product__bundle product-bundle block-padding developer1"
+                        class="product__block product__bundle product-bundle block-padding"
                         data-product-form-id="{{ product_form_id }}"
                         data-parent-variant-id="{{ product.variants[0].id }}"
                         data-product-price="{{ product.variants[0].price }}"
                         data-calculate-price="true"
-                        {% if bundle_discount_percent != nil %}
-                          data-bundle-discount-percent="{{ bundle_discount_percent }}"
-                        {% endif %}
                         {{ block.shopify_attributes }}
                         {{ block_style }}
                         data-aos="hero"

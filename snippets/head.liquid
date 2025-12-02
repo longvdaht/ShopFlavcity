@@ -6,12 +6,22 @@
 
 <meta name="theme-color" content="{{ scheme_accent }}">
 <link rel="canonical" href="{{ canonical_url }}">
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
 <!-- ======================= New Theme V1.0.0 ========================= -->
 
 {% if settings.favicon %}
 	<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
 {% endif %}
+
+{%- unless settings.type_header_font.system?
+and settings.type_base_font.system?
+and settings.type_nav_font.system?
+and settings.type_btn_font.system?
+and settings.type_subheading_font.system?
+-%}
+	<link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+{%- endunless -%}
 
 <!-- Title and description ================================================ -->
 {% capture seo_title %}
@@ -58,6 +68,90 @@
 {%- endif -%}
 
 {%- liquid
+	assign heading_font = settings.type_header_font
+	assign subheading_font = settings.type_subheading_font
+	assign base_font = settings.type_base_font
+	assign nav_font = settings.type_nav_font
+	assign btn_font = settings.type_btn_font
+
+	if settings.type_header_font_custom and settings.type_header_font_list == 'custom'
+		assign heading_font_custom = settings.type_header_font_custom | split: '|'
+		assign heading_font_custom_filename = heading_font_custom[0]
+		assign heading_font_custom_name = heading_font_custom[1]
+		assign heading_font_custom_weight = heading_font_custom[2]
+		assign heading_font_custom_style = heading_font_custom[3]
+		assign heading_font_custom_format = heading_font_custom[4]
+	endif
+
+	if settings.type_subheading_font_custom and settings.type_subheading_font_list == 'custom'
+		assign subheading_font_custom = settings.type_subheading_font_custom | split: '|'
+		assign subheading_font_custom_filename = subheading_font_custom[0]
+		assign subheading_font_custom_name = subheading_font_custom[1]
+		assign subheading_font_custom_weight = subheading_font_custom[2]
+		assign subheading_font_custom_style = subheading_font_custom[3]
+		assign subheading_font_custom_format = subheading_font_custom[4]
+	endif
+
+	if settings.type_base_font_custom and settings.type_base_font_list == 'custom'
+		assign base_font_custom = settings.type_base_font_custom | split: '|'
+		assign base_font_custom_filename = base_font_custom[0]
+		assign base_font_custom_name = base_font_custom[1]
+		assign base_font_custom_weight = base_font_custom[2]
+		assign base_font_custom_style = base_font_custom[3]
+		assign base_font_custom_format = base_font_custom[4]
+	endif
+
+	if settings.type_nav_font_custom and settings.type_nav_font_list == 'custom'
+		assign nav_font_custom = settings.type_nav_font_custom | split: '|'
+		assign nav_font_custom_filename = nav_font_custom[0]
+		assign nav_font_custom_name = nav_font_custom[1]
+		assign nav_font_custom_weight = nav_font_custom[2]
+		assign nav_font_custom_style = nav_font_custom[3]
+		assign nav_font_custom_format = nav_font_custom[4]
+	endif
+
+	if settings.type_btn_font_custom and settings.type_btn_font_list == 'custom'
+		assign btn_font_custom = settings.type_btn_font_custom | split: '|'
+		assign btn_font_custom_filename = btn_font_custom[0]
+		assign btn_font_custom_name = btn_font_custom[1]
+		assign btn_font_custom_weight = btn_font_custom[2]
+		assign btn_font_custom_style = btn_font_custom[3]
+		assign btn_font_custom_format = btn_font_custom[4]
+	endif
+
+	assign base_font_bold = base_font | font_modify: 'weight', 'bolder'
+	assign base_font_100 = base_font | font_modify: 'weight', '+100'
+	assign base_font_200 = base_font | font_modify: 'weight', '+200'
+	assign base_font_300 = base_font | font_modify: 'weight', '+300'
+	assign base_font_400 = base_font | font_modify: 'weight', '+400'
+	if base_font_100 and base_font_100.weight > base_font.weight
+		assign base_font_bold = base_font_100
+	elsif base_font_200 and base_font_200.weight > base_font.weight
+		assign base_font_bold = base_font_200
+	elsif base_font_300 and base_font_300.weight > base_font.weight
+		assign base_font_bold = base_font_300
+	elsif base_font_400 and base_font_400.weight > base_font.weight
+		assign base_font_bold = base_font_400
+	endif
+
+	assign base_font_italic = settings.type_base_font | font_modify: 'style', 'italic'
+	assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic'
+
+	assign nav_font_bold = nav_font | font_modify: 'weight', 'bolder'
+	assign nav_font_100 = nav_font | font_modify: 'weight', '+100'
+	assign nav_font_200 = nav_font | font_modify: 'weight', '+200'
+	assign nav_font_300 = nav_font | font_modify: 'weight', '+300'
+	assign nav_font_400 = nav_font | font_modify: 'weight', '+400'
+	if nav_font_100 and nav_font_100.weight > nav_font.weight
+		assign nav_font_bold = nav_font_100
+	elsif nav_font_200 and nav_font_200.weight > nav_font.weight
+		assign nav_font_bold = nav_font_200
+	elsif nav_font_300 and nav_font_300.weight > nav_font.weight
+		assign nav_font_bold = nav_font_300
+	elsif nav_font_400 and nav_font_400.weight > nav_font.weight
+		assign nav_font_bold = nav_font_400
+	endif
+
 	assign heading_font_uppercase = 'none'
 	if settings.type_header_uppercase
 		assign heading_font_uppercase = 'uppercase'
@@ -84,6 +178,22 @@
 	assign black = '#000000'
 -%}
 
+{% if request.page_type == 'index' %}
+	<link
+			rel="preload"
+			as="image"
+			href="{{ settings.mobile_image | image_url: width: 375 }}"
+			fetchpriority="high"
+		  >
+		  
+		  <link
+			rel="preload"
+			as="image"
+			href="{{ settings.image | image_url: width: 1600 }}"
+			fetchpriority="high"
+		  >
+{% endif %}
+
 <link
 	rel="preload"
 	href="{{ 'Courgette-Regular.woff2' | asset_url }}"
@@ -107,20 +217,6 @@
 >
 <link
 	rel="preload"
-	href="{{ 'SoulSister.woff2' | asset_url }}"
-	as="font"
-	type="font/woff2"
-	crossorigin
->
-<link
-	rel="preload"
-	href="{{ 'SoulSisterRegular.woff2' | asset_url }}"
-	as="font"
-	type="font/woff2"
-	crossorigin
->
-<link
-	rel="preload"
 	href="{{ 'Mohave-SemiBold.woff2' | asset_url }}"
 	as="font"
 	type="font/woff2"
@@ -136,14 +232,6 @@
 <link
 	rel="preload"
 	href="{{ 'Poppins-SemiBold.woff2' | asset_url }}"
-	as="font"
-	type="font/woff2"
-	crossorigin
->
-
-<link
-	rel="preload"
-	href="{{ 'Poppins-Regular.woff2' | asset_url }}"
 	as="font"
 	type="font/woff2"
 	crossorigin
@@ -175,14 +263,6 @@
 	}
 
 	@font-face {
-	font-family: 'SoulSister';
-	font-style: normal;
-	src: url('{{ "SoulSister.woff2" | asset_url }}') format("woff2");
-	font-weight: 200;
-	font-display: swap;
-	}
-
-	@font-face {
 	font-family: 'MohaveSemibold';
 	font-style: normal;
 	src: url('{{ "Mohave-SemiBold.woff2" | asset_url }}') format("woff2");
@@ -206,13 +286,65 @@
 	font-display: swap;
 	}
 
-	@font-face {
-	font-family: 'Poppins';
-	font-style: normal;
-	src: url('{{ "Poppins-Regular.woff2" | asset_url }}') format("woff2");
-	font-weight: 400;
-	font-display: swap;
-	}
+	{% if base_font_custom %}
+		@font-face {
+		font-family: "{{ base_font_custom_name }}";
+		font-weight: {{ base_font_custom_weight }};
+		font-style: {{ base_font_custom_style }};
+		font-display: swap;
+		src: url("{{ base_font_custom_filename | asset_url }}") format("{{ base_font_custom_format }}");
+		}
+	{% else %}
+		{{ base_font | font_face: font_display: 'swap' }}
+	{% endif %}
+
+	{% if heading_font_custom %}
+		@font-face {
+		font-family: "{{ heading_font_custom_name }}";
+		font-weight: {{ heading_font_custom_weight }};
+		font-style: {{ heading_font_custom_style }};
+		font-display: swap;
+		src: url("{{ heading_font_custom_filename | asset_url }}") format("{{ heading_font_custom_format }}");
+		}
+	{% else %}
+		{{ heading_font | font_face: font_display: 'swap' }}
+	{% endif %}
+
+	{% if subheading_font_custom %}
+		@font-face {
+		font-family: "{{ subheading_font_custom_name }}";
+		font-weight: {{ subheading_font_custom_weight }};
+		font-style: {{ subheading_font_custom_style }};
+		font-display: swap;
+		src: url("{{ subheading_font_custom_filename | asset_url }}") format("{{ subheading_font_custom_format }}");
+		}
+	{% else %}
+		{{ subheading_font | font_face: font_display: 'swap' }}
+	{% endif %}
+
+	{% if nav_font_custom %}
+		@font-face {
+		font-family: "{{ nav_font_custom_name }}";
+		font-weight: {{ nav_font_custom_weight }};
+		font-style: {{ nav_font_custom_style }};
+		font-display: swap;
+		src: url("{{ nav_font_custom_filename | asset_url }}") format("{{ nav_font_custom_format }}");
+		}
+	{% else %}
+		{{ nav_font | font_face: font_display: 'swap' }}
+	{% endif %}
+
+	{% if btn_font_custom %}
+		@font-face {
+		font-family: "{{ btn_font_custom_name }}";
+		font-weight: {{ btn_font_custom_weight }};
+		font-style: {{ btn_font_custom_style }};
+		font-display: swap;
+		src: url("{{ btn_font_custom_filename | asset_url }}") format("{{ btn_font_custom_format }}");
+		}
+	{% else %}
+		{{ btn_font | font_face: font_display: 'swap' }}
+	{% endif %}
 
 
 	{% if base_font_bold %}
@@ -561,14 +693,26 @@
 	--FONT-BODY-WEIGHT-TERNARY: 400;
 	--FONT-BODY-STYLE-TERNARY: normal;
 
-	--FONT-STACK-SUBHEADING: 'Poppins';
-	--FONT-WEIGHT-SUBHEADING: 600;
-	--FONT-STYLE-SUBHEADING: normal;
+	{% if subheading_font_custom %}
+		--FONT-STACK-SUBHEADING: {{ subheading_font_custom_name }};
+		--FONT-WEIGHT-SUBHEADING: 600;
+		--FONT-STYLE-SUBHEADING: normal;
+	{% else %}
+		--FONT-STACK-SUBHEADING: {{ subheading_font.family }}, {{ subheading_font.fallback_families }};
+		--FONT-WEIGHT-SUBHEADING: 600;
+		--FONT-STYLE-SUBHEADING: {{ subheading_font.style }};
+	{% endif %}
 
-	--FONT-STACK-BODY: 'Poppins';
-	--FONT-STYLE-BODY: normal;
-	--FONT-WEIGHT-BODY: 400;
-	--FONT-WEIGHT-BODY-BOLD: 700;
+	{% if base_font_custom %}
+		--FONT-STACK-BODY: {{ base_font_custom_name }};
+		--FONT-WEIGHT-BODY: normal;
+		--FONT-STYLE-BODY: normal;
+	{% else %}
+		--FONT-STACK-BODY: {{ base_font.family }}, {{ base_font.fallback_families }};
+		--FONT-STYLE-BODY: {{ base_font.style }};
+		--FONT-WEIGHT-BODY: {{ base_font.weight }};
+		--FONT-WEIGHT-BODY-BOLD: {{ base_font_bold.weight | default: 700 }};
+	{% endif %}
 
 	--FONT-MOHAVE: 'MohaveSemibold';
 	--FONT-POPINS: 'Poppins', sans-serif;
@@ -846,7 +990,7 @@
 	{%- endunless -%}
 {%- endcomment -%}
 
-{{ 'theme.css' | asset_url | preload_tag: as: 'style' }}
+{% comment %} {{ 'theme.css' | asset_url | preload_tag: as: 'style' }} {% endcomment %}
 {{ 'theme.css' | asset_url | stylesheet_tag }}
 
 {%- if settings.enable_color_swatches -%}
@@ -907,7 +1051,6 @@
       cart_url: '{{ routes.cart_url }}',
       cart_add_url: '{{ routes.cart_add_url }}',
       cart_change_url: '{{ routes.cart_change_url }}',
-			cart_update_url: '{{ routes.cart_update_url }}',
       predictive_search_url: '{{ routes.predictive_search_url }}',
       addresses_url: '{{ routes.account_addresses_url }}'
     },
@@ -981,8 +1124,8 @@
 {% endif %}
 
 <!-- Theme Javascript ============================================================== -->
-<link rel="preload" href="{{ 'vendor.js' | asset_url }}" as="script">
-<link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
+<link rel="modulepreload" href="{{ 'vendor.js' | asset_url }}" fetchpriority="low">
+<link rel="modulepreload" href="{{ 'theme.js' | asset_url }}" fetchpriority="low">
 
 <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>

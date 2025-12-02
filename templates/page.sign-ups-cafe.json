@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -34,7 +25,7 @@
         "image_FweRih": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/flavcity_cafe_tease_web720x540-06.jpg",
+            "image": "shopify:\/\/shop_images\/flavcity_cafe_tease_web720x540-06.jpg",
             "title": "",
             "heading_font_size": "heading-large",
             "text": "",
@@ -59,11 +50,11 @@
           "type": "newsletter",
           "settings": {
             "klaviyo_list_id": "UfpWRs",
-            "return_to_value": "shopify://pages/cafe-waitlist-thank-you",
+            "return_to_value": "shopify:\/\/pages\/cafe-waitlist-thank-you",
             "subheading": "",
             "heading": "To new beginnings... and even better mornings.",
             "heading_font_size": "heading-medium",
-            "text": "<p>We've been brewing up something special. Our most epic launch ever is dropping <strong>September 2025</strong>.<br/><br/>Sign up to be the first to know!</p>",
+            "text": "<p>We've been brewing up something special. Our most epic launch ever is dropping <strong>September 2025<\/strong>.<br\/><br\/>Sign up to be the first to know!<\/p>",
             "text_font_size": "body-large",
             "text_columns": 1,
             "align_text": "text-center",

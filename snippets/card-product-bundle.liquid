@@ -17,21 +17,16 @@
     "definedProductState": {{ defined_product | default: false | json }},
     "variantPrice": {{ variant.price }},
     "variantPriceOverThreshold": "{% if variant.price > threshold_value and threshold_value > 0 %}{{ variant.price | minus: threshold_value }}{% else %}0{% endif %}",
-    "productDiscount": {%if bundle_discount_percent != nil %}{{ bundle_discount_percent }}{% else %}{{ variant.product.metafields.bundle.discount_percent | default: 0 }}{% endif %}
-		{% if selection_type contains "single" %},
-			"selectionType":"single",
-			"group": "single-selection"
-    {% elsif selection_type contains "limitation" %},
-    	"selectionType":"limitation",
-			"bundleVariantsLimit": {{ bundle_variants_limit }}
+    "productDiscount": {{ variant.product.metafields.bundle.discount_percent | default: 0 }}
+    {% if selection_type contains "single" %}
+    ,"selectionType":"single",
+    "group": "single-selection"
     {% endif %}
   }'
 
 	{% if selection_type contains "single" %}
 		group="single-selection"
-	 {% elsif selection_type contains "limitation" %},
-		data-bundle-variants-limit="{{ bundle_variants_limit }}"
-   {% endif %}
+	{% endif %}
 	class="card-bundle__wrapper"
 >
 

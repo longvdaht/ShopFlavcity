@@ -33,7 +33,7 @@
     for product in collection.products
       assign modifier_class = ''
 
-      if product.tags contains 'hide-from-search'
+      if product.tags contains 'hide'
         assign limit = limit | plus: 1
       endif
 

@@ -12,12 +12,11 @@
   assign empty_cart_products = settings.empty_cart_products | default: null
   assign has_checkout_buttons = false
 
-  assign threshold_gwp_blocks = section.blocks | where: 'type', 'gwp-threshold'
   assign cart_message_block = section.blocks | where: 'type', 'cart-message' | first
   assign title_block = section.blocks | where: 'type', 'title' | first
   assign free_shipping_block = section.blocks | where: 'type', 'free-shipping' | first
-  assign gwp_message_block = section.blocks | where: 'type', 'gwp-message' | first
   assign products_block = section.blocks | where: 'type', 'products' | first
+
 
 	assign promotion_block = section.blocks | where: 'type', 'promotion_block'
   assign product_block = section.blocks | where: 'type', 'products'
@@ -33,22 +32,6 @@
         assign has_checkout_buttons = true
     endcase
   endfor
-
-  if threshold_gwp_blocks.size > 0
-    assign hasactive_threshold_gwp = false
-
-    for block in threshold_gwp_blocks
-      assign gwp_product = block.settings.gwp_product
-      assign gwp_threshold = block.settings.threshold
-      assign gwp_variant_id = block.settings.gwp_product_variant_id
-      assign gwp_variant = gwp_product.variants | where: 'id', gwp_variant_id | first | default: gwp_product.variants[0]
-
-      if gwp_variant.available
-        assign hasactive_threshold_gwp = true
-        break
-      endif
-    endfor
-  endif
 -%}
 
 {%- style -%}
@@ -58,8 +41,6 @@
 {%- endstyle -%}
 
 <script src="{{ 'quantity-counter.js' | asset_url }}" defer="defer"></script>
-
-{%- render 'cart-gwp-data' -%}
 
 {%- capture cart_title -%}
   <span class="cart__title caps">
@@ -93,9 +74,7 @@
       </div>
     </div>
 
-    {%- comment -%}
-      <div id="mr-div-embedded-cp-cvb-drawer"></div>
-    {%- endcomment -%}
+    <div id="mr-div-embedded-cp-cvb-drawer"></div>
 
     <collapsible-elements single="true">
       <cart-items class="drawer__items" data-items-holder style="--base-animation-delay: {{ animation_delay }}ms">
@@ -159,55 +138,6 @@
   </form>
 {%- endcapture -%}
 
-{%- capture progress_bar -%}
-  {%- if gwp_message_block and hasactive_threshold_gwp -%}
-    <div class="cart-block"
-         data-animation="{{ animation_name }}"
-         data-animation-duration="{{ animation_duration }}"
-         data-animation-delay="{{ animation_delay }}"
-            {{ gwp_message_block.shopify_attributes }}>
-      {%- assign animation_delay = animation_delay | plus: animation_delay_initial -%}
-
-      {%- if gwp_message_block.settings.message != blank -%}
-        {%- render 'gwp-message'
-          threshold_gwp_blocks: threshold_gwp_blocks,
-          block: gwp_message_block,
-          show_wheel: false,
-          show_progress_bar: true,
-          is_cart_drawer: true
-        -%}
-      {%- endif -%}
-    </div>
-    {%- elsif free_shipping_block -%}
-    <div class="cart-block"
-         data-animation="{{ animation_name }}"
-         data-animation-duration="{{ animation_duration }}"
-         data-animation-delay="{{ animation_delay }}"
-            {{ free_shipping_block.shopify_attributes }}>
-      {%- assign animation_delay = animation_delay | plus: animation_delay_initial -%}
-
-      {%- if free_shipping_block.settings.message != blank -%}
-        {%- render 'free-shipping'
-          message: free_shipping_block.settings.message,
-          logo: free_shipping_block.settings.free_shipping_logo,
-          bg_color: free_shipping_block.settings.free_shipping_bg_color,
-          text_color: free_shipping_block.settings.free_shipping_text_color,
-          gradient: free_shipping_block.settings.free_shipping_gradient,
-          show_wheel: false,
-          show_progress_bar: true,
-          is_cart_drawer: true
-        -%}
-      {%- endif -%}
-    </div>
-  {%- endif -%}
-{%- endcapture -%}
-
-{%- if template.name == 'cart' -%}
-  <template id="cart-progress-bar-template">
-    {{ progress_bar }}
-  </template>
-{%- endif -%}
-
 {%- if template.name != 'cart' -%}
   <div
     data-section-id="{{ section.id }}"
@@ -270,17 +200,36 @@
             {{ cart_title }}
           </div>
 
-          {{ progress_bar }}
-
           <div class="cart-block"
                data-animation="{{ animation_name }}"
                data-animation-duration="{{ animation_duration }}"
                data-animation-delay="{{ animation_delay }}"
-            {{ product_block[0].shopify_attributes }}>
+            {{ free_shipping_block.shopify_attributes }}>
             {%- assign animation_delay = animation_delay | plus: animation_delay_initial -%}
 
-            {{ cart_items }}
+            {%- if free_shipping_block and free_shipping_block.settings.message != blank -%}
+              {%- render 'free-shipping'
+                message: free_shipping_block.settings.message,
+                logo: free_shipping_block.settings.free_shipping_logo,
+                bg_color: free_shipping_block.settings.free_shipping_bg_color,
+                text_color: free_shipping_block.settings.free_shipping_text_color,
+                gradient: free_shipping_block.settings.free_shipping_gradient,
+                show_wheel: false,
+                show_progress_bar: true,
+                is_cart_drawer: true
+              -%}
+            {%- endif -%}
           </div>
+
+            <div class="cart-block developer4"
+                 data-animation="{{ animation_name }}"
+                 data-animation-duration="{{ animation_duration }}"
+                 data-animation-delay="{{ animation_delay }}"
+              {{ product_block[0].shopify_attributes }}>
+              {%- assign animation_delay = animation_delay | plus: animation_delay_initial -%}
+
+              {{ cart_items }}
+            </div>
 
           <collapsible-elements data-drawer-body-collapsible-element="{{ section.id }}">
           {%- for block in section.blocks -%}
@@ -749,58 +698,12 @@
           "type": "color_background",
           "id": "free_shipping_gradient",
           "label": "Progress bar gradient"
-        }
-      ]
-    },
-    {
-      "type": "gwp-message",
-      "name": "GWP message",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "Has priority over “Free shipping message”. The final message is displayed in the cart only for the last GWP."
         },
         {
-          "type": "paragraph",
-          "content": "Displayed only for 'Cart total' GWP type."
-        },
-        {
-          "type": "textarea",
-          "id": "message",
-          "label": "Message",
-          "info": "Spend ||amount|| more to unlock your free gift.",
-          "default": "Spend ||amount|| more to unlock your free gift."
-        },
-        {
-          "type": "textarea",
-          "id": "final_message",
-          "label": "Final message",
-          "info": "You’ve unlocked your free gift!",
-          "default": "You’ve unlocked your free gift!"
-        },
-        {
-          "type": "image_picker",
-          "id": "logo",
-          "label": "Logo",
-          "info": "Add logo in the end of the message."
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Text color",
-          "default": "#0E5261"
-        },
-        {
-          "type": "color",
-          "id": "bg_color",
-          "label": "Background color",
-          "default": "#D6EBEB"
-        },
-        {
-          "type": "color_background",
-          "id": "gradient",
-          "label": "Progress bar gradient"
+          "type": "checkbox",
+          "id": "pin_to_bottom",
+          "label": "Pin to bottom",
+          "default": false
         }
       ]
     },
@@ -1084,111 +987,6 @@
           "id": "pin_to_bottom",
           "label": "Pin to bottom",
           "default": true
-        }
-      ]
-    },
-    {
-      "type": "gwp-threshold",
-      "name": "GWP (Cart Total)",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "A GWP block cannot contain products with the same variants. In this case, only one variant will be added."
-        },
-        {
-          "type": "product",
-          "id": "gwp_product",
-          "label": "Get product"
-        },
-        {
-          "type": "number",
-          "id": "gwp_product_variant_id",
-          "label": "Get product variant ID",
-          "info": "If the variant ID field is empty or added incorrectly, the first variant ID of the product is applied."
-        },
-        {
-          "type": "number",
-          "id": "threshold",
-          "label": "Threshold"
-        }
-      ]
-    },
-    {
-      "type": "gwp-product",
-      "name": "GWP (Product)",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "A GWP blocks cannot contain products with the same variants. In this case, only one variant will be added."
-        },
-        {
-          "type": "product",
-          "id": "gwp_add_product",
-          "label": "Add product",
-          "info": "To get the GWP, you need to add this product to your cart."
-        },
-        {
-          "type": "product",
-          "id": "gwp_product",
-          "label": "Get product"
-        },
-        {
-          "type": "number",
-          "id": "gwp_product_variant_id",
-          "label": "Get product variant ID",
-          "info": "If the variant ID field is empty or added incorrectly, the first variant ID of the product is applied."
-        }
-      ]
-    },
-    {
-      "type": "gwp-category",
-      "name": "GWP (Category)",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "A GWP blocks cannot contain products with the same variants. In this case, only one variant will be added."
-        },
-        {
-          "type": "collection",
-          "id": "gwp_add_collection",
-          "label": "Add category",
-          "info": "To get the GWP, you need to add a product from this category to your cart. Based on the limitations of collection product iterations, the number of products in a collection should not exceed 50."
-        },
-        {
-          "type": "product",
-          "id": "gwp_product",
-          "label": "Get product"
-        },
-        {
-          "type": "number",
-          "id": "gwp_product_variant_id",
-          "label": "Get product variant ID",
-          "info": "If the variant ID field is empty or added incorrectly, the first variant ID of the product is applied."
-        }
-      ]
-    },
-    {
-      "type": "gwp-subscription",
-      "name": "GWP (Subscription)",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "A GWP blocks cannot contain products with the same variants. In this case, only one variant will be added."
-        },
-        {
-          "type": "paragraph",
-          "content": "To get the GWP, you need to add a product with a subscription."
-        },
-        {
-          "type": "product",
-          "id": "gwp_product",
-          "label": "Get product"
-        },
-        {
-          "type": "number",
-          "id": "gwp_product_variant_id",
-          "label": "Get product variant ID",
-          "info": "If the variant ID field is empty or added incorrectly, the first variant ID of the product is applied."
         }
       ]
     }

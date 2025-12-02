@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -56,7 +47,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>Tell your brand's story through images.</p>",
+            "text": "<p>Tell your brand's story through images.<\/p>",
             "text_font_family": "primary-text__font",
             "text_font_size": "body-large",
             "color": "#005261",
@@ -74,12 +65,12 @@
       "name": "Image banner",
       "settings": {
         "section_mode": "flavcity-shop",
-        "image_1": "shopify://shop_images/1_1.png",
+        "image_1": "shopify:\/\/shop_images\/1_1.png",
         "link": "",
         "width": "wrapper--full",
         "height": "screen-height-one-half",
         "flex_align_desktop": "align--middle-center-desktop",
-        "mobile_image": "shopify://shop_images/2_1.png",
+        "mobile_image": "shopify:\/\/shop_images\/2_1.png",
         "mobile_height": "screen-height-one-third--mobile",
         "flex_align_mobile": "align--middle-center-mobile",
         "color_scheme": "",
@@ -100,14 +91,14 @@
             "shown_on": "both",
             "z_index": "3",
             "overflow_hidden": true,
-            "image": "shopify://shop_images/Subtract.png",
+            "image": "shopify:\/\/shop_images\/Subtract.png",
             "image_scale": 1,
             "max_width_desktop": 100,
             "desktop_x_position": 0,
             "desktop_x_transform": 0,
             "desktop_y_position": 0,
             "desktop_y_transform": -88,
-            "image_mobile": "shopify://shop_images/Subtract_1.png",
+            "image_mobile": "shopify:\/\/shop_images\/Subtract_1.png",
             "max_width_mobile": 100,
             "mobile_x_position": 0,
             "mobile_x_transform": 0,
@@ -183,7 +174,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>Tell your brand's story through images.</p>",
+            "text": "<p>Tell your brand's story through images.<\/p>",
             "text_font_family": "primary-text__font",
             "text_font_size": "body-large",
             "color": "#005261",
@@ -250,7 +241,7 @@
         "text_mBHa3h": {
           "type": "text",
           "settings": {
-            "text": "<p>REAL INGREDIENTS</p>",
+            "text": "<p>REAL INGREDIENTS<\/p>",
             "text_font_size": "body-small",
             "color": "rgba(0,0,0,0)",
             "target_device_enabled": false,
@@ -260,7 +251,7 @@
         "text_4qdNVB": {
           "type": "text",
           "settings": {
-            "text": "<p>100% GRASS-FED WHOLE MILK</p>",
+            "text": "<p>100% GRASS-FED WHOLE MILK<\/p>",
             "text_font_size": "body-small",
             "color": "",
             "target_device_enabled": false,
@@ -270,7 +261,7 @@
         "text_iJ46eC": {
           "type": "text",
           "settings": {
-            "text": "<p>LESS THAN $3 A CUP</p>",
+            "text": "<p>LESS THAN $3 A CUP<\/p>",
             "text_font_size": "body-small",
             "color": "",
             "target_device_enabled": false,
@@ -303,7 +294,7 @@
           "type": "featured_image",
           "disabled": true,
           "settings": {
-            "featured_image": "shopify://shop_images/2_1.png",
+            "featured_image": "shopify:\/\/shop_images\/2_1.png",
             "position": 5,
             "featured_heading": "",
             "heading_font_size": "heading-large",
@@ -348,7 +339,7 @@
       "type": "apps",
       "blocks": {
         "instafeed_app_block_ee3jX9": {
-          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "type": "shopify:\/\/apps\/instafeed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
             "title": "on instagram",
             "title_color": "#3f2021",
