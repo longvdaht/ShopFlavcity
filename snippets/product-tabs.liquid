@@ -1,0 +1,193 @@
+{%- comment -%}
+  <!-- /snippets/product-tabs.liquid -->
+
+  Renders product tabs
+
+  Accepts:
+  - product: {Object} Current product (optional)
+
+  Usage:
+  {% render 'product-tabs', product: product  %}
+{%- endcomment -%}
+
+{%- liquid
+  assign show_description = block.settings.show_description
+  assign show_ingredients = block.settings.show_ingredients
+  assign show_faq = block.settings.show_faq
+  assign show_read_more = block.settings.show_read_more
+  assign product_description_title = 'products.general.description' | t
+  assign product_description_content = product.description | strip
+-%}
+
+{%- if block.type == 'tab_richtext' -%}
+  {%- liquid
+    assign tab_links_html = ''
+    assign tab_contents_html = ''
+    assign count = 0
+  -%}
+
+  {%- if show_description and product_description_content != blank -%}
+    {%- capture tab_links_html -%}
+      <li class="tab-link tab-link-0 current" data-tab="0" tabindex="0" data-attributes-placeholder>
+        <span>{{ product_description_title }}</span>
+      </li>
+    {%- endcapture -%}
+
+    {%- capture tab_contents_html -%}
+      <div class="tab-content tab-content-0 current rte">
+        {%- render 'toggle-ellipsis', content: product_description_content, show_read_more: show_read_more -%}
+      </div>
+    {%- endcapture -%}
+
+    {%- assign count = 1 -%}
+  {%- endif -%}
+
+  {%- for i in (1..5) -%}
+    {%- liquid
+      assign title = 'title_' | append: forloop.index
+      assign title = block.settings[title]
+      assign content = 'raw_content_' | append: forloop.index
+      assign content = block.settings[content]
+    -%}
+
+    {%- if title != '' and content != '' -%}
+      {%- capture tab_links_html -%}
+        {{ tab_links_html }}
+
+        <li class="tab-link tab-link-{{ count }}{% if count == 0 %} current{% endif %}" data-tab="{{ count }}" tabindex="0">
+          <span>{{ title }}</span>
+        </li>
+      {%- endcapture -%}
+
+      {%- capture tab_contents_html -%}
+        {{ tab_contents_html }}
+
+        <div class="tab-content tab-content-{{ count }}{% if count == 0 %} current{% endif %} rte">
+          {%- render 'toggle-ellipsis', content: content, show_read_more: show_read_more -%}
+        </div>
+      {%- endcapture -%}
+
+      {%- assign count = count | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if tab_contents_html -%}
+    <tabs-component class="product-tabs" {{ block.shopify_attributes }}>
+      <native-scrollbar class="tabs__head product-tabs__head">
+        <ul class="tabs product-tabs-title" data-scrollbar data-scrollbar-slider>
+          {{ tab_links_html }}
+        </ul>
+
+        <button
+          type="button"
+          class="tabs__arrow tabs__arrow--prev product-tabs__arrow product-tabs__arrow--prev is-hidden"
+          data-scrollbar-arrow-prev
+        >
+          {%- render 'icon-nav-arrow-left' -%}
+          <span class="visually-hidden">{{ 'products.general.see_all' | t }}</span>
+        </button>
+
+        <button
+          type="button"
+          class="tabs__arrow tabs__arrow--next product-tabs__arrow product-tabs__arrow--next is-hidden"
+          data-scrollbar-arrow-next
+        >
+          {%- render 'icon-nav-arrow-right' -%}
+          <span class="visually-hidden">{{ 'products.general.see_all' | t }}</span>
+        </button>
+      </native-scrollbar>
+
+      {{ tab_contents_html }}
+    </tabs-component>
+  {%- elsif request.design_mode -%}
+    <span {{ block.shopify_attributes }}></span>
+  {%- endif -%}
+{%- elsif block.type == 'accordion' -%}
+  {%- liquid
+    assign accordion_heading = block.settings.heading
+    assign accordion_text = block.settings.text
+    assign accordion_open = block.settings.default_open
+    assign accordion_content = accordion_text
+
+    if show_description
+      assign accordion_content = product_description_content | append: accordion_text
+    endif
+
+    if show_ingredients
+      capture ingredient_content
+        echo ingredient_content
+
+        echo product.metafields.accentuate.ingredients_details.html
+        assign bloks_size = product.metafields.ingredients.item_title.size | minus: 1
+
+        for i in (0..bloks_size)
+          echo '<div class="accordion__content-ingredient-wrapper">'
+            echo '<div class="accordion__content-ingredient-image">'
+              render "image-metafields", image: product.metafields.ingredients.item_image[i][0], small_size: true
+            echo '</div>'
+
+            echo '<div>'
+              echo '<strong>' | append: product.metafields.ingredients.item_title[i] | append: '</strong>'
+              echo '<p class="body-medium">' | append: product.metafields.ingredients.item_text[i] | append: '</p>'
+            echo '</div>'
+          echo '</div>'
+        endfor
+      endcapture
+
+      assign accordion_content = ingredient_content | default: accordion_text
+    endif
+
+    if show_faq
+      capture faq_content
+        echo faq_content
+
+        assign bloks_size = product.metafields.accentuate.question_item.size | minus: 1
+
+        for i in (0..bloks_size)
+          echo '<div class="accordion__content-faq-wrapper">'
+            echo '<strong>' | append: product.metafields.accentuate.question_item[i] | append: '</strong>'
+            echo '<div class="body-medium">' | append: product.metafields.accentuate.answer_item[i].html | append: '</div>'
+          echo '</div>'
+        endfor
+      endcapture
+
+      assign accordion_content = faq_content | default: accordion_text
+    endif
+  -%}
+
+  {%- if accordion_heading != blank and accordion_content != blank -%}
+    <collapsible-elements single="true">
+      <div class="product-accordion">
+        <details
+          class="accordion"
+          data-collapsible
+          {% if accordion_open %}
+            open="true"
+          {% endif %}
+          {{ block.shopify_attributes }}
+        >
+          <summary class="accordion__title" data-collapsible-trigger>
+            {{ accordion_heading }}
+
+            {%- render 'icon-plus' -%}
+            {%- render 'icon-minus' -%}
+          </summary>
+
+          <div
+            class="accordion__body rte"
+            data-collapsible-body
+            {% if accordion_open %}
+              style="height: auto;"
+            {% endif %}
+          >
+            <div class="accordion__content {% if show_ingredients %}accordion__content--ingredients{% endif %} {% if show_faq %}accordion__content--faq{% endif %}"  data-collapsible-content>
+              {%- render 'toggle-ellipsis', content: accordion_content, show_read_more: show_read_more -%}
+            </div>
+          </div>
+        </details>
+      </div>
+    </collapsible-elements>
+  {%- elsif request.design_mode -%}
+    <span {{ block.shopify_attributes }}></span>
+  {%- endif -%}
+{%- endif -%}

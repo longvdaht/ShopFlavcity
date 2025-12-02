@@ -1,0 +1,1017 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product",
+      "blocks": {
+        "navigation_w7LNw3": {
+          "type": "navigation",
+          "settings": {
+            "subheading_option": "breadcrumb",
+            "padding_bottom": 8,
+            "padding_bottom_mobile": 8
+          }
+        },
+        "badges_LzQMUE": {
+          "type": "badges",
+          "settings": {
+            "product_badges_over_image": false,
+            "product_type": false,
+            "product_badges": true,
+            "sale_badge": true,
+            "sold_out_badge": false,
+            "show_automatic_new_badge": false,
+            "badge_new_date_limit": 5,
+            "padding_bottom": 4,
+            "padding_bottom_mobile": 4
+          }
+        },
+        "okendo_star_rating_Xk4Et7": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "subheading_option": "none",
+            "heading_font_size": "heading-x-large",
+            "padding_bottom": 40,
+            "padding_bottom_mobile": 32
+          }
+        },
+        "note_yhqBMT": {
+          "type": "note",
+          "settings": {
+            "note": "{{ product.metafields.additional.note.value }}",
+            "padding_bottom": 24,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "text_font_size": "body-x-large",
+            "padding_bottom": 40,
+            "padding_bottom_mobile": 32
+          }
+        },
+        "description_WxJPDc": {
+          "type": "description",
+          "settings": {
+            "show_read_more": true,
+            "show_description": false,
+            "text": "{{ product.metafields.additional.content_description | metafield_tag }}",
+            "padding_bottom": 40,
+            "padding_bottom_mobile": 48
+          }
+        },
+        "variants": {
+          "type": "variants",
+          "settings": {
+            "info_page": "",
+            "size_chart_style": "text",
+            "subscriptions_enable_selectors": true,
+            "padding_bottom": 24,
+            "padding_bottom_mobile": 16
+          }
+        },
+        "siblings_CiRHYe": {
+          "type": "siblings",
+          "settings": {
+            "sibling_type": "list",
+            "padding_bottom": 24,
+            "padding_bottom_mobile": 16
+          }
+        },
+        "subscriptions_4mHzaT": {
+          "type": "subscriptions",
+          "settings": {
+            "subscriptions_enable_selectors": true,
+            "padding_bottom": 24,
+            "padding_bottom_mobile": 16
+          }
+        },
+        "skio_subscriptions_yc_s20_app_block_NNydfX": {
+          "type": "shopify://apps/skio-subscriptions-yc-s20/blocks/app-block/de50f7a4-0bb0-4d4c-84e2-c03dce83436d",
+          "disabled": true,
+          "settings": {
+            "form_id": "ProductForm--{{section.id}}-{{product.id}}",
+            "start_onetime": "true",
+            "onetime_first": "true",
+            "default_subscription": "",
+            "group_border_radius": 20,
+            "group_border_shadow": true,
+            "group_border_selected_color": "#005261",
+            "onetime_title": "One - time Purchase",
+            "subscription_title": "Subscribe & Save",
+            "prepaid_title": "Delivery",
+            "discount_format": "percent",
+            "discount_style": "bubble",
+            "discount_prefix": "",
+            "discount_suffix": "Off",
+            "discount_color": "#94070a"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "show_quantity": true,
+            "button_type": "btn--primary",
+            "button_style": "",
+            "show_payment_button": true,
+            "button_type_dynamic": "btn--secondary",
+            "button_style_dynamic": "btn--solid",
+            "show_gift_card_recipient": true,
+            "padding_bottom": 32,
+            "padding_bottom_mobile": 40
+          }
+        },
+        "icon_HyX6Qn": {
+          "type": "icon",
+          "settings": {
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": "",
+            "text": "<p>FREE gift on all orders & BONUS mystery gift on orders $100+</p>",
+            "text_font_size": "body-small",
+            "width": "full",
+            "padding_bottom": 16
+          }
+        },
+        "code_4RkMJn": {
+          "type": "code",
+          "disabled": true,
+          "settings": {
+            "code": "<p>Free Domestic Shipping On Orders Over ${{settings.free_shipping_limit}}</p>",
+            "padding_bottom": 16,
+            "padding_bottom_mobile": 8
+          }
+        },
+        "pickup": {
+          "type": "pickup",
+          "disabled": true,
+          "settings": {
+            "padding_bottom": 32
+          }
+        },
+        "divider_1": {
+          "type": "divider",
+          "disabled": true,
+          "settings": {
+            "show_line": true,
+            "padding_bottom": 16
+          }
+        },
+        "icon_1": {
+          "type": "icon",
+          "disabled": true,
+          "settings": {
+            "icon_name": "icon-email",
+            "icon_size": 20,
+            "icon_color": "",
+            "text": "<p>Free 30 Days Returns</p>",
+            "text_font_size": "body-medium",
+            "width": "full",
+            "padding_bottom": 16
+          }
+        },
+        "icon_2": {
+          "type": "icon",
+          "disabled": true,
+          "settings": {
+            "icon_name": "icon-truck",
+            "icon_size": 20,
+            "icon_color": "",
+            "text": "<p>Free shipping on orders over $100</p>",
+            "text_font_size": "body-medium",
+            "width": "full",
+            "padding_bottom": 16
+          }
+        },
+        "accordion_gE3xnm": {
+          "type": "accordion",
+          "settings": {
+            "show_description": true,
+            "show_ingredients": false,
+            "show_faq": false,
+            "show_read_more": false,
+            "default_open": true,
+            "heading": "Description",
+            "text": "",
+            "padding_bottom": 0,
+            "padding_bottom_mobile": 8
+          }
+        },
+        "accordion_zRr94r": {
+          "type": "accordion",
+          "settings": {
+            "show_description": false,
+            "show_ingredients": true,
+            "show_faq": false,
+            "show_read_more": false,
+            "default_open": false,
+            "heading": "Ingredients",
+            "text": "<p>{{ product.metafields.additional.ingredients | metafield_tag }}</p>",
+            "padding_bottom": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "accordion_6RzG47": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_description": false,
+            "show_ingredients": false,
+            "show_faq": true,
+            "show_read_more": false,
+            "default_open": false,
+            "heading": "FAQ",
+            "text": "<p>{{ product.metafields.additional.faq | metafield_tag }}</p>",
+            "padding_bottom": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "accordion_xcTApd": {
+          "type": "accordion",
+          "disabled": true,
+          "settings": {
+            "show_description": false,
+            "show_ingredients": false,
+            "show_faq": false,
+            "show_read_more": true,
+            "default_open": false,
+            "heading": "Shipping & returns",
+            "text": "<p>Due to the nature of this product, all sales are final. Please double check the address you are shipping to, as we are unable to change it after the order is placed.</p>",
+            "padding_bottom": 24,
+            "padding_bottom_mobile": 16
+          }
+        }
+      },
+      "block_order": [
+        "navigation_w7LNw3",
+        "badges_LzQMUE",
+        "okendo_star_rating_Xk4Et7",
+        "title",
+        "note_yhqBMT",
+        "price",
+        "description_WxJPDc",
+        "variants",
+        "siblings_CiRHYe",
+        "subscriptions_4mHzaT",
+        "skio_subscriptions_yc_s20_app_block_NNydfX",
+        "buttons",
+        "icon_HyX6Qn",
+        "code_4RkMJn",
+        "pickup",
+        "divider_1",
+        "icon_1",
+        "icon_2",
+        "accordion_gE3xnm",
+        "accordion_zRr94r",
+        "accordion_6RzG47",
+        "accordion_xcTApd"
+      ],
+      "settings": {
+        "product_sticky_enable": true,
+        "variant_image_scroll": true,
+        "show_cart_bar": true,
+        "enable_zoom": false,
+        "enable_video_looping": false,
+        "image_layout": "thumbnails-left",
+        "color_scheme": "scheme-c471a6a3-af90-4097-9b89-9a56c0983877",
+        "padding_top": 60,
+        "padding_top_mobile": 10,
+        "padding_bottom": 100,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "section_reviews_Peb7AK": {
+      "type": "section-reviews",
+      "blocks": {
+        "review_t6EQgP": {
+          "type": "review",
+          "settings": {
+            "additional_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"98\" height=\"18\" viewBox=\"0 0 98 18\" fill=\"none\">\n<path d=\"M9 0L11.116 6.08754L17.5595 6.21885L12.4238 10.1125L14.2901 16.2812L9 12.6L3.70993 16.2812L5.5762 10.1125L0.440492 6.21885L6.88397 6.08754L9 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M29 0L31.116 6.08754L37.5595 6.21885L32.4238 10.1125L34.2901 16.2812L29 12.6L23.7099 16.2812L25.5762 10.1125L20.4405 6.21885L26.884 6.08754L29 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M49 0L51.116 6.08754L57.5595 6.21885L52.4238 10.1125L54.2901 16.2812L49 12.6L43.7099 16.2812L45.5762 10.1125L40.4405 6.21885L46.884 6.08754L49 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M69 0L71.116 6.08754L77.5595 6.21885L72.4238 10.1125L74.2901 16.2812L69 12.6L63.7099 16.2812L65.5762 10.1125L60.4405 6.21885L66.884 6.08754L69 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M89 0L91.116 6.08754L97.5595 6.21885L92.4238 10.1125L94.2901 16.2812L89 12.6L83.7099 16.2812L85.5762 10.1125L80.4405 6.21885L86.884 6.08754L89 0Z\" fill=\"#00B9B9\"/>\n</svg>",
+            "title": "Chad S.",
+            "subheading_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\">\n<g clip-path=\"url(#clip0_2305_561)\">\n<path d=\"M9 1.6875C7.55373 1.6875 6.13993 2.11637 4.9374 2.91988C3.73486 3.72339 2.7976 4.86544 2.24413 6.20163C1.69067 7.53781 1.54586 9.00811 1.82801 10.4266C2.11017 11.8451 2.80661 13.148 3.82928 14.1707C4.85196 15.1934 6.15492 15.8898 7.57341 16.172C8.99189 16.4541 10.4622 16.3093 11.7984 15.7559C13.1346 15.2024 14.2766 14.2651 15.0801 13.0626C15.8836 11.8601 16.3125 10.4463 16.3125 9C16.3105 7.06123 15.5394 5.20246 14.1685 3.83154C12.7975 2.46063 10.9388 1.68955 9 1.6875ZM12.2105 7.71047L8.27297 11.648C8.22073 11.7003 8.15869 11.7418 8.09041 11.7701C8.02212 11.7984 7.94892 11.8129 7.875 11.8129C7.80108 11.8129 7.72789 11.7984 7.6596 11.7701C7.59131 11.7418 7.52928 11.7003 7.47703 11.648L5.78953 9.96047C5.68399 9.85492 5.62469 9.71177 5.62469 9.5625C5.62469 9.41323 5.68399 9.27008 5.78953 9.16453C5.89508 9.05898 6.03824 8.99969 6.1875 8.99969C6.33677 8.99969 6.47992 9.05898 6.58547 9.16453L7.875 10.4548L11.4145 6.91453C11.4668 6.86227 11.5288 6.82081 11.5971 6.79253C11.6654 6.76424 11.7386 6.74969 11.8125 6.74969C11.8864 6.74969 11.9596 6.76424 12.0279 6.79253C12.0962 6.82081 12.1582 6.86227 12.2105 6.91453C12.2627 6.96679 12.3042 7.02884 12.3325 7.09712C12.3608 7.1654 12.3753 7.23859 12.3753 7.3125C12.3753 7.38641 12.3608 7.4596 12.3325 7.52788C12.3042 7.59616 12.2627 7.65821 12.2105 7.71047Z\" fill=\"#F68C59\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_2305_561\">\n<rect width=\"18\" height=\"18\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>",
+            "subheading": "Verified Buyer",
+            "review_content": "<p>If you’ve ever had a shamrock shake from McDonald’s growing up, this tastes just like it in the best way.</p>",
+            "featured_image": "shopify://shop_images/Mask_group.jpg",
+            "review_url": "/"
+          }
+        },
+        "review_4zQqLw": {
+          "type": "review",
+          "settings": {
+            "additional_code": "",
+            "title": "Example Customer",
+            "subheading_code": "",
+            "subheading": "Industry Expert",
+            "review_content": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.</p>",
+            "review_url": ""
+          }
+        },
+        "review_jbDMMK": {
+          "type": "review",
+          "settings": {
+            "additional_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"98\" height=\"18\" viewBox=\"0 0 98 18\" fill=\"none\">\n<path d=\"M9 0L11.116 6.08754L17.5595 6.21885L12.4238 10.1125L14.2901 16.2812L9 12.6L3.70993 16.2812L5.5762 10.1125L0.440492 6.21885L6.88397 6.08754L9 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M29 0L31.116 6.08754L37.5595 6.21885L32.4238 10.1125L34.2901 16.2812L29 12.6L23.7099 16.2812L25.5762 10.1125L20.4405 6.21885L26.884 6.08754L29 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M49 0L51.116 6.08754L57.5595 6.21885L52.4238 10.1125L54.2901 16.2812L49 12.6L43.7099 16.2812L45.5762 10.1125L40.4405 6.21885L46.884 6.08754L49 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M69 0L71.116 6.08754L77.5595 6.21885L72.4238 10.1125L74.2901 16.2812L69 12.6L63.7099 16.2812L65.5762 10.1125L60.4405 6.21885L66.884 6.08754L69 0Z\" fill=\"#00B9B9\"/>\n<path d=\"M89 0L91.116 6.08754L97.5595 6.21885L92.4238 10.1125L94.2901 16.2812L89 12.6L83.7099 16.2812L85.5762 10.1125L80.4405 6.21885L86.884 6.08754L89 0Z\" fill=\"#00B9B9\"/>\n</svg>",
+            "title": "Chad S.",
+            "subheading_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\">\n<g clip-path=\"url(#clip0_2305_561)\">\n<path d=\"M9 1.6875C7.55373 1.6875 6.13993 2.11637 4.9374 2.91988C3.73486 3.72339 2.7976 4.86544 2.24413 6.20163C1.69067 7.53781 1.54586 9.00811 1.82801 10.4266C2.11017 11.8451 2.80661 13.148 3.82928 14.1707C4.85196 15.1934 6.15492 15.8898 7.57341 16.172C8.99189 16.4541 10.4622 16.3093 11.7984 15.7559C13.1346 15.2024 14.2766 14.2651 15.0801 13.0626C15.8836 11.8601 16.3125 10.4463 16.3125 9C16.3105 7.06123 15.5394 5.20246 14.1685 3.83154C12.7975 2.46063 10.9388 1.68955 9 1.6875ZM12.2105 7.71047L8.27297 11.648C8.22073 11.7003 8.15869 11.7418 8.09041 11.7701C8.02212 11.7984 7.94892 11.8129 7.875 11.8129C7.80108 11.8129 7.72789 11.7984 7.6596 11.7701C7.59131 11.7418 7.52928 11.7003 7.47703 11.648L5.78953 9.96047C5.68399 9.85492 5.62469 9.71177 5.62469 9.5625C5.62469 9.41323 5.68399 9.27008 5.78953 9.16453C5.89508 9.05898 6.03824 8.99969 6.1875 8.99969C6.33677 8.99969 6.47992 9.05898 6.58547 9.16453L7.875 10.4548L11.4145 6.91453C11.4668 6.86227 11.5288 6.82081 11.5971 6.79253C11.6654 6.76424 11.7386 6.74969 11.8125 6.74969C11.8864 6.74969 11.9596 6.76424 12.0279 6.79253C12.0962 6.82081 12.1582 6.86227 12.2105 6.91453C12.2627 6.96679 12.3042 7.02884 12.3325 7.09712C12.3608 7.1654 12.3753 7.23859 12.3753 7.3125C12.3753 7.38641 12.3608 7.4596 12.3325 7.52788C12.3042 7.59616 12.2627 7.65821 12.2105 7.71047Z\" fill=\"#F68C59\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_2305_561\">\n<rect width=\"18\" height=\"18\" fill=\"white\"/>\n</clipPath>\n</defs>\n</svg>",
+            "subheading": "Verified Buyer",
+            "review_content": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.</p>",
+            "featured_image": "shopify://shop_images/Mask_group_1.jpg",
+            "review_url": ""
+          }
+        },
+        "review_RwpLRb": {
+          "type": "review",
+          "settings": {
+            "additional_code": "",
+            "title": "Chad S.",
+            "subheading_code": "",
+            "subheading": "Verified Buyer",
+            "review_content": "<p>\"Better flavor, better hydration. I've tried a lot of hydration products, this one outperforms them all.\"</p>",
+            "review_url": ""
+          }
+        },
+        "review_Uq4dWY": {
+          "type": "review",
+          "settings": {
+            "additional_code": "",
+            "title": "Kenneth Powell",
+            "subheading_code": "",
+            "subheading": "Verified Buyer",
+            "review_content": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.</p>",
+            "review_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_t6EQgP",
+        "review_4zQqLw",
+        "review_jbDMMK",
+        "review_RwpLRb",
+        "review_Uq4dWY"
+      ],
+      "disabled": true,
+      "settings": {
+        "width": "wrapper--full-padded",
+        "show_featured_image": true,
+        "image_aspect_ratio": 0,
+        "image_aspect_ratio_mobile": 1,
+        "heading_font_size": "heading-mini h6",
+        "text_align": "text-left",
+        "color_scheme": "",
+        "card_bg_color": "#f2f6f7",
+        "padding_top": 60,
+        "padding_bottom": 100,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "wave_separator_bmPNTk": {
+      "type": "wave-separator",
+      "blocks": {
+        "decorative_element_eJPY6M": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "both",
+            "z_index": "unset",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_3_3x_3_copy_2.png",
+            "image_scale": 1,
+            "max_width_desktop": 4,
+            "desktop_x_position": 55,
+            "desktop_x_transform": 0,
+            "desktop_y_position": 15,
+            "desktop_y_transform": 0,
+            "image_mobile": "shopify://shop_images/Asset_3_3x_3_copy_2.png",
+            "max_width_mobile": 12,
+            "mobile_x_position": 79,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 10,
+            "mobile_y_transform": 0,
+            "aos_animation": "unset",
+            "scroll_animation": "translate",
+            "scroll_direction": "down left",
+            "scroll_percentage": 100,
+            "rotate_effect": false,
+            "rotate_effect_from": -10,
+            "rotate_effect_to": -10
+          }
+        },
+        "decorative_element_KTyP6a": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "both",
+            "z_index": "unset",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_3_3x_3_copy.png",
+            "image_scale": 1,
+            "max_width_desktop": 3,
+            "desktop_x_position": 46,
+            "desktop_x_transform": 0,
+            "desktop_y_position": 70,
+            "desktop_y_transform": 0,
+            "image_mobile": "shopify://shop_images/Asset_3_3x_3_copy.png",
+            "max_width_mobile": 12,
+            "mobile_x_position": 45,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 40,
+            "mobile_y_transform": 0,
+            "aos_animation": "unset",
+            "scroll_animation": "translate",
+            "scroll_direction": "up",
+            "scroll_percentage": 100,
+            "rotate_effect": false,
+            "rotate_effect_from": -10,
+            "rotate_effect_to": -10
+          }
+        },
+        "decorative_element_XdkY3n": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "both",
+            "z_index": "unset",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Frame_1597881448_3.png",
+            "image_scale": 1,
+            "max_width_desktop": 4,
+            "desktop_x_position": 35,
+            "desktop_x_transform": 0,
+            "desktop_y_position": 0,
+            "desktop_y_transform": 0,
+            "image_mobile": "shopify://shop_images/Frame_1597881448_3.png",
+            "max_width_mobile": 12,
+            "mobile_x_position": 6,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 8,
+            "mobile_y_transform": 0,
+            "aos_animation": "unset",
+            "scroll_animation": "translate",
+            "scroll_direction": "down right",
+            "scroll_percentage": 100,
+            "rotate_effect": false,
+            "rotate_effect_from": -10,
+            "rotate_effect_to": -10
+          }
+        }
+      },
+      "block_order": [
+        "decorative_element_eJPY6M",
+        "decorative_element_KTyP6a",
+        "decorative_element_XdkY3n"
+      ],
+      "name": "Wave Separator",
+      "settings": {
+        "custom_selector": "wave-separator__section",
+        "bg_color": "#fff8ea",
+        "desktop_wave": "shopify://shop_images/Frame_1597881448_457da1e5-05d9-4dff-b659-e9485647f1da.png",
+        "mobile_wave": "shopify://shop_images/Frame_1597881447_70e010ec-06cb-4894-bba8-23e2fb1bb7c8.png"
+      }
+    },
+    "double": {
+      "type": "section-double",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "title": "Velvety",
+            "color": "#057680",
+            "heading_font_family": "ternary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 0,
+            "heading_tag": "automatic"
+          }
+        },
+        "heading_RhwknH": {
+          "type": "heading",
+          "settings": {
+            "title": "Caramel Coffee",
+            "color": "#3f2021",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 32,
+            "heading_tag": "automatic"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Golden, buttery, and smooth. Our Caramel Macchiato swirls bold coffee with rich caramel sweetness and 100% grass-fed whole milk for cozy comfort. Real ingredient indulgence, ready in seconds, under $3 a cup.</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 32,
+            "padding_bottom_mobile": 16
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "heading_RhwknH",
+        "text"
+      ],
+      "settings": {
+        "section_mode": "flavcity-cafe",
+        "custom_selector": "image_with_text__product",
+        "image_1": "shopify://shop_images/Glass-with-circle_1500x1500_ingrd_SC.png",
+        "image_shape": "circle",
+        "image_width": "one-half",
+        "text_alignment": "text-left",
+        "layout": "",
+        "width": "wrapper",
+        "height": "image-height",
+        "mobile_height": "image-height--mobile",
+        "reverse_blocks": false,
+        "color_scheme": "scheme-c471a6a3-af90-4097-9b89-9a56c0983877",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 0,
+        "show_placeholder": true
+      }
+    },
+    "image_with_text_bg_zFw6Lk": {
+      "type": "image-with-text-bg",
+      "blocks": {
+        "heading_mrjMir": {
+          "type": "heading",
+          "settings": {
+            "title": "Rich",
+            "color": "#057680",
+            "heading_font_family": "ternary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "padding_bottom": 0,
+            "heading_tag": "automatic"
+          }
+        },
+        "heading_7dE6GU": {
+          "type": "heading",
+          "settings": {
+            "title": "Caramel Delight",
+            "color": "#3f2021",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "padding_bottom": 32,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_nbyExx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our lattes have ingredients like 100% grass-fed whole milk and real-ingredient caramel flavor. We said no to fillers, gums, and ‘natural’ flavors that leave you feeling tired and groggy mid day. Our lattes give you what you need to have a successful day.</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "padding_bottom": 32
+          }
+        },
+        "decorative_element_pyNgiq": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "desktop",
+            "z_index": "unset",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_3_3x_14.png",
+            "max_width_desktop": 30,
+            "desktop_x_position": 2,
+            "desktop_x_transform": -10,
+            "desktop_y_position": 0,
+            "desktop_y_transform": 30,
+            "max_width_mobile": 10,
+            "mobile_x_position": 50,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 50,
+            "mobile_y_transform": 0,
+            "aos_animation": "unset",
+            "scroll_animation": "translate",
+            "scroll_direction": "up",
+            "scroll_percentage": 100,
+            "rotate_effect": false
+          }
+        },
+        "decorative_element_TX3RF6": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "desktop",
+            "z_index": "unset",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_3_3x_14.png",
+            "max_width_desktop": 30,
+            "desktop_x_position": 70,
+            "desktop_x_transform": 0,
+            "desktop_y_position": 85,
+            "desktop_y_transform": 0,
+            "max_width_mobile": 10,
+            "mobile_x_position": 50,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 50,
+            "mobile_y_transform": 0,
+            "aos_animation": "unset",
+            "scroll_animation": "translate",
+            "scroll_direction": "up",
+            "scroll_percentage": 100,
+            "rotate_effect": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_mrjMir",
+        "heading_7dE6GU",
+        "text_nbyExx",
+        "decorative_element_pyNgiq",
+        "decorative_element_TX3RF6"
+      ],
+      "name": "Image with text (bg)",
+      "settings": {
+        "custom_selector": "image-with-text__bg",
+        "background_color": "linear-gradient(180deg, rgba(239, 219, 178, 1) 45%, rgba(255, 248, 234, 1) 48%)",
+        "enable_parallax": true,
+        "image_bg_desktop": "shopify://shop_images/coffee_beans.png",
+        "image_bg_desktop_secondary": "shopify://shop_images/Asset_3_3x_4_copy.png",
+        "image_bg_mobile": "shopify://shop_images/Frame_1597881459.png",
+        "image": "shopify://shop_images/Cafe_PDP_Ingredients_granulated_BS_2_1.png",
+        "image_shape": "circle",
+        "image_width": "one-half",
+        "text_alignment": "text-left",
+        "layout": "is-reversed",
+        "width": "wrapper--full-padded",
+        "height": "image-height",
+        "mobile_height": "image-height--mobile",
+        "color_scheme": "scheme-c471a6a3-af90-4097-9b89-9a56c0983877",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "section_accordion_group_PQGngM": {
+      "type": "section-accordion-group",
+      "blocks": {
+        "heading_jTmgED": {
+          "type": "heading",
+          "settings": {
+            "title": "Frequently Asked Questions",
+            "align_text": "text-center",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-large"
+          }
+        },
+        "question_TnTm79": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "default_open": false,
+            "title": "{{ product.metafields.faq.question_first.value }}",
+            "content": "<p>{{ product.metafields.faq.answer_first | metafield_tag }}</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_TpgFjQ": {
+          "type": "question",
+          "settings": {
+            "default_open": true,
+            "title": "How to make an instant coffee latte?",
+            "content": "<p>Simply add water and treat yourself to a hot or iced latte. </p><ul><li>For an iced latte: Add 2 scoops of FlavCity Café, 8oz of water and ice. Shake for 20 seconds & enjoy!</li><li>For a hot latte: Add 2 scoops of FlavCity Café and 8oz of hot water. Stir for 20 seconds & sip!</li></ul>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 40,
+            "icon_color": ""
+          }
+        },
+        "question_GGkzxG": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "How much caffeine is in a FlavCity Café Latte?",
+            "content": "<p>Our Salted Caramel Macchiato has about 60mg of caffeine per serving. Because coffee beans are a natural product, the exact amount can vary slightly from batch to batch.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_ApGtUK": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "Is there protein in a FlavCity Café Macchiato?",
+            "content": "<p>FlavCity Café Lattes, Macchiatos, and Mochas contain 6–7 grams of protein per serving, all naturally sourced from 100% grass-fed whole milk. Our Café line wasn’t designed to be a <a href=\"/collections/coffee\" title=\"Coffee\">protein-packed latte</a>, but rather a better-for-you version of your favorite coffee shop classics.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_hrXKiH": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "Is there added sugar?",
+            "content": "<p>The Brown Sugar Instant Latte and the Salted Caramel Instant Macchiato have 4-6g of organic coconut sugar. Coconut sugar is a natural sweetener from coconut palm sap. It’s minimally processed, contains trace nutrients, and has a lower glycemic index than refined sugar. We use it sparingly, only where other sweeteners couldn’t deliver the authentic flavor and balanced sweetness you expect with these flavors, while staying true to our no refined sugar promise. <br/><br/>The rest of the flavors have no sugar added.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_jTmgED",
+        "question_TnTm79",
+        "question_TpgFjQ",
+        "question_GGkzxG",
+        "question_ApGtUK",
+        "question_hrXKiH"
+      ],
+      "settings": {
+        "section_mode": "flavcity-cafe",
+        "enable_sticky_position": true,
+        "show_blocks_from_metafield": false,
+        "question_font_size": "heading-mini",
+        "width": "wrapper",
+        "columns": "1",
+        "color_scheme": "scheme-c471a6a3-af90-4097-9b89-9a56c0983877",
+        "padding_top": 50,
+        "padding_bottom": 100,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 45
+      }
+    },
+    "wave_separator_r643pd": {
+      "type": "wave-separator",
+      "name": "Wave Separator",
+      "settings": {
+        "custom_selector": "",
+        "bg_color": "#fff8ea",
+        "desktop_wave": "shopify://shop_images/Frame_1597881446.svg",
+        "mobile_wave": "shopify://shop_images/Frame_1597881449.svg"
+      }
+    },
+    "section-tab-collections": {
+      "type": "section-tab-collections",
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "featured_product_list": "{{ block.settings.featured_collection.products }}",
+            "featured_collection": "featured",
+            "show_image": false,
+            "align_with_product_images": true,
+            "overlay_opacity": 5,
+            "overlay_color": "#000000",
+            "description": "",
+            "color": "#ffffff",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false
+          }
+        }
+      },
+      "block_order": [
+        "collection-1"
+      ],
+      "settings": {
+        "section_mode": "flavcity-cafe",
+        "show_product_count": false,
+        "enable_navigation": false,
+        "show_empty_section": false,
+        "title": "Recommended Products",
+        "heading_font_family": "secondary-heading__font",
+        "heading_font_size": "heading-large",
+        "text": "",
+        "text_font_size": "body-medium",
+        "layout": "inline",
+        "text_alight_mobile": "text_alight_mobile--center",
+        "layout_desktop": "slider",
+        "slider_arrow_position": "slider-desktop-position-top",
+        "slider_overflow": false,
+        "layout_mobile": "slider",
+        "product_limit": 12,
+        "grid": 6,
+        "rows": 4,
+        "color_scheme": "scheme-c471a6a3-af90-4097-9b89-9a56c0983877",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "heading_tag": "automatic"
+      }
+    },
+    "wave_separator_8TFYVD": {
+      "type": "wave-separator",
+      "name": "Wave Separator",
+      "settings": {
+        "custom_selector": "",
+        "bg_color": "#fff8ea",
+        "desktop_wave": "shopify://shop_images/Frame_1597881445.svg",
+        "mobile_wave": "shopify://shop_images/Frame_1597881452.svg"
+      }
+    },
+    "section_hero_w_animation_trUHrW": {
+      "type": "section-hero-w-animation",
+      "blocks": {
+        "heading_fqzUmj": {
+          "type": "heading",
+          "settings": {
+            "text": "",
+            "text_mobile": "",
+            "heading_font_family": "primary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "color": "#005261",
+            "padding_bottom": 12,
+            "padding_bottom_mobile": 8,
+            "heading_tag": "automatic"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_fqzUmj"
+      ],
+      "name": "Hero with animation",
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "enable_sticky_position": false,
+        "background": "transparent",
+        "link": "",
+        "width": "wrapper--full",
+        "height": "screen-height-three-quarters",
+        "flex_align_desktop": "align--middle-center-desktop",
+        "mobile_height": "screen-height-three-quarters--mobile",
+        "flex_align_mobile": "align--middle-center-mobile",
+        "color_scheme": "scheme-c471a6a3-af90-4097-9b89-9a56c0983877",
+        "show_text_background": false,
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "section_rich_text_QYmWVe": {
+      "type": "section-rich-text",
+      "blocks": {
+        "heading_rGge8b": {
+          "type": "heading",
+          "settings": {
+            "title": "Reviews",
+            "color": "#005261",
+            "heading_font_family": "ternary-heading__font",
+            "heading_font_size": "heading-large",
+            "padding_bottom": 0,
+            "heading_tag": "automatic"
+          }
+        },
+        "heading_UymLRw": {
+          "type": "heading",
+          "settings": {
+            "title": "What our customers are saying",
+            "color": "#3f2021",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-large",
+            "padding_bottom": 16,
+            "heading_tag": "automatic"
+          }
+        }
+      },
+      "block_order": [
+        "heading_rGge8b",
+        "heading_UymLRw"
+      ],
+      "settings": {
+        "align_text": "text-center",
+        "width": "wrapper",
+        "color_scheme": "scheme-3dd60216-16c9-49ce-a81c-0db8ff4bd9ec",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 10
+      }
+    },
+    "17576202179a25fb1e": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_hcpK7N": {
+          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "reviews_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_hcpK7N"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "section_rich_text_RtczBm": {
+      "type": "section-rich-text",
+      "blocks": {
+        "heading_UdVhQD": {
+          "type": "heading",
+          "settings": {
+            "title": "Customer Reviews",
+            "color": "#005261",
+            "heading_font_family": "primary-heading__font",
+            "heading_font_size": "heading-large",
+            "padding_bottom": 0,
+            "heading_tag": "automatic"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UdVhQD"
+      ],
+      "disabled": true,
+      "settings": {
+        "align_text": "text-center",
+        "width": "wrapper",
+        "color_scheme": "",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 10
+      }
+    },
+    "174420112759d058e4": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_kG9nMW": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "on instagram",
+            "title_color": "#3f2021",
+            "title_size_v2": 0,
+            "alignment": "left",
+            "instafeed_margin_top": 60,
+            "instafeed_margin_bottom": 100,
+            "instafeed_margin_sides": 50,
+            "show_instagram_link": true,
+            "link_alignment": "right",
+            "link_color": "#db0082",
+            "background_color": "rgba(0,0,0,0)",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_kG9nMW"
+      ],
+      "settings": {
+        "include_margins": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_reviews_Peb7AK",
+    "wave_separator_bmPNTk",
+    "double",
+    "image_with_text_bg_zFw6Lk",
+    "section_accordion_group_PQGngM",
+    "wave_separator_r643pd",
+    "section-tab-collections",
+    "wave_separator_8TFYVD",
+    "section_hero_w_animation_trUHrW",
+    "section_rich_text_QYmWVe",
+    "17576202179a25fb1e",
+    "section_rich_text_RtczBm",
+    "174420112759d058e4"
+  ]
+}

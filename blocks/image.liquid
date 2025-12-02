@@ -1,0 +1,87 @@
+{% liquid
+	assign image = block.settings.image
+	assign padding_bottom = block.settings.padding_bottom
+	assign padding_bottom_mobile = block.settings.padding_bottom_mobile
+	assign image_width = block.settings.image_width
+	assign image_width_px = image_width | append: 'px'
+	assign image_width_2x = image_width | times: 2
+	assign image_width_3x = image_width | times: 3
+	assign image_widths = image_width | append: ',' | append: image_width_2x | append: ',' | append: image_width_3x
+%}
+
+<style>
+  .hero__media {
+    --block-padding-bottom: {{ padding_bottom }}px;
+  }
+  @media only screen and (max-width: 749px) {
+    .hero__media {
+      --block-padding-bottom: {{ padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<div
+	class="hero__media"
+	data-aos="hero"
+	data-aos-order="auto"
+	data-aos-anchor="{{ section.id }}"
+	{{ block.shopify_attributes }}
+	style="margin-bottom: {{ padding_bottom }}px; --image-width: {{ image_width }}%;"
+>
+	<div class="hero__media-wrapper">
+		{%- render 'image', image: image, alt: image.alt -%}
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "Image",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Icon"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 20,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Width",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image"
+    }
+  ]
+}
+{% endschema %}

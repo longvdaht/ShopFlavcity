@@ -1,0 +1,438 @@
+{% liquid
+	assign custom_selector = section.settings.custom_selector
+	assign bg_color = section.settings.bg_color
+	assign desktop_wave = section.settings.desktop_wave
+	assign mobile_wave = section.settings.mobile_wave
+  assign decorative_elements = section.blocks | where: 'type', 'decorative-element'
+%}
+
+<style>
+  .wave-separator__wrapper {
+    position: relative;
+    margin-bottom: -1px;
+    width: 100%;
+  }
+
+	.wave-separator__image-mobile {
+		display: none;
+	}
+
+  @media only screen and (max-width: 749px) {
+		.wave-separator__-image-mobile-hide {
+			display: none;
+		}
+
+    .wave-separator__image-mobile {
+      display: block;
+    }
+	}
+</style>
+
+{% if desktop_wave or mobile_wave or decorative_elements.size > 0 %}
+	<div
+		class="wave-separator__wrapper {{ custom_selector }}"
+		style="background-color: {{ section.settings.bg_color }};"
+	>
+    {%- for block in decorative_elements -%}
+      {%- render 'decorative-element' block: block -%}
+    {%- endfor -%}
+
+    {%- if desktop_wave -%}
+      <div class="wave-separator__image-desktop {% if mobile_wave != blank %}wave-separator__-image-mobile-hide{% endif %}">
+        {%- render 'image', image: desktop_wave, alt: desktop_wave.alt -%}
+      </div>
+    {%- endif -%}
+
+		{% if mobile_wave != blank %}
+			<div class="wave-separator__image-mobile">
+				{%- render 'image', image: mobile_wave, alt: mobile_wave.alt -%}
+			</div>
+		{% endif %}
+	</div>
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Wave Separator",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_selector",
+      "label": "Custom selector"
+    },
+    {
+      "id": "bg_color",
+      "type": "color",
+      "label": "Bg color"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_wave",
+      "label": "Image (desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_wave",
+      "label": "Image (mobile)"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Decorative element",
+      "type": "decorative-element",
+      "settings": [
+        {
+          "id": "shown_on",
+          "type": "select",
+          "label": "Shown On",
+          "default": "desktop",
+          "options": [
+            {
+              "value": "mobile",
+              "label": "Mobile"
+            },
+            {
+              "value": "desktop",
+              "label": "Desktop"
+            },
+            {
+              "value": "both",
+              "label": "Both"
+            }
+          ]
+        },
+        {
+          "id": "z_index",
+          "type": "select",
+          "label": "Z-index",
+          "default": "unset",
+          "options": [
+            {
+              "value": "unset",
+              "label": "unset"
+            },
+            {
+              "value": "1",
+              "label": "1"
+            },
+            {
+              "value": "2",
+              "label": "2"
+            },
+            {
+              "value": "3",
+              "label": "3"
+            },
+            {
+              "value": "4",
+              "label": "4"
+            },
+            {
+              "value": "5",
+              "label": "5"
+            }
+          ]
+        },
+        {
+          "id": "overflow_hidden",
+          "type": "checkbox",
+          "label": "Overflow hidden",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Desktop Settings"
+        },
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "image"
+        },
+        {
+          "type": "range",
+          "id": "image_scale",
+          "min": 0.1,
+          "max": 2,
+          "step": 0.1,
+          "label": "Image scale",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "max_width_desktop",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Max width",
+          "default": 20,
+          "info": "Max width of the image in % for desktop"
+        },
+        {
+          "type": "range",
+          "id": "desktop_x_position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Desktop X Position",
+          "default": 50,
+          "info": "X position of the image in percentage for desktop"
+        },
+        {
+          "type": "range",
+          "id": "desktop_x_transform",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Desktop X Transform",
+          "default": 0,
+          "info": "X transform of the image in percentage for desktop"
+        },
+        {
+          "type": "range",
+          "id": "desktop_y_position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Desktop Y Position",
+          "default": 50,
+          "info": "Y position of the image in percentage for desktop"
+        },
+        {
+          "type": "range",
+          "id": "desktop_y_transform",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Desktop Y Transform",
+          "default": 0,
+          "info": "Y transform of the image in percentage for desktop"
+        },
+        {
+          "type": "header",
+          "content": "Mobile Settings"
+        },
+        {
+          "id": "image_mobile",
+          "type": "image_picker",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "range",
+          "id": "max_width_mobile",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Mobile Max width",
+          "default": 10,
+          "info": "Max width of the image in % for mobile"
+        },
+        {
+          "type": "range",
+          "id": "mobile_x_position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Mobile X Position",
+          "default": 50,
+          "info": "X position of the image in percentage for mobile"
+        },
+        {
+          "type": "range",
+          "id": "mobile_x_transform",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Mobile X Transform",
+          "default": 0,
+          "info": "X transform of the image in percentage for mobile"
+        },
+        {
+          "type": "range",
+          "id": "mobile_y_position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Mobile Y Position",
+          "default": 50,
+          "info": "Y position of the image in percentage for mobile"
+        },
+        {
+          "type": "range",
+          "id": "mobile_y_transform",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Mobile Y Transform",
+          "default": 0,
+          "info": "Y transform of the image in percentage for mobile"
+        },
+        {
+          "type": "header",
+          "content": "AOS Effect"
+        },
+        {
+          "id": "aos_animation",
+          "type": "select",
+          "label": "Animation",
+          "default": "unset",
+          "options": [
+            {
+              "value": "unset",
+              "label": "unset"
+            },
+            {
+              "value": "fade-up",
+              "label": "Fade Up"
+            },
+            {
+              "value": "zoom-out-up",
+              "label": "Zoom Out Up"
+            },
+            {
+              "value": "fade-down",
+              "label": "Fade Down"
+            },
+            {
+              "value": "zoom-out-down",
+              "label": "Zoom Out Down"
+            },
+            {
+              "value": "fade-right",
+              "label": "Fade Right"
+            },
+            {
+              "value": "zoom-out-right",
+              "label": "Zoom Out Right"
+            },
+            {
+              "value": "fade-left",
+              "label": "Fade left"
+            },
+            {
+              "value": "zoom-out-left",
+              "label": "Zoom Out Left"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Scroll Animation"
+        },
+        {
+          "id": "scroll_animation",
+          "type": "select",
+          "label": "Scroll Animation",
+          "default": "none",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "translate",
+              "label": "Translate"
+            }
+          ],
+          "info": "Apply animation that responds to scrolling"
+        },
+        {
+          "id": "scroll_direction",
+          "type": "select",
+          "label": "Scroll Direction",
+          "default": "down",
+          "options": [
+            {
+              "value": "up",
+              "label": "Up"
+            },
+            {
+              "value": "up left",
+              "label": "Up Left"
+            },
+            {
+              "value": "up right",
+              "label": "Up Right"
+            },
+            {
+              "value": "down",
+              "label": "Down"
+            },
+            {
+              "value": "down left",
+              "label": "Down Left"
+            },
+            {
+              "value": "down right",
+              "label": "Down Right"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "info": "Direction of translation during scroll"
+        },
+        {
+          "type": "range",
+          "id": "scroll_percentage",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Scroll Percentage",
+          "default": 30,
+          "info": "Maximum percentage to translate during scroll"
+        },
+        {
+          "id": "rotate_effect",
+          "type": "checkbox",
+          "label": "Rotate Effect",
+          "default": false,
+          "info": "Apply a rotation effect to the image (works with left and right scroll direction)"
+        },
+        {
+          "type": "range",
+          "id": "rotate_effect_from",
+          "min": -90,
+          "max": 90,
+          "step": 2,
+          "unit": "deg",
+          "label": "Rotate effect from",
+          "default": -10
+        },
+        {
+          "type": "range",
+          "id": "rotate_effect_to",
+          "min": -90,
+          "max": 90,
+          "step": 2,
+          "unit": "deg",
+          "label": "Rotate effect to",
+          "default": -10
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wave Separator",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,191 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "collection-image-with-title",
+      "settings": {
+        "show_title": false,
+        "title": "Collections",
+        "show_description": false,
+        "description": "",
+        "flex_align": "align--middle-left",
+        "color_scheme": "",
+        "show_text_background": false,
+        "show_image": false,
+        "banner_layout": "overlay",
+        "height": "two-fifty-height-hero",
+        "mobile_height": "screen-height-one-half--mobile",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 10
+      }
+    },
+    "main": {
+      "type": "collection",
+      "settings": {
+        "collection_linklist": "pc-redesign-plp-menu-copy",
+        "enable_sort": false,
+        "enable_filters": false,
+        "filter_layout": "inline-open",
+        "default_open": true,
+        "grid": 4,
+        "grid_mobile": "2",
+        "products_per_page": 16,
+        "color_scheme": "scheme-1",
+        "width": "wrapper--full-padded",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "section_accordion_group_fLHnFe": {
+      "type": "section-accordion-group",
+      "blocks": {
+        "heading_b9NL3w": {
+          "type": "heading",
+          "settings": {
+            "title": "FAQ",
+            "align_text": "text-left",
+            "heading_font_size": "heading-large"
+          }
+        },
+        "question_f9j9zq": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "The Story Behind FlavCity Anytime Essentials Water Packets",
+            "content": "<p>FlavCity Anytime Essentials water packets were created to make daily wellness simple, enjoyable, and accessible for everyone. Inspired by the need for a truly functional beverage that fits busy lifestyles, these packets combine real fruit flavor with 5g collagen, 3g prebiotic fiber, and light electrolytes—without added sugar or artificial ingredients. The goal is to offer a clean, effective way to support hydration, skin, and gut health, all in a convenient stick you can use anytime, anywhere. With a focus on real ingredients and functional benefits, FlavCity Anytime Essentials helps you make every sip count toward your health goals.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_6epLqR": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "What Flavors Are Available?",
+            "content": "<p>FlavCity Anytime Essentials comes in three variety packs: Coconut (Coconut, Coconut Lime, Coconut Orange), Tea (Lemon Black Tea, Passion Fruit Black Tea, Honey and Ginseng Green Tea), and Lemonade (Lemonade, Strawberry Lemonade, Prickly Pear Lemonade).</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_8b4RAG": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "How To Use FlavCity Anytime Essentials Drink Mix Packet",
+            "content": "<p>To use FlavCity Anytime Essentials drink mix packets, simply mix one drink mix packet with 8–12 ounces of water and stir until fully dissolved. Enjoy anytime of day for a boost of hydration and wellness. Each packet delivers real fruit flavor, fiber, collagen, and electrolytes, making it an easy and delicious way to support your daily routine.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_XGa9gL": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "Is It Safe To Drink Flavored Water Every Day?",
+            "content": "<p>Yes, it’s safe to drink flavored water every day when you choose options made with real ingredients and no added sugar or artificial additives. FlavCity Anytime Essentials is designed for daily use, offering natural flavors and functional benefits. Enjoying clean, flavored water can make hydration easier and support your wellness goals.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_ngctcW": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "Does Water With Drink Mix Count as Water Intake?",
+            "content": "<p>Yes, water with a drink mix counts toward your daily water intake. As long as the mix is low in sugar and free from dehydrating ingredients, it supports hydration. Functional mixes like FlavCity Anytime Essentials can even enhance your water with added benefits. This makes it easier to stay hydrated throughout the day.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_EM8r6Y": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "Are Drink Packets Good For You?",
+            "content": "<p>Drink mix packets can be good for you when they’re made with clean, real ingredients and provide functional benefits like electrolytes, collagen, or fiber. Choosing options without added sugar or artificial additives, such as FlavCity Anytime Essentials, supports hydration and overall wellness in a convenient, portable form. These drink mix packets make it easy to enhance your daily routine with targeted nutrition and great taste.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_Qr4g4Q": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "What Is the Best Thing To Flavor Water With?",
+            "content": "<p>The best way to flavor water is with real fruit, or clean drink mixes that add taste and functional benefits without added sugar or artificial ingredients. FlavCity Anytime Essentials is an excellent choice, delivering real fruit flavor along with collagen, prebiotic fiber, and electrolytes.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        },
+        "question_fkUxUa": {
+          "type": "question",
+          "settings": {
+            "default_open": false,
+            "title": "What Are Water Flavored Packets?",
+            "content": "<p>Water flavored packets are convenient, single-serve mixes designed to add taste and functional benefits to plain water. Typically available in stick or sachet form, these packets contain real ingredients and often include added nutrients like electrolytes, vitamins, collagen, or fiber, without the added sugars or artificial ingredients found in many traditional beverages. They make it easy to enjoy delicious, fruit-inspired hydration on the go, helping you stay refreshed and motivated to drink more water throughout the day.</p>",
+            "show_icon": false,
+            "icon_name": "icon-award",
+            "icon_size": 20,
+            "icon_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_b9NL3w",
+        "question_f9j9zq",
+        "question_6epLqR",
+        "question_8b4RAG",
+        "question_XGa9gL",
+        "question_ngctcW",
+        "question_EM8r6Y",
+        "question_Qr4g4Q",
+        "question_fkUxUa"
+      ],
+      "name": "Accordion group",
+      "settings": {
+        "show_blocks_from_metafield": false,
+        "question_font_size": "heading-small",
+        "width": "wrapper",
+        "columns": "1",
+        "color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "section_accordion_group_fLHnFe"
+  ]
+}

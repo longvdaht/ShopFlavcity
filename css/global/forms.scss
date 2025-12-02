@@ -1,0 +1,443 @@
+/**
+ * Forms
+ */
+
+input,
+textarea,
+.input-group {
+  @include body;
+
+  border: 1px solid var(--border);
+  font-size: var(--FONT-SIZE-BASE);
+  border-radius: var(--RADIUS-SELECT);
+  max-width: 100%;
+  padding: 9px 16px;
+  margin: 7px 0;
+  background: var(--TRANSPARENT);
+
+  @include media-query($small) {
+    padding: 9px 10px;
+  }
+
+  &[disabled] {
+    background: var(--border);
+    border-color: var(--border-dark);
+    cursor: default;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--COLOR-TEXT) !important;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    box-shadow: 0 0 0 1000px transparent inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: transparent !important;
+
+  }
+}
+
+select {
+  @include body;
+  font-family: var(--FONT-STACK-BODY);
+  font-weight: 600;
+  font-size: var(--FONT-SIZE-BASE);
+  color: var(--COLOR-TEXT);
+  border: 2px solid var(--COLOR-BORDER);
+  border-radius: var(--RADIUS-SELECT);
+  max-width: 100%;
+  padding: 16px 24px;
+  margin: 7px 0;
+  background: var(--COLOR-BG-ACCENT);
+}
+
+textarea {
+  min-height: 100px;
+  padding: 16px;
+
+  @include media-query($small) {
+    padding: 9px 10px;
+  }
+}
+
+.form-field {
+  --bg: var(--COLOR-BG);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+  line-height: 1;
+  text-align: left;
+  position: relative;
+
+  label {
+    background: var(--bg);
+    font-size: var(--font-body-x-small);
+    font-weight: var(--FONT-WEIGHT-BODY-BOLD);
+    left: 9px;
+    opacity: 0;
+    padding: 0 0.5em;
+    position: absolute;
+    top: 2em;
+    transition: 0.25s ease-out;
+    transition-property: color, background, border;
+    z-index: -1;
+  }
+
+  label.label--float {
+    opacity: 1;
+    top: -0.8em;
+    z-index: 1;
+  }
+}
+
+.form-field select,
+.form-field input[type="text"],
+.form-field input[type="password"],
+.form-field input[type="email"],
+.form-field input[type="number"],
+.form-field input[type="tel"],
+.form-field textarea {
+  display: block;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea {
+  appearance: none;
+}
+
+input[type="checkbox"] {
+  margin: 4px 3px 4px 0;
+  appearance: checkbox;
+}
+.checkbox_container {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  cursor: pointer;
+  font-family: var(--FONT-STACK-BODY);
+  font-weight: 500;
+  font-size: var(--FONT-SIZE-BASE);
+  color: var(--COLOR-TEXT);
+  line-height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox_container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 28px;
+  width: 28px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid var(--COLOR-BORDER);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox_container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 10px;
+  height: 15px;
+  border: solid var(--COLOR-BORDER);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+input[type="radio"] {
+  margin: 11px 3px 4px 0;
+  appearance: radio;
+}
+
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  cursor: pointer;
+  font-family: var(--FONT-STACK-BODY);
+  font-weight: 500;
+  font-size: var(--FONT-SIZE-BASE);
+  color: var(--COLOR-TEXT);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px solid var(--COLOR-BORDER);
+}
+
+.radio-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio-container input:checked ~ .radio-checkmark:after {
+  display: block;
+}
+
+.radio-container .radio-checkmark:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--COLOR-BORDER);
+}
+
+legend { padding-bottom: 6px; }
+
+.label--block { display: block; }
+
+/*================ Checkbox ================*/
+.checkbox { position: relative; }
+
+.checkbox input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}
+
+.checkbox input[type="checkbox"] + label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] + label::before {
+  content: "";
+  align-self: flex-start;
+  flex: 0 0 auto;
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  border: 1px solid var(--text-light);
+  margin-right: 10px;
+}
+
+.checkbox input[type="checkbox"]:checked + label::before {
+  background: var(--accent);
+  box-shadow: inset 0 0 0 2px var(--COLOR-BG);
+}
+
+/*================ Input Group ================*/
+
+.input-group {
+  background-color: var(--TRANSPARENT);
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  padding: 0;
+
+  .btn { box-shadow: none; }
+
+  input,
+  input:focus,
+  input:active {
+    background-color: var(--TRANSPARENT);
+    border: none;
+    box-shadow: none;
+    margin: 0;
+
+    // Nasty Firefox hack for inputs http://davidwalsh.name/firefox-buttons
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+      margin-top: -1px;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+.input-group-field,
+.input-group-btn {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.input-group .input-group-field {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.input-group-btn {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  padding: 0;
+  margin: 0;
+}
+
+.form__legal {
+  max-width: none;
+  line-height: 1;
+  text-align: left;
+
+  p {
+    font-style: italic;
+    color: var(--text-a80);
+    font-size: var(--font-body-x-small);
+  }
+
+  p a {
+    padding-bottom: 0;
+    background: none;
+  }
+}
+
+.small-newsletter .form__legal,
+.modal--newsletter .form__legal,
+.account--login .form__legal {
+  margin-top: 15px;
+
+  p { margin: 0; }
+}
+
+/*================ Custom select style ================*/
+
+select {
+  @include prefix(appearance, none, webkit moz spec);
+
+  background: {
+    image: var(--ICON-SELECT);
+    repeat: no-repeat;
+    position: right 10px center;
+    color: var(--COLOR-BG-ACCENT);
+    size: 18px auto;
+  }
+  padding-right: 28px;
+  text-indent: 0.01px;
+  text-overflow: unset;
+  cursor: pointer;
+}
+
+select::-ms-expand { display: none; }
+
+/*================ Error styles ================*/
+
+input,
+select,
+textarea {
+  &.input-error {
+    border-color: var(--COLOR-ERROR-BORDER);
+    background-color: var(--COLOR-ERROR-BG);
+    color: var(--COLOR-ERROR);
+  }
+}
+
+form .errors,
+.form-errors {
+  padding: 16px;
+  margin-bottom: 10px;
+  border: 1px solid var(--COLOR-ERROR-BORDER);
+  border-radius: var(--RADIUS-SELECT);
+  background-color: var(--COLOR-ERROR-BG);
+  color: var(--COLOR-ERROR);
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+  }
+
+  li:last-child { margin-bottom: 0; }
+}
+
+.form-success {
+  border: 1px solid var(--border);
+  border-radius: var(--RADIUS-SELECT);
+  margin: 0 0 rem(30px) 0;
+  padding: var(--inner);
+  color: var(--text-dark);
+  box-shadow: 0 1px 3px var(--border-hairline), 0 1px 2px var(--border-hairline);
+}
+
+.contact-form .form-success {
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+/*================ Field ================*/
+
+.field {
+  --border: var(--text-a35, var(--text));
+  display: block;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 1em 0;
+  border-radius: 0;
+  color: var(--text);
+}
+
+.field:focus {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.field::placeholder,
+.field:-webkit-autofill,
+.field:-webkit-autofill:hover,
+.field:-webkit-autofill:focus,
+.field:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text-a80);
+}
+
+// captcha page and app pages
+.template- .main-content > *:not(.shopify-policy__container) { margin-top: 60px; }

@@ -1,0 +1,132 @@
+
+<div class="app-section__wrapper {% if section.settings.include_margins %}wrapper{% endif %}"
+		 style="--padding-top: {{ section.settings.padding_top }}px;
+		 --padding-bottom: {{ section.settings.padding_bottom }}px;
+		 --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+		 --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when '@app' -%}
+      {% render block %}
+
+    {%- when 'novel-embed' -%}
+      {%- assign novel_embed_id = block.settings.id -%}
+      {%- assign additional_style = block.settings.additional_style -%}
+
+      {%- if novel_embed_id != blank -%}
+        <div class="product__block product__custom-novel-embed block-padding"
+          {{ block_style }}
+          {{ block.shopify_attributes }}>
+
+          {%- if additional_style != blank -%}
+            {% capture novel_style %}
+              {{ block.settings.additional_style }}
+            {% endcapture %}
+          {%- endif -%}
+
+          <novel-embed data-journey-id="{{ novel_embed_id }}"  {%- if additional_style != blank %} data-custom-style='{{additional_style}}'{%- endif -%}></novel-embed>
+        </div>
+        <script src="{{ 'novel-embed.js' | asset_url }}" defer="defer"></script>
+     {%- endif -%}
+     {%- endcase -%}
+  {%- endfor -%}
+</div>
+
+
+{% schema %}
+{
+  "name": "Apps",
+  "class": "section-apps_additional-class",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "include_margins",
+      "default": false,
+      "label": "Include margins"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "novel-embed",
+      "name": "Novel embed",
+      "settings": [
+        {
+          "type": "text",
+          "id": "id",
+          "label": "Id"
+        },
+        {
+          "type": "html",
+          "id": "additional_style",
+          "label": "Intro icon"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Apps"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header","aside","footer"]
+  }
+}
+{% endschema %}

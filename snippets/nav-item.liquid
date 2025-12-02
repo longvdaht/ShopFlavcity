@@ -1,0 +1,519 @@
+{%- liquid
+  assign badge_blocks = section.blocks | where: 'type', 'badge'
+  assign nav_image_blocks = section.blocks | where: 'type', 'nav_image'
+  assign link_style_blocks = section.blocks | where: 'type', 'link_style'
+  assign highlight_item = highlight_item | downcase | strip_html | escape
+  assign link_title_lowercase = link.title | downcase | strip_html | escape
+  assign parent = false
+  assign grandparent = false
+  if link.levels == 1
+    assign parent = true
+  endif
+  if link.levels == 2
+    assign grandparent = true
+  endif
+
+  assign child_count = 0
+  if grandparent
+    assign child_count = link.links.size
+    if child_count > 10
+      assign child_count = 10
+    endif
+  endif
+
+  assign index = index | append: ''
+  assign image_count = 0
+  assign image_wide_count = 0
+  assign images_space = 0
+  for block in section.blocks
+    if block.settings.position == index
+      assign grandparent = true
+      assign image_count = image_count | plus: 1
+    endif
+  endfor
+
+  if parent or grandparent
+    assign expands = true
+    assign key = link.url | append: link.title | append: link.levels | md5
+  endif
+
+  if parent and link.levels == 1
+    assign child_count = child_count | plus: 1
+  endif
+
+  if image_count and child_count == 0
+    assign only_images = ' grandparent--all-images'
+  endif
+
+  assign item_tag = 'div'
+  if expands
+    assign item_tag = 'hover-disclosure'
+  endif
+
+	assign links_count = link.links.size
+	assign link_title_handleize = link.title | handleize
+
+	assign main_link_styles_blocks = section.blocks | where: 'type', 'main_link_style'
+	assign show_link_as_btn = false
+
+	for main_link_block in main_link_styles_blocks
+		assign main_link_block_handle = main_link_block.settings.link_handle | handleize
+		assign show_as_btn = main_link_block.settings.show_as_btn
+
+		if main_link_block_handle == link_title_handleize and show_as_btn
+			assign show_link_as_btn = true
+
+			assign btn_bg = main_link_block.settings.btn_bg
+			assign btn_color = main_link_block.settings.btn_color
+			assign btn_border = main_link_block.settings.btn_border | default: 'transparent'
+			assign btn_bg_hover = main_link_block.settings.btn_bg_hover
+			assign btn_color_hover = main_link_block.settings.btn_color_hover
+			assign btn_border_hover = main_link_block.settings.btn_border_hover | default: 'transparent'
+		endif
+
+		if main_link_block_handle == link_title_handleize
+			assign dropdown_bg = main_link_block.settings.dropdown_bg
+			assign dropdown_color = main_link_block.settings.dropdown_color
+		endif
+	endfor
+-%}
+
+{% capture classes %}{% if grandparent %} grandparent kids-{{ child_count }}{% if image_count > 0 %} images-{{ image_count }}{% endif %} {{ only_images }} {% elsif parent %} parent{% else %} child{% endif %}{% endcapture %}
+
+<{{ item_tag }}
+  class="menu__item {{ classes }}"
+  {% if expands %}
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-controls="dropdown-{{ key }}"
+    role="button"
+  {% endif %}
+>
+  <a
+    href="{{ link.url }}"
+    data-top-link
+    class="navlink navlink--toplevel{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %} {% if show_link_as_btn %}btn{% endif %}"
+		style="--btn-bg: {{ btn_bg }}; --btn-color: {{ btn_color }}; --btn-border: {{btn_border}}; --btn-bg-hover: {{ btn_bg_hover }}; --btn-color-hover: {{ btn_color_hover }}; --btn-border-hover: {{ btn_border_hover }}"
+  >
+    <span class="navtext">{{ link.title | strip_html | escape }}</span>
+		{% if expands %}
+			{% render 'icons' with 'caret-down' %}
+		{% endif %}
+  </a>
+  {% if expands %}
+    <div
+      class="header__dropdown"
+      id="dropdown-{{ key }}"
+			style="{% if dropdown_bg %}--dropdown-bg: {{ dropdown_bg }};{% endif %} {% if dropdown_color %}--dropdown-color: {{ dropdown_color }};{% endif %}"
+    >
+      <div class="header__dropdown__wrapper">
+        <div class="header__dropdown__inner">
+          {%- if grandparent -%}
+            {%- unless only_images -%}
+              <div class="header__grandparent__links">
+                {% if link.levels == 2 %}
+                  {% for link in link.links %}
+                    {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+										{%- assign link_title_handleize = link.title | handleize -%}
+
+                    <div class="dropdown__family 2" style="--item-counts: {{ links_count }}">
+											{%- for block in nav_image_blocks -%}
+												{%- assign title_handleize = block.settings.title | handleize -%}
+												{% if block.settings.position == index and link_title_handleize == title_handleize %}
+													{% liquid
+														assign image = block.settings.image
+														assign aspect_ratio = 1 | divided_by: block.settings.aspect_ratio
+														assign sizes = '(min-width: 990px) calc(100vw / ' | append: columns | append: '), (min-width: 380px) 350px, calc(100vw - 30px)'
+														assign image_background = block.settings.image_background
+														assign border_radius = block.settings.border_radius
+														assign border_color = block.settings.border_color
+													%}
+
+                          {%- if badge_blocks.size > 0 -%}
+                            {%- assign badge_capture = '' -%}
+
+                            {%- for badge_block in badge_blocks -%}
+                              {%- assign badge_block_title_handleize = badge_block.settings.title | handleize -%}
+                              {%- assign badge_block_layout = badge_block.settings.badge_layout -%}
+                              {%- assign show_badge = false -%}
+
+                              {%- if badge_block_layout == 'image' or badge_block_layout == 'both' -%}
+                                {%- assign show_badge = true -%}
+                              {%- endif -%}
+
+                              {% capture badge_capture %}
+                                {%- if badge_block_title_handleize == link_title_handleize and badge_block.settings.text != blank and show_badge -%}
+                                  <span class="badge" style="--background-color: {{ badge_block.settings.badge_bg_color }}; --text-color: {{ badge_block.settings.badge_text_color }};">
+                                    {{- badge_block.settings.text -}}
+                                  </span>
+
+                                  {% break %}
+                                {%- endif -%}
+                              {% endcapture %}
+                            {%- endfor -%}
+                          {%- endif -%}
+
+													<div class="header__dropdown__image-wrapper"
+															 style="--border-radius: {{ border_radius }}px;--border-color: {{ border_color }};--image-background: {{ image_background }};">
+                            {%- if badge_capture != blank -%}
+                              <div class="badge__nav">
+                                {{ badge_capture }}
+                              </div>
+                            {%- endif -%}
+
+														<a href="{{ link.url }}">
+															<span class="visually-hidden">{{ link.title | strip_html | escape }}</span>
+															{%- render 'image',
+																image: image,
+																aspect_ratio: aspect_ratio,
+																sizes: 1024,
+																loading: 'lazy',
+																fetchpriority: 'high'
+															-%}
+														</a>
+													</div>
+												{% endif %}
+											{%- endfor -%}
+
+                      {%- if badge_blocks.size > 0 -%}
+                        {%- assign badge_capture = '' -%}
+
+                        {%- for badge_block in badge_blocks -%}
+                          {%- assign badge_block_title_handleize = badge_block.settings.title | handleize -%}
+                          {%- assign badge_block_layout = badge_block.settings.badge_layout -%}
+                          {%- assign show_badge = false -%}
+
+                          {%- if badge_block_layout == 'text' or badge_block_layout == 'both' -%}
+                            {%- assign show_badge = true -%}
+                          {%- endif -%}
+
+                          {% capture badge_capture %}
+                            {%- if badge_block_title_handleize == link_title_handleize and badge_block.settings.text != blank and show_badge -%}
+                              <span class="badge" style="--background-color: {{ badge_block.settings.badge_bg_color }}; --text-color: {{ badge_block.settings.badge_text_color }};">
+                               {{- badge_block.settings.text -}}
+                              </span>
+                              {% break %}
+                            {%- endif -%}
+                          {% endcapture %}
+                        {%- endfor -%}
+                      {%- endif -%}
+
+                      {%- if link_style_blocks.size > 0 -%}
+                        {%- assign link_with_style = '' -%}
+                        {%- assign link_style = '' -%}
+
+                        {%- for link_style_block in link_style_blocks -%}
+                          {%- assign badge_block_title_handleize = link_style_block.settings.title | strip_html | escape | handleize -%}
+
+                          {%- if badge_block_title_handleize == link_title_handleize -%}
+                            {% capture link_with_style %}
+                              {{ link_style_block.settings.title }}
+                            {% endcapture %}
+
+                            {%- if link_style_block.settings.link_color != 'rgba(0,0,0,0)' and  link_style_block.settings.link_color != '' -%}
+                              {% capture link_style -%}
+                                --link: {{ link_style_block.settings.link_color }};
+                              {%- endcapture %}
+                            {%- endif -%}
+
+                            {% break %}
+                          {%- endif -%}
+                        {%- endfor -%}
+                      {%- endif -%}
+
+                      <a
+                        href="{{ link.url }}"
+                        data-stagger-first
+                        class="navlink navlink--child{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %} h6"
+                      >
+                        {%- if badge_capture != blank -%}
+                          <div class="badge__nav--relative">
+                            {{ badge_capture }}
+                          </div>
+                        {%- endif -%}
+
+                        <span class="navtext" {%- if link_style != blank %} style="{{ link_style }}"{%- endif -%}>
+                          {%- if link_with_style != blank -%}
+                            {{ link_with_style }}
+                          {%- else -%}
+                            {{ link.title | strip_html | escape }}
+                          {%- endif -%}
+
+                          {%- render 'superscript', link_collection: link -%}
+                        </span>
+                      </a>
+                      {% for link in link.links %}
+                        {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+                        {%- assign link_title_handleize = link.title | handleize -%}
+
+                        {%- if badge_blocks.size > 0 -%}
+                          {%- assign badge_capture = '' -%}
+
+                          {% capture badge_capture %}
+                            {%- for badge_block in badge_blocks -%}
+                              {%- assign badge_block_title_handleize = badge_block.settings.title | handleize -%}
+                              {%- assign badge_block_layout = badge_block.settings.badge_layout -%}
+                              {%- assign show_badge = false -%}
+
+                              {%- if badge_block_layout == 'text' or badge_block_layout == 'both' -%}
+                                {%- assign show_badge = true -%}
+                              {%- endif -%}
+
+                              {%- if badge_block_title_handleize == link_title_handleize and badge_block.settings.text != blank and show_badge -%}
+                                <span class="badge" style="--text-color-sub:{{ badge_block.settings.badge_text_color_sub_nav }};">
+                                      {{- badge_block.settings.text -}}
+                                  </span>
+                              {%- endif -%}
+                            {%- endfor -%}
+                          {% endcapture %}
+                        {%- endif -%}
+                        <a
+                          href="{{ link.url }}"
+                          data-stagger-second
+                          class="navlink navlink--grandchild{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %} body-large"
+                        >
+                          {%- assign array_link_title = link.title | split: ' ' -%}
+
+                          <span class="navtext" style="display: flex;">
+                            {%- comment -%}
+                              {%- for title_word in array_link_title -%}
+                                <span>{{ title_word | strip_html | escape }}
+                                  {%- if badge_capture != blank and forloop.last -%}
+                                    <div class="badge__nav--inline">
+                                      {{ badge_capture }}
+                                    </div>
+                                  {%- endif -%}</span>
+                              {%- endfor -%}
+                            {%- endcomment -%}
+
+                            <span>
+                              <span style="position: relative;"><span>{{ link.title | strip_html | escape }}</span>
+                                {%- if badge_capture != blank -%}
+                                  <div class="badge__nav--inline" style="position: absolute;bottom: 9px;right: 0px;transform: translateX(calc(100% + 4px));">
+                                    {{ badge_capture }}
+                                  </div>
+                                {%- endif -%}
+                              </span>
+                            </span>
+
+                            {%- if badge_capture != blank -%}
+                              <div class="badge__nav--inline" style="opacity: 0; white-space: nowrap;">
+                                {{ badge_capture }}
+                              </div>
+                            {%- endif -%}
+
+                            {%- render 'superscript', link_collection: link -%}
+                          </span>
+                        </a>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+
+                {% elsif link.levels == 1 %}
+									{%- assign items_count = link.links.size -%}
+									{%- assign link_image_block = false -%}
+									{% for block in section.blocks %}
+										{% if block.settings.position == index and block.type == 'image' %}
+											{%- assign link_image_block = true -%}
+										{% endif %}
+									{% endfor %}
+
+									{% for link in link.links %}
+										{%- assign link_title_handleize = link.title | handleize -%}
+										{% if link_title_handleize contains 'shop-all' %}
+											{%- assign items_count = items_count | minus: 1 -%}
+										{% endif %}
+
+										{% if link_image_block == false %}
+											{% if items_count == 3 %}
+												{%- assign items_count = 3 -%}
+											{% else %}
+												{%- assign items_count = 4 -%}
+											{% endif %}
+										{% elsif link_image_block == true %}
+											{%- assign items_count = 3 -%}
+										{% endif %}
+									{% endfor %}
+
+                  <div data-item="{{ link_image_block }}" class="dropdown__family-without-childlinks" style="--item-counts: {{ items_count }}">
+                    {% for link in link.links %}
+                      {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+											{%- assign link_title_handleize = link.title | handleize -%}
+
+											<div class="dropdown__family-one-level {% if link_title_handleize contains 'shop-all' %}dropdown__family-one-level-main{% endif %}">
+												{%- for block in section.blocks  -%}
+													{%- assign title_handleize = block.settings.title | handleize -%}
+													{% if block.settings.position == index and link_title_handleize == title_handleize and block.type == 'nav_image' %}
+														{% liquid
+															assign image = block.settings.image
+															assign aspect_ratio = 1 | divided_by: block.settings.aspect_ratio
+															assign sizes = '(min-width: 990px) calc(100vw / ' | append: columns | append: '), (min-width: 380px) 350px, calc(100vw - 30px)'
+															assign image_background = block.settings.image_background
+															assign border_radius = block.settings.border_radius
+															assign border_color = block.settings.border_color
+														%}
+
+														{%- if badge_blocks.size > 0 -%}
+															{%- assign badge_capture = '' -%}
+
+															{%- for badge_block in badge_blocks -%}
+																{%- assign badge_block_title_handleize = badge_block.settings.title | handleize -%}
+                                {%- assign badge_block_layout = badge_block.settings.badge_layout -%}
+                                {%- assign show_badge = false -%}
+
+                                {%- if badge_block_layout == 'image' or badge_block_layout == 'both' -%}
+                                  {%- assign show_badge = true -%}
+                                {%- endif -%}
+
+																{% capture badge_capture %}
+																	{%- if badge_block_title_handleize == link_title_handleize and badge_block.settings.text != blank and show_badge -%}
+																		<span class="badge" style="--background-color: {{ badge_block.settings.badge_bg_color }}; --text-color: {{ badge_block.settings.badge_text_color }};">
+                                    {{- badge_block.settings.text -}}
+                                  </span>
+
+																		{% break %}
+																	{%- endif -%}
+																{% endcapture %}
+															{%- endfor -%}
+														{%- endif -%}
+
+														<div class="header__dropdown__image-wrapper"
+																 style="--border-radius: {{ border_radius }}%;--border-color: {{ border_color }};--image-background: {{ image_background }};">
+															{%- if badge_capture != blank -%}
+																<div class="badge__nav">
+																	{{ badge_capture }}
+																</div>
+															{%- endif -%}
+
+															<a href="{{ link.url }}">
+																<span class="visually-hidden">{{ link.title | strip_html | escape }}</span>
+																{%- render 'image',
+																	image: image,
+																	aspect_ratio: aspect_ratio,
+																	sizes: 1024,
+																	loading: 'lazy',
+																	fetchpriority: 'high'
+																-%}
+															</a>
+														</div>
+
+													{% endif %}
+												{%- endfor -%}
+
+												{%- if link_style_blocks.size > 0 -%}
+													{%- assign link_with_style = '' -%}
+													{%- assign link_style = '' -%}
+
+													{%- for link_style_block in link_style_blocks -%}
+														{%- assign badge_block_title_handleize = link_style_block.settings.title | strip_html | escape | handleize -%}
+
+														{%- if badge_block_title_handleize == link_title_handleize -%}
+															{% capture link_with_style %}
+																{{ link_style_block.settings.title }}
+															{% endcapture %}
+
+															{%- if link_style_block.settings.link_color != 'rgba(0,0,0,0)' and  link_style_block.settings.link_color != '' -%}
+																{% capture link_style -%}
+																	--link: {{ link_style_block.settings.link_color }};
+																{%- endcapture %}
+															{%- endif -%}
+
+															{% break %}
+														{%- endif -%}
+													{%- endfor -%}
+												{%- endif -%}
+
+												<a
+													href="{{ link.url }}"
+													data-stagger
+													class="navlink navlink--grandchild{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}"
+												>
+                          <span class="navtext" {%- if link_style != blank %} style="{{ link_style }}"{%- endif -%}>
+                            {{ link.title | strip_html | escape }}
+
+														{% if link_title_handleize contains 'shop-all' %}
+															{% render 'icons' with 'icon-arrow-circle' %}
+														{% endif %}
+                            {%- render 'superscript', link_collection: link -%}
+                          </span>
+
+                          {%- if badge_blocks.size > 0 -%}
+                            {%- assign badge_capture = '' -%}
+
+                            {% capture badge_capture %}
+                              {%- for badge_block in badge_blocks -%}
+                                {%- assign badge_block_title_handleize = badge_block.settings.title | handleize -%}
+                                {%- assign badge_block_layout = badge_block.settings.badge_layout -%}
+                                {%- assign show_badge = false -%}
+
+                                {%- if badge_block_layout == 'text' or badge_block_layout == 'both' -%}
+                                  {%- assign show_badge = true -%}
+                                {%- endif -%}
+
+                                {%- if badge_block_title_handleize == link_title_handleize and badge_block.settings.text != blank and show_badge -%}
+                                  <span class="badge" style="--text-color-sub:{{ badge_block.settings.badge_text_color_sub_nav }};">
+                                      {{- badge_block.settings.text -}}
+                                  </span>
+                                {%- endif -%}
+                              {%- endfor -%}
+                            {% endcapture %}
+
+                            {%- if badge_capture != blank -%}
+                              <div class="badge__nav--inline">
+                                {{ badge_capture }}
+                              </div>
+                            {%- endif -%}
+                          {%- endif -%}
+												</a>
+											</div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            {%- endunless -%}
+
+            {%- if image_count > 0 -%}
+              {%- liquid
+                if image_count == 2 and image_wide_count == 1
+                  assign images_space = images_space | minus: 1
+                elsif image_count == 2 and image_wide_count == 2
+                  assign images_space = images_space | minus: 2
+                endif
+              -%}
+
+							{%- assign image_block = section.blocks | where: 'type', 'image' -%}
+							{% if image_block != blank %}
+								<div class="menu__blocks" style="--images-space: {{ images_space }};">
+									{%- liquid
+										for block in section.blocks
+											if block.settings.position == index and block.type == 'image'
+												render 'header-block', block: block, image_count: image_count, only_images: only_images, link_columns: link.links.size
+											endif
+										endfor
+									-%}
+								</div>
+							{% endif %}
+            {%- endif -%}
+
+          {%- else -%}
+            {% comment %} Simple dropdown {% endcomment %}
+            {% for link in link.links %}
+              {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+              <a
+                href="{{ link.url }}"
+                data-stagger
+                class="navlink navlink--child{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}"
+              >
+                <span class="navtext">
+                  {{ link.title | strip_html | escape }}
+
+                  {%- render 'superscript', link_collection: link -%}
+                </span>
+              </a>
+            {% endfor %}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</{{ item_tag }}>

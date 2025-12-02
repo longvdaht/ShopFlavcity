@@ -1,0 +1,352 @@
+<!-- /sections/overlay-newsletter.liquid -->
+
+{%- liquid
+  assign show_popup = true
+  assign color_scheme = 'color-' | append: section.settings.color_scheme
+  assign bg_color = section.settings.bg_color
+  assign text_color = section.settings.color
+  assign popup_classlist = 'popup-large-newsletter'
+
+  if section.settings.target_device_enabled
+    if section.settings.target_device == 'mobile'
+      assign popup_classlist = popup_classlist | append: ' mobile'
+    endif
+
+    if section.settings.target_device == 'desktop'
+      assign popup_classlist = popup_classlist | append: ' desktop'
+    endif
+  endif
+
+  if section.settings.target_url_enabled and section.settings.target_url != blank
+    assign show_popup = false
+  endif
+
+  if section.settings.target_referrer_enabled and section.settings.target_referrer != blank
+    assign show_popup = false
+  endif
+
+  if section.settings.target_url_enabled and section.settings.target_url != blank
+    assign request_path = request.path
+
+    if request.page_type == 'product'
+      assign request_path = request_path | split: '/products/' | last | prepend: '/products/'
+    endif
+
+    if section.settings.target_url == request_path
+      assign show_popup = true
+    endif
+  endif
+
+  if section.settings.target_referrer_enabled and section.settings.target_referrer != blank
+    capture target_referrer_attribute
+      echo 'data-target-referrer="' | append: section.settings.target_referrer | append: '"'
+    endcapture
+
+    assign show_popup = true
+  endif
+-%}
+
+{%- style -%}
+  #Popup--{{ section.id }} {
+    {%- unless bg_color == 'rgba(0,0,0,0)' or bg_color == blank -%}
+      --bg: {{ bg_color }};
+    {%- endunless -%}
+
+    {%- unless text_color == 'rgba(0,0,0,0)' or text_color == blank -%}
+      --text: {{ text_color }};
+    {%- endunless -%}
+  }
+{%- endstyle -%}
+
+{%- capture popup_attributes -%}
+  {% if popup_classlist != '' %}
+    class="{{ popup_classlist }} {{ color_scheme }}"
+  {% endif %}
+  id="Popup--{{ section.id }}"
+  data-popup-delay="{{ section.settings.trigger }}"
+  data-cookie-name="popup-{{ section.id }}"
+  {{ target_referrer_attribute }}
+{%- endcapture -%}
+
+<div data-section-id="{{ section.id }}" data-section-type="popups">
+  {%- if show_popup -%}
+    <popup-newsletter>
+      <dialog
+        class="modal__overlay modal__overlay--default modal__overlay--newsletter{% unless section.settings.newsletter_enable %} is-visible{% endunless %}"
+        data-scroll-lock-required
+        aria-modal="true"
+        aria-labelledby="PopupNewsletter"
+        data-cookie-value="user_has_closed"
+        {{ popup_attributes }}
+        {{ block_attributes }}
+      >
+        <form method="dialog">
+          <button class="visually-hidden no-js" aria-label="{{ 'general.accessibility.close' | t }}"></button>
+        </form>
+
+        <div
+          class="modal__body modal--default modal--newsletter{% if section.settings.image %} modal--has-image{% else %} modal--no-image{% endif %}"
+          data-modal-body
+          data-scroll-lock-scrollable
+        >
+          <div class="modal-section">
+            <div class="modal-wrapper modal-wrapper--reverse">
+              <div class="modal__text">
+                <div class="modal__inner">
+                  {%- unless section.settings.subheading == '' -%}
+                    <p class="modal__subheading subheading">
+                      {{ section.settings.subheading | strip_html | escape }}
+                    </p>
+                  {%- endunless -%}
+
+                  {%- unless section.settings.title == '' -%}
+                    <h2 class="modal__title h3">{{ section.settings.title | strip_html | escape }}</h2>
+                  {%- endunless -%}
+
+                  {%- unless section.settings.text == '' -%}
+                    <div class="modal__description rte">{{ section.settings.text }}</div>
+                  {%- endunless -%}
+
+                  {%- if section.settings.newsletter_enable -%}
+                    {%- render 'newsletter-form', show_discount_message: true, klaviyo_list_id: section.settings.klaviyo_list_id -%}
+                  {%- endif -%}
+                </div>
+              </div>
+
+              {%- if section.settings.image -%}
+                <div class="modal__image">
+                  {%- render 'image',
+                    image: section.settings.image,
+                    width: 1000,
+                    sizes: '(min-width: 1400px) 500px, calc(75vw / 2)',
+                    cover: true
+                  -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <button data-popup-close class="close" title="{{ 'general.accessibility.close' | t }}" autofocus>
+            {%- render 'icon-cancel' -%}
+          </button>
+        </div>
+      </dialog>
+    </popup-newsletter>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Newsletter popup",
+  "class": "shopify-section-popups",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Optional. 1400 x 1400px .jpg recommended."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Newsletter"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Description",
+      "default": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "label": "Show newsletter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo list id",
+      "info": "Enter the Klaviyo list ID and the form will send data to the specified list"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_name",
+      "label": "Show name field",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Join"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show arrow",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "terms",
+      "label": "Show reCAPTCHA terms",
+      "default": true,
+      "info": "Recommended if your online store preferences have spam protection enabled."
+    },
+    {
+      "type": "header",
+      "content": "Button",
+      "info": "Applies if \"Show name field\" is enabled."
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "Color",
+      "default": "btn--primary",
+      "options": [
+        {"value": "btn--black", "label": "Black"},
+        {"value": "btn--white", "label": "White"},
+        {"value": "btn--primary", "label": "Primary"},
+        {"value": "btn--secondary", "label": "Secondary"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_size",
+      "label": "Size",
+      "default": "",
+      "options": [
+        {"label": "Small", "value": "btn--small"},
+        {"label": "Medium", "value": ""},
+        {"label": "Large", "value": "btn--large"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Style",
+      "default": "",
+      "options": [
+        {"label": "None", "value": ""},
+        {"label": "Solid", "value": "btn--solid"},
+        {"label": "Outline", "value": "btn--outline"},
+        {"label": "Text", "value": "btn--text"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Popup behavior"
+    },
+    {
+      "type": "select",
+      "id": "trigger",
+      "label": "Delay appearance",
+      "default": "always",
+      "options": [
+        {"value": "always", "label": "Show immediately"},
+        {"value": "delayed_10", "label": "Show 10 seconds after page load"},
+        {"value": "bottom", "label": "Show after user scrolls to page bottom"},
+        {"value": "idle", "label": "Show after user has been idle for 1 minute"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "paragraph",
+      "content": "Overrides color scheme. Set to Transparent to revert back to using color schemes."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Target page"
+    },
+    {
+      "id": "target_url_enabled",
+      "type": "checkbox",
+      "label": "Limit to specific page"
+    },
+    {
+      "id": "target_url",
+      "type": "url",
+      "label": "Targeted page"
+    },
+    {
+      "type": "header",
+      "content": "Target referrer"
+    },
+    {
+      "id": "target_referrer_enabled",
+      "type": "checkbox",
+      "label": "Limit to specific referrer path"
+    },
+    {
+      "id": "target_referrer",
+      "type": "text",
+      "label": "Targeted referrer"
+    },
+    {
+      "type": "header",
+      "content": "Target device"
+    },
+    {
+      "id": "target_device_enabled",
+      "type": "checkbox",
+      "label": "Limit to desktop or mobile"
+    },
+    {
+      "type": "select",
+      "id": "target_device",
+      "label": "Device ",
+      "default": "mobile",
+      "options": [
+        {"value": "mobile", "label": "Only show on mobile"},
+        {"value": "desktop", "label": "Only show on desktop"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Large newsletter"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["aside"]
+  }
+}
+{% endschema %}

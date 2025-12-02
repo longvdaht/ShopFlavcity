@@ -1,0 +1,187 @@
+{% comment %}
+    Renders script template for product quick add modal used on Product grid items and Product upsell
+
+    Accepts:
+    - product: {Object}
+
+    Usage:
+    {% render 'product-upsell-popup', product: product %}
+{% endcomment %}
+
+{% liquid
+	assign upsell_popup = product.metafields.custom.upsell_popup.value
+	assign main_current_variant = product.selected_or_first_available_variant
+	assign upsell_popup_text = upsell_popup.upsell_text
+	assign upsell_popup_product = upsell_popup.upsell_product.value
+	assign current_variant = upsell_popup_product.selected_or_first_available_variant
+	assign popup_primary_color = upsell_popup.popup_primary_color
+	assign popup_secondary_color = upsell_popup.popup_secondary_color
+	assign popup_image = upsell_popup.popup_image.value
+	assign free_product_image = upsell_popup.free_product_image.value
+	assign upsell_popup_header = 'products.general.upsell_popup_header' | t
+	assign upsell_keep_shopping = 'products.general.upsell_keep_shopping' | t
+	assign upsell_go_to_cart = 'products.general.upsell_go_to_cart' | t
+	assign upsell_add_to_cart = 'products.general.upsell_add_to_cart' | t
+
+	assign upsell_discount = upsell_popup.upsell_product_discount | divided_by: 100.0
+	assign product_price_min = upsell_popup_product.price_min | plus: 1
+	assign product_discount = product_price_min | times: upsell_discount | round
+	assign new_price = product_price_min | minus: product_discount
+%}
+
+<product-upsell-popup>
+	<dialog class="drawer product-upsell-popup" id="product-upsell-popup" aria-label="Product Upsell" data-scroll-lock-required>
+		<div class="drawer__inner product-upsell-popup__content" data-product-upsell-container data-scroll-lock-scrollable style="--primary-color: {{ popup_primary_color }}; --secondary-color: {{ popup_secondary_color }};">
+			<div class="drawer__header">
+				<div class="drawer__header__title">
+					{% render 'upsell-popup-icons' with 'check' %}
+					<p>{{ upsell_popup_header }}</p>
+				</div>
+				<div class="product-upsell-popup__close-outer">
+					<button class="product-upsell-popup__close drawer__close" aria-label="{{ 'general.accessibility.close' | t }}" data-product-upsell-close autofocus>
+						{% render 'upsell-popup-icons' with 'close' %}
+					</button>
+				</div>
+			</div>
+
+			<div class="product-upsell-popup__inner">
+				<div class="product-upsell-popup__main-product">
+					<div class="product-upsell-popup__main-product-image" data-product-image>
+						<a
+							class="product-upsell-popup__main-product-link"
+							href="{{ product.url }}"
+							aria-label="{{ product.title | strip_html | escape }}"
+							data-product-link="{{ product.url }}"
+						>
+							{%- if product.media.size > 0 -%}
+								<div class="product-upsell-popup__main-product-bg" data-product-image-default>
+									{%- liquid
+										assign fetchpriority = 'auto'
+										assign preload = false
+										assign image = popup_image | default: product.featured_media.preview_image
+
+										capture featured_image
+											render 'image', image: image, aspect_ratio: 1, sizes: sizes, widths: widths, loading: loading, fetchpriority: fetchpriority, preload: preload, attributes: image_animations, cover: true, preload_with_skeleton: true
+										endcapture
+									-%}
+
+									{{ featured_image }}
+								</div>
+							{%- endif -%}
+						</a>
+					</div>
+
+					<div class="product-upsell-popup__main-product-info">
+						<div>
+							<p class="product-upsell-popup__main-product-title">{{ product.title | strip_html | escape }}</p>
+							<ul class="product-upsell-popup__main-product-items">
+
+							</ul>
+							<div class="product-upsell-popup__main-product-free hidden">
+								{% if free_product_image != blank %}
+									<div class="product-upsell-popup__main-product-free-image">
+										{% render 'image', image: free_product_image, aspect_ratio: 1, sizes: sizes, widths: widths, loading: loading, fetchpriority: fetchpriority, preload: preload, attributes: image_animations, cover: true, preload_with_skeleton: true %}
+									</div>
+								{% endif %}
+								<div class="upsell-popup__bundle-item-free">
+
+								</div>
+							</div>
+						</div>
+						<div class="product-upsell-popup__main-product-price" data-product-price>
+							{%- render 'product-grid-price', product: product, current_variant: main_current_variant -%}
+						</div>
+					</div>
+				</div>
+
+				<div class="product-upsell-popup__upsell-product-content">
+					{% if upsell_popup_text != blank %}
+						<div class="product-upsell-popup__upsell-text">
+							{{ upsell_popup_text | metafield_tag }}
+						</div>
+					{% endif %}
+
+					<div class="product-upsell-popup__upsell-product">
+						<div class="product-upsell-popup__upsell-product-wrapper">
+							<div class="product-upsell-popup__upsell-product-image" data-product-image>
+								<a
+									class="product-upsell-popup__upsell-product-link"
+									href="{{ upsell_popup_product.url }}"
+									aria-label="{{ upsell_popup_product.title | strip_html | escape }}"
+									data-product-link="{{ upsell_popup_product.url }}"
+								>
+									{%- if upsell_popup_product.media.size > 0 -%}
+										<div class="product-upsell-popup__upsell-product-bg" data-product-image-default>
+											{%- liquid
+												assign fetchpriority = 'auto'
+												assign preload = false
+
+												capture featured_image
+													render 'image', image: upsell_popup_product.featured_media.preview_image, aspect_ratio: 1, sizes: sizes, widths: widths, loading: loading, fetchpriority: fetchpriority, preload: preload, attributes: image_animations, cover: true, preload_with_skeleton: true
+												endcapture
+											-%}
+
+											{{ featured_image }}
+										</div>
+									{%- endif -%}
+								</a>
+							</div>
+
+							<div class="product-upsell-popup__upsell-product-info">
+								<p class="product-upsell-popup__upsell-product-title">{{ upsell_popup_product.title | strip_html | escape }}</p>
+								<div class="product-upsell-popup__upsell-product-price" data-product-price>
+								<span class="price{% if upsell_discount %} sale{% endif %}">
+										<span class="old-price">
+												{{ product_price_min | money }}
+										</span>
+										{% if upsell_discount %}
+											<span class="new-price">{{ new_price | money }}</span>
+										{% endif %}
+								</span>
+								</div>
+							</div>
+						</div>
+
+						<quick-add-product>
+							<div class="quick-add__holder" data-quick-add-holder="{{ upsell_popup_product.id }}">
+								{%- assign product_form_id = 'ProductForm--' | append: upsell_popup_product.id -%}
+								{%- form 'product', product, id: product_form_id -%}
+									<input type="hidden" name="id" value="{{ current_variant.id }}">
+
+									<button class="quick-add__button btn btn--primary"
+													type="submit"
+													name="add"
+													data-add-to-cart
+													aria-label="{{ upsell_add_to_cart }}"
+									>
+                <span class="btn__text">
+									{{ upsell_add_to_cart }}
+                </span>
+
+										<span class="btn__added">&nbsp;</span>
+										<span class="btn__loader">
+                  <svg height="18" width="18" class="svg-loader">
+                    <circle r="7" cx="9" cy="9" />
+                    <circle stroke-dasharray="87.96459430051421 87.96459430051421" r="7" cx="9" cy="9" />
+                  </svg>
+                </span>
+										<span class="btn__error" data-message-error>&nbsp;</span>
+									</button>
+								{%- endform -%}
+							</div>
+						</quick-add-product>
+					</div>
+				</div>
+			</div>
+
+			<div class="product-upsell-popup__footer">
+				<button class="product-upsell-popup__button product-upsell-popup__button--keep-shopping" data-product-upsell-keep-shopping>
+					{{ upsell_keep_shopping }}
+				</button>
+				<button class="product-upsell-popup__button product-upsell-popup__button--go-to-cart" data-product-upsell-go-to-cart>
+					{{ upsell_go_to_cart }}
+				</button>
+			</div>
+		</div>
+	</dialog>
+</product-upsell-popup>

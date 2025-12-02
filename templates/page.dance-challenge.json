@@ -1,0 +1,597 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "show_title": true,
+        "heading_font_size": "heading-large",
+        "show_content": true,
+        "text_font_size": "body-medium",
+        "align_text": "text-left",
+        "width": "wrapper",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_hero_w_animation_PxAzFb": {
+      "type": "section-hero-w-animation",
+      "blocks": {
+        "decorative_element_K8BmhT": {
+          "type": "decorative-element",
+          "name": "Decorative element",
+          "settings": {
+            "shown_on": "mobile",
+            "z_index": "3",
+            "overflow_hidden": false,
+            "image_scale": 1,
+            "max_width_desktop": 100,
+            "desktop_x_position": 0,
+            "desktop_x_transform": 0,
+            "desktop_y_position": 0,
+            "desktop_y_transform": -36,
+            "image_mobile": "shopify://shop_images/falling_coffee_beans.png",
+            "max_width_mobile": 100,
+            "mobile_x_position": 0,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 0,
+            "mobile_y_transform": -54,
+            "aos_animation": "fade-down",
+            "scroll_animation": "translate",
+            "scroll_direction": "down",
+            "scroll_percentage": 20,
+            "rotate_effect": false,
+            "rotate_effect_from": -10,
+            "rotate_effect_to": -10
+          },
+          "blocks": {}
+        },
+        "decorative_element_Ndqe96": {
+          "type": "decorative-element",
+          "name": "Decorative element",
+          "settings": {
+            "shown_on": "desktop",
+            "z_index": "3",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_3_3x_2_1.png",
+            "image_scale": 1,
+            "max_width_desktop": 100,
+            "desktop_x_position": 0,
+            "desktop_x_transform": 0,
+            "desktop_y_position": 0,
+            "desktop_y_transform": -36,
+            "max_width_mobile": 100,
+            "mobile_x_position": 0,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 0,
+            "mobile_y_transform": -24,
+            "aos_animation": "fade-down",
+            "scroll_animation": "translate",
+            "scroll_direction": "down",
+            "scroll_percentage": 10,
+            "rotate_effect": false,
+            "rotate_effect_from": -10,
+            "rotate_effect_to": -10
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "decorative_element_K8BmhT",
+        "decorative_element_Ndqe96"
+      ],
+      "disabled": true,
+      "name": "Hero with animation",
+      "settings": {
+        "section_mode": "flavcity-cafe",
+        "enable_sticky_position": true,
+        "background": "transparent",
+        "link": "",
+        "width": "wrapper--full",
+        "height": "seven-fifty-height-hero",
+        "flex_align_desktop": "align--top-center-desktop",
+        "mobile_height": "image-height--mobile",
+        "flex_align_mobile": "align--top-center-mobile",
+        "color_scheme": "scheme-c471a6a3-af90-4097-9b89-9a56c0983877",
+        "show_text_background": false,
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 110
+      }
+    },
+    "section_text_with_animation_zqgzkB": {
+      "type": "section-text-with-animation",
+      "blocks": {
+        "decorative_element_T7mWbL": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "both",
+            "z_index": "unset",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_3_3x_2_1_4ee4ffd2-56bf-42e2-82f4-59b605994c33.png",
+            "image_scale": 1.5,
+            "max_width_desktop": 100,
+            "desktop_x_position": 17,
+            "desktop_x_transform": 0,
+            "desktop_y_position": 0,
+            "desktop_y_transform": 0,
+            "image_mobile": "shopify://shop_images/Asset_3_3x_2_1_4ee4ffd2-56bf-42e2-82f4-59b605994c33.png",
+            "max_width_mobile": 100,
+            "mobile_x_position": 7,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 0,
+            "mobile_y_transform": 0,
+            "aos_animation": "unset",
+            "scroll_animation": "translate",
+            "scroll_direction": "up",
+            "scroll_percentage": 30,
+            "rotate_effect": false,
+            "rotate_effect_from": -10,
+            "rotate_effect_to": -10
+          }
+        },
+        "decorative_element_mbwVnL": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "desktop",
+            "z_index": "5",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_4_2x_92aeef0e-f38b-40c3-8b18-27eb8e314a38.webp",
+            "image_scale": 1,
+            "max_width_desktop": 24,
+            "desktop_x_position": 91,
+            "desktop_x_transform": -56,
+            "desktop_y_position": 49,
+            "desktop_y_transform": 0,
+            "max_width_mobile": 10,
+            "mobile_x_position": 50,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 50,
+            "mobile_y_transform": 0,
+            "aos_animation": "fade-left",
+            "scroll_animation": "translate",
+            "scroll_direction": "left",
+            "scroll_percentage": 70,
+            "rotate_effect": true,
+            "rotate_effect_from": 38,
+            "rotate_effect_to": 0
+          }
+        },
+        "decorative_element_A4ebwg": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "desktop",
+            "z_index": "5",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_3_2x_275ad76d-e33d-49aa-8bc8-0a240a0dcdc4.webp",
+            "image_scale": 0.9,
+            "max_width_desktop": 21,
+            "desktop_x_position": 0,
+            "desktop_x_transform": -20,
+            "desktop_y_position": 39,
+            "desktop_y_transform": -60,
+            "max_width_mobile": 10,
+            "mobile_x_position": 50,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 50,
+            "mobile_y_transform": 0,
+            "aos_animation": "fade-down",
+            "scroll_animation": "translate",
+            "scroll_direction": "right",
+            "scroll_percentage": 70,
+            "rotate_effect": true,
+            "rotate_effect_from": -40,
+            "rotate_effect_to": 6
+          }
+        },
+        "heading_Hi8iCf": {
+          "type": "heading",
+          "settings": {
+            "text": "Your Moves + Our Flavors = <sup><br>\nThe Perfect Mix</sup>",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "color": "#0e5261",
+            "padding_bottom": 16,
+            "padding_bottom_mobile": 8
+          }
+        },
+        "text_By7XkR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Join the #ShakenOrStirredDance Challenge on TikTok and Instagram for a chance to be featured and win an exclusive FlavCity Café PR box!</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-x-large",
+            "color": "#3f2021",
+            "padding_bottom": 0,
+            "padding_bottom_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "decorative_element_T7mWbL",
+        "decorative_element_mbwVnL",
+        "decorative_element_A4ebwg",
+        "heading_Hi8iCf",
+        "text_By7XkR"
+      ],
+      "name": "Text with animation",
+      "settings": {
+        "color_scheme": "scheme-6",
+        "width": "wrapper",
+        "text_alignment": "align--middle-center",
+        "padding_top": 400,
+        "padding_bottom": 270,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "section_text_with_animation_mABGYL": {
+      "type": "section-text-with-animation",
+      "blocks": {
+        "heading_TRQB8R": {
+          "type": "heading",
+          "settings": {
+            "text": "Stir It. Shake It. Show It Off.",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-large",
+            "color": "#0e5261",
+            "padding_bottom": 0,
+            "padding_bottom_mobile": 8
+          }
+        },
+        "text_iQFwkx": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "color": "#005261",
+            "padding_bottom": 12,
+            "padding_bottom_mobile": 8
+          }
+        }
+      },
+      "block_order": [
+        "heading_TRQB8R",
+        "text_iQFwkx"
+      ],
+      "name": "Text with animation",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "width": "wrapper--full",
+        "text_alignment": "align--middle-center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "17599458792ab4f895": {
+      "type": "apps",
+      "blocks": {
+        "lyve_shoppable_video_stream_carousel_app_block_XGTftn": {
+          "type": "shopify://apps/lyve-shoppable-video-stream/blocks/carousel-app-block/59c1ba16-2c38-422a-a2a9-23074d5a3fd9",
+          "settings": {
+            "custom_id": "68e6a2c6178e28b9ad37e715"
+          }
+        }
+      },
+      "block_order": [
+        "lyve_shoppable_video_stream_carousel_app_block_XGTftn"
+      ],
+      "settings": {
+        "include_margins": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "image_with_text_bg_rmPjEy": {
+      "type": "image-with-text-bg",
+      "blocks": {
+        "heading_mqpAjL": {
+          "type": "heading",
+          "settings": {
+            "title": "We Want To See",
+            "color": "#0e5261",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-medium",
+            "padding_bottom": 2,
+            "heading_tag": "automatic"
+          }
+        },
+        "heading_aym7Ex": {
+          "type": "heading",
+          "settings": {
+            "title": "Your Moves!",
+            "color": "#00bdb9",
+            "heading_font_family": "ternary-heading__font",
+            "heading_font_size": "heading-large",
+            "padding_bottom": 18,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_U3yHrw": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Grab your favorite FlavCity Café drink mix, shake (or stir) it your way, and show off your best moves because we’re turning flavor into a full-on vibe.<br/><br/>Don’t forget to tag us @flavcity and add the hashtag #ShakenOrStirredDance for a chance to be featured and win an exclusive FlavCity Café PR box!</strong></p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "padding_bottom": 22
+          }
+        },
+        "buttons_QKDPjX": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "Join The Fun",
+            "button_url": "https://www.tiktok.com/@flavcity",
+            "button_type": "btn--secondary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false,
+            "padding_bottom": 16
+          }
+        },
+        "decorative_element_W6JNDT": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "desktop",
+            "z_index": "unset",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_3_3x_14.png",
+            "max_width_desktop": 30,
+            "desktop_x_position": 2,
+            "desktop_x_transform": -10,
+            "desktop_y_position": 0,
+            "desktop_y_transform": 30,
+            "max_width_mobile": 10,
+            "mobile_x_position": 50,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 50,
+            "mobile_y_transform": 0,
+            "aos_animation": "unset",
+            "scroll_animation": "translate",
+            "scroll_direction": "up",
+            "scroll_percentage": 100,
+            "rotate_effect": false
+          }
+        },
+        "decorative_element_KzFb67": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "desktop",
+            "z_index": "unset",
+            "overflow_hidden": false,
+            "image": "shopify://shop_images/Asset_3_3x_14.png",
+            "max_width_desktop": 30,
+            "desktop_x_position": 70,
+            "desktop_x_transform": 0,
+            "desktop_y_position": 85,
+            "desktop_y_transform": 0,
+            "max_width_mobile": 10,
+            "mobile_x_position": 50,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 50,
+            "mobile_y_transform": 0,
+            "aos_animation": "unset",
+            "scroll_animation": "translate",
+            "scroll_direction": "up",
+            "scroll_percentage": 100,
+            "rotate_effect": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_mqpAjL",
+        "heading_aym7Ex",
+        "text_U3yHrw",
+        "buttons_QKDPjX",
+        "decorative_element_W6JNDT",
+        "decorative_element_KzFb67"
+      ],
+      "name": "Image with text (bg)",
+      "settings": {
+        "custom_selector": "image-with-text__bg",
+        "background_color": "linear-gradient(180deg, rgba(214, 235, 235, 1) 25%, rgba(255, 248, 234, 0) 100%)",
+        "enable_parallax": true,
+        "image_bg_desktop": "shopify://shop_images/Asset_1.webp",
+        "image_bg_desktop_secondary": "shopify://shop_images/Asset_1_100x_699aaa77-f520-44dd-9cfb-f202ac7750fa.webp",
+        "image_bg_mobile": "shopify://shop_images/Asset_1_ce00aff5-b795-43ea-a401-43f096ec944a.webp",
+        "video": "shopify://files/videos/FLAVCITY DANCE CHALLENGE VIDEO BANNER MB FINA_CompressedL (1).mp4",
+        "image_shape": "rounded",
+        "image_width": "one-half",
+        "text_alignment": "text-left",
+        "layout": "is-reversed",
+        "width": "wrapper--full-padded",
+        "height": "image-height",
+        "mobile_height": "image-height--mobile",
+        "color_scheme": "scheme-6",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "section_tab_collections_hf8Jcn": {
+      "type": "section-tab-collections",
+      "blocks": {
+        "collection_CRbHbc": {
+          "type": "collection",
+          "settings": {
+            "title": "Best Sellers",
+            "featured_product_list": [],
+            "featured_collection": "instant-coffee",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 5,
+            "overlay_color": "#000000",
+            "description": "",
+            "color": "#ffffff",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false
+          }
+        },
+        "collection_xmaeyp": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "featured_product_list": [],
+            "featured_collection": "protein-smoothies",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 5,
+            "overlay_color": "#000000",
+            "description": "",
+            "color": "#ffffff",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false
+          }
+        },
+        "collection_Df96gM": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "featured_product_list": [
+              "c-ya-later",
+              "chocolate-peanut-butter-protein-smoothie",
+              "single-serve-packets"
+            ],
+            "featured_collection": "",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "description": "",
+            "color": "",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_CRbHbc",
+        "collection_xmaeyp",
+        "collection_Df96gM"
+      ],
+      "settings": {
+        "section_mode": "flavcity-cafe",
+        "show_product_count": false,
+        "enable_navigation": true,
+        "show_empty_section": true,
+        "title": "Café Menu",
+        "heading_font_family": "secondary-heading__font",
+        "heading_font_size": "heading-x-large",
+        "text": "",
+        "text_font_size": "body-medium",
+        "layout": "stacked",
+        "text_alight_mobile": "text_alight_mobile--center",
+        "layout_desktop": "slider",
+        "slider_arrow_position": "slider-desktop-position-center",
+        "slider_overflow": true,
+        "layout_mobile": "slider",
+        "product_limit": 7,
+        "grid": 4,
+        "rows": 3,
+        "color_scheme": "scheme-1",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 60,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_text_with_animation_aAnEVb": {
+      "type": "section-text-with-animation",
+      "blocks": {
+        "heading_LAAHd6": {
+          "type": "heading",
+          "settings": {
+            "text": "As Seen On @flavcity TikTok",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-large",
+            "color": "#0e5261",
+            "padding_bottom": 8,
+            "padding_bottom_mobile": 8
+          }
+        }
+      },
+      "block_order": [
+        "heading_LAAHd6"
+      ],
+      "name": "Text with animation",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "width": "wrapper",
+        "text_alignment": "align--middle-center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "17599391083e125970": {
+      "type": "apps",
+      "blocks": {
+        "lyve_shoppable_video_stream_carousel_app_block_9THEkr": {
+          "type": "shopify://apps/lyve-shoppable-video-stream/blocks/carousel-app-block/59c1ba16-2c38-422a-a2a9-23074d5a3fd9",
+          "settings": {
+            "custom_id": "68e68705da875cde5577551d"
+          }
+        }
+      },
+      "block_order": [
+        "lyve_shoppable_video_stream_carousel_app_block_9THEkr"
+      ],
+      "settings": {
+        "include_margins": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_hero_w_animation_PxAzFb",
+    "section_text_with_animation_zqgzkB",
+    "section_text_with_animation_mABGYL",
+    "17599458792ab4f895",
+    "image_with_text_bg_rmPjEy",
+    "section_tab_collections_hf8Jcn",
+    "section_text_with_animation_aAnEVb",
+    "17599391083e125970"
+  ]
+}

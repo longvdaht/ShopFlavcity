@@ -1,0 +1,247 @@
+{% liquid
+	assign color_scheme = 'color-' | append: section.settings.color_scheme
+	assign direction = section.settings.direction
+	assign speed = section.settings.speed
+	assign ribbon_thickness = section.settings.ribbon_thickness
+	assign font_size_desktop = section.settings.font_size_desktop
+	assign font_size_mobile = section.settings.font_size_mobile
+
+	assign sep_core = section.settings.separator | default: ' ~ '
+	assign nbsp = ' '
+	assign pad = ''
+	assign separator_padding = section.settings.separator_padding
+%}
+
+{% if section.blocks.size > 0  %}
+	{{ 'section-waved-text.css' | asset_url | stylesheet_tag }}
+
+	<div
+		id="ScrollingRibbon-{{ section.id }}"
+		class="scrolling-ribbon {{ color_scheme }}"
+		data-dir="{{ direction }}"
+		data-speed="{{ speed }}"
+		style="--speed: {{ speed }}s; --stroke: {{ ribbon_thickness }}; --font-size-desktop: {{ font_size_desktop }}px; --font-size-mobile: {{ section.settings.font_size_mobile }}px;"
+	>
+
+		<div class="scrolling-ribbon__inner">
+			{% if separator_padding and separator_padding > 0 %}
+				{% for i in (1..separator_padding) %}
+					{% assign pad = pad | append: nbsp %}
+				{% endfor %}
+			{% endif %}
+			{% assign separator = pad | append: sep_core | append: pad %}
+
+			{% capture content_once %}
+				{%- for block in section.blocks -%}
+					{{- block.settings.text -}}{%- if forloop.last == false -%}{{ separator }}{%- endif -%}
+				{%- endfor -%}
+			{% endcapture %}
+
+			{%- assign content_stripped = content_once -%}
+			{%- assign base_unit = content_stripped | append: separator -%}
+
+			<svg id="ticker-{{ section.id }}" class="scrolling-ribbon__svg" viewBox="0 0 1440 300" width="100%" height="300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+				<defs>
+					<path id="ribbonPath-{{ section.id }}" d="M0,200 C 240,120 480,80 720,120 C 960,160 1200,220 1440,180" pathLength="100" />
+				</defs>
+
+				<path class="scrolling-ribbon__band" d="M0,200 C 240,120 480,80 720,120 C 960,160 1200,220 1440,180" pathLength="100" />
+
+				<text class="scrolling-ribbon__text" xml:space="preserve">
+					<textPath
+						id="tp-{{ section.id }}-a"
+						class="tp tp--a"
+						href="#ribbonPath-{{ section.id }}"
+						startOffset="{% if section.settings.direction == 'left' %}0%{% else %}-100%{% endif %}"
+						alignment-baseline="middle"
+						data-unit="{%- for i in (1..20) -%}{{ base_unit | escape }}{%- endfor -%}"
+					>
+						{%- for i in (1..20) -%}
+							{{ base_unit | escape }}
+						{%- endfor -%}
+					</textPath>
+      </text>
+			</svg>
+		</div>
+	</div>
+
+	<script>
+    (function () {
+      const svg = document.getElementById('ticker-{{ section.id }}');
+      if (!svg) return;
+
+      const tp = svg.querySelector('#tp-{{ section.id }}-a');
+      if (!tp) return;
+
+      const href = tp.getAttribute('href') || tp.getAttribute('xlink:href');
+      const path = href ? svg.querySelector(href) : null;
+      if (!path) return;
+
+      const section = svg.closest('.scrolling-ribbon');
+      const dir = ((section?.dataset.dir || 'right') + '').toLowerCase().includes('left') ? 'left' : 'right';
+      const speedSetting = parseFloat(section?.dataset.speed || '') || parseFloat(getComputedStyle(section).getPropertyValue('--speed')) || 18;
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const speedSec = reduced ? Math.max(speedSetting, 60) : speedSetting;
+
+      function buildLongRun() {
+        const unitRaw = tp.dataset.unit || '';
+        const unitPadded = unitRaw.replace(/\s+$/, '') + '\u00A0';
+        tp.textContent = unitPadded;
+        let unitLen = tp.getComputedTextLength();
+        if (!unitLen || !isFinite(unitLen)) unitLen = 120;
+        const pathLen = path.getTotalLength();
+        const targetLen = pathLen * 4; // generous so no gaps
+        const repeatCount = Math.max(8, Math.ceil(targetLen / unitLen));
+        const longRun = unitPadded.repeat(repeatCount);
+        tp.textContent = longRun;
+      }
+
+      let offset = (dir === 'left') ? 0 : -100;
+      let timer = null;
+
+      function writeOffset(pct) {
+        tp.setAttribute('startOffset', pct + '%');
+      }
+
+      function tick(stepMs) {
+        const dirSign = (dir === 'left') ? -1 : 1;
+        const deltaPct = (stepMs / (speedSec * 1000)) * 100;
+        offset += dirSign * deltaPct;
+        if (offset > 100) offset -= 200;
+        else if (offset < -100) offset += 200;
+
+        writeOffset(offset);
+      }
+
+      function start() {
+        if (timer) clearInterval(timer);
+        buildLongRun();
+        writeOffset(offset);
+
+        let last = performance.now();
+        timer = setInterval(() => {
+          const now = performance.now();
+          const dt = now - last;
+          last = now;
+          tick(dt);
+        }, 16);
+      }
+
+      const ro = new ResizeObserver(() => { buildLongRun(); writeOffset(offset); });
+      ro.observe(svg);
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(start).catch(start);
+      } else {
+        start();
+      }
+    })();
+	</script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Waved Scrolling Text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General settings"
+    },
+    {
+			"type": "text",
+			"id": "separator",
+			"label": "Separator between items",
+			"default": " ~ "
+		},
+    {
+			"type": "range",
+			"id": "separator_padding",
+			"label": "Spaces around separator",
+			"min": 0,
+			"max": 10,
+			"step": 1,
+			"default": 1
+		},
+    {
+			"type": "range",
+			"id": "ribbon_thickness",
+			"label": "Wave width (px)",
+			"min": 40,
+			"max": 180,
+			"step": 4,
+			"default": 120
+		},
+    {
+			"type": "range",
+			"id": "font_size_desktop",
+			"label": "Font size desktop (px)",
+			"min": 12,
+			"max": 72,
+			"step": 1,
+			"default": 36
+		},
+    {
+			"type": "range",
+			"id": "font_size_mobile",
+			"label": "Font size mobile (px)",
+			"min": 10,
+			"max": 48,
+			"step": 1,
+			"default": 22
+		},
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Animation settings"
+    },
+    {
+			"type": "range",
+			"id": "speed",
+			"label": "Scroll speed (seconds)",
+			"min": 6,
+			"max": 60,
+			"step": 1,
+			"default": 18
+		},
+    {
+			"type": "select",
+			"id": "direction",
+			"label": "Scroll direction",
+      "default": "right",
+			"options": [
+				{"value": "left", "label": "Left"},
+				{"value": "right", "label": "Right"}
+			]
+		}
+  ],
+  "blocks": [
+    {
+			"type": "item",
+			"name": "Text item",
+			"settings": [
+				{
+					"type": "text",
+					"id": "text",
+					"label": "Text",
+					"default": "REAL INGREDIENTS"
+				}
+			]
+		}
+  ],
+  "presets": [
+		{
+			"name": "Waved Scrolling Text",
+			"category": "Text"
+		}
+	]
+}
+{% endschema %}

@@ -1,0 +1,181 @@
+{% comment %}
+  Renders order product list or upsell products on Cart page and Cart drawer
+
+  Accepts:
+  - block: {Object} Block object (required)
+
+  Usage:
+  {% render 'cart-block-upsell', block: block %}
+{% endcomment %}
+
+{%- liquid
+  assign upsell_auto_open = block.settings.upsell_auto_open
+  assign suggestions_type = block.settings.suggestions_type
+  assign layout = block.settings.layout
+  assign product_ids_in_cart = cart.items | map: 'product_id'
+  assign show_suggestions = false
+  assign products_form_product_list_count = 0
+
+  capture product_list
+    for product in block.settings.product_list
+      if product_ids_in_cart contains product.id or product.available != true
+        continue
+      endif
+
+      assign products_form_product_list_count = products_form_product_list_count | plus: 1
+
+       case layout
+          when 'slider'
+            echo '<swiper-slide class="swiper-slide">'
+              render 'upsell-product', upsell_product: product
+            echo '</swiper-slide>'
+          else
+            render 'upsell-product', upsell_product: product
+      endcase
+
+    endfor
+  endcapture
+
+  if block.settings.product_list.count > 0
+    assign show_suggestions = true
+  endif
+
+  if request.design_mode
+    assign show_suggestions = true
+  endif
+
+  if suggestions_type == 'complementary_products'
+    assign show_suggestions = true
+  endif
+-%}
+
+{% capture complementary_products_capture %}
+  {% for item in cart.items %}
+    {% liquid
+      assign cart_item_to_suggest_to = item.product
+      assign uniq_id = 'now' | date: "%09N"
+    %}
+
+    {% if cart_item_to_suggest_to %}
+      <complementary-products
+        class="complementary-products"
+        data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ cart_item_to_suggest_to.id }}&limit=10&intent=complementary"
+        data-title="{{ cart_item_to_suggest_to.title }}"
+        data-child-container-selector="swiper-container"
+        data-unpack
+        data-remove-duplicates
+        data-ignore-intersections
+      >
+        {%- if recommendations.performed and recommendations.products_count > 0 -%}
+          {%- for complementary_product in recommendations.products limit: 10 -%}
+
+            {%- case layout -%}
+              {%- when 'slider' -%}
+                <swiper-slide class="swiper-slide {{ uniq_id }}"
+                              data-complementary-product-id="{{ complementary_product.id }}"
+                              data-line-item-id="{{ uniq_id }}"
+                >
+                  {%- render 'upsell-product', upsell_product: complementary_product -%}
+                </swiper-slide>
+              {%- else -%}
+              <div data-complementary-product-id="{{ complementary_product.id }}"
+                   data-line-item-id="{{ uniq_id }}">
+                {%- render 'upsell-product', upsell_product: complementary_product -%}
+              </div>
+
+            {%- endcase -%}
+
+          {%- endfor -%}
+        {%- endif -%}
+      </complementary-products>
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{%- if show_suggestions -%}
+  <details
+    class="cart__widget cart__widget--products accordion cart__widget--{{ suggestions_type }}"
+    data-collapsible
+    data-scroll-to-content
+    {% if upsell_auto_open %}
+      open="true"
+    {% endif %}
+    data-cart-complementary-products
+  >
+    <summary class="cart__widget__title" data-collapsible-trigger>
+      {{ block.settings.title }}
+
+      {%- render 'icon-plus' -%}
+      {%- render 'icon-minus' -%}
+    </summary>
+
+    <div
+      class="cart__widget__content"
+      {% if upsell_auto_open %}
+        style="height: auto;"
+      {% endif %}
+      data-collapsible-body
+    >
+      <div class="cart__widget__content__inner" data-collapsible-content>
+        {%- case layout -%}
+
+          {%- when 'slider' -%}
+            <div class="swiper-inner swiper-inner-upsell" style="--overflow-state: visible;">
+              <swiper-container
+                      class="swiper-container cart__widget__content__inner__wrapper"
+                      init="true"
+                      slides-per-view="1"
+                      speed="600"
+                      mousewheel-force-to-axis="true"
+                      space-between="20"
+                      free-mode="false"
+                      css-mode="false"
+                      pagination="false"
+                      navigation={"nextEl":".swiper-button-next-{{ section.id }}","prevEl":".swiper-button-prev-{{ section.id }}"}
+                      scrollbar={"el":".swiper-scrollbar-{{ section.id }}","draggable":"true","hide":"false"}
+                      {% if suggestions_type == 'product_list' %}
+                        data-complementary-products-count="{{ products_form_product_list_count }}"
+                      {% endif %}
+                      data-line-items-count="{{ cart.items.size }}"
+                      data-line-items-ids="{{ product_ids_in_cart | json }}"
+              >
+                {% if suggestions_type == 'product_list' %}
+                  {{ product_list }}
+                {% else %}
+                  {{ complementary_products_capture }}
+                {% endif %}
+              </swiper-container>
+
+              <button class="swiper-button swiper-button-prev swiper-button-prev-{{ section.id }}">
+                {% render 'icons' with 'arrow-left' %}
+              </button>
+
+              <button class="swiper-button swiper-button-next swiper-button-next-{{ section.id }}">
+                {% render 'icons' with 'arrow-right' %}
+              </button>
+            </div>
+
+          {%- else -%}
+
+          <div class="cart__widget__content__inner__wrapper"
+              {% if suggestions_type == 'product_list' %}
+                data-complementary-products-count="{{ products_form_product_list_count }}"
+              {% endif %}
+              data-line-items-count="{{ cart.items.size }}"
+              data-line-items-ids="{{ product_ids_in_cart | json }}">
+            {% if suggestions_type == 'product_list' %}
+              {{ product_list }}
+            {% else %}
+              {{ complementary_products_capture }}
+            {% endif %}
+          </div>
+
+        {%- endcase -%}
+      </div>
+    </div>
+  </details>
+{%- endif -%}
+
+{% if suggestions_type == 'complementary_products' %}
+  <script src="{{ 'complementary-products.js' | asset_url }}" defer="defer"></script>
+{% endif %}

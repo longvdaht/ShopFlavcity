@@ -1,0 +1,156 @@
+{%- comment -%} Create GWP data {%- endcomment -%}
+
+{%- assign threshold_gwp_blocks = section.blocks | where: 'type', 'gwp-threshold' -%}
+{%- assign product_gwp_blocks = section.blocks | where: 'type', 'gwp-product' -%}
+{%- assign category_gwp_blocks = section.blocks | where: 'type', 'gwp-category' -%}
+{%- assign subscription_gwp_blocks = section.blocks | where: 'type', 'gwp-subscription' -%}
+{%- assign cart_total = cart.total_price | divided_by: 100 -%}
+
+{%- comment -%} Check by subscription GWP  {%- endcomment -%}
+
+{%- if subscription_gwp_blocks.size > 0 -%}
+  {%- for block in subscription_gwp_blocks -%}
+    {%- assign subscription_product_in_cart = 0 -%}
+    {%- assign gwp_product = block.settings.gwp_product -%}
+    {%- assign gwp_variant_id = block.settings.gwp_product_variant_id -%}
+    {%- assign gwp_variant = gwp_product.variants | where: 'id', gwp_variant_id | first | default: gwp_product.variants[0] -%}
+    {%- assign subscription_product_in_cart = cart.items | where: 'selling_plan_allocation' -%}
+
+    {%- if gwp_variant.available and subscription_product_in_cart.size > 0 -%}
+      {%- unless GWP_VARIANT_IDS contains gwp_variant.id -%}
+      {%- assign GWP_VARIANT_IDS = GWP_VARIANT_IDS | append: '|||' | append: gwp_variant.id -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- comment -%} Check by product GWP  {%- endcomment -%}
+
+{%- if product_gwp_blocks.size > 0 -%}
+  {%- for block in product_gwp_blocks -%}
+    {%- assign needed_product_in_cart = false -%}
+    {%- assign add_product = block.settings.gwp_add_product -%}
+    {%- assign gwp_product = block.settings.gwp_product -%}
+    {%- assign gwp_variant_id = block.settings.gwp_product_variant_id -%}
+    {%- assign gwp_variant = gwp_product.variants | where: 'id', gwp_variant_id | first | default: gwp_product.variants[0] -%}
+
+    {%- for item in cart.items -%}
+
+      {%- if item.properties['_gwp'] -%}
+        {% continue %}
+      {%- endif -%}
+
+      {%- if item.product_id == add_product.id -%}
+        {%- assign needed_product_in_cart = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if gwp_variant.available and needed_product_in_cart -%}
+      {%- unless GWP_VARIANT_IDS contains gwp_variant.id -%}
+        {%- assign GWP_VARIANT_IDS = GWP_VARIANT_IDS | append: '|||' | append: gwp_variant.id -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- comment -%} Check by category GWP  {%- endcomment -%}
+
+{%- if category_gwp_blocks.size > 0 -%}
+  {%- for block in category_gwp_blocks -%}
+    {%- assign needed_collection_in_cart = false -%}
+    {%- assign category = block.settings.gwp_add_collection -%}
+    {%- assign gwp_product = block.settings.gwp_product -%}
+    {%- assign gwp_variant_id = block.settings.gwp_product_variant_id -%}
+    {%- assign gwp_variant = gwp_product.variants | where: 'id', gwp_variant_id | first | default: gwp_product.variants[0] -%}
+
+    {%- for item in cart.items -%}
+
+      {%- if item.properties['_gwp'] -%}
+        {% continue %}
+      {%- endif -%}
+
+      {%- assign needed_collection_in_cart = category.products | where: 'id', item.product_id -%}
+      {%- if needed_collection_in_cart.size > 0 -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if gwp_variant.available and needed_collection_in_cart.size > 0 -%}
+      {%- unless GWP_VARIANT_IDS contains gwp_variant.id -%}
+        {%- assign GWP_VARIANT_IDS = GWP_VARIANT_IDS | append: '|||' | append: gwp_variant.id -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- comment -%} Check by threshold GWP  {%- endcomment -%}
+
+{%- if threshold_gwp_blocks.size > 0 -%}
+  {%- for block in threshold_gwp_blocks -%}
+    {%- assign gwp_product = block.settings.gwp_product -%}
+    {%- assign gwp_threshold = block.settings.threshold -%}
+    {%- assign gwp_variant_id = block.settings.gwp_product_variant_id -%}
+    {%- assign gwp_variant = gwp_product.variants | where: 'id', gwp_variant_id | first | default: gwp_product.variants[0] -%}
+
+    {%- if gwp_variant.available -%}
+      {%- unless GWP_VARIANT_IDS contains gwp_variant.id -%}
+        {%- if gwp_threshold <= cart_total -%}
+          {%- assign GWP_VARIANT_IDS = GWP_VARIANT_IDS | append: '|||' | append: gwp_variant.id -%}
+        {%- endif -%}
+      {%- endunless -%}
+
+    {%- endif -%}
+  {%- endfor -%}
+
+{%- endif -%}
+
+{%- for item in cart.items -%}
+  {%- assign item_is_gwp = item.properties['_gwp'] | default: false -%}
+  {%- assign item_is_monk_gwp = item.properties['_mr'] | default: false -%}
+
+  {%- if item_is_gwp -%}
+    {%- assign GWP_KEYS_IN_CART = GWP_KEYS_IN_CART | append: '|||' | append: item.key -%}
+
+    {%- if item.quantity > 1 -%}
+      {%- assign SET_GWP_QTY_TO_1 = SET_GWP_QTY_TO_1 | append: '|||' | append: item.key -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if item.price == 0 and item.discounted_price == item.price and item_is_gwp == false and item_is_monk_gwp == false -%}
+    {%- assign GWP_DATA_TO_REMOVE = GWP_DATA_TO_REMOVE | append: '|||' | append: item.key -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign GWP_KEYS_IN_CART = GWP_KEYS_IN_CART | remove_first: '|||' | split: '|||' -%}
+
+{%- for key in GWP_KEYS_IN_CART -%}
+  {%- assign id = key | split: ':' | first -%}
+
+  {%- if GWP_VARIANT_IDS contains id -%}
+    {%- assign GWP_VARIANT_IDS = GWP_VARIANT_IDS | remove: id -%}
+  {%- else -%}
+    {%- assign GWP_DATA_TO_REMOVE = GWP_DATA_TO_REMOVE | append: '|||' | append: key -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign GWP_DATA_TO_ADD = GWP_VARIANT_IDS | remove_first: '|||' | split: '|||' | uniq -%}
+{%- assign GWP_DATA_TO_REMOVE = GWP_DATA_TO_REMOVE | remove_first: '|||' | split: '|||' | uniq -%}
+{%- assign SET_GWP_QTY_TO_1 = SET_GWP_QTY_TO_1 | remove_first: '|||' | split: '|||' | uniq -%}
+{%- assign CLEAR_GWP_SESSION_STORAGE = false -%}
+
+{%- if cart.item_count == 0 -%}
+  {%- assign CLEAR_GWP_SESSION_STORAGE = true -%}
+{%- endif -%}
+
+<script id="GWP_DATA"
+        type="application/ld+json"
+        data-section-id="{{ section.id }}"
+>
+  {
+    "GWP_DATA_TO_REMOVE": {{ GWP_DATA_TO_REMOVE | json }},
+    "GWP_DATA_TO_ADD": {{ GWP_DATA_TO_ADD | json }},
+    "SET_GWP_QTY_TO_1": {{ SET_GWP_QTY_TO_1 | json }},
+    "CLEAR_GWP_SESSION_STORAGE": {{ CLEAR_GWP_SESSION_STORAGE | json }}
+  }
+</script>

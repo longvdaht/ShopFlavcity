@@ -1,0 +1,135 @@
+{% comment %}
+  {% render 'product-card-quick-add', product: Object mode: 'string' %}
+{% endcomment %}
+
+{%- if settings.quickview_enable -%}
+	{%- liquid
+		assign has_preorder_meta = false
+		assign has_preorder_tag = false
+
+		if current_variant.available and product.metafields.theme.preorder.type == 'boolean' and product.metafields.theme.preorder.value == true
+			assign has_preorder_meta = true
+		endif
+
+		if current_variant.available and product.tags contains '_preorder'
+			assign has_preorder_tag = true
+		endif
+
+		if has_preorder_meta or has_preorder_tag
+			assign preorder_name = 'products.product.sale_type' | t | strip_html | escape
+			assign preorder_value = 'products.product.pre_order' | t | strip_html | escape
+		endif
+
+		assign unique = section.id | append: '-' | append: product.id
+		assign product_url = product.url | within: collection
+	-%}
+
+	<quick-add-product>
+		<div class="quick-add__holder" data-quick-add-holder="{{ product.id }}">
+			{%- if product.template_suffix contains 'bundle' and product.metafields.bundle.metaobject.value != blank -%}
+				<a class="quick-add__button btn {% if mode == 'flavcity-shop' %}btn--primary{% else %}btn--secondary{% endif %}"
+					 href="{{ product_url }}"
+					 aria-label="{{ 'products.general.choose_options' | t }} for {{ product.title }}">
+
+							{% if mode == 'flavcity-shop' %}
+								<span class="hidden">{{ product.title }}</span>
+							{% else %}
+								<span class="btn__text">
+									{{ 'products.general.choose_options' | t }}
+								</span>
+							{% endif %}
+				</a>
+			{%- elsif sold_out %}
+				<a class="quick-add__button btn {% if mode == 'flavcity-shop' %}btn--primary{% else %}btn--secondary{% endif %}"
+					 href="{{ product_url }}"
+					 aria-label="{{ 'products.general.choose_options' | t }} for {{ product.title }}">
+
+							{% if mode == 'flavcity-shop' %}
+								{% render 'icons' with 'icon-plus-circle' %}
+							{% else %}
+								<span class="btn__text">
+									{{ 'products.product.sold_out' | t }}
+								</span>
+							{% endif %}
+				</a>
+			{%- elsif product.variants.size == 1 -%}
+				{%- assign product_form_id = 'ProductForm--' | append: unique -%}
+				{%- form 'product', product, id: product_form_id -%}
+					<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+					{%- if preorder_value != blank -%}
+						<input
+							type="hidden"
+							name="properties[{{ preorder_name }}]"
+							value="{{ preorder_value }}">
+					{%- endif -%}
+
+					<button class="quick-add__button btn {% if mode == 'flavcity-shop' %}btn--primary{% else %}btn--secondary{% endif %}"
+									type="submit"
+									name="add"
+									data-add-to-cart
+						{% if sold_out != true %}
+							aria-label="{{ 'products.product.add_to_cart' | t }}"
+						{% else %}
+							disabled
+							aria-label="{{ 'products.product.sold_out' | t }}"
+						{% endif %}
+					>
+								{% if mode == 'flavcity-shop' %}
+									{% render 'icons' with 'icon-plus-circle' %}
+								{% else %}
+									<span class="btn__text">
+										{% if sold_out != true %}
+											{%- if preorder -%}
+												{{ 'products.product.pre_order' | t }}
+											{%- else -%}
+												{{ 'products.product.add_to_cart' | t }}
+											{%- endif -%}
+										{% else %}
+											{{ 'products.product.sold_out' | t }}
+										{% endif %}
+									</span>
+								{% endif %}
+
+						<span class="btn__added">&nbsp;</span>
+						<span class="btn__loader">
+                  <svg height="18" width="18" class="svg-loader">
+                    <circle r="7" cx="9" cy="9" />
+                    <circle stroke-dasharray="87.96459430051421 87.96459430051421" r="7" cx="9" cy="9" />
+                  </svg>
+                </span>
+						<span class="btn__error" data-message-error>&nbsp;</span>
+					</button>
+				{%- endform -%}
+			{%- else -%}
+				<button class="quick-add__button btn {% if mode == 'flavcity-shop' %}btn--primary{% else %}btn--secondary{% endif %}"
+								type="button"
+								aria-label="{{ 'products.general.view_variants' | t }}"
+								data-quick-add-btn
+								data-quick-add-modal-handle="{{ product.handle }}"
+				>
+						{% if mode == 'flavcity-shop' %}
+								{% render 'icons' with 'icon-plus-circle' %}
+						{% else %}
+							<span class="btn__text">
+                <span class="btn__text">
+                  {{ 'products.general.view_variants' | t }}
+                </span>
+              </span>
+							{% endif %}
+					<span class="btn__added">&nbsp;</span>
+					<span class="btn__loader">
+                <svg height="18" width="18" class="svg-loader">
+                  <circle r="7" cx="9" cy="9" />
+                  <circle stroke-dasharray="87.96459430051421 87.96459430051421" r="7" cx="9" cy="9" />
+                </svg>
+              </span>
+				</button>
+			{%- endif -%}
+
+			{%- unless product.has_only_default_variant -%}
+				{%- render 'product-quick-add-modal-template', product_id: product.id, unique: unique -%}
+			{%- endunless -%}
+		</div>
+	</quick-add-product>
+{%- endif -%}

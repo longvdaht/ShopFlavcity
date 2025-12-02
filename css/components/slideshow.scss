@@ -1,0 +1,135 @@
+@import "../tools/mixins.scss";
+@import "../settings/variables.scss";
+
+.slideshow {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  transition: min-height 0.5s linear;
+
+  .slideshow-wrapper {
+    position: relative;
+
+    .swiper-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+
+      .swiper-slide {
+        flex-shrink: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .hero__content__wrapper {
+    pointer-events: none;
+
+    a { pointer-events: auto; }
+  }
+
+  .hero__content {
+    margin: var(--outer);
+    max-width: calc(100vw - 75px);
+  }
+
+  .hero__content--transparent {
+    --outer-sides: 84px;
+    padding: var(--outer) var(--outer-sides) calc(var(--outer) - var(--line));
+    margin: 0;
+
+    &:empty {
+      display: none;
+    }
+
+    @include media-query ($small) {
+      --outer-sides: 64px;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .swiper-slide {
+    color: var(--text);
+    width: 100%;
+
+    & > a {
+      min-height: 100%;
+      height: 100%;
+      color: inherit;
+    }
+  }
+
+  .swiper-slide--onboarding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .image-overlay { display: none; }
+  }
+
+  .swiper-button-next {
+    transform: translate(-5px, -50%);
+  }
+
+  .swiper-button-prev {
+    transform: translate(5px, -50%);
+  }
+
+  @include media-query ($medium-up) {
+    .swiper-button-next {
+      display: none;
+      transform: translate(-10px, -50%);
+    }
+
+    .swiper-button-prev {
+      display: none;
+      transform: translate(10px, -50%);
+    }
+
+    &:hover {
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: flex;
+      }
+    }
+  }
+}
+
+// Zoom out animation
+.swiper--zoom-out .image__fill > img {
+  will-change: opacity, transform;
+  transform: scale(1.2);
+  transition: transform 2s $ease-out-fast;
+}
+
+
+.swiper--zoom-out:has(.is-initialized) .swiper-slide-active .image__fill > img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+// Wipe animation
+.swiper--wipe:has(.is-initialized) {
+  .swiper-slide { transition: transform 0.5s 0s ease, opacity 0.5s 0.5s ease; }
+
+  .swiper-slide-active,
+  .swiper-slide-visible { transition: transform 0.5s 0s ease, opacity 0.5s 0s ease; }
+  .swiper-slide-active { z-index: 2; }
+}
+
+.swiper--wipe .swiper-slide-active .hero__image {
+  animation: clipPathFromRight 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes clipPathFromRight {
+  0% {
+    clip-path: polygon(100% 0, 100% 0%, 100% 100%, 100% 100%);
+    transform: translateX(2%);
+  }
+
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateX(0);
+  }
+}

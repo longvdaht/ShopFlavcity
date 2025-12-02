@@ -1,0 +1,42 @@
+{% comment %}
+Deferred loading of third-party scripts after first user interaction.
+This preserves Shopify Privacy API and reduces blocking JS in <head>.
+{% endcomment %}
+<script>
+  (function () {
+    const thirdPartyScripts = [
+      "https://a.klaviyo.com/media/js/onsite/onsite.js",
+      "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=UqWc2Y"
+    ];
+
+    function loadDeferredScript(src, opts = {}) {
+      try {
+        if (document.querySelector(`script[data-deferred-src="${CSS.escape(src)}"]`)) return;
+
+        const s = document.createElement('script');
+        s.src = src;
+        s.async = opts.async ?? true;
+        s.defer = opts.defer ?? true;
+        s.setAttribute('data-deferred-src', src);
+
+        (opts.toBody ? document.body : document.head).appendChild(s);
+      } catch (err) {
+        console.error('[Deferred Loader] Exception while adding:', src, err);
+      }
+    }
+
+    function initDeferredScripts(event) {
+      thirdPartyScripts.forEach(src => loadDeferredScript(src, { defer: true }));
+
+      ['mousemove', 'touchstart', 'keydown'].forEach(type => {
+        window.removeEventListener(type, initDeferredScripts);
+      });
+    }
+
+    ['mousemove', 'touchstart', 'keydown'].forEach(type => {
+      window.addEventListener(type, initDeferredScripts, { passive: true, once: true });
+    });
+
+    setTimeout(initDeferredScripts, 8000);
+  })();
+</script>

@@ -1,0 +1,226 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_rich_text_Eny6NR": {
+      "type": "section-rich-text",
+      "blocks": {
+        "heading_6tREAU": {
+          "type": "heading",
+          "settings": {
+            "title": "Frequently Asked Questions",
+            "heading_font_size": "heading-x-large",
+            "padding_bottom": 30,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_pbAFfm": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Please see below for answers to common questions from customers<\/strong><\/p>",
+            "text_font_size": "body-large",
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "heading_6tREAU",
+        "text_pbAFfm"
+      ],
+      "custom_css": [
+        ".hero__content__wrapper {--width-narrow: 750px;}",
+        ".hero__title {line-height: normal;}",
+        "@media only screen and (max-width: 749px) {.hero__content__wrapper {justify-content: flex-start; text-align: left; }}"
+      ],
+      "settings": {
+        "align_text": "text-center",
+        "width": "wrapper--narrow",
+        "color_scheme": "",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 60,
+        "padding_bottom": 6,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 16
+      }
+    },
+    "section_sidebar_6JYyPq": {
+      "type": "section-sidebar",
+      "blocks": {
+        "header_VHiaVz": {
+          "type": "header",
+          "settings": {
+            "title": "General Questions"
+          }
+        },
+        "accordion_MTAE8P": {
+          "type": "accordion",
+          "settings": {
+            "title": "How long do your products last? (Shelf-Life)",
+            "content": "<p>Our products have a shelf life for a full year since the time of purchase!<\/p>"
+          }
+        },
+        "accordion_9zjDcn": {
+          "type": "accordion",
+          "settings": {
+            "title": "Can I drink your products daily?",
+            "content": "<p>Yes! All of our products can be consumed daily!<\/p>"
+          }
+        },
+        "accordion_BFF4iy": {
+          "type": "accordion",
+          "settings": {
+            "title": "Where can I purchase your products?",
+            "content": "<p>FlavCity products are available to purchase on our website ShopFlavCity.com!<\/p>"
+          }
+        },
+        "accordion_R9xAjr": {
+          "type": "accordion",
+          "settings": {
+            "title": "Where can I find nutrition information\/serving information?",
+            "content": "<p>All product nutrition\/serving information can be found on our website, ShopFlavCity.com! Simply select the product you are interested in, and browse through our images to see this information!<\/p>"
+          }
+        },
+        "accordion_LmQc7F": {
+          "type": "accordion",
+          "settings": {
+            "title": "Why are FlavCity products expensive?",
+            "content": "<p>At FlavCity, we pride ourselves by only using top quality ingredients which not only have amazing benefits, but also provide exceptional taste! Therefore, our price reflects this mission!<\/p>"
+          }
+        },
+        "header_RiMQ4X": {
+          "type": "header",
+          "settings": {
+            "title": "Ordering\/Shipping"
+          }
+        },
+        "accordion_UeDhAP": {
+          "type": "accordion",
+          "settings": {
+            "title": "Can I return a product?",
+            "content": "<p>Due to the nature of our products, we can not provide any refunds!<\/p>"
+          }
+        },
+        "accordion_H6TdBy": {
+          "type": "accordion",
+          "settings": {
+            "title": "Do you ship internationally?",
+            "content": "<p>Yes! We ship to over 200 countries worldwide. You can find your country below. <em>Please note that this list is subject to change. Also, some products may not be available to ship to every country.<\/em><\/p><p><\/p><p>Afghanistan<\/p><p>Albania<\/p><p>Algeria<\/p><p>American Samoa*<\/p><p>Andorra<\/p><p>Angola<\/p><p>Anguilla<\/p><p>Antigua and Barbuda<\/p><p>Argentina<\/p><p>Armenia<\/p><p>Aruba<\/p><p>Australia<\/p><p>Austria<\/p><p>Azerbaijan<\/p><p>Azores<\/p><p>Bahamas<\/p><p>Bahrain<\/p><p>Bangladesh<\/p><p>Barbados<\/p><p>Belgium<\/p><p>Belize<\/p><p>Benin<\/p><p>Bermuda<\/p><p>Bhutan<\/p><p>Bolivia<\/p><p>Bonaire<\/p><p>Bosnia and Herzegovina<\/p><p>Botswana<\/p><p>Brazil<\/p><p>British Indian Ocean Territory<\/p><p>British Virgin Islands<\/p><p>Brunei<\/p><p>Bulgaria<\/p><p>Burkina Faso<\/p><p>Burundi<\/p><p>Cambodia<\/p><p>Cameroon<\/p><p>Canada<\/p><p>Canary Islands<\/p><p>Cape Verde<\/p><p>Cayman Islands<\/p><p>Central African Republic<\/p><p>Chad<\/p><p>Chile<\/p><p>China<\/p><p>Christmas Island<\/p><p>Cocos (Keeling) Islands<\/p><p>Colombia<\/p><p>Comoros<\/p><p>Cook Islands<\/p><p>Costa Rica<\/p><p>Croatia<\/p><p>Curacao<\/p><p>Cyprus<\/p><p>Czech Republic<\/p><p>Democratic Republic of the Congo<\/p><p>Denmark<\/p><p>Djibouti<\/p><p>Dominica<\/p><p>Dominican Republic<\/p><p>East Timor<\/p><p>Ecuador<\/p><p>Egypt<\/p><p>El Salvador<\/p><p>Equatorial Guinea<\/p><p>Estonia<\/p><p>Ethiopia<\/p><p>Falkland Islands<\/p><p>Faroe Islands<\/p><p>Fiji<\/p><p>Finland<\/p><p>France<\/p><p>French Guiana<\/p><p>French Polynesia<\/p><p>French Southern Territories<\/p><p>Gabon<\/p><p>Gambia<\/p><p>Georgia<\/p><p>Germany<\/p><p>Ghana<\/p><p>Gibraltar<\/p><p>Greece<\/p><p>Greenland<\/p><p>Grenada<\/p><p>Guadeloupe<\/p><p>Guam*<\/p><p>Guatemala<\/p><p>Guernsey<\/p><p>Guinea<\/p><p>Guinea-Bissau<\/p><p>Guyana<\/p><p>Haiti<\/p><p>Heard Island and Mcdonald Islands<\/p><p>Honduras<\/p><p>Hong Kong<\/p><p>Hungary<\/p><p>Iceland<\/p><p>India<\/p><p>Indonesia<\/p><p>Iraq<\/p><p>Ireland<\/p><p>Isle of Man<\/p><p>Israel<\/p><p>Italy<\/p><p>Ivory Coast<\/p><p>Jamaica<\/p><p>Japan<\/p><p>Jersey<\/p><p>Jordan<\/p><p>Kazakhstan<\/p><p>Kenya<\/p><p>Kiribati<\/p><p>Kosovo<\/p><p>Kuwait<\/p><p>Kyrgyzstan<\/p><p>Laos<\/p><p>Latvia<\/p><p>Lebanon<\/p><p>Lesotho<\/p><p>Liberia<\/p><p>Libya<\/p><p>Liechtenstein<\/p><p>Lithuania<\/p><p>Luxembourg<\/p><p>Macau<\/p><p>Macedonia<\/p><p>Madagascar<\/p><p>Malawi<\/p><p>Malaysia<\/p><p>Maldives<\/p><p>Mali<\/p><p>Malta<\/p><p>Marshall Islands<\/p><p>Martinique<\/p><p>Mauritania<\/p><p>Mauritius<\/p><p>Mayotte<\/p><p>Mexico<\/p><p>Micronesia<\/p><p>Moldova<\/p><p>Monaco<\/p><p>Mongolia<\/p><p>Montenegro<\/p><p>Montserrat<\/p><p>Morocco<\/p><p>Mozambique<\/p><p>Myanmar (Burma)<\/p><p>Namibia<\/p><p>Nauru<\/p><p>Nepal<\/p><p>Netherlands<\/p><p>Netherlands Antilles<\/p><p>New Caledonia<\/p><p>New Zealand<\/p><p>Nicaragua<\/p><p>Niger<\/p><p>Nigeria<\/p><p>Niue<\/p><p>Norfolk Island<\/p><p>Northern Mariana Islands*<\/p><p>Norway<\/p><p>Oman<\/p><p>Pakistan<\/p><p>Palau<\/p><p>Palestine<\/p><p>Panama<\/p><p>Papua New Guinea<\/p><p>Paraguay<\/p><p>Peru<\/p><p>Philippines<\/p><p>Pitcairn Islands<\/p><p>Poland<\/p><p>Portugal<\/p><p>Puerto Rico*<\/p><p>Qatar<\/p><p>Republic of the Congo<\/p><p>Reunion<\/p><p>Romania<\/p><p>Russia<\/p><p>Rwanda<\/p><p>Saint Barthelemy<\/p><p>Saint Helena<\/p><p>Saint Kitts and Nevis<\/p><p>Saint Lucia<\/p><p>Saint Martin<\/p><p>Saint Pierre and Miquelon<\/p><p>Saint Vincent and the Grenadines<\/p><p>Samoa<\/p><p>San Marino<\/p><p>Sao Tome and Principe<\/p><p>Saudi Arabia<\/p><p>Senegal<\/p><p>Serbia<\/p><p>Serbia and Montenegro<\/p><p>Seychelles<\/p><p>Sierra Leone<\/p><p>Singapore<\/p><p>Sint Maarten<\/p><p>Slovakia<\/p><p>Slovenia<\/p><p>Solomon Islands<\/p><p>Somalia<\/p><p>South Africa<\/p><p>South Georgia and the South Sandwich Islands<\/p><p>South Korea<\/p><p>South Sudan<\/p><p>Spain<\/p><p>Sri Lanka<\/p><p>Sudan<\/p><p>Suriname<\/p><p>Svalbard and Jan Mayen<\/p><p>Swaziland<\/p><p>Sweden<\/p><p>Switzerland<\/p><p>Taiwan<\/p><p>Tajikistan<\/p><p>Tanzania<\/p><p>Thailand<\/p><p>Togo<\/p><p>Tokelau<\/p><p>Tonga<\/p><p>Trinidad and Tobago<\/p><p>Tunisia<\/p><p>Turkey<\/p><p>Turkmenistan<\/p><p>Turks and Caicos Islands<\/p><p>Tuvalu<\/p><p>U.S. Virgin Islands*<\/p><p>Uganda<\/p><p>Ukraine<\/p><p>United Arab Emirates<\/p><p>United Kingdom<\/p><p>United States Minor Outlying Islands*<\/p><p>Uruguay<\/p><p>Uzbekistan<\/p><p>Vanuatu<\/p><p>Vatican City<\/p><p>Vietnam<\/p><p>Wallis and Futuna<\/p><p>Western Sahara<\/p><p>Yemen<\/p><p>Zambia<\/p><p>Zimbabwe<\/p><p><\/p><p><strong>* Indicates a domestic shipment for shipments originating in the USA.<\/strong><\/p>"
+          }
+        },
+        "accordion_xHdaQY": {
+          "type": "accordion",
+          "settings": {
+            "title": "How long does it take for my product to arrive?",
+            "content": "<p>We use USPS and UPS to ship products to our customers! Normally orders take 5-7 business days to receive!<\/p>"
+          }
+        },
+        "accordion_LEJUmg": {
+          "type": "accordion",
+          "settings": {
+            "title": "Can I change my address once I have placed my order?",
+            "content": "<p>Once an order is placed, we work quickly to have this order shipped to you, please ensure BEFORE placing your order that your address is correct. If you already placed your order, and the address is incorrect, please email our customer support team at hello@shopflavcity.com!<\/p>"
+          }
+        },
+        "header_4XYK36": {
+          "type": "header",
+          "settings": {
+            "title": "Subscriptions"
+          }
+        },
+        "accordion_efEbTa": {
+          "type": "accordion",
+          "settings": {
+            "title": "How does the subscription service work?",
+            "content": "<p>FlavCity subscriptions are available on most of our products! Once you sign up for a subscription, you will be billed and automatically shipped the product of your selection on a monthly basis.<\/p>"
+          }
+        },
+        "accordion_gVDrkp": {
+          "type": "accordion",
+          "settings": {
+            "title": "Can I cancel my subscription at any time?",
+            "content": "<p>Yes! You can cancel your subscription at any time! We encourage you to cancel your subscription a week before the automatic shipment date, in order to ensure you no longer receive this product. You can do this through the customer portal on ShopFlavCity.com or by emailing our customer support team at hello@shopflavcity.com!<\/p>"
+          }
+        },
+        "accordion_XRPRLp": {
+          "type": "accordion",
+          "settings": {
+            "title": "Can I edit, change, or pause my subscription?",
+            "content": "<p>Yes! You can edit, change, and pause your subscription through the customer portal on ShopFlavCity.com or by emailing our customer support team at hello@shopflavcity.com!<\/p>"
+          }
+        },
+        "header_4qxGfG": {
+          "type": "header",
+          "settings": {
+            "title": "Kosher Products"
+          }
+        },
+        "accordion_Xf8awd": {
+          "type": "accordion",
+          "settings": {
+            "title": "KO Dairy",
+            "content": "<ul><li><a href=\"https:\/\/www.shopflavcity.com\/products\/vanilla-protein-smoothie\">Vanilla Protein Smoothie<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/chocolate-peanut-butter-protein-smoothie\">Chocolate Peanut Butter Protein Smoothie<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/protein-smoothie-single-serve-vanilla-cream\">Protein Smoothie Single-Serve Vanilla Cream<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/protein-smoothie-single-serve-chocolate-peanut-butter\">Protein Smoothie Single-Serve Chocolate Peanut Butter<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/copy-of-chocolate-protein-smoothie\">Protein Smoothie Single-Serve Chocolate<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/protein-smoothie-single-serve-berries-cream\">Protein Smoothie Single-Serve Berries & Cream<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/butter-coffee-protein-smoothie-limited-edition\">Butter Coffee Protein Smoothie<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/berries-cream-protein-smoothie\">Berries & Cream Protein Smoothie<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/chocolate-protein-smoothie\">Chocolate Protein Smoothie<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/brownie-batter-protein-smoothie\">Brownie Batter Protein Smoothie<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/vanilla-latte-protein-smoothie\">Vanilla Latte Protein Smoothie<\/a><\/li><\/ul>"
+          }
+        },
+        "accordion_zaX9kb": {
+          "type": "accordion",
+          "settings": {
+            "title": "KOF-K Parve",
+            "content": "<ul><li><a href=\"https:\/\/www.shopflavcity.com\/products\/variety-pack-electrolyte-mix\">Variety Pack Electrolyte Mix<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/hot-chocolate\">Hot Chocolate<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/elderberry-immunity-tea\">Immunity Tea - Elderberry<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/strawberry-limeade-electrolyte-mix\">Strawberry Limeade Electrolyte Mix<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/fruit-punch-electrolyte-mix\">Fruit Punch Electrolyte Mix<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/pina-colada-electrolyte-mix\">Pineapple Coconut Electrolyte Mix<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/vegan-vanilla-protein-smoothie\">Plant-Based Vanilla Protein Smoothie<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/plant-based-chocolate-peanut-butter-protein-smoothie\">Plant-Based Chocolate Peanut Butter Protein Smoothie<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/lemon-lime-electrolyte-mix\">Lemon Lime Electrolyte Mix<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/plant-based-coconut-cream-cold-brew-protein-smoothie\">Plant-Based Coconut Cream Cold Brew Protein Smoothie<\/a><\/li><\/ul>"
+          }
+        },
+        "accordion_xEDmE8": {
+          "type": "accordion",
+          "settings": {
+            "title": "OU",
+            "content": "<ul><li><a href=\"https:\/\/www.shopflavcity.com\/products\/keto-lemonade\">Superfood Lemonade<\/a><\/li><li><a href=\"https:\/\/www.shopflavcity.com\/products\/grapefruit-lemonade\">Grapefruit Lemonade<\/a><\/li><\/ul>"
+          }
+        }
+      },
+      "block_order": [
+        "header_VHiaVz",
+        "accordion_MTAE8P",
+        "accordion_9zjDcn",
+        "accordion_BFF4iy",
+        "accordion_R9xAjr",
+        "accordion_LmQc7F",
+        "header_RiMQ4X",
+        "accordion_UeDhAP",
+        "accordion_H6TdBy",
+        "accordion_xHdaQY",
+        "accordion_LEJUmg",
+        "header_4XYK36",
+        "accordion_efEbTa",
+        "accordion_gVDrkp",
+        "accordion_XRPRLp",
+        "header_4qxGfG",
+        "accordion_Xf8awd",
+        "accordion_zaX9kb",
+        "accordion_xEDmE8"
+      ],
+      "custom_css": [
+        ".section-sidebar {--width-normal: 1400px;}"
+      ],
+      "settings": {
+        "heading_font_size": "heading-large",
+        "width": "wrapper",
+        "color_scheme": "",
+        "padding_top": 30,
+        "padding_bottom": 100,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "section_rich_text_Eny6NR",
+    "section_sidebar_6JYyPq"
+  ]
+}

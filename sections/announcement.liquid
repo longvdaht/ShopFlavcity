@@ -1,0 +1,154 @@
+{% liquid
+	assign animation_anchor = '#Announcement--' | append: section.id
+	assign animation_order = 0
+	assign enable_navigation = section.settings.enable_navigation
+	assign enable_loop = section.settings.enable_loop
+	assign enable_autoplay = section.settings.enable_autoplay
+	assign autoplay_speed = section.settings.autoplay_speed
+	assign padding_top = section.settings.padding_top
+	assign padding_bottom = section.settings.padding_bottom
+%}
+
+{%- if section.blocks.size > 0 -%}
+	<div class="announcement-bar" id="Announcement--{{ section.id }}"
+      {%- comment -%}
+			 data-aos="hero"
+			 data-aos-anchor="{{ animation_anchor }}"
+			 data-aos-order="{{ animation_order }}"
+			 data-aos-duration="500"
+      {%- endcomment -%}
+	>
+		<div class="announcement-bar__wrapper">
+			<div class="swiper-inner" style="--overflow-state: hidden;">
+				<swiper-container
+					class="swiper-container"
+					init="true"
+					slides-per-view="auto"
+					direction="vertical"
+					auto-height="true"
+					simulate-touch="false"
+					{% if section.blocks.size > 1 and enable_loop %}loop="true"{% endif %}
+					{% if section.blocks.size > 1 and enable_autoplay %}autoplay={"delay":"{{ autoplay_speed | times: 1000 }}"}{% endif %}
+					speed="600"
+					{% if enable_navigation and section.blocks.size > 1 %}navigation={"nextEl":".swiper-button-next-{{ section.id }}","prevEl":".swiper-button-prev-{{ section.id }}"}{% endif %}
+				>
+
+					{%- for block in section.blocks -%}
+						{%- assign text = block.settings.text -%}
+						{%- assign bg_color = block.settings.bg_color -%}
+						{%- assign text_color = block.settings.text_color -%}
+
+						<swiper-slide class="announcement-bar__item swiper-slide"
+													style="--bg-color: {{ bg_color }}; --color: {{ text_color }}; --padding-top: {{ padding_top }}px; --padding-bottom: {{ padding_bottom }}px">
+							<div class="announcement-bar__item-inner">
+								{{ text }}
+							</div>
+						</swiper-slide>
+					{%- endfor -%}
+				</swiper-container>
+
+				{% if enable_navigation and section.blocks.size > 1 %}
+					<div class="swiper-button-prev swiper-button-prev-{{ section.id }}">
+						{% render 'icons' with 'arrow-left' %}
+					</div>
+
+					<div class="swiper-button-next swiper-button-next-{{ section.id }}">
+						{% render 'icons' with 'arrow-right' %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{%- endif -%}
+
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "class": "announcement-bar-section",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slider settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_navigation",
+      "label": "Enable navigation",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "label": "Enable infinity loop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "sec",
+      "label": "Auto-scroll delay",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Announcement",
+      "type": "announcement",
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color",
+          "default": "#182844"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

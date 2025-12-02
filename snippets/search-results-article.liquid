@@ -1,0 +1,42 @@
+{% liquid
+	assign loading = 'lazy'
+	assign fetch_priority = 'auto'
+	assign preload = 'false'
+%}
+
+<article class="article grid-item">
+	<div class="article__image__outer">
+		<div class="article__image">
+			<a class="article__image-link" href="{{ item.url }}" aria-label="link to {{ item.title }}">
+				<figure class="image-wrapper lazy-image is-loading lazy-image--backfill"
+								data-aos="img-in"
+								data-aos-anchor="#Blog"
+								data-aos-order="1"
+								style="--aspect-ratio: 1;">
+					<span class="image-skeleton" aria-hidden="true"></span>
+					{{ item.image | image_url: width: 1200 | image_tag: class: image_class, loading: loading, fetchpriority: high, preload: preload, sizes: sizes, widths: '246, 493, 600, 713, 823, 990, 1100' }}
+				</figure>
+			</a>
+		</div>
+	</div>
+	<div class="article__text-wrapper">
+		<div class="article__tags">
+			{%- for value in item.metafields.custom.filter_by_product.value -%}
+				<span class="filter-tag">{{ value }}</span>
+			{%- endfor -%}
+
+			{%- for value in item.metafields.custom.filter_by_category.value -%}
+				<span class="filter-tag">{{ value }}</span>
+			{%- endfor -%}
+
+			{%- for value in item.metafields.custom.filter_by_diet.value -%}
+				<span class="filter-tag">{{ value }}</span>
+			{%- endfor -%}
+		</div>
+		<h2 class="article__title subheading body-x-large">
+			<a href="{{ item.url }}" title="{{ item.title }}">
+				{{ item.title }}
+			</a>
+		</h2>
+	</div>
+</article>

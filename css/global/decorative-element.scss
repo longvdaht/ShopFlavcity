@@ -1,0 +1,41 @@
+@import "../tools/mixins.scss";
+@import "../settings/variables.scss";
+
+decorative-element {
+  display: block;
+  width: 100%;
+  max-width: var(--max-width-mobile, 10%);
+  position: absolute;
+  left: var(--mobile-x-position, 50%);
+  top: var(--mobile-y-position, 50%);
+  transform: translate3d(var(--mobile-x-transform, 0), var(--mobile-y-transform, 0), 0);
+  transition: all .3s linear;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  transform-style: preserve-3d;
+  z-index: var(--z-index);
+
+  img {
+    transform: scale(var(--image-scale, 1));
+    width: 100%;
+    height: auto;
+  }
+
+  @media (width >= 750px) {
+    max-width: var(--max-width-desktop, 10%);
+    left: var(--desktop-x-position, 50%);
+    top: var(--desktop-y-position, 50%);
+    transform: translate3d(var(--desktop-x-transform, 0), var(--desktop-y-transform, 0), 0);
+  }
+
+  [data-animation-element] {
+    position: relative;
+    display: block;
+    transition: all 0.3s linear;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+    transform-style: preserve-3d;
+  }
+}

@@ -1,0 +1,33 @@
+{% assign breadcrumbs_modifier = breadcrumbs_modifier | default: '' %}
+
+{% capture divider_html %}
+  {%- comment -%}
+  <span class="breadcrumbs__arrow">&nbsp;</span>
+  {%- endcomment -%}
+
+  <span class="breadcrumbs__slash">/</span>
+{% endcapture %}
+
+<nav class="breadcrumbs {{ breadcrumbs_modifier }}">
+  <a href="{{ routes.root_url }}">{{ 'general.breadcrumbs.home' | t }}</a>
+
+  {{ divider_html }}
+
+  {% if template contains 'product' %}
+    {%- if collection -%}
+      {{ collection.title | link_to: collection.url }}
+
+      {{ divider_html }}
+    {%- endif -%}
+  {%- elsif template.name == 'article' -%}
+    {{ blog.title | link_to: blog.url }}
+
+    {{ divider_html }}
+  {% endif %}
+
+  {%- if product -%}
+    <span class="breadcrumbs__last-step">{{ product.title | strip_html }}</span>
+  {%- else -%}
+    <span>{{- page_title -}}</span>
+  {%- endif -%}
+</nav>

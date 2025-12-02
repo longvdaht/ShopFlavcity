@@ -1,0 +1,156 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "list-collections",
+      "blocks": {
+        "collection_6mUaxf": {
+          "type": "collection",
+          "settings": {
+            "collection": "protein-smoothies",
+            "collection_name": "",
+            "image": "shopify://shop_images/Page_0000_Protein_Smoothies_New_Pack_V1.jpg"
+          }
+        },
+        "collection_pTBpR6": {
+          "type": "collection",
+          "settings": {
+            "collection": "electrolytes",
+            "collection_name": ""
+          }
+        },
+        "collection_jrHHiR": {
+          "type": "collection",
+          "settings": {
+            "collection": "gummies",
+            "collection_name": ""
+          }
+        },
+        "collection_q8pF6h": {
+          "type": "collection",
+          "settings": {
+            "collection": "hot-chocolates",
+            "collection_name": ""
+          }
+        },
+        "collection_Dcxg9X": {
+          "type": "collection",
+          "settings": {
+            "collection": "immunity",
+            "collection_name": ""
+          }
+        },
+        "collection_cPgxAL": {
+          "type": "collection",
+          "settings": {
+            "collection": "merch",
+            "collection_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_6mUaxf",
+        "collection_pTBpR6",
+        "collection_jrHHiR",
+        "collection_q8pF6h",
+        "collection_Dcxg9X",
+        "collection_cPgxAL"
+      ],
+      "disabled": true,
+      "settings": {
+        "display_type": "selected",
+        "title": "Collections",
+        "heading_font_size": "heading-medium",
+        "grid": 4,
+        "rows": 1,
+        "layout_mobile": "slider",
+        "color_scheme": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_collections_list_BxVnKV": {
+      "type": "section-collections-list",
+      "blocks": {
+        "collection_TVh8Uy": {
+          "type": "collection",
+          "settings": {
+            "collection": "protein-smoothies",
+            "collection_image": "shopify://shop_images/Flavcity_Protein_Smoothie_--Vanilla_Latte_Front_1.png",
+            "title": "Protein Smoothies",
+            "description": ""
+          }
+        },
+        "collection_YGWaxz": {
+          "type": "collection",
+          "settings": {
+            "collection": "functional-beverages",
+            "collection_image": "shopify://shop_images/EDM_Pouch_LEMONADE_Front.png",
+            "title": "Functional Beverages",
+            "description": ""
+          }
+        },
+        "collection_GWgXRq": {
+          "type": "collection",
+          "settings": {
+            "collection": "vitamins",
+            "collection_image": "shopify://shop_images/Sleep_Gummy_mocap_01_new.png",
+            "title": "Vitamins",
+            "description": ""
+          }
+        },
+        "collection_zcHVgE": {
+          "type": "collection",
+          "settings": {
+            "collection": "merch",
+            "collection_image": "shopify://shop_images/shaker_bottle_All_Summer_4_Shackers_V2.png",
+            "title": "Merch",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_TVh8Uy",
+        "collection_YGWaxz",
+        "collection_GWgXRq",
+        "collection_zcHVgE"
+      ],
+      "name": "Collection list grid",
+      "settings": {
+        "title": "",
+        "heading_font_size": "heading-medium",
+        "description": "",
+        "text_font_size": "body-medium",
+        "button_text": "",
+        "button_url": "shopify://collections",
+        "button_type": "btn--primary",
+        "button_size": "",
+        "button_style": "",
+        "show_arrow": false,
+        "aspect_ratio": 1,
+        "layout": "grid",
+        "grid": 4,
+        "layout_mobile": "2",
+        "color_scheme": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "heading_tag": "automatic"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_collections_list_BxVnKV"
+  ]
+}

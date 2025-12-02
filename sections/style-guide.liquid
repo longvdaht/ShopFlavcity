@@ -1,0 +1,690 @@
+<style>
+  .style-guide {
+    padding-top: 50px;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .style-guide>h1 {
+    margin-bottom: 40px;
+  }
+
+  .style-guide__colors {
+    margin-bottom: 40px;
+  }
+
+  .style-guide__colors h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .style-guide__colors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .style-guide__colors-item {
+    text-align: center;
+    width: calc(100% / 4);
+    height: auto;
+    min-height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media only screen and (max-width: 749px) {
+    .style-guide__colors-item {
+      width: calc(100% / 3);
+    }
+  }
+
+
+  .style-guide__ctas {
+    margin-bottom: 40px;
+  }
+
+  .style-guide__ctas h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .style-guide__ctas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+		margin-bottom: 20px;
+		gap: 20px;
+  }
+
+	.style-guide__slider {
+		margin-bottom: 40px;
+	}
+
+	.style-guide__slider h2 {
+    text-align: center;
+    margin-bottom: 20px;
+	}
+
+  .style-guide__slider .swiper-slide__content img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .style-guide__ctas-grid--tag {
+    margin-bottom: 40px;
+  }
+
+  .style-guide__ctas-grid modal-opener {
+    display: block;
+    margin: 10px;
+  }
+
+  .style-guide__ctas-item {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--body-background);
+    margin-bottom: 20px;
+    padding: 10px;
+    align-items: center;
+
+    p {
+      width: auto;
+      line-height: 1.42;
+    }
+  }
+
+  .style-guide__ctas-item a {
+    margin: 10px;
+  }
+
+	.style-guide__badges-grid {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 40px;
+	}
+
+	.style-guide__badges-grid-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+		gap: 10px;
+	}
+
+  .style-guide__typography {
+    margin-bottom: 40px;
+  }
+
+  .style-guide__typography>h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .style-guide__typography-item {
+    display: flex;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--primary-background);
+		gap: 5px;
+  }
+
+  .style-guide__typography-item .text-body {
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-right: 20px;
+    flex-shrink: 0;
+  }
+
+  .style-guide__typography-item .text-body+div {
+    max-width: 50%;
+  }
+
+  .style-guide__typography-item h1.mobile {
+    font-size: 28px;
+    line-height: var(--h1-lh-mobile);
+    display: block;
+  }
+
+  .style-guide__typography-item h2.mobile {
+    font-size: 24px;
+    line-height: var(--h2-lh-mobile);
+    display: block;
+  }
+
+  .style-guide__typography-item h3.mobile {
+    font-size: 24px;
+    line-height: var(--h3-lh-mobile);
+    display: block;
+  }
+
+  .style-guide__typography-item h4.mobile {
+    font-size: 24px;
+    line-height: var(--h4-lh-mobile);
+    display: block;
+  }
+
+  .style-guide__typography-item h5.mobile {
+    font-size: 20px;
+    line-height: var(--h5-lh-mobile);
+    display: block;
+  }
+
+  .style-guide__typography-item h6.mobile {
+    font-size: 16px;
+    line-height: var(--h6-lh-mobile);
+    display: block;
+  }
+
+  .style-guide__typography-item .h7.mobile {
+    font-size: 14px;
+    line-height: var(--h7-lh-mobile);
+    display: block;
+  }
+
+  .style-guide__typography-item .h8.mobile {
+    font-size: 14px;
+    line-height: var(--h8-lh-mobile);
+    display: block;
+  }
+
+  .style-guide__typography-item .body-l.mobile {
+    font-size: var(--font-body-l-mobile);
+    line-height: var(--body-l-line-height);
+    display: block;
+  }
+
+  .style-guide__typography-item .body-m.mobile {
+    font-size: var(--font-body-m-mobile);
+    line-height: var(--body-m-line-height);
+    display: block;
+  }
+
+  .style-guide__typography-item .body-s.mobile {
+    font-size: var(--font-body-s-mobile);
+    line-height: var(--body-s-line-height);
+    display: block;
+  }
+
+  .style-guide__typography-item .body-xs.mobile {
+    font-size: var(--font-body-xs-mobile);
+    line-height: var(--body-xs-line-height);
+    display: block;
+  }
+
+  .style-guide__typography-item .body-label.mobile {
+    font-size: var(--font-body-label-mobile);
+    line-height: var(--label-lh-mobile);
+    display: block;
+  }
+
+
+
+  .style-guide__icons {
+    margin-bottom: 40px;
+  }
+
+  .style-guide__icons>h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .style-guide__icons-grid {
+		padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+		gap: 10px;
+  }
+
+  .style-guide__forms {
+    margin-bottom: 40px;
+    background-color: #F2F0EA;
+    padding: 30px;
+  }
+
+  .style-guide__forms>h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .style-guide__form--item {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .style-guide__form--item>p {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto 10px;
+    text-align: left;
+  }
+
+  .style-guide__form--item .field {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+
+  .style-guide__form--item--select {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+</style>
+
+<section class="style-guide">
+	<h1 style="text-align: center; text-transform: uppercase; margin-bottom: 30px;">Style guide</h1>
+	<div class="style-guide__colors">
+		<h2>Colors</h2>
+
+		{% for scheme in settings.color_schemes -%}
+			{% if forloop.first %}
+				<div class="style-guide__colors-grid">
+					<div class="style-guide__colors-item" style="border: 1px solid #000; color: #000; background: {{  scheme.settings.primary_color }}">
+						Primary color <br>  {{  scheme.settings.primary_color }} <br> var(--COLOR-PRIMARY)</div>
+					<div class="style-guide__colors-item" style="border: 1px solid #000; color: #000; background: {{ scheme.settings.secondary_color }}">
+						Secondary color <br>  {{ scheme.settings.secondary_color }} <br> var(--COLOR-SECONDARY)</div>
+					<div class="style-guide__colors-item" style="border: 1px solid #000; color: {{ scheme.settings.section_text }}; background: {{ scheme.settings.section_bg }}">
+						Text primary <br>  {{ scheme.settings.section_text }} <br> var(--COLOR-TEXT)</div>
+					<div class="style-guide__colors-item" style="border: 1px solid #000;color: #000; background: {{ scheme.settings.section_text_secondary }}">
+						Text secondary <br> {{ scheme.settings.section_text_secondary }} <br> var(--COLOR-TEXT-SECONDARY)</div>
+					<div class="style-guide__colors-item" style="background: {{ scheme.settings.section_bg }}; color: #000">
+						Section background <br>{{ scheme.settings.section_bg }} <br> var(--COLOR-BG)</div>
+					<div class="style-guide__colors-item" style="color: #000; background: {{ scheme.settings.section_bg_light }}">
+						Section background light <br>{{ scheme.settings.section_bg_light }} <br> var(--COLOR-BG-ACCENT)</div>
+					<div class="style-guide__colors-item" style="background: {{ scheme.settings.accent }}; color: #000">
+						Accent <br>{{ scheme.settings.accent }} <br> var(--COLOR-ACCENT)</div>
+					<div class="style-guide__colors-item" style="background: {{ scheme.settings.lines_and_border }}; color: #fff">
+						Lines and borders <br>{{ scheme.settings.lines_and_border }} <br> var(--COLOR-BORDER)</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+
+	<div class="style-guide__ctas">
+		<h2>CTAs</h2>
+
+		<div class="style-guide__ctas-grid">
+			<div class="style-guide__ctas-item style-guide__ctas-item-stone">
+				<p>Button primary (.btn--primary)</p>
+				<a href="#" class="btn btn--primary">Apply filters</a>
+			</div>
+
+			<div class="style-guide__ctas-item">
+				<p>Button secondary (.btn--secondary)</p>
+				<a href="#" class="btn btn--secondary">Build Your Bundle</a>
+			</div>
+		</div>
+
+		<h2>Badge</h2>
+
+		<div class="style-guide__badges-grid">
+			<div class="style-guide__badges-grid-item">
+				<span>Badge (.badge)</span>
+				<span class="badge">dessert</span>
+			</div>
+			<div class="style-guide__badges-grid-item">
+				<span>Badge large (.badge-large)</span>
+				<span class="badge badge-large">Best seller</span>
+			</div>
+		</div>
+
+		<h2>Select</h2>
+
+		<div class="style-guide__ctas-grid">
+			<select name="variant-select">
+				<option value="Variant 1">Variant 1</option>
+				<option value="Variant 2">Variant 2</option>
+				<option value="Variant 3">Variant 3</option>
+				<option value="Variant 4">Variant 4</option>
+			</select>
+		</div>
+
+		<h2>Custom Select</h2>
+
+		<div class="style-guide__ctas-grid">
+			<popout-select class="select-popout">
+				<button type="button"
+								class="select-popout__toggle"
+								aria-expanded="false"
+								aria-controls="{{ unique }}-select-quantity"
+								aria-labelledby="{{ unique }}-select-quantity-label"
+								data-popout-toggle>
+					<span data-popout-toggle-text>Variant 1</span>
+					{% render 'icons' with 'caret-down' %}
+				</button>
+
+				<ul id="{{ unique }}-select-quantity" class="select-popout__list" data-popout-list data-scroll-lock-scrollable>
+					{%- for idx in (1..10) -%}
+						<li class="select-popout__item{% if forloop.index == 1 %} is-active{% endif %}">
+							<a class="select-popout__option" href="#" {% if forloop.index == 1 %}aria-current="true"{% endif %} data-value="Variant {{ forloop.index }}" data-popout-option>
+                <span>
+                  Variant {{ forloop.index }} {% if forloop.last %}+{% endif %}
+                </span>
+							</a>
+						</li>
+					{%- endfor -%}
+				</ul>
+			</popout-select>
+		</div>
+
+		<h2>Checkboxes</h2>
+
+		<div class="style-guide__ctas-grid" style="position: relative;">
+			<label class="checkbox_container">One
+				<input type="checkbox" checked="checked">
+				<span class="checkmark"></span>
+			</label>
+			<label class="checkbox_container">Two
+				<input type="checkbox">
+				<span class="checkmark"></span>
+			</label>
+		</div>
+
+		<h2>Radio btn</h2>
+
+		<div class="style-guide__ctas-grid" style="position: relative;">
+			<label class="radio-container">One
+				<input type="radio" checked="checked" name="radio">
+				<span class="radio-checkmark"></span>
+			</label>
+			<label class="radio-container">Two
+				<input type="radio" name="radio">
+				<span class="radio-checkmark"></span>
+			</label>
+		</div>
+
+	</div>
+
+
+	<div class="style-guide__slider">
+		<h2>Slider</h2>
+
+		<div class="swiper-inner" style="--overflow-state: visible;">
+			<swiper-container
+				class="swiper-container"
+				{%- if request.design_mode -%}
+					init="true"
+				{%- else -%}
+					init="false"
+				{%- endif -%}
+				slides-per-view="1.2"
+				speed="600"
+				mousewheel-force-to-axis="true"
+				space-between="20"
+				free-mode="true"
+				css-mode="false"
+				pagination="false"
+				navigation={"nextEl":".swiper-button-next-{{ section.id }}","prevEl":".swiper-button-prev-{{ section.id }}"}
+				scrollbar={"el":".swiper-scrollbar-{{ section.id }}","draggable":"true"}
+				breakpoints={"768":{"spaceBetween":24,"slidesPerView":2},"1024":{"spaceBetween":24,"slidesPerView":3},"1280":{"spaceBetween":24,"slidesPerView":4}}
+			>
+
+				{%- for variable in (0..6) -%}
+					<swiper-slide class="swiper-slide"
+												data-aos="hero"
+												data-aos-anchor="{{ animation_anchor }}"
+												data-aos-order="{{ animation_order }}">
+						<div class="swiper-slide__content">
+							<img src="//shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?crop=center&amp;height=3168&amp;v=1740085328&amp;width=2880" alt="Back of FlavCity Vanilla Latte Protein Smoothie Powder package showing ingredients, usage instructions, and storage information." width="2880" height="3168" loading="lazy" srcset="//shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=136 136w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=160 160w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=180 180w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=220 220w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=254 254w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=284 284w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=292 292w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=320 320w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=480 480w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=528 528w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=640 640w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=720 720w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=960 960w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=1080 1080w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=1296 1296w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=1512 1512w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=1728 1728w, //shop.shopflavcity.com/cdn/shop/files/Flavcity_Protein_Smoothie_--Vanilla_Latte_Back_correct.png?v=1740085328&amp;width=1950 1950w" sizes="(min-width: 990px) calc(100vw * 0.28), (min-width: 750px) calc(100vw * 0.38), calc(100% - 50px )" fetchpriority="high" class="fit-cover">
+						</div>
+					</swiper-slide>
+				{%- endfor -%}
+			</swiper-container>
+
+			<div class="swiper-scrollbar swiper-scrollbar-{{ section.id }}"
+					 data-aos="hero"
+					 data-aos-anchor="{{ animation_anchor }}"
+					 data-aos-order="{{ animation_order }}"
+			>
+			</div>
+
+			<div class="swiper-button-prev swiper-button-rounded swiper-button-prev-{{ section.id }}"
+					 data-aos="hero"
+					 data-aos-anchor="{{ animation_anchor }}"
+					 data-aos-order="{{ animation_order }}"
+			>
+				{% render 'icons' with 'arrow-left' %}
+			</div>
+
+			<div class="swiper-button-next swiper-button-rounded swiper-button-next-{{ section.id }}"
+					 data-aos="hero"
+					 data-aos-anchor="{{ animation_anchor }}"
+					 data-aos-order="{{ animation_order }}"
+			>
+				{% render 'icons' with 'arrow-right' %}
+			</div>
+		</div>
+	</div>
+
+	<div class="style-guide__typography">
+		<h2>Typography</h2>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>H1/Extra large</span>
+				<span>SoulSister</span>
+				<span>Desktop: {{ settings.heading_x_large }}px</span>
+				<span>Mobile: {{ settings.heading_x_large_mobile }}px</span>
+				<span>Tag/class name: h1, .h1, .heading-x-large</span>
+			</p>
+
+			<div>
+				<h1><span>Desktop:</span> Flavcity</h1>
+				<h1 class="mobile"><span>Mobile:</span> Flavcity</h1>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>H2/Large</span>
+				<span>SoulSister</span>
+				<span>Desktop: {{ settings.heading_large }}px</span>
+				<span>Mobile: {{ settings.heading_large_mobile }}px</span>
+				<span>Tag/class name: h2, .h2, .heading-large</span>
+			</p>
+
+			<div>
+				<h2><span>Desktop:</span> Flavcity</h2>
+				<h2 class="mobile"><span>Mobile:</span> Flavcity</h2>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>H3/Medium</span>
+				<span>SoulSister</span>
+				<span>Desktop: {{ settings.heading_medium }}px</span>
+				<span>Mobile: {{ settings.heading_medium_mobile }}px</span>
+				<span>Tag/class name: h3, .h3, .heading-medium</span>
+			</p>
+
+			<div>
+				<h3><span>Desktop:</span> Flavcity</h3>
+				<h3 class="mobile"><span>Mobile:</span> Flavcity</h3>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>H4/Small</span>
+				<span>SoulSister</span>
+				<span>Desktop: {{ settings.heading_small }}px</span>
+				<span>Mobile: {{ settings.heading_small_mobile }}px</span>
+				<span>Tag/class name: h4, .h4, .heading-small</span>
+			</p>
+
+			<div>
+				<h4><span>Desktop:</span> Flavcity</h4>
+				<h4 class="mobile"><span>Mobile:</span> Flavcity</h4>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>H5/Extra small</span>
+				<span>SoulSister</span>
+				<span>Desktop: {{ settings.heading_x_small }}px</span>
+				<span>Mobile: {{ settings.heading_x_small_mobile }}px</span>
+				<span>Tag/class name: h5, .h5, .heading-x-small</span>
+			</p>
+
+			<div>
+				<h5><span>Desktop:</span> Flavcity</h5>
+				<h5 class="mobile"><span>Mobile:</span> Flavcity</h5>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>H6/Mini</span>
+				<span>MohaveSemibold</span>
+				<span>Desktop: {{ settings.heading_mini }}px</span>
+				<span>Mobile: {{ settings.heading_mini_mobile }}px</span>
+				<span>Tag/class name: h6, .h6, .heading-mini</span>
+			</p>
+
+			<div>
+				<h6><span>Desktop:</span> Flavcity</h6>
+				<h6 class="mobile"><span>Mobile:</span> Flavcity</h6>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>Subheading</span>
+				<span>Poppins</span>
+				<span>Desktop: {{ settings.subheading_size_desktop }}px</span>
+				<span>Mobile: {{ settings.subheading_size_mobile }}px</span>
+				<span>Class name: .subheading</span>
+			</p>
+
+			<div>
+				<p class="subheading"><span>Desktop:</span> Flavcity</p>
+				<p class="subheading"><span>Mobile:</span> Flavcity</p>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>body-x-large</span>
+				<span>Poppins</span>
+				<span>Desktop: {{ settings.body_x_large }}px</span>
+				<span>Mobile: {{ settings.body_x_large_mobile }}px</span>
+				<span>Option/class name: Extra large/.body-x-large</span>
+			</p>
+
+			<div>
+				<p class="body-x-large"><span>Desktop:</span> Flavcity</p>
+				<p  class="body-x-large"><span>Mobile:</span> Flavcity</p>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>body-large</span>
+				<span>Poppins</span>
+				<span>Desktop: {{ settings.body_large }}px</span>
+				<span>Mobile: {{ settings.body_large_mobile }}px</span>
+				<span>Option/class name: Large/.body-large</span>
+			</p>
+
+			<div>
+				<p class="body-large"><span>Desktop:</span> Flavcity</p>
+				<p  class="body-large"><span>Mobile:</span> Flavcity</p>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>body-medium</span>
+				<span>Poppins</span>
+				<span>Desktop: {{ settings.body_medium }}px</span>
+				<span>Mobile: {{ settings.body_medium_mobile }}px</span>
+				<span>Option/class name: Medium/.body-medium</span>
+			</p>
+
+			<div>
+				<p class="body-medium"><span>Desktop:</span> Flavcity</p>
+				<p class="body-medium"><span>Mobile:</span> Flavcity</p>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>body-small</span>
+				<span>Poppins</span>
+				<span>Desktop: {{ settings.body_small }}px</span>
+				<span>Mobile: {{ settings.body_small_mobile }}px</span>
+				<span>Option/class name: Small/.body-small</span>
+			</p>
+
+			<div>
+				<p class="body-small"><span>Desktop:</span> Flavcity</p>
+				<p  class="body-small"><span>Mobile:</span> Flavcity</p>
+			</div>
+		</div>
+
+		<div class="style-guide__typography-item">
+			<p class="text-body">
+				<span>body-x-small</span>
+				<span>Poppins</span>
+				<span>Desktop: {{ settings.body_x_small }}px</span>
+				<span>Mobile: {{ settings.body_x_small_mobile }}px</span>
+				<span>Option/class name: Extra small/.body-x-small</span>
+			</p>
+
+			<div>
+				<p class="body-x-small"><span>Desktop:</span> Flavcity</p>
+				<p  class="body-x-small"><span>Mobile:</span> Flavcity</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="style-guide__icons">
+		<h2>Base svg icons</h2>
+
+		<h4 style="text-align: center">Globals</h4>
+
+		<div class="style-guide__icons-grid">
+			{% render 'icons' with 'hamburger' %}
+			{% render 'icons' with 'close' %}
+			{% render 'icons' with 'account' %}
+			{% render 'icons' with 'search' %}
+			{% render 'icons' with 'filter' %}
+			{% render 'icons' with 'plus' %}
+			{% render 'icons' with 'minus' %}
+			{% render 'icons' with 'cart' %}
+			{% render 'icons' with 'caret-right' %}
+			{% render 'icons' with 'caret-left' %}
+			{% render 'icons' with 'caret-down' %}
+			{% render 'icons' with 'caret-up' %}
+			{% render 'icons' with 'arrow-right' %}
+			{% render 'icons' with 'arrow-left' %}
+		</div>
+
+	</div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Style guide",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Style guide"
+    }
+  ]
+}
+{% endschema %}

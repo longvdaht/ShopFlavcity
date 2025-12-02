@@ -1,0 +1,127 @@
+{% comment %}
+    Usage:
+    {%- render 'footer-parallax-block' block: block -%}
+{% endcomment %}
+
+{% liquid
+	assign static_image = block.settings.static_image
+	assign first_layer = block.settings.first_layer
+	assign second_layer = block.settings.second_layer
+	assign third_layer = block.settings.third_layer
+
+	assign first_layer_delay = block.settings.first_layer_delay
+	assign second_layer_delay = block.settings.second_layer_delay
+	assign third_layer_delay = block.settings.third_layer_delay
+
+	assign mobile_image = block.settings.mobile_image
+	assign first_layer_mobile = block.settings.first_layer_mobile
+	assign second_layer_mobile = block.settings.second_layer_mobile
+	assign third_layer_mobile = block.settings.third_layer_mobile
+
+	assign use_animation = block.settings.use_animation
+	assign animated_image = block.settings.animated_image
+%}
+
+{% if first_layer != blank or second_layer != blank or third_layer != blank %}
+	<div class="footer__bg-image">
+		{% if first_layer != blank %}
+			<div class="footer__bg-image-desktop footer__bg-image-desktop-first {% if mobile_image != blank %}footer__bg-image-hide_mobile{% endif %}"
+					 data-simple-parallax-element
+					 data-parallax-delay="{{ first_layer_delay }}"
+					 data-parallax-scale="1.2"
+					 data-parallax-transition="ease in"
+					 data-parallax-overflow="true"
+			>
+				{%- render 'image', image: first_layer, alt: first_layer.alt -%}
+			</div>
+		{% endif %}
+
+		{% if second_layer != blank %}
+			<div class="footer__bg-image-desktop footer__bg-image-desktop-second {% if mobile_image != blank %}footer__bg-image-hide_mobile{% endif %}"
+					 data-simple-parallax-element
+					 data-parallax-delay="{{ second_layer_delay }}"
+					 data-parallax-scale="1.2"
+					 data-parallax-transition="ease in"
+					 data-parallax-overflow="true"
+			>
+				{%- render 'image', image: second_layer, alt: second_layer.alt -%}
+			</div>
+		{% endif %}
+
+		{% if third_layer != blank %}
+			<div class="footer__bg-image-desktop footer__bg-image-desktop-third {% if mobile_image != blank %}footer__bg-image-hide_mobile{% endif %}"
+					 data-simple-parallax-element
+					 data-parallax-delay="{{ third_layer_delay }}"
+					 data-parallax-scale="1.2"
+					 data-parallax-transition="ease in"
+					 data-parallax-overflow="true"
+			>
+				{%- render 'image', image: third_layer, alt: third_layer.alt -%}
+			</div>
+		{% endif %}
+
+		{% if static_image != blank %}
+			<div class="footer__bg-image-desktop footer__bg-image-desktop-static {% if mobile_image != blank %}footer__bg-image-hide_mobile{% endif %}">
+				{%- render 'image', image: static_image, alt: static_image.alt -%}
+			</div>
+		{% endif %}
+
+
+		{% if false %}
+			{% if first_layer_mobile != blank %}
+				<div class="footer__bg-image-mobile footer__bg-image-mobile-first"
+						 data-simple-parallax-element
+						 data-parallax-delay="{{ first_layer_delay }}"
+						 data-parallax-scale="1.2"
+						 data-parallax-transition="ease in"
+						 data-parallax-overflow="true"
+				>
+					{%- render 'image', image: first_layer_mobile, alt: first_layer_mobile.alt -%}
+				</div>
+			{% endif %}
+
+			{% if second_layer_mobile != blank %}
+				<div class="footer__bg-image-mobile footer__bg-image-mobile-second"
+						 data-simple-parallax-element
+						 data-parallax-delay="{{ second_layer_delay }}"
+						 data-parallax-scale="1.2"
+						 data-parallax-transition="ease in"
+						 data-parallax-overflow="true"
+				>
+					{%- render 'image', image: second_layer_mobile, alt: second_layer_mobile.alt -%}
+				</div>
+			{% endif %}
+
+			{% if third_layer_mobile != blank %}
+				<div class="footer__bg-image-mobile footer__bg-image-mobile-third"
+						 data-simple-parallax-element
+						 data-parallax-delay="{{ third_layer_delay }}"
+						 data-parallax-scale="1.2"
+						 data-parallax-transition="ease in"
+						 data-parallax-overflow="true"
+				>
+					{%- render 'image', image: third_layer_mobile, alt: third_layer_mobile.alt -%}
+				</div>
+			{% endif %}
+		{% endif %}
+
+
+		{% if mobile_image != blank %}
+			<div class="footer__bg-image-mobile">
+				{%- render 'image', image: mobile_image, alt: mobile_image.alt -%}
+			</div>
+		{% endif %}
+
+		{% if animated_image != blank and use_animation %}
+			<div class="footer__bg-image-mobile footer__bg-image-mobile-first"
+					 data-simple-parallax-element
+					 data-parallax-delay="2"
+					 data-parallax-scale="1.2"
+					 data-parallax-transition="ease in"
+					 data-parallax-overflow="true"
+			>
+				{%- render 'image', image: animated_image, alt: animated_image.alt -%}
+			</div>
+		{% endif %}
+	</div>
+{% endif %}

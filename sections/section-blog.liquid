@@ -1,0 +1,529 @@
+<!-- /sections/section-blog.liquid -->
+{%- liquid
+	assign section_mode = section.settings.section_mode
+  assign blog = blogs[section.settings.blog_name]
+  assign blog_title = section.settings.title
+  assign blog_description = section.settings.description
+  assign color_scheme = 'color-' | append: section.settings.color_scheme
+  assign animation_anchor = '#Blog--' | append: section.id
+  assign animation_order = animation_order | plus: 1
+	assign heading_font_family = section.settings.heading_font_family
+	assign heading_font_size = section.settings.heading_font_size
+	assign subtitle = section.settings.subtitle
+	assign subheading_font_family = section.settings.subheading_font_family
+	assign subheading_font_size = section.settings.subheading_font_size
+	assign text_align_desktop = section.settings.text_align_desktop
+	assign text_align_mobile = section.settings.text_align_mobile
+	assign heading_position = section.settings.heading_position
+
+	assign color_scheme = 'color-' | append: section.settings.color_scheme
+  assign heading_tag = 'h2'
+  assign articles_per_row = section.settings.grid
+  assign columns_medium = 3
+
+  if articles_per_row == 2 or articles_per_row == 4
+    assign columns_medium = 2
+  endif
+
+  unless section.settings.heading_tag == 'automatic' or section.settings.heading_tag == blank
+    assign heading_tag = section.settings.heading_tag
+  endunless
+
+	assign button_text = section.settings.button_text
+	assign button_url = section.settings.button_url
+	assign button_type = section.settings.button_type
+	assign button_style = section.settings.button_style
+
+-%}
+
+{%- style -%}
+  #Blog--{{ section.id }} {
+    --PT: {{ section.settings.padding_top }}px;
+    --PB: {{ section.settings.padding_bottom }}px;
+
+    --COLUMNS: {{ articles_per_row }};
+    --COLUMNS-MEDIUM: {{ columns_medium }};
+  }
+
+	@media only screen and (max-width: 749px) {
+    #Blog--{{ section.id }} {
+      --PT: {{ section.settings.padding_top_mobile }}px;
+      --PB: {{ section.settings.padding_bottom_mobile }}px;
+    }
+	}
+{%- endstyle -%}
+
+<section
+  id="Blog--{{ section.id }}"
+  class="{{ section.settings.width }} blog-section section-padding {{ color_scheme }} {{ section_mode }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="blog"
+>
+  <div class="blog">
+    {% capture header_content %}
+			<div class="section-blog__heading-wrapper {{ heading_position }}">
+				{% if blog_title != blank %}
+					<{{ heading_tag }} class="page__heading blog__title {{ heading_font_family }} {{ section.settings.heading_font_size }}"
+					data-aos="hero"
+					data-aos-anchor="{{ animation_anchor }}"
+					data-aos-order="{{ animation_order }}"
+					><a href="{{ blog.url | default: '#' }}">{{ blog_title }}</a></{{ heading_tag }}
+					>
+				{% endif %}
+
+				{% if subtitle != blank %}
+					<h3 class="blog__subtitle {{ subheading_font_family }} {{ subheading_font_size }} {{ text_align_desktop }} {{ text_align_mobile }}">
+						{{ subtitle }}
+					</h3>
+				{% endif %}
+			</div>
+
+      {%- if blog_description != blank -%}
+        {%- assign animation_order = animation_order | plus: 1 -%}
+
+        <div class="blog__description {{ section.settings.text_font_size }}"
+           data-aos="hero"
+           data-aos-anchor="{{ animation_anchor }}"
+           data-aos-order="{{ animation_order }}">{{ blog_description }}</div>
+      {%- endif -%}
+    {% endcapture %}
+
+    {%- if header_content != blank -%}
+      <div class="blog-section__header {{ section.settings.text_align_desktop }} {{ section.settings.text_align_mobile }}">
+        {{ header_content }}
+      </div>
+    {%- endif -%}
+
+    {%- render 'blog-posts', blog_articles: blog.articles, is_blog_page: false -%}
+
+    {% if button_text %}
+      <div
+        class="section-blog__button section-blog__button--placeholder"
+        data-aos="hero"
+        data-aos-order="auto"
+        data-aos-anchor="{{ section.id }}"
+      >
+        <a
+          class="btn {{ button_style }} {{ button_type }}"
+          href="{{ button_url }}"
+        >
+          <span>{{ button_text | escape }}</span>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "class": "section-blog_additional-class",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_mode",
+      "label": "Section mode",
+      "default": "flavcity-shop",
+      "options": [
+        {"value": "flavcity-shop", "label": "Flavcity Shop"},
+        {"value": "flavcity-cafe", "label": "Flavcity Cafe"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "blog",
+      "id": "blog_name",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "aspect_ratio",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": ":1",
+      "label": "Article image aspect ratio",
+      "info": "Wide to tall",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "select",
+      "id": "heading_position",
+      "label": "Heading position",
+      "default": "heading_position-top",
+      "options": [
+        {"value": "heading_position-top", "label": "Heading top"},
+        {"value": "heading_position-bottom", "label": "Subheading top"}
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Blog posts"
+    },
+    {
+      "type": "select",
+      "id": "heading_font_family",
+      "label": "Heading font family",
+      "default": "primary-heading__font",
+      "options": [
+        {"value": "primary-heading__font", "label": "SoulSister"},
+        {"value": "secondary-heading__font", "label": "Fetzav"},
+        {"value": "ternary-heading__font", "label": "Courgette"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_font_size",
+      "label": "Heading size",
+      "default": "heading-medium",
+      "options": [
+        {"value": "heading-mini", "label": "Mini"},
+        {"value": "heading-x-small", "label": "Extra small"},
+        {"value": "heading-small", "label": "Small"},
+        {"value": "heading-medium", "label": "Medium"},
+        {"value": "heading-large", "label": "Large"},
+        {"value": "heading-x-large", "label": "Extra large"}
+      ]
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "subheading_font_family",
+      "label": "Subheading font family",
+      "default": "primary-heading__font",
+      "options": [
+        {"value": "primary-heading__font", "label": "SoulSister"},
+        {"value": "secondary-heading__font", "label": "Fetzav"},
+        {"value": "ternary-heading__font", "label": "Courgette"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "subheading_font_size",
+      "label": "Subheading size",
+      "default": "heading-medium",
+      "options": [
+        {"value": "heading-mini", "label": "Mini"},
+        {"value": "heading-x-small", "label": "Extra small"},
+        {"value": "heading-small", "label": "Small"},
+        {"value": "heading-medium", "label": "Medium"},
+        {"value": "heading-large", "label": "Large"},
+        {"value": "heading-x-large", "label": "Extra large"}
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "text_font_size",
+      "label": "Text size",
+      "info": "Applies only when content in Text field is set to Paragraph.",
+      "default": "body-medium",
+      "options": [
+        {"value": "body-x-small", "label": "Extra small"},
+        {"value": "body-small", "label": "Small"},
+        {"value": "body-medium", "label": "Medium"},
+        {"value": "body-large", "label": "Large"},
+        {"value": "body-x-large", "label": "Extra large"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align_desktop",
+      "label": "Heading and text alignment",
+      "info": "Desktop",
+      "default": "text-left",
+      "options": [
+        {"value": "text-left", "label": "Left"},
+        {"value": "text-center", "label": "Centered"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align_mobile",
+      "label": "Heading and text alignment",
+      "info": "Mobile",
+      "default": "text-left--mobile",
+      "options": [
+        {"value": "text-left--mobile", "label": "Left"},
+        {"value": "text-center--mobile", "label": "Centered"}
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": "Plog post card"
+    },
+    {
+      "type": "select",
+      "id": "title_font_size",
+      "label": "Title size",
+      "default": "heading-small",
+      "options": [
+        {"value": "heading-mini", "label": "Mini"},
+        {"value": "heading-x-small", "label": "Extra small"},
+        {"value": "heading-small", "label": "Small"},
+        {"value": "heading-medium", "label": "Medium"},
+        {"value": "heading-large", "label": "Large"},
+        {"value": "heading-x-large", "label": "Extra large"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Articles"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "Show tags",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_info_icons",
+      "label": "Show info icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show description",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show 'View recipe' button",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_comments",
+      "label": "Show comment count",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Show category",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cook_badges",
+      "label": "Show cook badges",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_add_info",
+      "label": "Show additional info",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wrapper--full-padded",
+      "options": [
+        {"value": "wrapper--full", "label": "Full width"},
+        {"value": "wrapper--full-padded", "label": "Full width padded"},
+        {"value": "wrapper", "label": "Normal"}
+      ]
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Articles per row",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Number of rows",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Text",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "Color",
+      "default": "btn--primary",
+      "options": [
+        {"value": "btn--black", "label": "Black"},
+        {"value": "btn--white", "label": "White"},
+        {"value": "btn--primary", "label": "Primary"},
+        {"value": "btn--secondary", "label": "Secondary"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Style",
+      "default": "",
+      "options": [
+        {"label": "None", "value": ""},
+        {"label": "Solid", "value": "btn--solid"},
+        {"label": "Outline", "value": "btn--outline"},
+        {"label": "Text", "value": "btn--text"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading SEO tag",
+      "default": "automatic",
+      "options": [
+        {"value": "automatic", "label": "Automatic"},
+        {"value": "h1", "label": "H1"},
+        {"value": "h2", "label": "H2"},
+        {"value": "h3", "label": "H3"},
+        {"value": "h4", "label": "H4"},
+        {"value": "h5", "label": "H5"},
+        {"value": "h6", "label": "H6"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Title SEO tag",
+      "default": "automatic",
+      "options": [
+        {"value": "automatic", "label": "Automatic"},
+        {"value": "h1", "label": "H1"},
+        {"value": "h2", "label": "H2"},
+        {"value": "h3", "label": "H3"},
+        {"value": "h4", "label": "H4"},
+        {"value": "h5", "label": "H5"},
+        {"value": "h6", "label": "H6"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog posts",
+      "category": "Text"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "aside", "footer"]
+  }
+}
+{% endschema %}

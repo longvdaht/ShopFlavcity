@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "section-404",
+      "disabled": true,
+      "settings": {
+        "color_scheme": ""
+      }
+    },
+    "section_rich_text_gnzQDR": {
+      "type": "section-rich-text",
+      "blocks": {
+        "heading_hRp8Yb": {
+          "type": "heading",
+          "settings": {
+            "title": "404 Page Not Found",
+            "heading_font_size": "heading-large",
+            "padding_bottom": 20,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_rjKgGL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The page you requested does not exist.<\/p>",
+            "text_font_size": "body-large",
+            "padding_bottom": 10
+          }
+        },
+        "buttons_nKqUhq": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "Shop products",
+            "button_url": "shopify:\/\/collections\/all",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false,
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRp8Yb",
+        "text_rjKgGL",
+        "buttons_nKqUhq"
+      ],
+      "custom_css": [
+        ".index-rte {min-height: 45vh; display: flex; align-items: center; justify-content: center;}",
+        ".index-rte .hero__content {display: flex; align-items: center; justify-content: center;}"
+      ],
+      "settings": {
+        "align_text": "text-center",
+        "width": "wrapper",
+        "color_scheme": "",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_rich_text_gnzQDR"
+  ]
+}

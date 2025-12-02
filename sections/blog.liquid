@@ -1,0 +1,578 @@
+{%- assign eneble_search_filters = section.settings.eneble_search_filters -%}
+
+<script src="{{ 'blog-facets.js' | asset_url }}" defer="defer"></script>
+{%- if eneble_search_filters -%}
+	<script src="{{ 'collection.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'collection-filters-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{{ 'collection-bar.css' | asset_url | stylesheet_tag }}
+
+<!-- /sections/blog.liquid -->
+{%- liquid
+	assign pagination_limit = section.settings.pagination_limit
+	assign color_scheme = 'color-' | append: section.settings.color_scheme
+	assign animation_anchor = '#Blog--' | append: section.id
+	assign animation_order = 0
+-%}
+
+{%- style -%}
+	#Blog--{{ section.id }} {
+		--PT: {{ section.settings.padding_top }}px;
+		--PB: {{ section.settings.padding_bottom }}px;
+
+		--COLUMNS: {{ articles_per_row }};
+		--COLUMNS-MEDIUM: {{ 3 | at_most: articles_per_row }};
+		--COLUMNS-SMALL: {{ 2 | at_most: articles_per_row }};
+		--COLUMNS-MOBILE: 1;
+	}
+
+	@media only screen and (max-width: 749px) {
+		#Blog--{{ section.id }} {
+			--PT: {{ section.settings.padding_top_mobile }}px;
+			--PB: {{ section.settings.padding_bottom_mobile }}px;
+		}
+	}
+{%- endstyle -%}
+
+<section id="Blog--{{ section.id }}"
+				 class="blog-section section-padding {{ color_scheme }}"
+>
+	<div class="{{ section.settings.width }} blog">
+		{%- if section.settings.show_title -%}
+		<{{ section.settings.title_tag }} class="blog__title {{ section.settings.title_font_size }} {{ section.settings.text_align_desktop }} {{ section.settings.text_align_mobile }}"
+		data-aos="hero"
+		data-aos-anchor="{{ animation_anchor }}"
+		data-aos-order="{{ animation_order }}">
+
+		{%- if section.settings.show_title -%}
+			{{ section.settings.blog_title | default: blog.title }}
+		{%- endif -%}
+	</{{ section.settings.title_tag }}>
+	{%- endif -%}
+
+	{%- paginate blog.articles by 1000 -%}
+		{%- for article in blog.articles -%}
+			{%- if article -%}
+				{%- assign filter_all_categories = filter_all_categories | concat: article.metafields.custom.filter_by_category.value -%}
+				{%- assign filter_all_products = filter_all_products | concat: article.metafields.custom.filter_by_product.value -%}
+				{%- assign filter_all_diets = filter_all_diets | concat: article.metafields.custom.filter_by_diet.value -%}
+				{%- assign filter_category = article.metafields.custom.filter_by_category.value | join: ',' | json -%}
+
+				{%- capture data_json -%}
+					{{- data_json -}}
+					{
+					"filter_product": "{{ article.metafields.custom.filter_by_product.value | join: ',' }}",
+					"filter_category": {{ filter_category }},
+					"filter_diet": "{{ article.metafields.custom.filter_by_diet.value | join: ',' }}",
+					"title": "{{ article.title }}",
+					"content": {{ article.title | append: ' ' | append: filter_category | append: ' ' | append: article.content | strip_html | downcase | json }},
+					"image": {
+					"src": {{ article.image.src | json }}
+					},
+					"url": {{ article.url | json }}
+					}{%- unless forloop.last -%},{%- endunless -%}
+				{%- endcapture -%}
+			{%- endif -%}
+		{%- endfor -%}
+	{%- endpaginate -%}
+
+	{%- assign filter_all_products = filter_all_products | uniq -%}
+	{%- assign filter_all_categories = filter_all_categories | uniq -%}
+	{%- assign filter_all_diets = filter_all_diets | uniq -%}
+	{%- assign animation_order = animation_order | plus: 1 -%}
+
+	<aside aria-labelledby="title-{{ section.id }}" {%- unless eneble_search_filters %} style="display: none;"{%- endunless -%}>
+		{%- if eneble_search_filters -%}
+			<blog-search class="blog-search"
+								 id="blog-search-{{ section.id }}"
+								 results="false"
+								 data-aos="hero"
+								 data-aos-anchor="{{ animation_anchor }}"
+								 data-aos-order="{{ animation_order }}">
+			<form class="blog-search__field" role="search" id="search-{{ section.id }}">
+				<div class="blog-search__field-inner">
+					<input
+						class="blog-search__input "
+						id="{{ input_id }}"
+						type="search"
+						name="q"
+						value="{{ search.terms | escape }}"
+						placeholder="{{ 'general.search.search_recipes' | t }}"
+						role="combobox"
+						aria-expanded="false"
+						aria-owns="blog-search-results"
+						aria-controls="blog-search-results"
+						aria-haspopup="listbox"
+						aria-autocomplete="list"
+						autocorrect="off"
+						autocomplete="off"
+						autocapitalize="off"
+						spellcheck="false"
+					>
+					<label class="blog-search__label visually-hidden" for="{{ input_id }}">{{ 'general.search.search_recipes' | t }}</label>
+
+					<button
+						type="reset"
+						class="blog-search__button-reset hidden"
+						aria-label="{{ 'general.search.reset' | t }}"
+					>
+						{%- render 'icon-cancel' -%}
+					</button>
+				</div>
+
+				<button class="blog-search__button btn btn--primary"
+								type="submit"
+								aria-label="{{ 'general.search.search_recipes' | t }}">
+					{%- render 'icon-search' -%}
+				</button>
+			</form>
+
+			<div class="blog-search__contents"
+					 tabindex="-1"
+					 data-blog-search>
+				<div id="blog-search-results"
+						 class="blog-search__results"
+						 role="listbox">
+					<div class="blog-search-results-inner">
+						<p id="blog-search-products"
+							 class="blog-search__heading">
+							SUGGESTION RECIPES</p>
+
+						<ul id="blog-search-results-products-list"
+								class="blog-search__results-list"
+								role="group"
+								aria-labelledby="blog-search-products">
+						</ul>
+
+						<button class="btn btn--secondary"
+										form="search-{{ section.id }}">View All Results</button>
+					</div>
+
+					<div class="blog-search__results-empty">
+						<h5 class="">Nothing Found</h5>
+						<p>We are sorry. We can’t find what you are looking for. Please try again.</p>
+						<a class="btn btn--secondary" href="mailto:hello+search@shopflavcity.com">Ask Support</a>
+					</div>
+				</div>
+			</div>
+		</blog-search>
+		{%- endif -%}
+
+		<div class="facets__wrapper desktop"
+				 data-aos="hero"
+				 data-aos-anchor="{{ animation_anchor }}"
+				 data-aos-order="{{ animation_order }}">
+				<span id="title-{{ section.id }}"
+							class="facets__title">{{- 'blogs.general.filter_by' | t }} :</span>
+			<div class="facets__inner">
+				<facet-filters-form
+					data-id="{{ section.id }}"
+					class="facets facets--desktop"
+					data-pagination-limit="{{ section.settings.pagination_limit }}">
+					<form id="FacetFiltersForm">
+
+						 <span
+							 class="visually-hidden"
+							 id="product-facets-label-{{ section.id }}">Filter (product)</span>
+
+						<popout-select class="select-popout">
+							<button type="button"
+											class="select-popout__toggle"
+											aria-expanded="false"
+											aria-controls="product-facets-{{ section.id }}"
+											aria-labelledby="product-facets-label-{{ section.id }}"
+											data-popout-toggle>
+								<span data-popout-toggle-text>Product</span>
+								{%- render 'icon-nav-arrow-down' -%}
+							</button>
+
+							<fieldset
+								id="product-facets-{{ section.id }}"
+								class="facets__item-wrapper parent-wrap select-popout__list"
+								data-popout-list data-scroll-lock-scrollable>
+								<legend class="visually-hidden">Product</legend>
+
+								<ul>
+									{%- if filter_all_products.size > 0 -%}
+										{%- for filter_product in filter_all_products -%}
+											{%- if filter_product != blank -%}
+												<li class="select-popout__item" data-popout-option>
+													<label class="select-popout__option checkbox_container">
+														<input type="checkbox"
+																	 name="product"
+																	 value="{{ filter_product }}">
+														{{ filter_product }}
+														<span class="checkmark"></span>
+													</label>
+												</li>
+											{%- endif -%}
+										{%- endfor -%}
+									{%- endif -%}
+								</ul>
+							</fieldset>
+						</popout-select>
+
+						<span
+							class="visually-hidden"
+							id="category-facets-label-{{ section.id }}">Filter (category)</span>
+
+						<popout-select class="select-popout">
+							<button type="button"
+											class="select-popout__toggle"
+											aria-expanded="false"
+											aria-controls="category-facets-{{ section.id }}"
+											aria-labelledby="category-facets-label-{{ section.id }}"
+											data-popout-toggle>
+								<span data-popout-toggle-text>Category</span>
+								{%- render 'icon-nav-arrow-down' -%}
+							</button>
+
+							<fieldset
+								id="product-facets-{{ section.id }}"
+								class="facets__item-wrapper parent-wrap select-popout__list"
+								data-popout-list data-scroll-lock-scrollable>
+								<legend class="visually-hidden">Category</legend>
+
+								<ul>
+									{%- if filter_all_categories.size > 0 -%}
+										{%- for filter_category in filter_all_categories -%}
+											{%- if filter_category != blank -%}
+												<li class="select-popout__item" data-popout-option>
+													<label class="select-popout__option checkbox_container">
+														<input type="checkbox"
+																	 name="category"
+																	 value="{{ filter_category }}">
+														{{ filter_category }}
+														<span class="checkmark"></span>
+													</label>
+												</li>
+											{%- endif -%}
+										{%- endfor -%}
+									{%- endif -%}
+								</ul>
+							</fieldset>
+						</popout-select>
+
+						<span
+							class="visually-hidden"
+							id="diet-facets-label-{{ section.id }}">Filter (diet)</span>
+
+						<popout-select class="select-popout">
+							<button type="button"
+											class="select-popout__toggle"
+											aria-expanded="false"
+											aria-controls="diet-facets-{{ section.id }}"
+											aria-labelledby="diet-facets-label-{{ section.id }}"
+											data-popout-toggle>
+								<span data-popout-toggle-text>Diet</span>
+								{%- render 'icon-nav-arrow-down' -%}
+							</button>
+
+							<fieldset
+								id="product-facets-{{ section.id }}"
+								class="facets__item-wrapper parent-wrap select-popout__list"
+								data-popout-list data-scroll-lock-scrollable>
+								<legend class="visually-hidden">Diet</legend>
+
+								<ul>
+									{%- if filter_all_diets.size > 0 -%}
+										{%- for filter_diet in filter_all_diets -%}
+											{%- if filter_diet != blank -%}
+												<li class="select-popout__item" data-popout-option>
+													<label class="select-popout__option checkbox_container">
+														<input type="checkbox"
+																	 name="diet"
+																	 value="{{ filter_diet }}">
+														{{ filter_diet }}
+														<span class="checkmark"></span>
+													</label>
+												</li>
+											{%- endif -%}
+										{%- endfor -%}
+									{%- endif -%}
+								</ul>
+							</fieldset>
+						</popout-select>
+					</form>
+				</facet-filters-form>
+
+				<div class="active-facets" id="active-facets-{{ section.id }}"></div>
+			</div>
+		</div>
+
+		{%- assign assign animation_duration = 800 -%}
+
+		{%- capture collection_sidebar_class -%}
+			collection__sidebar__slider blog__sidebar__slider expanded drawer--animated no-mobile-animation
+		{%- endcapture -%}
+
+		<collection-component
+			class="collection collection-products {{ color_scheme }} mobile"
+			id="Collection--{{ section.id }}"
+			data-section-id="{{ section.id }}"
+			data-section-type="collection"
+			data-sort="{{ enable_sort }}"
+			data-collection="{{ collection.url | default: '/collections/all' }}"
+		>
+			<button
+				type="button"
+				class="popout__toggle popout__toggle--filters"
+				aria-expanded="true"
+				aria-controls="filter-groups"
+				data-aria-toggle
+
+				data-aos="hero"
+				data-aos-anchor="{{ animation_anchor }}"
+				data-aos-order="{{ animation_order }}">
+				{%- render 'blog-icon-filter' -%}
+
+
+				<span class="popout__toggleable-text">
+						<span class="popout__expanded-show">
+							{{- 'blogs.sidebar.show_filters' | t -}}
+						</span>
+
+						<span class="popout__expanded-hide">
+							{{- 'blogs.sidebar.hide_filters' | t -}}
+						</span>
+					</span>
+			</button>
+
+			<div class="collection__products">
+				<div class="{{ collection_sidebar_class }}" id="filter-groups" data-collection-sidebar>
+					<div class="collection__sidebar__head blog__sidebar__head mobile">
+						<h3>
+							{{- 'collections.general.filters' | t -}}
+						</h3>
+
+						<a
+							href="#filters-group"
+							class="collection__sidebar__close drawer__close"
+							data-collection-sidebar-close
+							aria-label="{{ 'collections.general.hide_filters' | t }}"
+						>
+							{%- render 'icon-cancel' -%}
+						</a>
+					</div>
+					{%- render 'blog-filters-sidebar', filter_all_products: filter_all_products, filter_all_categories: filter_all_categories, filter_all_diets: filter_all_diets -%}
+				</div>
+
+				<div
+					class="underlay mobile"
+					data-collection-sidebar-close
+				></div>
+			</div>
+		</collection-component>
+	</aside>
+
+	<div class="items-list__wrapper"
+			 id="results-wrapper-{{ section.id }}"
+			 data-aos="hero"
+			 data-aos-anchor="{{ animation_anchor }}"
+			 data-aos-order="{{ animation_order }}">
+		<div class="items-list" id="results-{{ section.id }}"></div>
+		<div class="items-list__loader">
+			<div class="loader grid__loader-line"><div class="loader-indeterminate"></div></div>
+		</div>
+		<div id="pagination-container-{{ section.id }}"></div>
+		<div class="blog-error centered">
+			<div class="no-products h4 text-center">{{ 'blogs.article.no_articles' | t }}</div>
+		</div>
+	</div>
+
+	<script type="application/json" id="{{ section.id }}">
+		[{{ data_json }}]
+	</script>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Blog pages",
+	"settings": [
+		{
+			"type": "checkbox",
+			"id": "eneble_search_filters",
+			"label": "Enable search and filters",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "show_title",
+			"label": "Show title",
+			"default": true
+		},
+		{
+			"type": "text",
+			"id": "blog_title",
+			"label": "Title"
+		},
+		{
+			"type": "select",
+			"id": "text_align_desktop",
+			"label": "Heading alignment",
+			"info": "Desktop",
+			"default": "text-left",
+			"options": [
+				{"value": "text-left", "label": "Left"},
+				{"value": "text-center", "label": "Centered"}
+			]
+		},
+		{
+			"type": "select",
+			"id": "text_align_mobile",
+			"label": "Heading alignment",
+			"info": "Mobile",
+			"default": "text-left--mobile",
+			"options": [
+				{"value": "text-left--mobile", "label": "Left"},
+				{"value": "text-center--mobile", "label": "Centered"}
+			]
+		},
+		{
+			"type": "header",
+			"content": "Layout"
+		},
+		{
+			"type": "number",
+			"id": "pagination_limit",
+			"label": "Pagination limit",
+			"default": 6
+		},
+		{
+			"type": "checkbox",
+			"id": "default_open",
+			"label": "Open by default",
+			"info": "Mobile first filter category",
+			"default": false
+		},
+		{
+			"type": "header",
+			"content": "Colors"
+		},
+		{
+			"type": "color_scheme",
+			"id": "color_scheme",
+			"default": "scheme_1",
+			"label": "Color scheme"
+		},
+		{
+			"type": "header",
+			"content": "Layout"
+		},
+		{
+			"type": "select",
+			"id": "width",
+			"label": "Width",
+			"default": "wrapper--full-padded",
+			"options": [
+				{
+					"value": "wrapper--full",
+					"label": "Full width"
+				},
+				{
+					"value": "wrapper--full-padded",
+					"label": "Full width padded"
+				},
+				{
+					"value": "wrapper",
+					"label": "Normal"
+				}
+			]
+		},
+		{
+			"type": "header",
+			"content": "Padding"
+		},
+		{
+			"type": "paragraph",
+			"content": "Desktop"
+		},
+		{
+			"type": "range",
+			"id": "padding_top",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Top",
+			"default": 32
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Bottom",
+			"default": 0
+		},
+		{
+			"type": "paragraph",
+			"content": "Mobile"
+		},
+		{
+			"type": "range",
+			"id": "padding_top_mobile",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Top",
+			"default": 32
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom_mobile",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "px",
+			"label": "Bottom",
+			"default": 32
+		},
+		{
+			"type": "header",
+			"content": "Advanced"
+		},
+		{
+			"type": "select",
+			"id": "title_tag",
+			"label": "Title SEO tag",
+			"default": "automatic",
+			"options": [
+				{
+					"value": "automatic",
+					"label": "Automatic"
+				},
+				{
+					"value": "h1",
+					"label": "H1"
+				},
+				{
+					"value": "h2",
+					"label": "H2"
+				},
+				{
+					"value": "h3",
+					"label": "H3"
+				},
+				{
+					"value": "h4",
+					"label": "H4"
+				},
+				{
+					"value": "h5",
+					"label": "H5"
+				},
+				{
+					"value": "h6",
+					"label": "H6"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

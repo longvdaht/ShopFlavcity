@@ -1,0 +1,25 @@
+<!-- Klaviyo integration script from Consentmo GDPR app -->
+
+<script id="consentmo-klaviyo-integration-script">
+  function csmConsentForKlaviyo(isMarketingEnabled = false) {
+    const status = isMarketingEnabled ? 'granted' : 'denied';
+
+    if (typeof klaviyo !== "undefined" && klaviyo.push && klaviyo.isIdentified()) {
+      klaviyo.push(['identify', {
+        'ad_personalization': status,
+        'ad_user_data': status,
+      }]);
+    }
+
+    if (isMarketingEnabled) {
+      document.cookie = "__kla_off=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    } else {
+      document.cookie = "__kla_off=true";
+    }
+  }
+
+  document.addEventListener('consentmoSignal', function(eventData) {
+    const consentPreferences = eventData.detail.preferences;
+    csmConsentForKlaviyo(consentPreferences.marketing);
+  });
+</script>

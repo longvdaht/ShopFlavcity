@@ -1,0 +1,131 @@
+/* ============================================================================
+  #Search popdown
+============================================================================== */
+header-search-popdown {
+  display: block;
+  height: 100%;
+}
+
+header-search-popdown > details { height: 100%; }
+
+.search-popdown {
+  @include nav;
+  --bg: var(--COLOR-SUBMENU-BG);
+  --text: var(--COLOR-SUBMENU-LINK);
+  --link: var(--COLOR-SUBMENU-LINK);
+  --link-hover: var(--COLOR-SUBMENU-LINK-HOVER);
+  --text-light: var(--COLOR-SUBMENU-TEXT-LIGHT);
+
+  position: absolute;
+  z-index: 6002;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0.5s;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  background: var(--bg);
+
+  .search-form { position: static; }
+
+  input[type="search"] {
+    @include nav-bold;
+    width: 100%;
+    border: none;
+    margin: 0;
+    text-align: left;
+    color: var(--text);
+    font-size: calc(var(--font-nav-small) * var(--FONT-SIZE-NAV));
+
+    &::placeholder {
+      color: var(--text);
+    }
+
+    &:focus,
+    &:active { box-shadow: none; }
+  }
+
+  .product-link {
+    --link: var(--COLOR-HEADER-LINK);
+    --link-hover: var(--COLOR-HEADER-LINK-HOVER);
+  }
+
+  .product-information .price { --text-light: var(--COLOR-HEADER-LINK); }
+}
+
+.search-popdown + .underlay { z-index: 6001; }
+
+.no-js .search-popdown { transition: none; }
+
+.no-js .theme__header .search-popdown,
+.no-js .theme__header .predictive-search,
+.theme__header header-search-popdown.is-open .search-popdown,
+.theme__header header-search-popdown.is-open .predictive-search {
+  width: 100vw;
+  padding-right: var(--scrollbar-width); // Prevent CLS on opening/closing animation
+}
+
+.no-js .search-popdown,
+.no-js .predictive-search,
+header-search-popdown.is-open .search-popdown {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0s; // Remove visibility delay
+  visibility: unset;
+  max-height: calc(100vh - var(--announcement-height));
+}
+
+.no-js details[open] {
+  .search-popdown__close__button { display: none; }
+
+  .navlink--search {
+    position: absolute;
+    z-index: 6003;
+    .icon-search { display: none; }
+    .icon-cancel { display: block; }
+  }
+}
+
+.search-popdown__main {
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg);
+  transition: transform 0.5s ease;
+}
+
+.search-popdown__close {
+  position: relative;
+  width: 80px;
+  height: 100%;
+  display: flex;
+
+  @include media-query($small) {
+    width: 20px;
+  }
+}
+
+.search-popdown__close__button {
+  --icon-size: 24px;
+  font-size: var(--FONT-SIZE-NAV);
+  cursor: pointer;
+  width: 34px;
+  padding: 20px 5px;
+  height: 100%;
+  right: -11px;
+}
+
+.search-popdown__submit {
+  --icon-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  margin-left: -8px;
+  padding: 0;
+}

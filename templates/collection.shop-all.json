@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "collection-image-with-title",
+      "settings": {
+        "content_translate_y": 0,
+        "content_translate_y_mobile": 0,
+        "show_title": false,
+        "heading_font_family": "primary-heading__font",
+        "title": "Collections",
+        "show_description": false,
+        "description": "",
+        "flex_align": "align--middle-left",
+        "color_scheme": "",
+        "show_text_background": false,
+        "show_image": false,
+        "banner_layout": "overlay",
+        "height": "two-fifty-height-hero",
+        "mobile_height": "screen-height-one-half--mobile",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 10
+      }
+    },
+    "main": {
+      "type": "collection",
+      "blocks": {
+        "featured_image_BJmHFQ": {
+          "type": "featured_image",
+          "settings": {
+            "featured_image": "shopify://shop_images/Mystery_Gift_No_Text.jpg",
+            "position": 5,
+            "featured_heading": "Free Gift On All Orders",
+            "heading_font_size": "heading-large",
+            "featured_text": "<p>Spend $100 for BONUS Mystery Gift ($39.99 value)</p>",
+            "featured_button_text": "",
+            "featured_button_link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "featured_color_text": "#ffffff",
+            "featured_color_overlay": "#222222",
+            "featured_overlay_opacity": 10,
+            "heading_tag": "automatic"
+          }
+        },
+        "featured_image_zBW9Ug": {
+          "type": "featured_image",
+          "settings": {
+            "featured_image": "shopify://shop_images/12.png",
+            "position": 17,
+            "featured_heading": "Stacked Bundle Savings",
+            "heading_font_size": "heading-small",
+            "featured_text": "<p>20% off bundles on top of their already-low prices</p>",
+            "featured_button_text": "Save Now",
+            "featured_button_link": "shopify://collections/bundles",
+            "button_type": "btn--primary",
+            "button_size": "btn--small",
+            "button_style": "",
+            "show_arrow": false,
+            "featured_color_text": "#ffffff",
+            "featured_color_overlay": "#222222",
+            "featured_overlay_opacity": 10,
+            "heading_tag": "automatic"
+          }
+        },
+        "featured_image_6TYPPK": {
+          "type": "featured_image",
+          "settings": {
+            "featured_image": "shopify://shop_images/12.png",
+            "position": 12,
+            "featured_heading": "Discover New Favorites",
+            "heading_font_size": "heading-small",
+            "featured_text": "<p>Explore top flavors with our NEW Try-It Kits<br/></p>",
+            "featured_button_text": "Shop Now",
+            "featured_button_link": "shopify://collections/try-it-kits",
+            "button_type": "btn--primary",
+            "button_size": "btn--small",
+            "button_style": "",
+            "show_arrow": false,
+            "featured_color_text": "#ffffff",
+            "featured_color_overlay": "#222222",
+            "featured_overlay_opacity": 10,
+            "heading_tag": "automatic"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image_BJmHFQ",
+        "featured_image_zBW9Ug",
+        "featured_image_6TYPPK"
+      ],
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "collection_linklist": "pc-redesign-plp-menu-copy",
+        "enable_sort": false,
+        "enable_filters": false,
+        "filter_layout": "inline-open",
+        "default_open": true,
+        "grid": 4,
+        "grid_mobile": "2",
+        "products_per_page": 16,
+        "color_scheme": "scheme-1",
+        "width": "wrapper--full-padded",
+        "product_cards_layout": "flavcity-shop",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "section_translate_y": 0,
+        "section_translate_y_mobile": 0
+      }
+    },
+    "1757091217a3d76cca": {
+      "type": "apps",
+      "blocks": {
+        "okendo_star_rating_b3GTLE": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "okendo_star_rating_b3GTLE"
+      ],
+      "settings": {
+        "include_margins": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "1757091217a3d76cca"
+  ]
+}

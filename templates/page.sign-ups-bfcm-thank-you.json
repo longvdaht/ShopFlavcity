@@ -1,0 +1,238 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "double": {
+      "type": "section-double",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "title": "You’re In!",
+            "color": "#005261",
+            "heading_font_family": "primary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 24,
+            "heading_tag": "automatic"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Thanks for signing up. Keep an eye on your inbox — your early access invite will arrive <strong>48 hours before Black Friday</strong>. Your exclusive gift is waiting!</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 32,
+            "padding_bottom_mobile": 16
+          }
+        },
+        "buttons_JzXKVJ": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "EXPLORE BEST SELLERS",
+            "button_url": "shopify://collections/featured",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "pin_to_bottom": false,
+            "padding_bottom": 16
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "buttons_JzXKVJ"
+      ],
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "custom_selector": "",
+        "image_1": "shopify://shop_images/peanut_butter_chocolate_protein_smoothie.png",
+        "image_shape": "circle",
+        "image_width": "one-half",
+        "text_alignment": "text-left",
+        "layout": "",
+        "width": "wrapper",
+        "height": "image-height",
+        "mobile_height": "image-height--mobile",
+        "reverse_blocks": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "show_placeholder": true
+      }
+    },
+    "section_rich_text_nicpkc": {
+      "type": "section-rich-text",
+      "blocks": {
+        "subheading_QMXjCq": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "While You Wait…",
+            "padding_bottom": 16
+          }
+        },
+        "heading_jeeA7j": {
+          "type": "heading",
+          "settings": {
+            "title": "Cook Up Something Delicious",
+            "heading_font_size": "heading-large",
+            "padding_bottom": 16,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_6YiFrR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore healthy, flavorful recipes to try at home<br/></p>",
+            "text_font_size": "body-medium",
+            "padding_bottom": 16
+          }
+        },
+        "buttons_GbcmUy": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "Explore Recipes",
+            "button_url": "shopify://blogs/recipes",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "padding_bottom": 16
+          }
+        }
+      },
+      "block_order": [
+        "subheading_QMXjCq",
+        "heading_jeeA7j",
+        "text_6YiFrR",
+        "buttons_GbcmUy"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "width": "wrapper",
+        "color_scheme": "",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "section-tab-collections": {
+      "type": "section-tab-collections",
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "featured_product_list": [],
+            "featured_collection": "featured",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 5,
+            "overlay_color": "#000000",
+            "description": "",
+            "color": "#ffffff",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false
+          }
+        },
+        "collection_xUyJXb": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "featured_product_list": [],
+            "featured_collection": "protein-smoothies",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 5,
+            "overlay_color": "#000000",
+            "description": "",
+            "color": "#ffffff",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false
+          }
+        },
+        "collection_PUgDfA": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "featured_product_list": [],
+            "featured_collection": "electrolytes",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "description": "",
+            "color": "",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--outline",
+            "show_arrow": false
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection_xUyJXb",
+        "collection_PUgDfA"
+      ],
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "show_product_count": false,
+        "enable_navigation": true,
+        "show_empty_section": true,
+        "title": "Shop Your Favorites Year-Round",
+        "heading_font_family": "primary-heading__font",
+        "heading_font_size": "heading-large",
+        "text": "<p>From protein smoothies to superfood lemonades, discover our products that make everyday healthy swaps easy and delicious.</p>",
+        "text_font_size": "body-medium",
+        "layout": "left",
+        "text_alight_mobile": "text_alight_mobile--center",
+        "layout_desktop": "grid",
+        "slider_arrow_position": "slider-desktop-position-center",
+        "slider_overflow": false,
+        "layout_mobile": "2",
+        "product_limit": 7,
+        "grid": 4,
+        "rows": 3,
+        "color_scheme": "scheme-1",
+        "padding_top": 130,
+        "padding_bottom": 60,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "heading_tag": "automatic"
+      }
+    }
+  },
+  "order": [
+    "double",
+    "section_rich_text_nicpkc",
+    "section-tab-collections"
+  ]
+}

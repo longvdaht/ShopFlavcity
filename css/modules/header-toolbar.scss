@@ -1,0 +1,165 @@
+/*====== Header toolbar ======*/
+
+ticker-bar {
+  display: block;
+
+  @include media-query($medium-up) {
+    width: 100%;
+  }
+}
+
+ticker-bar[paused] .ticker--animated { animation-play-state: paused; }
+
+.toolbar {
+  --link: var(--text);
+  --link-hover: var(--text);
+  position: relative;
+  z-index: 2400;
+  font-size: calc(var(--font-nav-small) * var(--FONT-SIZE-NAV));
+  background: var(--bg);
+
+  &.has-border::before { border-color: var(--border); }
+
+  .meganav--visible & {
+    --text: var(--COLOR-HEADER-LINK);
+    --link: var(--COLOR-HEADER-LINK);
+    --link-hover: var(--COLOR-HEADER-LINK-HOVER);
+  }
+}
+
+.toolbar--no-text {
+  @include media-query($small) {
+    padding: 0;
+  }
+}
+
+.toolbar__inner {
+  min-height: calc(2.25 * var(--FONT-SIZE-NAV));
+
+  @include media-query($medium-up) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.toolbar__text {
+  position: relative; // Required in order to prevent horizontal scrollbar appearing on the page
+  overflow: hidden;
+  margin-left: var(--outer-offset);
+  margin-right: var(--outer-offset);
+  padding-left: var(--outer);
+  padding-right: var(--outer);
+  line-height: 1.2; // Match .navlink elements line-height
+
+  &:only-child { text-align: center; }
+
+  @include media-query($small) {
+    display: flex;
+    align-items: center;
+    min-height: inherit;
+    text-align: center;
+  }
+}
+
+.toolbar__text__frame {
+  --ticker-direction: ticker-rtl;
+  --padding: var(--inner);
+
+  display: flex;
+  width: 100%;
+
+  @include media-query($small) {
+    justify-content: center;
+  }
+
+  .ticker--animated { animation-play-state: running; }
+  &:hover .ticker--animated { animation-play-state: paused; }
+
+  .announcement__text { min-height: 0; }
+}
+
+.toolbar__text + .toolbar__menu { margin-left: 22px; }
+
+.toolbar__menu {
+  display: flex;
+  flex-wrap: nowrap;
+
+  a { --link: var(--text); }
+
+  @include media-query($small) {
+    margin: 0 var(--outer-offset);
+  }
+
+  .navlink--toplevel {
+    --link-padding: 0;
+
+    @include media-query($medium-up) {
+      padding: 5px 0;
+      margin-right: 22px;
+    }
+
+    @include media-query($small) {
+      flex-basis: 100%;
+      padding: 5px var(--outer);
+      transition: background 0.4s ease;
+
+      &:hover {
+        background: var(--bg-accent);
+      }
+    }
+  }
+}
+
+.toolbar__utilities {
+  @include nav-bold;
+  position: relative;
+  margin-right: -22px;
+  margin-left: var(--outer);
+
+  @include media-query($medium-up) {
+    display: flex;
+    position: relative;
+    align-items: center;
+    float: right;
+
+    &:only-child { margin-left: auto; }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 100%;
+      width: var(--gap);
+      pointer-events: none;
+      background: linear-gradient(-90deg, var(--bg) 50%, var(--bg-transparent, rgb(255 255 255 / 0%)) 100%);
+    }
+  }
+
+  .social__links { margin-right: -8px; }
+}
+
+.toolbar__utility {
+  @include nav-bold;
+  display: flex;
+  align-items: center;
+  margin-right: 22px;
+
+  @include media-query($small) {
+    margin-right: 0;
+  }
+
+  .drawer & {
+    font-size: var(--font-body-small);
+    padding: 8px 0;
+  }
+}
+
+.gift-card-link {
+  --link: var(--text);
+
+  display: inline-block;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}

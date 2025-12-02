@@ -1,0 +1,393 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "collection-image-with-title",
+      "disabled": true,
+      "settings": {
+        "content_translate_y": 0,
+        "content_translate_y_mobile": -100,
+        "show_title": false,
+        "heading_font_family": "secondary-heading__font",
+        "title": "",
+        "show_description": false,
+        "description": "",
+        "flex_align": "align--middle-center",
+        "color_scheme": "scheme-bcb2964e-521c-4231-928e-efe35016faff",
+        "show_text_background": false,
+        "show_image": true,
+        "banner_layout": "overlay",
+        "height": "seven-fifty-height-hero",
+        "mobile_height": "five-fifty-height-hero--mobile",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "section_hero_Ytf6QB": {
+      "type": "section-hero",
+      "blocks": {
+        "heading_znxndw": {
+          "type": "heading",
+          "settings": {
+            "text": "FlavCity Café",
+            "text_mobile": "",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "color": "#3f2021",
+            "padding_bottom": 12,
+            "padding_bottom_mobile": 8,
+            "heading_tag": "automatic"
+          },
+          "blocks": {}
+        },
+        "text_aXJKWY": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Tell your brand's story through images.</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "color": "#005261",
+            "padding_bottom": 12,
+            "padding_bottom_mobile": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_znxndw",
+        "text_aXJKWY"
+      ],
+      "disabled": true,
+      "name": "Image banner",
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "image_1": "shopify://shop_images/1_1.png",
+        "link": "",
+        "width": "wrapper--full",
+        "height": "screen-height-one-half",
+        "flex_align_desktop": "align--middle-center-desktop",
+        "mobile_image": "shopify://shop_images/2_1.png",
+        "mobile_height": "screen-height-one-third--mobile",
+        "flex_align_mobile": "align--middle-center-mobile",
+        "color_scheme": "",
+        "show_text_background": false,
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_placeholder": true
+      }
+    },
+    "wave_separator_NjJm8y": {
+      "type": "wave-separator",
+      "blocks": {
+        "decorative_element_mTEWbR": {
+          "type": "decorative-element",
+          "settings": {
+            "shown_on": "both",
+            "z_index": "3",
+            "overflow_hidden": true,
+            "image": "shopify://shop_images/Subtract.png",
+            "image_scale": 1,
+            "max_width_desktop": 100,
+            "desktop_x_position": 0,
+            "desktop_x_transform": 0,
+            "desktop_y_position": 0,
+            "desktop_y_transform": -88,
+            "image_mobile": "shopify://shop_images/Subtract_1.png",
+            "max_width_mobile": 100,
+            "mobile_x_position": 0,
+            "mobile_x_transform": 0,
+            "mobile_y_position": 0,
+            "mobile_y_transform": -86,
+            "aos_animation": "unset",
+            "scroll_animation": "none",
+            "scroll_direction": "down",
+            "scroll_percentage": 30,
+            "rotate_effect": false,
+            "rotate_effect_from": -10,
+            "rotate_effect_to": -10
+          }
+        }
+      },
+      "block_order": [
+        "decorative_element_mTEWbR"
+      ],
+      "name": "Wave Separator",
+      "settings": {
+        "custom_selector": "",
+        "bg_color": "#fff8ea"
+      }
+    },
+    "section_rich_text_UU9iwP": {
+      "type": "section-rich-text",
+      "blocks": {
+        "heading_zpNriB": {
+          "type": "heading",
+          "settings": {
+            "title": "BYE, BYE, BARISTA.",
+            "heading_font_size": "heading-x-large",
+            "padding_bottom": 16,
+            "heading_tag": "automatic"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zpNriB"
+      ],
+      "disabled": true,
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "width": "wrapper--full-padded",
+        "color_scheme": "scheme-c471a6a3-af90-4097-9b89-9a56c0983877",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "section_hero_w_animation_TD3rQW": {
+      "type": "section-hero-w-animation",
+      "blocks": {
+        "heading_Gqxtm6": {
+          "type": "heading",
+          "settings": {
+            "text": "Bye, Bye, Barista.",
+            "text_mobile": "Bye, Bye, Barista.",
+            "heading_font_family": "secondary-heading__font",
+            "heading_font_size": "heading-large",
+            "color": "#005261",
+            "padding_bottom": 12,
+            "padding_bottom_mobile": 8,
+            "heading_tag": "automatic"
+          },
+          "blocks": {}
+        },
+        "text_rpXxzM": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Tell your brand's story through images.</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "color": "#005261",
+            "padding_bottom": 12,
+            "padding_bottom_mobile": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_Gqxtm6",
+        "text_rpXxzM"
+      ],
+      "name": "Hero with animation",
+      "settings": {
+        "section_mode": "flavcity-cafe",
+        "enable_sticky_position": false,
+        "background": "transparent",
+        "link": "",
+        "width": "wrapper--full-padded",
+        "height": "image-height",
+        "flex_align_desktop": "align--middle-center-desktop",
+        "mobile_height": "image-height--mobile",
+        "flex_align_mobile": "align--middle-center-mobile",
+        "color_scheme": "scheme-c471a6a3-af90-4097-9b89-9a56c0983877",
+        "show_text_background": false,
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "waved_scrolling_text_BprtpQ": {
+      "type": "waved-scrolling-text",
+      "blocks": {
+        "item_HYQnC6": {
+          "type": "item",
+          "settings": {
+            "text": "REAL INGREDIENTS"
+          }
+        }
+      },
+      "block_order": [
+        "item_HYQnC6"
+      ],
+      "disabled": true,
+      "name": "Waved Scrolling Text",
+      "settings": {
+        "separator": "~",
+        "separator_padding": 1,
+        "ribbon_thickness": 64,
+        "font_size_desktop": 36,
+        "font_size_mobile": 22,
+        "color_scheme": "",
+        "speed": 18,
+        "direction": "right"
+      }
+    },
+    "section_announcement_iQfhpp": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_mBHa3h": {
+          "type": "text",
+          "settings": {
+            "text": "<p>REAL INGREDIENTS</p>",
+            "text_font_size": "body-small",
+            "color": "rgba(0,0,0,0)",
+            "target_device_enabled": false,
+            "target_device": "mobile"
+          }
+        },
+        "text_4qdNVB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>100% GRASS-FED WHOLE MILK</p>",
+            "text_font_size": "body-small",
+            "color": "",
+            "target_device_enabled": false,
+            "target_device": "mobile"
+          }
+        },
+        "text_iJ46eC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>LESS THAN $3 A CUP</p>",
+            "text_font_size": "body-small",
+            "color": "",
+            "target_device_enabled": false,
+            "target_device": "mobile"
+          }
+        }
+      },
+      "block_order": [
+        "text_mBHa3h",
+        "text_4qdNVB",
+        "text_iJ46eC"
+      ],
+      "name": "Scrolling text",
+      "settings": {
+        "marquee_speed": 50,
+        "direction": "ticker-rtl",
+        "message_spacing": 10,
+        "show_border": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "main": {
+      "type": "collection",
+      "blocks": {
+        "featured_image_akNjeP": {
+          "type": "featured_image",
+          "disabled": true,
+          "settings": {
+            "featured_image": "shopify://shop_images/2_1.png",
+            "position": 5,
+            "featured_heading": "",
+            "heading_font_size": "heading-large",
+            "featured_text": "",
+            "featured_button_text": "RECIPIES",
+            "featured_button_link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "featured_color_text": "#ffffff",
+            "featured_color_overlay": "#222222",
+            "featured_overlay_opacity": 10,
+            "heading_tag": "automatic"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image_akNjeP"
+      ],
+      "settings": {
+        "section_mode": "flavcity-cafe",
+        "collection_linklist": "",
+        "enable_sort": false,
+        "enable_filters": false,
+        "filter_layout": "inline-open",
+        "default_open": true,
+        "grid": 4,
+        "grid_mobile": "2",
+        "products_per_page": 16,
+        "color_scheme": "scheme-3dd60216-16c9-49ce-a81c-0db8ff4bd9ec",
+        "width": "wrapper--full-padded",
+        "product_cards_layout": "flavcity-cafe",
+        "padding_top": 150,
+        "padding_bottom": 500,
+        "padding_top_mobile": 250,
+        "padding_bottom_mobile": 100,
+        "section_translate_y": -120,
+        "section_translate_y_mobile": -190
+      }
+    },
+    "1757505811f72093cb": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_ee3jX9": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "on instagram",
+            "title_color": "#3f2021",
+            "title_size_v2": 0,
+            "alignment": "left",
+            "instafeed_margin_top": 60,
+            "instafeed_margin_bottom": 100,
+            "instafeed_margin_sides": 50,
+            "show_instagram_link": true,
+            "link_alignment": "right",
+            "link_color": "#db0082",
+            "background_color": "rgba(0,0,0,0)",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_ee3jX9"
+      ],
+      "settings": {
+        "include_margins": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "section_hero_Ytf6QB",
+    "wave_separator_NjJm8y",
+    "section_rich_text_UU9iwP",
+    "section_hero_w_animation_TD3rQW",
+    "waved_scrolling_text_BprtpQ",
+    "section_announcement_iQfhpp",
+    "main",
+    "1757505811f72093cb"
+  ]
+}

@@ -1,0 +1,179 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant | default: product.variants.first
+
+  if current_variant.compare_at_price > current_variant.price
+    assign percentage = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round
+  endif
+
+  assign first_selling_plan = current_variant.selling_plan_allocations[0]
+
+  if first_selling_plan.selling_plan.price_adjustments[0].value > 0
+    assign subscription_adjustment_percentage = first_selling_plan.selling_plan.price_adjustments[0].value
+  endif
+
+  assign current_variant_price = current_variant.price
+  assign subscription_price = first_selling_plan.price_adjustments[0].price
+  assign subscription_sale = current_variant_price | minus: subscription_price | floor
+  assign subscription_sale_with_currency = subscription_sale | money_without_trailing_zeros
+-%}
+
+<div class="product__subs__wrap">
+  <fieldset class="product__subs" data-subscription-selectors>
+    <p data-plan-description class="product__subs__description {% unless product.selected_selling_plan %} hidden{% endunless %}">
+      {{ product.selected_selling_plan.description }}
+    </p>
+
+    <legend class="radio__legend">
+      <span class="radio__legend__label">
+        <span class="radio__legend__option-name">{{ 'products.product.subscription_label' | t }}</span>
+      </span>
+    </legend>
+
+    {% for selling_plan_group in product.selling_plan_groups %}
+      <div class="product__subs__group">
+        <label class="product__subs__option product__subs__option-wrapper">
+          <input type="radio"
+            data-toggles-group
+            name="selling-plan-group"
+            value="{{ selling_plan_group.id }}"
+            {% if selling_plan_group.selling_plan_selected %}
+              checked
+            {% endif %}>
+          <span class="product__subs__option-type">
+						{% if template.suffix contains 'cafe' %}
+							{{ 'products.product.subscription_cafe' | t | default: selling_plan_group.name }}
+						{% else %}
+							{{ 'products.product.subscription' | t | default: selling_plan_group.name }}
+						{% endif %}
+					</span>
+
+          <span class="subscription-discount-badge {%- if subscription_adjustment_percentage == 0 %} hide{%- endif -%}"
+                data-subscription-discount-badge>
+
+            {%- if subscription_adjustment_percentage != blank -%}
+							{% if template.suffix contains 'cafe' %}
+								{{ 'products.product.discount_cafe_badge' | t: percentage: subscription_adjustment_percentage }}
+							{% else %}
+								{{ 'products.product.discount_badge' | t: percentage: subscription_adjustment_percentage }}
+							{% endif %}
+            {%- endif -%}
+          </span>
+
+          <span class="price-wrapper">
+            <span class="new-price" data-price-subscription-wrapper>
+              {%- if subscription_adjustment_percentage != 0 -%}
+                {{ subscription_price | money_without_trailing_zeros }}
+              {%- endif -%}
+            </span>
+            <span class="old-price" data-price-one-time-wrapper>{{ current_variant_price | money_without_trailing_zeros }}</span>
+          </span>
+        </label>
+
+				{% if template.suffix contains 'cafe' %}
+					<div class="product__subs__plans" data-group-toggle="{{ selling_plan_group.id }}">
+						<div class="product__subs__plans-wrapper">
+							<span class="product__subs__plans-title">Delivery: </span>
+
+							{% capture content_options %}
+								{% for plan in selling_plan_group.selling_plans %}
+									{% if plan.selected %}
+										{%- assign plan_is_selected = true -%}
+									{% endif %}
+									<option value="{{ plan.id }}"
+													data-price-adjustment="{%- for selling_plan_price_adjustment in plan.price_adjustments -%}
+                                         {{- selling_plan_price_adjustment.value -}}
+                                         {{- selling_plan_price_adjustment.value_type  -}}
+                                       {%- endfor -%}"
+										{% if plan_is_selected %}
+											selected="selected"
+										{% endif %}
+									>
+										{{ plan.name }}
+									</option>
+								{% endfor %}
+							{% endcapture %}
+
+							<select name="selling_plan"
+											form="{{ product_form_id }}"
+                      {% if plan_is_selected != true %}
+                        disabled="true"
+                      {% endif %}
+                    >
+								{{ content_options }}
+							</select>
+
+						</div>
+						{% capture content %}
+							{{ 'products.product.subscription_cafe_html' | t }}
+						{% endcapture %}
+
+						{%- if content != blank -%}
+							{{ content }}
+						{%- endif -%}
+					</div>
+				{% else %}
+					<div class="product__subs__plans" data-group-toggle="{{ selling_plan_group.id }}">
+						{% capture content_options %}
+							{% for plan in selling_plan_group.selling_plans %}
+								{% if plan.selected %}
+									{%- assign plan_is_selected = true -%}
+								{% endif %}
+
+                <option value="{{ plan.id }}"
+                        data-price-adjustment="{%- for selling_plan_price_adjustment in plan.price_adjustments -%}
+                                           {{- selling_plan_price_adjustment.value -}}
+                                           {{- selling_plan_price_adjustment.value_type  -}}
+                                         {%- endfor -%}"
+                  {% if plan.selected %}
+                    selected="selected"
+                  {% endif %}
+                >
+                  <span>{{ plan.name }}</span>
+                </option>
+              {% endfor %}
+            {% endcapture %}
+
+            <div class="hidden">
+              <select name="selling_plan"
+                      form="{{ product_form_id }}"
+                {% unless plan_is_selected %}
+                  disabled
+                {% endunless %}>
+                {{ content_options }}
+              </select>
+            </div>
+
+            {% capture content %}
+              {{ 'products.product.subscription_html' | t }}
+            {% endcapture %}
+
+            {%- if content != blank -%}
+              {{ content }}
+            {%- endif -%}
+          </div>
+				{%- endif -%}
+      </div>
+    {% endfor %}
+
+    {% unless product.requires_selling_plan %}
+      <div class="product__subs__group product__subs__group--one-time {% unless product.selected_selling_plan %} developer1{% endunless %}">
+        <label class="product__subs__option">
+          <input
+            type="radio"
+            name="selling-plan-group"
+            value=""
+            data-toggles-group
+            {% unless product.selected_selling_plan %}
+              checked
+            {% endunless %}
+          >
+          <span class="product__subs__option-type product__subs__option-type--onetime">{{ 'products.product.one_time_purchase' | t }}</span>
+
+          <span class="price-wrapper" data-price-wrapper>
+             <span class="new-price" data-price-one-time-wrapper>{{ current_variant_price | money_without_trailing_zeros }}</span>
+          </span>
+        </label>
+      </div>
+    {% endunless %}
+  </fieldset>
+</div>

@@ -1,0 +1,229 @@
+<!-- /snippets/collection-filters-sidebar.liquid -->
+{% comment %}
+	The collection sidebar containing tag filering and link-based navigation
+
+	* collection {object} - The current collection
+	* section {object} - The current section
+
+{% render 'collection-filters-sidebar', collection: collection %}
+{% endcomment %}
+
+{%- liquid
+	assign filter_count = 0
+	assign filter_active_count = 0
+	assign filter_exist = false
+
+	assign default_open = section.settings.default_open
+
+	assign animation_name = 'drawer-items-fade'
+	assign animation_delay = 0
+	assign animation_delay_increment = 50
+	assign animation_duration = 500
+-%}
+
+<div class="collection__sidebar{% if filter_count > 0 %} collection__sidebar--has-buttons{% endif %}"
+	{% if filter_layout == 'slide-out' %}
+		data-collection-sidebar-slide-out
+	{% endif %}
+		 data-active-filters-count="{{ filter_active_count }}"
+		 data-scroll-lock-scrollable
+		 style="--swatch-size: var(--swatch-size-filters);"
+>
+	<collection-filters-form class="hidden">
+		{%- if filter_count > 0 -%}
+			{%- assign animation_delay = animation_delay | plus: 200 -%}
+			<div class="collection__active__filters"
+					 data-animation="{{ animation_name }}"
+					 data-animation-delay="{{ animation_delay }}"
+					 data-animation-duration="{{ animation_duration }}">
+				{%- if filter_count > 1 -%}
+					<a href="{{ filters_url }}" class="active__filters__clear" data-filter-update-url><small>{{ 'collections.general.clear_filters' | t }}</small></a>
+				{%- endif -%}
+				{{ filter_clears }}
+			</div>
+		{%- endif -%}
+
+		{%- render 'filters' animation_delay: animation_delay, animation_duration: animation_duration, animation_name: animation_name, animation_delay_increment: animation_delay_increment -%}
+
+		{%- unless filter_exist -%}
+			<div class="no-results">
+				<p><strong>{{ 'collections.general.no_filters' | t }}</strong></p>
+			</div>
+		{%- endunless -%}
+	</collection-filters-form>
+
+
+	<facet-filters-form
+		data-id="{{ section.id }}"
+		class="facets facets--mobile"
+		data-pagination-limit="{{ section.settings.pagination_limit }}">
+		<div class="active-facets"
+				 id="active-facets-mobile-{{ section.id }}"></div>
+
+		<collapsible-elements>
+			<form id="FacetFiltersFormMobile">
+				<input type="hidden"
+							 name="current_page"
+							 value="1"
+							 id="current-page-mobile-{{ section.id }}">
+
+				<details
+					data-collapsible
+					{% if default_open %}
+						open="true"
+					{% endif %}
+				>
+					<summary class="filter-group__heading" data-collapsible-trigger>
+						<span>Product</span>
+
+						{%- render 'icon-plus' -%}
+						{%- render 'icon-minus' -%}
+					</summary>
+
+					<div
+						class="filter-group__body"
+						data-collapsible-body
+						{% if default_open %}
+							style="height: auto;"
+						{% endif %}
+					>
+						<div class="filter-group__content" data-collapsible-content>
+							<fieldset class="facets-wrap parent-wrap">
+								<legend class="visually-hidden">Product</legend>
+
+								<ul>
+									{%- if filter_all_products.size > 0 -%}
+										{%- for filter_product in filter_all_products -%}
+											{%- if filter_product != blank -%}
+												<li>
+													<label class="checkbox_container">
+														<input type="checkbox"
+																	 name="product"
+																	 value="{{ filter_product }}">
+														{{ filter_product }}
+														<span class="checkmark"></span>
+													</label>
+												</li>
+											{%- endif -%}
+										{%- endfor -%}
+									{%- endif -%}
+								</ul>
+							</fieldset>
+						</div>
+					</div>
+				</details>
+
+
+
+
+				<details
+					data-collapsible
+				>
+					<summary class="filter-group__heading" data-collapsible-trigger>
+						<span>Category</span>
+
+						{%- render 'icon-plus' -%}
+						{%- render 'icon-minus' -%}
+					</summary>
+
+					<div
+						class="filter-group__body"
+						data-collapsible-body
+					>
+						<div class="filter-group__content" data-collapsible-content>
+							<fieldset class="facets-wrap parent-wrap">
+								<legend class="visually-hidden">Category</legend>
+
+								<ul>
+									{%- if filter_all_categories.size > 0 -%}
+										{%- for category in filter_all_categories -%}
+											{%- if category != blank -%}
+												<li>
+													<label class="checkbox_container">
+														<input type="checkbox"
+																	 name="category"
+																	 value="{{ category }}">
+														{{ category }}
+														<span class="checkmark"></span>
+													</label>
+												</li>
+											{%- endif -%}
+										{%- endfor -%}
+									{%- endif -%}
+								</ul>
+							</fieldset>
+						</div>
+					</div>
+				</details>
+
+
+
+
+
+
+
+				<details
+					data-collapsible
+				>
+					<summary class="filter-group__heading" data-collapsible-trigger>
+						<span>Diet</span>
+
+						{%- render 'icon-plus' -%}
+						{%- render 'icon-minus' -%}
+					</summary>
+
+					<div
+						class="filter-group__body"
+						data-collapsible-body
+					>
+						<div class="filter-group__content" data-collapsible-content>
+							<fieldset class="facets-wrap parent-wrap">
+								<legend class="visually-hidden">Diet</legend>
+
+								<ul>
+									{%- if filter_all_diets.size > 0 -%}
+										{%- for diet in filter_all_diets -%}
+											{%- if diet != blank -%}
+												<li>
+													<label class="checkbox_container">
+														<input type="checkbox"
+																	 name="diet"
+																	 value="{{ diet }}">
+														{{ diet }}
+														<span class="checkmark"></span>
+													</label>
+												</li>
+											{%- endif -%}
+										{%- endfor -%}
+									{%- endif -%}
+								</ul>
+							</fieldset>
+						</div>
+					</div>
+				</details>
+			</form>
+		</collapsible-elements>
+	</facet-filters-form>
+</div>
+
+<div class="collection__sidebar__buttons"
+		 data-animation="{{ animation_name }}"
+		 data-animation-delay="{{ animation_delay }}"
+		 data-animation-duration="{{ animation_duration }}">
+	{%- if filter_count > 0 -%}
+		<a class="btn btn--primary btn--outline btn--full" href="{{ filters_url }}" data-filter-update-url>
+			<span>{{ 'collections.general.reset' | t }}</span>
+		</a>
+	{%- endif -%}
+
+	{%- if filter_layout == 'slide-out' -%}
+		<a
+			class="drawer__close btn btn--primary btn--outline btn--full"
+			href="#filters-group"
+			data-collection-sidebar-close
+			aria-label="{{ 'collections.general.hide_filters' | t }}"
+			tabindex="0">
+			<span>{{ 'collections.general.view_items_with_count' | t: count: products_count }}</span>
+		</a>
+	{%- endif -%}
+</div>

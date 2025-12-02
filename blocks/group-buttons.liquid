@@ -1,0 +1,65 @@
+{%- liquid
+  assign button_full_width_class = ''
+  if block.settings.full_width
+    assign button_full_width_class = 'hero__button--stacked'
+  endif
+
+  capture content_for_blocks
+    content_for 'blocks'
+  endcapture
+-%}
+
+<div
+  class="hero__button-group"
+  data-aos="hero"
+  data-aos-order="auto"
+  data-aos-anchor="{{ section.id }}"
+  {{ block.shopify_attributes }}
+>
+  {{ content_for_blocks | replace: 'hero__button--placeholder', button_full_width_class }}
+</div>
+
+{% schema %}
+{
+  "name": "Side by side buttons",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "To add or edit your buttons, use the individual block settings."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full-width",
+      "default": false
+    }
+  ],
+  "blocks": [{"type": "button"}],
+  "presets": [
+    {
+      "name": "Side by side buttons",
+      "blocks": [
+        {
+          "type": "button",
+          "settings": {
+            "text": "View products",
+            "type": "btn--primary"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "text": "Shop sale",
+            "type": "btn--secondary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

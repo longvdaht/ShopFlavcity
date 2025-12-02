@@ -1,0 +1,168 @@
+predictive-search {
+  display: block;
+  width: 100%;
+
+  &[open] .predictive-search,
+  &[loading] .predictive-search {
+    display: block;
+  }
+
+  &:not([loading]) .predictive-search__loading-state {
+    display: none;
+  }
+
+  &[loading] {
+    .predictive-search__actions,
+    .predictive-search__layout ~ .predictive-search__loading-state { display: none; }
+    .predictive-search__layout ~ .predictive-search__actions { display: block; }
+
+    .predictive-search__loader {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.predictive-search {
+  --results-max-height: (var(--full-screen) - var(--header-height) - var(--announcement-height));
+
+  position: absolute;
+  z-index: 4000;
+  top: 100%;
+  right: 0;
+  left: 0;
+  width: 100%;
+  max-height: var(--results-height, var(--results-max-height));
+  opacity: 0;
+  visibility: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+  background: var(--bg);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: smooth;
+
+  @include hide-scrollbar;
+
+  // Don't count announcement bar height if header is stuck
+  .js__header__stuck & { --announcement-height: 0; }
+}
+
+.predictive-search--empty { z-index: 3999; }
+
+header-search-form ~ .predictive-search--empty,
+predictive-search:not([open]):not([results]) ~ .predictive-search--empty {
+  opacity: 1;
+  visibility: visible;
+  max-height: var(--results-height, var(--results-max-height));
+}
+
+predictive-search[open="true"] .predictive-search {
+  opacity: 1;
+  visibility: visible;
+}
+
+.predictive-search__outer {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: padding 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+}
+
+.predictive-search__outer--empty,
+.is-searched .predictive-search__outer {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  padding: var(--outer) 0;
+}
+
+.predictive-search__layout {
+  @include media-query ($large-up) {
+    --columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include media-query ($medium-up) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: var(--gap);
+  }
+}
+
+.predictive-search__layout--no-products,
+.predictive-search__layout--no-suggestions {
+  grid-template-columns: 100%;
+}
+
+.predictive-search__column {
+  @include media-query ($small) {
+    margin-bottom: var(--inner);
+  }
+}
+
+.predictive-search__actions {
+  margin: var(--inner) 0;
+}
+
+.predictive-search__group {
+  @include media-query ($medium-up) {
+    padding-bottom: var(--inner);
+  }
+}
+
+.predictive-search__heading {
+  @include heading;
+
+  color: var(--link);
+  margin-bottom: var(--inner);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.predictive-search__item {
+  margin-bottom: var(--inner);
+  font-size: calc(var(--font-nav-small) * var(--FONT-SIZE-NAV));
+}
+
+.predictive-search__link {
+  transition: color 0.3s ease;
+  padding: 5px 0;
+}
+
+.predictive-search__products__list { padding: 0; }
+
+@include media-query($small) {
+  .predictive-search__products__list .product-link {
+    display: grid;
+    grid-template-columns: 50px auto;
+    gap: 16px;
+  }
+
+  .predictive-search__products__list .product-item__info {
+    text-align: left;
+    padding-left: 0;
+  }
+}
+
+.predictive-search__empty p { margin: 0; }
+
+.predictive-search__loading-state {
+  margin: var(--inner) 0;
+  min-height: var(--btn-height);
+  display: flex;
+  align-items: center;
+}
+
+.predictive-search__loader {
+  margin: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.predictive-search__item[aria-selected="true"] > a,
+.predictive-search__grid-item[aria-selected="true"] > a,
+.predictive-search__actions > .btn[aria-selected="true"] {
+  outline: 5px auto var(--accent);
+}

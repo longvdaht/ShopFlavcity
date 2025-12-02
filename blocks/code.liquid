@@ -1,0 +1,64 @@
+<style>
+  .hero__custom-code {
+    --block-padding-bottom: {{ block.settings.padding_bottom }}px;
+  }
+  @media only screen and (max-width: 749px) {
+    .hero__custom-code{
+      --block-padding-bottom: {{ block.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<div
+  class="hero__custom-code"
+  data-aos="hero"
+  data-aos-anchor="{{ section.id }}"
+  data-aos-order="auto"
+  {{ block.shopify_attributes }}
+>
+  {{ block.settings.code }}
+</div>
+
+{% schema %}
+{
+  "name": "Custom code",
+  "tag": null,
+  "settings": [
+    {
+      "type": "liquid",
+      "id": "code",
+      "label": "Custom code",
+      "default": "<p>Once you write some custom code, it will render right here.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Padding bottom"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom code"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,267 @@
+<!-- /sections/overlay-newsletter.liquid -->
+
+{%- liquid
+  assign show_popup = true
+  assign color_scheme = 'color-' | append: section.settings.color_scheme
+  assign bg_color = section.settings.bg_color
+  assign text_color = section.settings.color
+  assign popup_classlist = 'popup-small-newsletter'
+
+  if section.settings.target_device_enabled
+    if section.settings.target_device == 'mobile'
+      assign popup_classlist = popup_classlist | append: ' mobile'
+    endif
+
+    if section.settings.target_device == 'desktop'
+      assign popup_classlist = popup_classlist | append: ' desktop'
+    endif
+  endif
+
+  if section.settings.target_url_enabled and section.settings.target_url != blank
+    assign show_popup = false
+  endif
+
+  if section.settings.target_referrer_enabled and section.settings.target_referrer != blank
+    assign show_popup = false
+  endif
+
+  if section.settings.target_url_enabled and section.settings.target_url != blank
+    assign request_path = request.path
+
+    if request.page_type == 'product'
+      assign request_path = request_path | split: '/products/' | last | prepend: '/products/'
+    endif
+
+    if section.settings.target_url == request_path
+      assign show_popup = true
+    endif
+  endif
+
+  if section.settings.target_referrer_enabled and section.settings.target_referrer != blank
+    capture target_referrer_attribute
+      echo 'data-target-referrer="' | append: section.settings.target_referrer | append: '"'
+    endcapture
+
+    assign show_popup = true
+  endif
+-%}
+
+{%- style -%}
+  #Popup--{{ section.id }} {
+    {%- unless bg_color == 'rgba(0,0,0,0)' or bg_color == blank -%}
+      --bg: {{ bg_color }};
+    {%- endunless -%}
+
+    {%- unless text_color == 'rgba(0,0,0,0)' or text_color == blank -%}
+      --text: {{ text_color }};
+    {%- endunless -%}
+  }
+{%- endstyle -%}
+
+{%- capture popup_attributes -%}
+  {% if popup_classlist != '' %}
+    class="{{ popup_classlist }} {{ color_scheme }}"
+  {% endif %}
+  id="Popup--{{ section.id }}"
+  data-popup-delay="{{ section.settings.trigger }}"
+  data-cookie-name="popup-{{ section.id }}"
+  {{ target_referrer_attribute }}
+{%- endcapture -%}
+
+<div data-section-id="{{ section.id }}" data-section-type="popups">
+  {%- if show_popup -%}
+    <popup-newsletter class="newsletter__outer">
+      <div class="newsletter__inner">
+        <dialog
+          class="small-newsletter {{ section.settings.position }}"
+          aria-modal="true"
+          aria-labelledby="PopupNewsletter"
+          data-cookie-value="newsletter_is_closed"
+          data-prevent-top-layer
+          {{ popup_attributes }}
+        >
+          <form method="dialog">
+            <button class="visually-hidden no-js" aria-label="{{ 'general.accessibility.close' | t }}"></button>
+          </form>
+
+          {%- if section.settings.heading != blank -%}
+            <div class="newsletter__heading" data-newsletter-heading tabindex="0">
+              {{ section.settings.heading }}
+            </div>
+
+            {%- render 'newsletter-form',
+              show_discount_message: true,
+              success_text: section.settings.success,
+              small_newsletter: true,
+              klaviyo_list_id: section.settings.klaviyo_list_id
+            -%}
+
+            <button
+              data-newsletter-close
+              data-popup-close
+              class="newsletter__close"
+              title="{{ 'general.accessibility.close' | t }}"
+            >
+              {%- render 'icon-cancel' -%}
+            </button>
+          {%- endif -%}
+        </dialog>
+      </div>
+    </popup-newsletter>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Newsletter small",
+  "class": "shopify-section-popups",
+  "settings": [
+    {
+      "type": "text",
+      "id": "klaviyo_list_id",
+      "label": "Klaviyo list id",
+      "info": "Enter the Klaviyo list ID and the form will send data to the specified list"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Position",
+      "default": "small-newsletter--top-right",
+      "options": [
+        {
+          "value": "small-newsletter--top-left",
+          "label": "Top left"
+        },
+        {
+          "value": "small-newsletter--top-right",
+          "label": "Top right"
+        },
+        {
+          "value": "small-newsletter--bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "small-newsletter--bottom-right",
+          "label": "Bottom right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Sign up and get 10% off your first order</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "success",
+      "label": "Success message",
+      "info": "Include your discount code and a message to be displayed."
+    },
+    {
+      "type": "header",
+      "content": "Popup behavior"
+    },
+    {
+      "type": "select",
+      "id": "trigger",
+      "label": "Delay appearance",
+      "default": "always",
+      "options": [
+        {"value": "always", "label": "Show immediately"},
+        {"value": "delayed_3", "label": "Show 3 seconds after page load"},
+        {"value": "delayed_10", "label": "Show 10 seconds after page load"},
+        {"value": "bottom", "label": "Show after user scrolls to page bottom"},
+        {"value": "idle", "label": "Show after user has been idle for 1 minute"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "paragraph",
+      "content": "Overrides color scheme. Set to Transparent to revert back to using color schemes."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Target page"
+    },
+    {
+      "id": "target_url_enabled",
+      "type": "checkbox",
+      "label": "Limit to specific page"
+    },
+    {
+      "id": "target_url",
+      "type": "url",
+      "label": "Targeted page"
+    },
+    {
+      "type": "header",
+      "content": "Target referrer"
+    },
+    {
+      "id": "target_referrer_enabled",
+      "type": "checkbox",
+      "label": "Limit to specific referrer path"
+    },
+    {
+      "id": "target_referrer",
+      "type": "text",
+      "label": "Targeted referrer"
+    },
+    {
+      "type": "header",
+      "content": "Target device"
+    },
+    {
+      "id": "target_device_enabled",
+      "type": "checkbox",
+      "label": "Limit to desktop or mobile"
+    },
+    {
+      "type": "select",
+      "id": "target_device",
+      "label": "Device ",
+      "default": "mobile",
+      "options": [
+        {"value": "mobile", "label": "Only show on mobile"},
+        {"value": "desktop", "label": "Only show on desktop"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mini newsletter"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["aside"]
+  }
+}
+{% endschema %}

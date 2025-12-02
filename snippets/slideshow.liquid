@@ -1,0 +1,92 @@
+{%- liquid
+  assign desktop_height = section.settings.height
+  assign mobile_height = section.settings.mobile_height
+  assign autoplay = section.settings.autoplay
+  assign autoplay_delay = 0
+  assign show_arrows = section.settings.show_arrows
+  assign color_scheme = 'color-' | append: section.settings.color_scheme
+  assign selected_color_scheme = section.settings.color_scheme | strip
+  assign scheme_bg_color = settings.color_schemes[selected_color_scheme].settings.section_bg
+  assign scheme_text_color = settings.color_schemes[selected_color_scheme].settings.section_text
+
+  case section.settings.transition
+    when 'slide'
+      assign transition_style = transition_style | append: 'swiper--slide'
+    when 'fade'
+      assign transition_style = transition_style | append: 'swiper--fade'
+    when 'zoom-out'
+      assign transition_style = transition_style | append: 'swiper--zoom-out'
+    when 'wipe'
+      assign transition_style = transition_style | append: 'swiper--wipe'
+  endcase
+
+  if autoplay
+    assign autoplay_delay = section.settings.autoplay_speed | times: 1000
+  endif
+-%}
+
+{%- capture style -%}
+  --PT: {{ section.settings.padding_top }}px;
+  --PB: {{ section.settings.padding_bottom }}px;
+{%- endcapture -%}
+
+{{ 'slideshow.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
+
+<slideshow-component
+  class="index-hero slideshow swiper {{ transition_style }} {{ desktop_height }} {{ mobile_height }} section-padding {{ color_scheme }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="slideshow"
+  data-overlay-header
+  style="{{ style }}"
+>
+  <div class="slideshow-wrapper {{ section.settings.width }}">
+    {%- if content_blocks != blank -%}
+      <swiper-container
+        class="swiper-wrapper"
+        {%- if autoplay %}
+          autoplay="{{ autoplay }}"
+          autoplay-delay="{{ autoplay_delay }}"
+          autoplay-disable-on-interaction="false"
+        {%- endif -%}
+        {%- if section.settings.transition == 'slide' %}
+          effect="slide"
+        {%- else %}
+          effect="fade"
+          fade-effect-cross-fade="true"
+        {%- endif -%}
+        {%- if show_arrows %}
+          navigation="true"
+          navigation-prev-el=".swiper-button-prev-{{ section.id }}"
+          navigation-next-el=".swiper-button-next-{{ section.id }}"
+        {%- endif -%}
+        {%- unless settings.dots_style == 'hidden' %}
+          pagination="true"
+          pagination-clickable="true"
+        {%- endunless %}
+        threshold="1"
+        free-mode="false"
+        loop="true"
+        grab-cursor="true"
+        speed="500"
+      >
+        {{ content_blocks }}
+      </swiper-container>
+
+      {%- if show_arrows -%}
+        <div class="swiper-button-prev swiper-button-rounded swiper-button-prev-{{ section.id }}">
+          {% render 'icons' with 'arrow-left' %}
+        </div>
+        <div class="swiper-button-next swiper-button-rounded swiper-button-next-{{ section.id }}">
+          {% render 'icons' with 'arrow-right' %}
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <div class="swiper-slide swiper-slide--onboarding {{ section.settings.height }} {{ section.settings.mobile_height }}">
+        <div class="text-center">{{ 'home_page.onboarding.no_content' | t }}</div>
+        <div class="image-overlay"></div>
+      </div>
+    {%- endif -%}
+  </div>
+</slideshow-component>

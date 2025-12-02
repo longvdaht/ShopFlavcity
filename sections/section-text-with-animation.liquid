@@ -1,0 +1,679 @@
+{% liquid
+	assign color_scheme = 'color-' | append: section.settings.color_scheme
+	assign width = section.settings.width
+	assign text_alignment = section.settings.text_alignment
+	assign decorative_elements = section.blocks | where: 'type', 'decorative-element'
+%}
+
+{%- style -%}
+	#TextWithAnimation--{{ section.id }} {
+	--PT: {{ section.settings.padding_top }}px;
+	--PB: {{ section.settings.padding_bottom }}px;
+	}
+
+	@media only screen and (max-width: 749px) {
+	#TextWithAnimation--{{ section.id }} {
+	--PT: {{ section.settings.padding_top_mobile }}px;
+	--PB: {{ section.settings.padding_bottom_mobile }}px;
+	}
+	}
+{%- endstyle -%}
+
+{% if section.blocks.size > 0 %}
+	<section
+		id="TextWithAnimation--{{ section.id }}"
+		class="text_with_animation section-padding {{ width }}"
+	>
+		{%- for block in decorative_elements -%}
+			{%- render 'decorative-element', block: block -%}
+		{%- endfor -%}
+
+		<div class="text_with_animation__content {{ color_scheme }}">
+			{% for block in section.blocks %}
+				{% if block.type == 'heading' %}
+					{% liquid
+						assign text = block.settings.text
+						assign heading_font_family = block.settings.heading_font_family
+						assign heading_font_size = block.settings.heading_font_size
+						assign color = block.settings.color
+						assign padding_bottom = block.settings.padding_bottom
+						assign padding_bottom_mobile = block.settings.padding_bottom_mobile
+
+						capture block_style
+							echo '--block-padding-bottom:' | append: padding_bottom | append: 'px;'
+							echo '--block-padding-bottom-mobile:' | append: padding_bottom_mobile | default: padding_bottom | append: 'px;'
+						endcapture
+					%}
+					{% if text != blank %}
+						<h2
+							style="--color-heading: {{ color }}; {{ block_style }}"
+							class="hero__title {{ heading_font_size }} {{ heading_font_family }} {{ text_alignment }}"
+							data-aos="hero"
+							data-aos-order="auto"
+							data-aos-anchor="{{ section.id }}"
+							{{ block.shopify_attributes }}
+						>
+							{{ text }}
+						</h2>
+					{% endif %}
+
+				{% elsif block.type == 'text' %}
+					{% liquid
+						assign text = block.settings.text
+						assign text_font_family = block.settings.text_font_family
+						assign text_font_size = block.settings.text_font_size
+						assign color = block.settings.color
+						assign padding_bottom = block.settings.padding_bottom
+						assign padding_bottom_mobile = block.settings.padding_bottom_mobile
+
+						capture block_style
+							echo '--block-padding-bottom:' | append: padding_bottom | append: 'px;'
+							echo '--block-padding-bottom-mobile:' | append: padding_bottom_mobile | default: padding_bottom | append: 'px;'
+						endcapture
+					%}
+					{% if text != blank %}
+						<div
+							style="--color-text: {{ color }}; {{ block_style }}"
+							class="hero__description {{ text_font_size }} {{ text_font_family }} {{ text_alignment }}"
+							data-aos="hero"
+							data-aos-order="auto"
+							data-aos-anchor="{{ section.id }}"
+							{{ block.shopify_attributes }}
+						>
+							{{ text }}
+						</div>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Text with animation",
+	"class": "section-text-with-animation",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "default": "wrapper--full",
+      "options": [
+        {"value": "wrapper--full", "label": "Full width"},
+        {"value": "wrapper--full-padded", "label": "Full width padded"},
+        {"value": "wrapper", "label": "Normal"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "default": "align--middle-left",
+      "options": [
+        {"value": "align--middle-left", "label": "Left"},
+        {"value": "align--middle-center", "label": "Centered"}
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 400,
+      "step": 5,
+      "unit": "px",
+      "label": "Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 400,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Heading",
+			"type": "heading",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Heading",
+					"default": "text"
+        },
+        {
+          "type": "select",
+          "id": "heading_font_family",
+          "label": "Heading font family",
+          "default": "primary-heading__font",
+          "options": [
+            {"value": "primary-heading__font", "label": "SoulSister"},
+            {"value": "secondary-heading__font", "label": "Fetzav"},
+            {"value": "ternary-heading__font", "label": "Courgette"}
+          ]
+        },
+        {
+          "type": "select",
+          "id": "heading_font_size",
+          "label": "Heading size",
+          "default": "heading-x-large",
+          "options": [
+            {"value": "heading-mini", "label": "Mini"},
+            {"value": "heading-x-small", "label": "Extra small"},
+            {"value": "heading-small", "label": "Small"},
+            {"value": "heading-medium", "label": "Medium"},
+            {"value": "heading-large", "label": "Large"},
+            {"value": "heading-x-large", "label": "Extra large"}
+          ]
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color",
+          "default": "#005261"
+        },
+        {
+          "type": "header",
+          "content": "Padding bottom"
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom_mobile",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile",
+          "default": 8
+        }
+      ]
+		},
+    {
+      "name": "Text",
+      "type": "text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_font_family",
+          "label": "Text font family",
+          "default": "primary-text__font",
+          "options": [
+            {"value": "primary-text__font", "label": "Poppins"},
+            {"value": "secondary-text__font", "label": "MohaveSemibold"},
+            {"value": "ternary-text__font", "label": "Courgette"}
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_font_size",
+          "label": "Text size",
+          "default": "body-large",
+          "options": [
+            {"value": "body-x-small", "label": "Extra small"},
+            {"value": "body-small", "label": "Small"},
+            {"value": "body-medium", "label": "Medium"},
+            {"value": "body-large", "label": "Large"},
+            {"value": "body-x-large", "label": "Extra large"}
+          ]
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color",
+          "default": "#005261"
+        },
+        {
+          "type": "header",
+          "content": "Padding bottom"
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Desktop",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom_mobile",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile",
+          "default": 8
+        }
+      ]
+    },
+    {
+      "name": "Decorative element",
+      "type": "decorative-element",
+      "settings": [
+        {
+          "id": "shown_on",
+          "type": "select",
+          "label": "Shown On",
+          "default": "desktop",
+          "options": [
+            {
+              "value": "mobile",
+              "label": "Mobile"
+            },
+            {
+              "value": "desktop",
+              "label": "Desktop"
+            },
+            {
+              "value": "both",
+              "label": "Both"
+            }
+          ]
+        },
+        {
+          "id": "z_index",
+          "type": "select",
+          "label": "Z-index",
+          "default": "unset",
+          "options": [
+            {
+              "value": "unset",
+              "label": "unset"
+            },
+            {
+              "value": "1",
+              "label": "1"
+            },
+            {
+              "value": "2",
+              "label": "2"
+            },
+            {
+              "value": "3",
+              "label": "3"
+            },
+            {
+              "value": "4",
+              "label": "4"
+            },
+            {
+              "value": "5",
+              "label": "5"
+            }
+          ]
+        },
+        {
+          "id": "overflow_hidden",
+          "type": "checkbox",
+          "label": "Overflow hidden",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Desktop Settings"
+        },
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "image"
+        },
+        {
+          "type": "range",
+          "id": "image_scale",
+          "min": 0.1,
+          "max": 1.5,
+          "step": 0.1,
+          "label": "Image scale",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "max_width_desktop",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Max width",
+          "default": 20,
+          "info": "Max width of the image in % for desktop"
+        },
+        {
+          "type": "range",
+          "id": "desktop_x_position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Desktop X Position",
+          "default": 50,
+          "info": "X position of the image in percentage for desktop"
+        },
+        {
+          "type": "range",
+          "id": "desktop_x_transform",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Desktop X Transform",
+          "default": 0,
+          "info": "X transform of the image in percentage for desktop"
+        },
+        {
+          "type": "range",
+          "id": "desktop_y_position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Desktop Y Position",
+          "default": 50,
+          "info": "Y position of the image in percentage for desktop"
+        },
+        {
+          "type": "range",
+          "id": "desktop_y_transform",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Desktop Y Transform",
+          "default": 0,
+          "info": "Y transform of the image in percentage for desktop"
+        },
+        {
+          "type": "header",
+          "content": "Mobile Settings"
+        },
+        {
+          "id": "image_mobile",
+          "type": "image_picker",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "range",
+          "id": "max_width_mobile",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Mobile Max width",
+          "default": 10,
+          "info": "Max width of the image in % for mobile"
+        },
+        {
+          "type": "range",
+          "id": "mobile_x_position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Mobile X Position",
+          "default": 50,
+          "info": "X position of the image in percentage for mobile"
+        },
+        {
+          "type": "range",
+          "id": "mobile_x_transform",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Mobile X Transform",
+          "default": 0,
+          "info": "X transform of the image in percentage for mobile"
+        },
+        {
+          "type": "range",
+          "id": "mobile_y_position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Mobile Y Position",
+          "default": 50,
+          "info": "Y position of the image in percentage for mobile"
+        },
+        {
+          "type": "range",
+          "id": "mobile_y_transform",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Mobile Y Transform",
+          "default": 0,
+          "info": "Y transform of the image in percentage for mobile"
+        },
+        {
+          "type": "header",
+          "content": "AOS Effect"
+        },
+        {
+          "id": "aos_animation",
+          "type": "select",
+          "label": "Animation",
+          "default": "unset",
+          "options": [
+            {
+              "value": "unset",
+              "label": "unset"
+            },
+            {
+              "value": "fade-up",
+              "label": "Fade Up"
+            },
+            {
+              "value": "zoom-out-up",
+              "label": "Zoom Out Up"
+            },
+            {
+              "value": "fade-down",
+              "label": "Fade Down"
+            },
+            {
+              "value": "zoom-out-down",
+              "label": "Zoom Out Down"
+            },
+            {
+              "value": "fade-right",
+              "label": "Fade Right"
+            },
+            {
+              "value": "zoom-out-right",
+              "label": "Zoom Out Right"
+            },
+            {
+              "value": "fade-left",
+              "label": "Fade left"
+            },
+            {
+              "value": "zoom-out-left",
+              "label": "Zoom Out Left"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Scroll Animation"
+        },
+        {
+          "id": "scroll_animation",
+          "type": "select",
+          "label": "Scroll Animation",
+          "default": "none",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "translate",
+              "label": "Translate"
+            }
+          ],
+          "info": "Apply animation that responds to scrolling"
+        },
+        {
+          "id": "scroll_direction",
+          "type": "select",
+          "label": "Scroll Direction",
+          "default": "down",
+          "options": [
+            {
+              "value": "up",
+              "label": "Up"
+            },
+            {
+              "value": "up left",
+              "label": "Up Left"
+            },
+            {
+              "value": "up right",
+              "label": "Up Right"
+            },
+            {
+              "value": "down",
+              "label": "Down"
+            },
+            {
+              "value": "down left",
+              "label": "Down Left"
+            },
+            {
+              "value": "down right",
+              "label": "Down Right"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "info": "Direction of translation during scroll"
+        },
+        {
+          "type": "range",
+          "id": "scroll_percentage",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Scroll Percentage",
+          "default": 30,
+          "info": "Maximum percentage to translate during scroll"
+        },
+        {
+          "id": "rotate_effect",
+          "type": "checkbox",
+          "label": "Rotate Effect",
+          "default": false,
+          "info": "Apply a rotation effect to the image (works with left and right scroll direction)"
+        },
+        {
+          "type": "range",
+          "id": "rotate_effect_from",
+          "min": -90,
+          "max": 90,
+          "step": 2,
+          "unit": "deg",
+          "label": "Rotate effect from",
+          "default": -10
+        },
+        {
+          "type": "range",
+          "id": "rotate_effect_to",
+          "min": -90,
+          "max": 90,
+          "step": 2,
+          "unit": "deg",
+          "label": "Rotate effect to",
+          "default": -10
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with animation",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}
+
+
+

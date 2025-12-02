@@ -1,0 +1,27 @@
+{%- comment -%}
+{%- render 'thumbs-slide',
+  featured_media: featured_media,
+  show_image_bg: show_image_bg,
+  media: media
+-%}
+{%- endcomment -%}
+
+<div class="product__thumb{% if media == featured_media %} is-active{% endif %}" data-thumb-item>
+  <a
+          class="product__thumb__link{% if show_image_bg != 'none' %} show-gray-bg{% endif %}"
+          href="{{ media.preview_image.src | image_url }}"
+          aria-current="{% if media == featured_media %}true{% else %}false{% endif %}"
+          data-media-id="{{ section.id }}-{{ media.id }}"
+          data-thumb-link
+  >
+    {%- liquid
+      render 'image', image: media.preview_image, width: 225, height: 225, sizes: '225px', widths: '75, 100, 150, 225, 300', aspect_ratio: 1
+
+      if media.media_type == 'video' or media.media_type == 'external_video'
+      render 'icon-media-video'
+      elsif media.media_type == 'model'
+      render 'icon-media-model'
+      endif
+    -%}
+  </a>
+</div>

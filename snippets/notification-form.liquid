@@ -1,0 +1,66 @@
+{% comment %}
+  Renders a notification form for "out of stock" products
+
+    Accepts:
+    - product_title: {String} product title (required)
+    - current_variant: {Object} Current variant (required)
+    - klaviyo_list_id: {String} Klaviyo list ID (Optional)
+    Usage:
+  {%- render 'notification-form' product_title: product.title, current_variant: current_variant -%}
+{% endcomment %}
+
+{%- capture notification_form_id -%}NotificationForm--{{ section.id }}--{{ current_variant.id }}{%- endcapture -%}
+
+{%- assign unique = unique | default: section.id -%}
+
+{%- capture klaviyo_attribute -%}
+  {%- if klaviyo_list_id != blank -%}
+    data-klaviyo-list-id="{{ klaviyo_list_id }}"
+  {%- endif -%}
+{%- endcapture -%}
+
+<product-notification class="product__notification" {{ klaviyo_attribute }}>
+  <div data-product-notification-heading>
+    <h2 class="product__notification__title h3">{{ product_title | strip_html }}</h2>
+
+    {%- unless current_variant.title == 'Default Title' -%}
+      <p class="product__notification__variant subheading" data-variant-title>{{ current_variant.title }}</p>
+    {%- endunless -%}
+  </div>
+
+  {%- form 'contact', id: notification_form_id, data-notification-form: '', data-variant-id: '' -%}
+      <div class="product__notification__message">
+        <p>{{ 'general.newsletter_form.notification_success' | t }}</p>
+      </div>
+
+    {%- if form.errors -%}
+      {{- form.errors | default_errors -}}
+    {%- endif -%}
+
+    <div class="product__notification__message product__notification__message--error errors" id="Newsletter-error--{{ unique }}">
+      {%- if form.errors -%}
+        {{ form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email }}
+      {%- else -%}
+        <em>{{ 'general.newsletter_form.error_message' | t }}</em>
+      {%- endif -%}
+    </div>
+
+    <div class="product__notification__form">
+      {%- assign product_notification_for = 'general.newsletter_form.product_notification_for' | t -%}
+
+      <label for="NotificaitonFormEmail" class="visually-hidden">{{ 'general.newsletter_form.email' | t }}</label>
+      <input type="email" class="contactFormEmail field" id="NotificaitonFormEmail" name="contact[email]" placeholder="{{ 'general.newsletter_form.email' | t }}" autocorrect="off" autocapitalize="off" required>
+      <input type="hidden" name="variant" value="{{ current_variant.id }}">
+
+      <label for="NotificationFormProduct" class="visually-hidden">{{ product_notification_for }}</label>
+      <input type="hidden" id="NotificationFormProduct" name="contact[{{ product_notification_for | handle }}]" autocapitalize="words" value="{{ product_title }} - {{ current_variant.title }}" data-notification-product>
+
+      <button type="submit" name="subscribe" class="btn btn--primary btn--solid">
+        <span>{{ 'general.newsletter_form.notify' | t }}</span>
+      </button>
+    </div>
+  {%- endform -%}
+</product-notification>
+
+<script src="{{ 'product-notification.js' | asset_url }}" defer="defer"></script>

@@ -1,0 +1,144 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_custom_content_dhYEcD": {
+      "type": "section-custom-content",
+      "blocks": {
+        "image_G37NFH": {
+          "type": "image",
+          "settings": {
+            "image": "{{ article.image }}",
+            "title": "",
+            "heading_font_size": "heading-large",
+            "text": "",
+            "text_font_size": "body-medium",
+            "flex_align": "align--middle-center",
+            "show_text_background": false,
+            "bg_color": "",
+            "color": "",
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "show_overlay_text": false,
+            "link_text": "",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_47xVg3": {
+          "type": "text",
+          "settings": {
+            "subheading": "",
+            "title": "{{ article.title }}",
+            "heading_font_size": "heading-x-large",
+            "text": "<p>[author]  [article_created_at]</p>",
+            "text_font_size": "body-medium",
+            "button_text": "jump to recipe",
+            "button_url": "#recipe-info",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "show_social_links": false,
+            "text_columns": 1,
+            "align_text": "text-left",
+            "bg_color": "",
+            "color": "",
+            "heading_tag": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "image_G37NFH",
+        "text_47xVg3"
+      ],
+      "settings": {
+        "borders": false,
+        "gutters": false,
+        "width": "wrapper--full",
+        "height": "seven-twenty-height-hero",
+        "mobile_height": "three-hundred-height-hero--mobile",
+        "reverse_blocks": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "article",
+      "blocks": {
+        "related-products": {
+          "type": "related",
+          "settings": {
+            "title": "For this recipe you can use",
+            "product_list": "{{ article.metafields.custom.featured_products.value }}"
+          }
+        },
+        "recent-articles": {
+          "type": "recent",
+          "disabled": true,
+          "settings": {
+            "title": "Recent articles"
+          }
+        },
+        "links_TAkEUa": {
+          "type": "links",
+          "disabled": true,
+          "settings": {
+            "title": "Categories",
+            "blog_linklist": ""
+          }
+        },
+        "image_RYDnqN": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "related-products",
+        "recent-articles",
+        "links_TAkEUa",
+        "image_RYDnqN"
+      ],
+      "settings": {
+        "show_title": false,
+        "show_image": false,
+        "show_date": false,
+        "show_author": false,
+        "tags": false,
+        "show_sharing": false,
+        "show_embed_media": true,
+        "arrows": true,
+        "ingredients_title": "Ingredients",
+        "ingredients_content": "{{ article.metafields.custom.recipe_ingredients | metafield_tag }}",
+        "directions_title": "Directions",
+        "directions_content": "{{ article.metafields.custom.recipe_directions | metafield_tag }}",
+        "height": "screen-height-one-third",
+        "mobile_height": "screen-height-one-third--mobile",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "section_custom_content_dhYEcD",
+    "main"
+  ]
+}

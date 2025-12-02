@@ -1,0 +1,33 @@
+<!-- Accessibility Code for "shopflavcity.com" dt added 5/9/25 -->
+<script async>
+  /* Want to customize your button? visit our documentation page:https://login.equalweb.com/custom-button.taf*/
+  window.interdeal = {
+    "sitekey": "7c459980342f50ba5961605d65a45c33",
+    "Position": "Left",
+    "Menulang": "EN",
+    "domains": {
+      "js": "https://cdn.equalweb.com/",
+      "acc": "https://access.equalweb.com/"
+    },
+    "btnStyle": {
+      "vPosition": [
+        "80%",
+        null
+      ],
+      "scale": [
+        "0.8",
+        "0.8"
+      ]
+    }
+  };
+  (function(doc, head, body){
+    var coreCall             = doc.createElement('script');
+    coreCall.src             = 'https://cdn.equalweb.com/core/5.1.1/accessibility.js';
+    coreCall.defer           = true;
+    coreCall.integrity       = 'sha512-1bB3F7pVgo0cpVCAy3ZWsOE2ifSiH/MMGyPicY8ykyCBNNScBt7UQLe/LmCIm1oloyzhqN+uUXYos96a/OuHsg==';
+    coreCall.crossOrigin     = 'anonymous';
+    coreCall.setAttribute('data-cfasync', true );
+    body? body.appendChild(coreCall) : head.appendChild(coreCall);
+  })(document, document.head, document.body);
+</script>
+<!-- And above this comment line ====================================================== -->

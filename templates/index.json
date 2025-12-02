@@ -1,0 +1,1388 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_slideshow_bKVwRR": {
+      "type": "section-slideshow",
+      "blocks": {
+        "slide_image_n3TFQd": {
+          "type": "_slide-image",
+          "settings": {
+            "image": "shopify://shop_images/BFCM_HP_DT_3200x1200_V05_751f9b58-4bad-4892-ac24-746ef8ef4c06.jpg",
+            "link": "",
+            "flex_align_desktop": "align--bottom-center-desktop",
+            "content_width": 50,
+            "mobile_image": "shopify://shop_images/BFCM_HP_mobile_750x1000_144dpi._V03indd_940bc0af-e798-40bc-9cc6-1f70f21bf552.jpg",
+            "flex_align_mobile": "align--bottom-center-mobile",
+            "show_text_background": false,
+            "bg_color": "",
+            "color": "",
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "show_overlay_text": false
+          },
+          "blocks": {
+            "heading_hqn8k6": {
+              "type": "heading",
+              "settings": {
+                "text": "",
+                "text_mobile": "",
+                "heading_font_family": "primary-heading__font",
+                "heading_font_size": "heading-large",
+                "color": "#ffffff",
+                "padding_bottom": 12,
+                "padding_bottom_mobile": 8,
+                "heading_tag": "automatic"
+              },
+              "blocks": {}
+            },
+            "text_CDErYn": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "text_font_family": "primary-text__font",
+                "text_font_size": "body-large",
+                "color": "#ffffff",
+                "padding_bottom": 12,
+                "padding_bottom_mobile": 8
+              },
+              "blocks": {}
+            },
+            "button_fYLtYj": {
+              "type": "button",
+              "settings": {
+                "text": "Shop Now",
+                "link": "shopify://collections",
+                "type": "btn--primary",
+                "size": "",
+                "style": "btn--solid",
+                "show_arrow": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_hqn8k6",
+            "text_CDErYn",
+            "button_fYLtYj"
+          ]
+        },
+        "slide_video_KHwdcG": {
+          "type": "_slide-video",
+          "name": "Video",
+          "disabled": true,
+          "settings": {
+            "video": "shopify://files/videos/PSL DT HP Banner Video Compressed_a175a021-0e3a-4c24-8c7a-4f415a6b0396.mp4",
+            "link": "",
+            "flex_align_desktop": "align--top-center-desktop",
+            "content_width": 50,
+            "video_mobile": "shopify://files/videos/PSL MB HP Banner Video Compressed_c8cfa44f-17fb-4cd7-883b-dd5dda7f7e2a.mp4",
+            "flex_align_mobile": "align--top-center-mobile",
+            "show_text_background": false,
+            "bg_color": "",
+            "color": "",
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "show_overlay_text": false
+          },
+          "blocks": {
+            "heading_nT3x94": {
+              "type": "heading",
+              "settings": {
+                "text": "Basic Never Tasted So Good",
+                "text_mobile": "",
+                "heading_font_family": "primary-heading__font",
+                "heading_font_size": "heading-x-large",
+                "color": "#702507",
+                "padding_bottom": 12,
+                "padding_bottom_mobile": 8,
+                "heading_tag": "automatic"
+              },
+              "blocks": {}
+            },
+            "text_FD4EcP": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Protein-packed. Bold coffee. Real ingredients you can pronounce.</p>",
+                "text_font_family": "primary-text__font",
+                "text_font_size": "body-large",
+                "color": "#702507",
+                "padding_bottom": 12,
+                "padding_bottom_mobile": 8
+              },
+              "blocks": {}
+            },
+            "button_iPCNVK": {
+              "type": "button",
+              "settings": {
+                "text": "SHOP NOW",
+                "link": "shopify://products/pumpkin-spice-latte-protein-smoothie",
+                "type": "btn--primary",
+                "size": "",
+                "style": "btn--solid",
+                "show_arrow": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_nT3x94",
+            "text_FD4EcP",
+            "button_iPCNVK"
+          ]
+        },
+        "slide_image_mqYHyA": {
+          "type": "_slide-image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/3_1.jpg",
+            "link": "",
+            "flex_align_desktop": "align--middle-left-desktop",
+            "content_width": 50,
+            "mobile_image": "shopify://shop_images/protein_evergreen_mobile_750x1000jpg.jpg",
+            "flex_align_mobile": "align--top-center-mobile",
+            "show_text_background": false,
+            "bg_color": "",
+            "color": "",
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "show_overlay_text": false
+          },
+          "blocks": {
+            "heading_PKiKtf": {
+              "type": "heading",
+              "settings": {
+                "text": "Protein That Tastes Like a Treat",
+                "text_mobile": "",
+                "heading_font_family": "primary-heading__font",
+                "heading_font_size": "heading-large",
+                "color": "#0e5261",
+                "padding_bottom": 12,
+                "padding_bottom_mobile": 8,
+                "heading_tag": "automatic"
+              },
+              "blocks": {}
+            },
+            "text_xQt9bU": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Meet the all-in-one smoothie with 25g protein, real fruit, and functional mushrooms. </p><p>No blender, no fake stuff — just clean ingredients and craveable flavor.</p>",
+                "text_font_family": "primary-text__font",
+                "text_font_size": "body-large",
+                "color": "#0e5261",
+                "padding_bottom": 12,
+                "padding_bottom_mobile": 8
+              },
+              "blocks": {}
+            },
+            "button_RTfkHt": {
+              "type": "button",
+              "settings": {
+                "text": "Shop Now",
+                "link": "shopify://collections/protein-smoothies",
+                "type": "btn--primary",
+                "size": "",
+                "style": "btn--solid",
+                "show_arrow": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_PKiKtf",
+            "text_xQt9bU",
+            "button_RTfkHt"
+          ]
+        },
+        "slide_video_3JQe84": {
+          "type": "_slide-video",
+          "name": "Video",
+          "disabled": true,
+          "settings": {
+            "video": "shopify://files/videos/Cafe Hero Video DT.mp4",
+            "link": "",
+            "flex_align_desktop": "align--top-center-desktop",
+            "content_width": 50,
+            "video_mobile": "shopify://files/videos/Cafe Hero Video MB.mp4",
+            "flex_align_mobile": "align--top-center-mobile",
+            "show_text_background": false,
+            "bg_color": "",
+            "color": "",
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "show_overlay_text": false
+          },
+          "blocks": {
+            "heading_yGVxfj": {
+              "type": "heading",
+              "settings": {
+                "text": "Bye, Bye, Barista.",
+                "text_mobile": "",
+                "heading_font_family": "secondary-heading__font",
+                "heading_font_size": "heading-large",
+                "color": "#3b2222",
+                "padding_bottom": 12,
+                "padding_bottom_mobile": 8,
+                "heading_tag": "automatic"
+              },
+              "blocks": {}
+            },
+            "text_EKi7zL": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Skip the line and sip new instant lattes crafted with real ingredients for less than $3 a cup.</p>",
+                "text_font_family": "primary-text__font",
+                "text_font_size": "body-large",
+                "color": "#3b2222",
+                "padding_bottom": 12,
+                "padding_bottom_mobile": 8
+              },
+              "blocks": {}
+            },
+            "button_BiJjPF": {
+              "type": "button",
+              "settings": {
+                "text": "SHOP NOW",
+                "link": "shopify://pages/cafe",
+                "type": "btn--primary",
+                "size": "",
+                "style": "btn--solid",
+                "show_arrow": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_yGVxfj",
+            "text_EKi7zL",
+            "button_BiJjPF"
+          ]
+        }
+      },
+      "block_order": [
+        "slide_image_n3TFQd",
+        "slide_video_KHwdcG",
+        "slide_image_mqYHyA",
+        "slide_video_3JQe84"
+      ],
+      "disabled": true,
+      "name": "Slideshow",
+      "settings": {
+        "transition": "slide",
+        "show_arrows": true,
+        "autoplay": false,
+        "autoplay_speed": 8,
+        "width": "wrapper--full",
+        "height": "seven-fifty-height-hero",
+        "mobile_height": "screen-height-three-quarters--mobile",
+        "color_scheme": "scheme-3",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "hero": {
+      "type": "section-hero",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Ditch The Sugary Drinks And Sip Smarter",
+            "text_mobile": "",
+            "heading_font_family": "primary",
+            "heading_font_size": "heading-large",
+            "color": "#df0060",
+            "padding_bottom": 20,
+            "padding_bottom_mobile": 12,
+            "heading_tag": "automatic"
+          },
+          "blocks": {}
+        },
+        "heading_6Tccjy": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Anytime Essentials",
+            "text_mobile": "",
+            "heading_font_family": "primary",
+            "heading_font_size": "heading-medium",
+            "color": "#00b9b9",
+            "padding_bottom": 8,
+            "padding_bottom_mobile": 8,
+            "heading_tag": "automatic"
+          },
+          "blocks": {}
+        },
+        "text_RwFWrP": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Get a FREE Anytime Essentials sample trio* with orders $65+</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "color": "#005261",
+            "padding_bottom": 11,
+            "padding_bottom_mobile": 8
+          },
+          "blocks": {}
+        },
+        "button_full_width_zqEkie": {
+          "type": "button-full-width",
+          "settings": {
+            "text": "Shop Now",
+            "link": "shopify://collections/all",
+            "type": "btn--secondary",
+            "size": "",
+            "style": "btn--solid",
+            "show_arrow": false,
+            "full_width": false
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "heading_6Tccjy",
+        "text_RwFWrP",
+        "button_full_width_zqEkie"
+      ],
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "image_1": "shopify://shop_images/BFCM_HP_DT_3200x1200_V05_751f9b58-4bad-4892-ac24-746ef8ef4c06.jpg",
+        "link": "shopify://collections/all",
+        "width": "wrapper--full",
+        "height": "five-fifty-height-hero",
+        "flex_align_desktop": "align--bottom-center-desktop",
+        "mobile_image": "shopify://shop_images/BFCM_HP_mobile_750x1000_144dpi._V03indd_940bc0af-e798-40bc-9cc6-1f70f21bf552.jpg",
+        "mobile_height": "five-fifty-height-hero--mobile",
+        "flex_align_mobile": "align--bottom-center-mobile",
+        "color_scheme": "scheme-3",
+        "show_text_background": false,
+        "overlay_opacity": 20,
+        "show_overlay_text": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_placeholder": true
+      }
+    },
+    "section_collections_list_ckzj3i": {
+      "type": "section-collections-list",
+      "blocks": {
+        "collection_QiHNHa": {
+          "type": "collection",
+          "settings": {
+            "collection": "instant-coffee",
+            "title": "",
+            "description": ""
+          }
+        },
+        "collection_X74PKP": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "description": ""
+          }
+        },
+        "collection_ynik9h": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "description": ""
+          }
+        },
+        "collection_qCH6Yg": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_QiHNHa",
+        "collection_X74PKP",
+        "collection_ynik9h",
+        "collection_qCH6Yg"
+      ],
+      "disabled": true,
+      "name": "Collection list grid",
+      "settings": {
+        "title": "Collection list",
+        "heading_font_size": "heading-medium",
+        "description": "",
+        "text_font_size": "body-medium",
+        "button_text": "",
+        "button_url": "shopify://collections",
+        "button_type": "btn--primary",
+        "button_size": "",
+        "button_style": "",
+        "show_arrow": false,
+        "aspect_ratio": 1,
+        "layout": "grid",
+        "grid": 4,
+        "layout_mobile": "2",
+        "color_scheme": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_collection_HYaWYN": {
+      "type": "section-collection",
+      "disabled": true,
+      "name": "Featured collection columns slider",
+      "settings": {
+        "featured_collection": "featured",
+        "heading": "Best Sellers",
+        "heading_font_size": "heading-medium",
+        "description": "",
+        "text_font_size": "body-medium",
+        "layout": "center",
+        "link_text": "",
+        "link_url": "",
+        "button_type": "btn--primary",
+        "button_size": "",
+        "button_style": "",
+        "show_arrow": false,
+        "layout_desktop": "slider",
+        "grid": 4,
+        "rows": 3,
+        "width": "wrapper",
+        "layout_mobile": "slider",
+        "color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_tab_collections_GDEGEV": {
+      "type": "section-tab-collections",
+      "blocks": {
+        "collection_GPWNTD": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "featured_product_list": [],
+            "featured_collection": "",
+            "show_image": true,
+            "align_with_product_images": false,
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "description": "",
+            "color": "",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false
+          }
+        },
+        "collection_xyd337": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "title": "Functional Beverage",
+            "featured_product_list": [],
+            "featured_collection": "functional-beverages",
+            "show_image": true,
+            "align_with_product_images": false,
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "description": "",
+            "color": "",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_GPWNTD",
+        "collection_xyd337"
+      ],
+      "disabled": true,
+      "name": "Tab collections",
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "show_product_count": false,
+        "enable_navigation": true,
+        "show_empty_section": true,
+        "title": "Best Sellers",
+        "heading_font_family": "primary-heading__font",
+        "heading_font_size": "heading-large",
+        "text": "",
+        "text_font_size": "body-medium",
+        "layout": "stacked",
+        "text_alight_mobile": "text_alight_mobile--center",
+        "layout_desktop": "slider",
+        "slider_arrow_position": "slider-desktop-position-center",
+        "slider_overflow": false,
+        "layout_mobile": "slider",
+        "product_limit": 6,
+        "grid": 4,
+        "rows": 3,
+        "color_scheme": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "heading_tag": "automatic"
+      }
+    },
+    "section-tab-collections": {
+      "type": "section-tab-collections",
+      "blocks": {
+        "collection_xUyJXb": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "featured_product_list": [],
+            "featured_collection": "protein-smoothies",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "description": "",
+            "color": "#ffffff",
+            "link_text": "Shop All PROTEIN SMOOTHIES",
+            "link": "shopify://collections/protein-smoothies",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false
+          }
+        },
+        "collection_EbXNpy": {
+          "type": "collection",
+          "settings": {
+            "title": "CAFÉ",
+            "featured_product_list": [],
+            "featured_collection": "instant-coffee",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "description": "",
+            "color": "",
+            "link_text": "View products",
+            "link": "shopify://collections/instant-coffee",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false
+          }
+        },
+        "collection_PUgDfA": {
+          "type": "collection",
+          "settings": {
+            "title": "FUNCTIONAL BEVERAGE",
+            "featured_product_list": [],
+            "featured_collection": "functional-beverages",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "description": "",
+            "color": "",
+            "link_text": "View products",
+            "link": "shopify://collections/functional-beverages",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false
+          }
+        },
+        "collection_p4DqVw": {
+          "type": "collection",
+          "settings": {
+            "title": "VITAMINS",
+            "featured_product_list": [],
+            "featured_collection": "vitamins",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "description": "",
+            "color": "",
+            "link_text": "View products",
+            "link": "shopify://collections/vitamins",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--solid",
+            "show_arrow": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_xUyJXb",
+        "collection_EbXNpy",
+        "collection_PUgDfA",
+        "collection_p4DqVw"
+      ],
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "show_product_count": false,
+        "enable_navigation": true,
+        "show_empty_section": true,
+        "title": "BEST SELLERS",
+        "heading_font_family": "primary-heading__font",
+        "heading_font_size": "heading-x-large",
+        "text": "",
+        "text_font_size": "body-medium",
+        "layout": "stacked",
+        "text_alight_mobile": "text_alight_mobile--center",
+        "layout_desktop": "grid",
+        "slider_arrow_position": "slider-desktop-position-center",
+        "slider_overflow": false,
+        "layout_mobile": "2",
+        "product_limit": 4,
+        "grid": 4,
+        "rows": 1,
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_double_izjNGg": {
+      "type": "section-double",
+      "blocks": {
+        "subheading_HiLP9i": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Introducing",
+            "color": "#005261",
+            "heading_font_family": "primary-heading__font",
+            "heading_font_size": "heading-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 6
+          }
+        },
+        "heading_i4eqth": {
+          "type": "heading",
+          "settings": {
+            "title": "FlavCity Café",
+            "color": "#005261",
+            "heading_font_family": "primary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 24,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_ak6RbH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>What if your daily coffee ritual was crafted, not manufactured? Made with real ingredients, no shortcuts, and less than $3 a cup? FlavCity Café is here—coffee shop-quality lattes ready in seconds, at half the cost of your usual run.</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 32,
+            "padding_bottom_mobile": 16
+          }
+        },
+        "buttons_gJYgmt": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "Shop NOW",
+            "button_url": "shopify://collections/instant-coffee",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "pin_to_bottom": false,
+            "padding_bottom": 16
+          }
+        }
+      },
+      "block_order": [
+        "subheading_HiLP9i",
+        "heading_i4eqth",
+        "text_ak6RbH",
+        "buttons_gJYgmt"
+      ],
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "custom_selector": "homepage_image",
+        "image_1": "shopify://shop_images/Circle_Homepage_Image.png",
+        "image_shape": "circle",
+        "image_width": "one-half",
+        "text_alignment": "text-left",
+        "layout": "",
+        "width": "wrapper",
+        "height": "image-height",
+        "mobile_height": "image-height--mobile",
+        "reverse_blocks": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "show_placeholder": true
+      }
+    },
+    "section_rich_text_a7xFUX": {
+      "type": "section-rich-text",
+      "blocks": {
+        "heading_xz6U7X": {
+          "type": "heading",
+          "settings": {
+            "title": "See it in Action",
+            "color": "#005261",
+            "heading_font_family": "primary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "padding_bottom": 16,
+            "heading_tag": "automatic"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xz6U7X"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-center",
+        "width": "wrapper",
+        "color_scheme": "",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "1758648273699a5c3e": {
+      "type": "apps",
+      "blocks": {
+        "novel_shoppable_video_novel_product_Gdh9wb": {
+          "type": "shopify://apps/novel-shoppable-video/blocks/novel-product/67e3531b-60c1-40d3-83d1-8f5aba7081ef",
+          "disabled": true,
+          "settings": {
+            "journeyid": "68a8c0384c83f800087b3a73"
+          }
+        },
+        "novel_embed_88gUEm": {
+          "type": "novel-embed",
+          "settings": {
+            "id": "68a8c0384c83f800087b3a73",
+            "additional_style": ".swiper {max-width: 100% !important; padding: 0 !important;}\n@media only screen and (min-width: 1024px){\n  .swiper {margin: 0 15px !important;}\n}\n.swiper-slide {max-width: unset!important;}\n.carousel-container{padding: 0 var(--grid-outer)!important;}\n[class*=\"styles__ArrowControls\"]{transform: rotate(270deg)!important;}"
+          }
+        }
+      },
+      "block_order": [
+        "novel_shoppable_video_novel_product_Gdh9wb",
+        "novel_embed_88gUEm"
+      ],
+      "custom_css": [
+        ".swiper {border: 1px solid red;}",
+        ".app-section__wrapper {background-color: var(--COLOR-BG-GRADIENT);}"
+      ],
+      "settings": {
+        "include_margins": false,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 8
+      }
+    },
+    "section_announcement_LJWMxa": {
+      "type": "section-announcement",
+      "blocks": {
+        "image_with_text_AHphtb": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/gluten.svg",
+            "image_width": 50,
+            "image_width_mobile": 40,
+            "heading": "Gluten Free",
+            "heading_font_size": "heading-medium"
+          }
+        },
+        "image_with_text_GDJizC": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/vegan.svg",
+            "image_width": 50,
+            "image_width_mobile": 40,
+            "heading": "Vegan",
+            "heading_font_size": "heading-medium"
+          }
+        },
+        "image_with_text_NCjmjV": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/paleo.png",
+            "image_width": 50,
+            "image_width_mobile": 40,
+            "heading": "paleo friendly",
+            "heading_font_size": "heading-medium"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_AHphtb",
+        "image_with_text_GDJizC",
+        "image_with_text_NCjmjV"
+      ],
+      "settings": {
+        "marquee_speed": 100,
+        "direction": "ticker-rtl",
+        "message_spacing": 45,
+        "show_border": true,
+        "color_scheme": "",
+        "padding_top": 24,
+        "padding_bottom": 23,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "section_tab_collections_ggNaA7": {
+      "type": "section-tab-collections",
+      "blocks": {
+        "collection_eCgTyN": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "featured_product_list": [],
+            "featured_collection": "frontpage",
+            "show_image": false,
+            "align_with_product_images": false,
+            "overlay_opacity": 0,
+            "overlay_color": "",
+            "description": "",
+            "color": "",
+            "link_text": "View products",
+            "link": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "btn--outline",
+            "show_arrow": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_eCgTyN"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "show_product_count": false,
+        "enable_navigation": true,
+        "show_empty_section": true,
+        "title": "bobby's picks",
+        "heading_font_family": "primary-heading__font",
+        "heading_font_size": "heading-large",
+        "text": "",
+        "text_font_size": "body-medium",
+        "layout": "left",
+        "text_alight_mobile": "text_alight_mobile--center",
+        "layout_desktop": "slider",
+        "slider_arrow_position": "slider-desktop-position-center",
+        "slider_overflow": false,
+        "layout_mobile": "slider",
+        "product_limit": 6,
+        "grid": 4,
+        "rows": 3,
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_collection_TCdmV7": {
+      "type": "section-collection",
+      "disabled": true,
+      "settings": {
+        "featured_collection": "bobbys-picks",
+        "heading": "Bobby's Picks",
+        "heading_font_size": "heading-medium",
+        "description": "",
+        "text_font_size": "body-medium",
+        "layout": "inline",
+        "link_text": "",
+        "link_url": "",
+        "button_type": "btn--primary",
+        "button_size": "",
+        "button_style": "btn--solid",
+        "show_arrow": false,
+        "layout_desktop": "slider",
+        "grid": 4,
+        "rows": 3,
+        "width": "wrapper",
+        "layout_mobile": "slider",
+        "color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_collections_list_e3kxCk": {
+      "type": "section-collections-list",
+      "blocks": {
+        "collection_6UR3wq": {
+          "type": "collection",
+          "settings": {
+            "collection": "protein-smoothies",
+            "collection_image": "shopify://shop_images/pro_nav.png",
+            "title": "",
+            "description": "11 Flavors"
+          }
+        },
+        "collection_9KVUFG": {
+          "type": "collection",
+          "settings": {
+            "collection": "instant-coffee",
+            "collection_image": "shopify://shop_images/MH_Copy_of_CPL_Images_1200x900_4.png",
+            "title": "",
+            "description": "6 Flavors"
+          }
+        },
+        "collection_kUxG7L": {
+          "type": "collection",
+          "settings": {
+            "collection": "anytime-essentials",
+            "collection_image": "shopify://shop_images/EDM_Pouch_LEMONADE_Front.png",
+            "title": "anytime <br> essentials",
+            "description": "9 Flavors"
+          }
+        },
+        "collection_zMXT7z": {
+          "type": "collection",
+          "settings": {
+            "collection": "functional-beverages",
+            "collection_image": "shopify://shop_images/flavcity-variety-pack-electrolyte-mix-1202904514.png",
+            "title": "electrolytes",
+            "description": "5 Flavors"
+          }
+        },
+        "collection_NHCe7j": {
+          "type": "collection",
+          "settings": {
+            "collection": "superfood-lemonades",
+            "collection_image": "shopify://shop_images/flavcity-superfood-lemonade-1202904697.png",
+            "title": "superfood<br>\nlemonades",
+            "description": "2 Flavors"
+          }
+        },
+        "collection_zrrxY8": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "immunity-teas",
+            "title": "immunity tea",
+            "description": ""
+          }
+        },
+        "collection_edQbc3": {
+          "type": "collection",
+          "settings": {
+            "collection": "vitamins",
+            "collection_image": "shopify://shop_images/vit_nav.png",
+            "title": "",
+            "description": "5 Kinds"
+          }
+        }
+      },
+      "block_order": [
+        "collection_6UR3wq",
+        "collection_9KVUFG",
+        "collection_kUxG7L",
+        "collection_zMXT7z",
+        "collection_NHCe7j",
+        "collection_zrrxY8",
+        "collection_edQbc3"
+      ],
+      "settings": {
+        "title": "Collections",
+        "heading_font_size": "heading-x-large",
+        "description": "",
+        "text_font_size": "body-x-large",
+        "button_text": "",
+        "button_url": "shopify://collections",
+        "button_type": "btn--primary",
+        "button_size": "",
+        "button_style": "btn--solid",
+        "show_arrow": false,
+        "aspect_ratio": 1,
+        "layout": "grid",
+        "grid": 6,
+        "layout_mobile": "2",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_double_tnt8kD": {
+      "type": "section-double",
+      "blocks": {
+        "heading_WBR7BQ": {
+          "type": "heading",
+          "settings": {
+            "title": "Subscribe & Save",
+            "color": "#d6ebeb",
+            "heading_font_family": "primary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 32,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_U4HFMA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscribe and save 10% for life—get monthly restocks with zero effort, and swap, skip, or cancel anytime.</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 40,
+            "padding_bottom_mobile": 16
+          }
+        },
+        "code_KKxgtC": {
+          "type": "code",
+          "disabled": true,
+          "settings": {
+            "code": "<div class=\"add-icons\">\n<div>\n<div><svg width=\"28\" height=\"28\" viewBox=\"0 0 28 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_2305_2756)\">\n<path d=\"M4.63094 15.1256C4.46715 14.9616 4.37511 14.7394 4.375 14.5076V4.36963H14.513C14.7447 4.36974 14.967 4.46178 15.1309 4.62557L25.9941 15.4887C26.158 15.6528 26.2501 15.8752 26.2501 16.1072C26.2501 16.3392 26.158 16.5616 25.9941 16.7257L16.7344 25.9887C16.5703 26.1527 16.3478 26.2448 16.1159 26.2448C15.8839 26.2448 15.6614 26.1527 15.4973 25.9887L4.63094 15.1256Z\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M9.1875 10.4946C9.91237 10.4946 10.5 9.907 10.5 9.18213C10.5 8.45726 9.91237 7.86963 9.1875 7.86963C8.46263 7.86963 7.875 8.45726 7.875 9.18213C7.875 9.907 8.46263 10.4946 9.1875 10.4946Z\" fill=\"white\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_2305_2756\">\n<rect width=\"28\" height=\"28\" fill=\"white\" transform=\"translate(0 -0.00537109)\"/>\n</clipPath>\n</defs>\n</svg>\n</div>\n<span>10% OFF \nevery order</span>\n</div>\n<div>\n<div>\n<svg width=\"28\" height=\"28\" viewBox=\"0 0 28 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_2305_2763)\">\n<path d=\"M20.125 8.74463H23.625\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M4.375 8.74463H16.625\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M13.125 19.2446H23.625\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M4.375 19.2446H9.625\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M16.625 6.11963V11.3696\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M9.625 16.6196V21.8696\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_2305_2763\">\n<rect width=\"28\" height=\"28\" fill=\"white\" transform=\"translate(0 -0.00537109)\"/>\n</clipPath>\n</defs>\n</svg>\n</div>\n<span>Custom\nplans</span>\n</div>\n<div>\n<div>\n<svg width=\"28\" height=\"28\" viewBox=\"0 0 28 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_2305_2775)\">\n<path d=\"M14 14.1138V25.3663\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M3.57617 8.40771L13.9996 14.1127L24.423 8.40771\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M24.045 19.9927L14.42 25.2624C14.2912 25.3329 14.1468 25.3698 14 25.3698C13.8532 25.3698 13.7088 25.3329 13.58 25.2624L3.955 19.9927C3.81756 19.9175 3.70284 19.8068 3.6228 19.6721C3.54277 19.5375 3.50036 19.3838 3.5 19.2271V8.76428C3.50036 8.60762 3.54277 8.45393 3.6228 8.31925C3.70284 8.18458 3.81756 8.07386 3.955 7.99866L13.58 2.72897C13.7088 2.65851 13.8532 2.62158 14 2.62158C14.1468 2.62158 14.2912 2.65851 14.42 2.72897L24.045 7.99866C24.1824 8.07386 24.2972 8.18458 24.3772 8.31925C24.4572 8.45393 24.4996 8.60762 24.5 8.76428V19.2249C24.5 19.3819 24.4578 19.5361 24.3778 19.6712C24.2977 19.8063 24.1828 19.9173 24.045 19.9927Z\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_2305_2775\">\n<rect width=\"28\" height=\"28\" fill=\"white\" transform=\"translate(0 -0.00537109)\"/>\n</clipPath>\n</defs>\n</svg>\n</div>\n<span>Free\nshipping</span>\n</div>\n<div>\n<div>\n<svg width=\"28\" height=\"28\" viewBox=\"0 0 28 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_2305_2782)\">\n<path d=\"M14 8.74463V13.9946L18.375 16.6196\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M20.125 11.3696H24.5V6.99463\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M20.6066 20.9946C19.2307 22.2929 17.5027 23.1569 15.6386 23.4788C13.7744 23.8007 11.8567 23.5661 10.1251 22.8043C8.39353 22.0425 6.92481 20.7873 5.90249 19.1956C4.88016 17.6039 4.34957 15.7462 4.37699 13.8546C4.40441 11.9631 4.98864 10.1215 6.05667 8.56011C7.12471 6.99869 8.62919 5.78663 10.3821 5.07536C12.1351 4.3641 14.0588 4.18517 15.9128 4.56094C17.7669 4.9367 19.4691 5.8505 20.8068 7.18816C22.0941 8.49191 23.1573 9.72128 24.5004 11.3696\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</g>\n<defs>\n<clipPath id=\"clip0_2305_2782\">\n<rect width=\"28\" height=\"28\" fill=\"white\" transform=\"translate(0 -0.00537109)\"/>\n</clipPath>\n</defs>\n</svg>\n</div>\n<span>Update plan\nat any time</span>\n</div>\n</div",
+            "pin_to_bottom": false,
+            "padding_bottom": 0
+          }
+        },
+        "buttons_7hjFLF": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "Subscribe Now",
+            "button_url": "shopify://collections/subscriptions",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "pin_to_bottom": false,
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "heading_WBR7BQ",
+        "text_U4HFMA",
+        "code_KKxgtC",
+        "buttons_7hjFLF"
+      ],
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "custom_selector": "homepage_image-reverse",
+        "image_1": "shopify://shop_images/subscribe_circle.png",
+        "image_shape": "normal",
+        "image_width": "one-half",
+        "text_alignment": "text-left",
+        "layout": "is-reversed",
+        "width": "wrapper--full-padded",
+        "height": "image-height",
+        "mobile_height": "image-height--mobile",
+        "reverse_blocks": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "show_placeholder": true
+      }
+    },
+    "section_announcement_tLHm9q": {
+      "type": "section-announcement",
+      "blocks": {
+        "text_bJApKC": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Make an announcement</strong> | Target to specific devices</p>",
+            "text_font_size": "body-small",
+            "color": "",
+            "target_device_enabled": false,
+            "target_device": "mobile"
+          }
+        },
+        "text_mA3VTM": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Create a free shipping countdown</strong></p>",
+            "text_font_size": "body-small",
+            "color": "",
+            "target_device_enabled": false,
+            "target_device": "mobile"
+          }
+        },
+        "text_zJFQEm": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Create a scrolling marquee or a simple announcement</strong></p>",
+            "text_font_size": "body-small",
+            "color": "",
+            "target_device_enabled": false,
+            "target_device": "mobile"
+          }
+        }
+      },
+      "block_order": [
+        "text_bJApKC",
+        "text_mA3VTM",
+        "text_zJFQEm"
+      ],
+      "disabled": true,
+      "name": "Scrolling text",
+      "settings": {
+        "marquee_speed": 100,
+        "direction": "ticker-rtl",
+        "message_spacing": 10,
+        "show_border": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "section_reviews_slider_Brt9hN": {
+      "type": "section-reviews-slider",
+      "blocks": {
+        "review_f4d7Y6": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "Le Marquis Jackson",
+            "review_content": "<p>Mixes well with other fruits and goes down smoothly. Great taste and doesn't make me feel bloated or sick to my stomach.</p>",
+            "review_url": ""
+          }
+        },
+        "review_gtj9qa": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "Lisa Hansen",
+            "review_content": "<p>Smooth delicious, yummy smoothie, holds me over for hours in the morning . So good.</p>",
+            "review_url": ""
+          }
+        },
+        "review_JBxLnN": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "title": "Addie K",
+            "review_content": "<p>I love this electrolyte mix and fruit punch is a great flavor!</p>",
+            "review_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_f4d7Y6",
+        "review_gtj9qa",
+        "review_JBxLnN"
+      ],
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "enable_sticky_position": false,
+        "enable_loop": true,
+        "title": "Straight From Our Customers",
+        "text_align": "text-center",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 50
+      }
+    },
+    "double": {
+      "type": "section-double",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "title": "Flavor First. Real Food Always.",
+            "color": "#d6ebeb",
+            "heading_font_family": "primary-heading__font",
+            "heading_font_size": "heading-x-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 24,
+            "heading_tag": "automatic"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Nature got it right—so we only use real, recognizable ingredients in everything we make. At FlavCity, we’re here to prove that clean, functional products can still taste <em>incredible</em>. No junk. No gimmicks. Just seriously craveable wellness, made with actual food.</p>",
+            "text_font_family": "primary-text__font",
+            "text_font_size": "body-large",
+            "pin_to_bottom": false,
+            "padding_bottom": 32,
+            "padding_bottom_mobile": 16
+          }
+        },
+        "buttons_JzXKVJ": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "Learn More",
+            "button_url": "shopify://pages/about-us",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "pin_to_bottom": false,
+            "padding_bottom": 16
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "buttons_JzXKVJ"
+      ],
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "custom_selector": "homepage_image",
+        "image_1": "shopify://shop_images/glass_mask.png",
+        "image_shape": "circle",
+        "image_width": "one-half",
+        "text_alignment": "text-left",
+        "layout": "",
+        "width": "wrapper",
+        "height": "image-height",
+        "mobile_height": "image-height--mobile",
+        "reverse_blocks": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 60,
+        "padding_bottom": 100,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "show_placeholder": true
+      }
+    },
+    "section_blog_eEaENV": {
+      "type": "section-blog",
+      "settings": {
+        "section_mode": "flavcity-shop",
+        "blog_name": "recipes",
+        "aspect_ratio": 1,
+        "heading_position": "heading_position-top",
+        "title": "FlavCity Recipes",
+        "heading_font_family": "primary-heading__font",
+        "heading_font_size": "heading-x-large",
+        "subtitle": "",
+        "subheading_font_family": "primary-heading__font",
+        "subheading_font_size": "heading-medium",
+        "description": "<p>Tasty, clean recipes that make healthy eating a breeze.</p>",
+        "text_font_size": "body-x-large",
+        "text_align_desktop": "text-center",
+        "text_align_mobile": "text-left--mobile",
+        "title_font_size": "heading-small",
+        "show_tags": false,
+        "show_info_icons": true,
+        "show_description": true,
+        "show_author": false,
+        "show_date": false,
+        "show_button": true,
+        "show_comments": false,
+        "show_category": false,
+        "show_cook_badges": false,
+        "show_add_info": false,
+        "width": "wrapper--full-padded",
+        "grid": 4,
+        "rows": 1,
+        "color_scheme": "",
+        "button_text": "view all recipes",
+        "button_url": "shopify://blogs/recipes",
+        "button_type": "btn--primary",
+        "button_style": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "heading_tag": "automatic",
+        "title_tag": "automatic"
+      }
+    },
+    "174420112759d058e4": {
+      "type": "apps",
+      "blocks": {
+        "novel_shoppable_video_novel_product_Bh7kMQ": {
+          "type": "shopify://apps/novel-shoppable-video/blocks/novel-product/67e3531b-60c1-40d3-83d1-8f5aba7081ef",
+          "disabled": true,
+          "settings": {
+            "journeyid": "689219dba0a12d0008afb1f4"
+          }
+        },
+        "instafeed_app_block_kG9nMW": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "on instagram",
+            "title_color": "#ffffff",
+            "title_size_v2": 0,
+            "alignment": "left",
+            "instafeed_margin_top": 60,
+            "instafeed_margin_bottom": 100,
+            "instafeed_margin_sides": 50,
+            "show_instagram_link": true,
+            "link_alignment": "right",
+            "link_color": "#ffffff",
+            "background_color": "#00bdb9",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "novel_shoppable_video_novel_product_Bh7kMQ",
+        "instafeed_app_block_kG9nMW"
+      ],
+      "settings": {
+        "include_margins": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "section_slideshow_bKVwRR",
+    "hero",
+    "section_collections_list_ckzj3i",
+    "section_collection_HYaWYN",
+    "section_tab_collections_GDEGEV",
+    "section-tab-collections",
+    "section_double_izjNGg",
+    "section_rich_text_a7xFUX",
+    "1758648273699a5c3e",
+    "section_announcement_LJWMxa",
+    "section_tab_collections_ggNaA7",
+    "section_collection_TCdmV7",
+    "section_collections_list_e3kxCk",
+    "section_double_tnt8kD",
+    "section_announcement_tLHm9q",
+    "section_reviews_slider_Brt9hN",
+    "double",
+    "section_blog_eEaENV",
+    "174420112759d058e4"
+  ]
+}

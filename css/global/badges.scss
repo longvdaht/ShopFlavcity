@@ -1,0 +1,162 @@
+.grecaptcha-badge { visibility: hidden; }
+
+.badge--container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 4px;
+  row-gap: 4px;
+}
+
+.badge--container-card-product {
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+
+  @include media-query ($small) {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+.badge--container-over-image {
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+
+  @include media-query ($small) {
+    top: 10px;
+    right: 26px;
+  }
+}
+
+// Styles for attaching a badge in the first image
+//.product__page .badge--container-over-image {
+//  display: none;
+//
+//  @include media-query ($medium-up) {
+//    display: block;
+//  }
+//}
+//
+//.product__slide .badge--container-over-image {
+//  display: none;
+//
+//  @include media-query ($small) {
+//    display: block;
+//  }
+//}
+
+
+.badge__nav {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+
+  @include media-query ($small) {
+    position: relative;
+    top: unset;
+    left: unset;
+  }
+}
+
+.badge {
+  color: var(--text-color, #FFFFFF);
+  background-color: var(--background-color, #9853CD);
+  font-family: 'Poppins';
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: normal;
+
+  border-radius: 70px;
+  overflow: hidden;
+  padding: 5px 12px 4px;
+
+  @include media-query($small) {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: normal;
+    padding: 3px 8px;
+  }
+}
+
+.badge__nav {
+  .badge {
+    text-transform: none;
+
+    @include media-query($small) {
+      font-size: 11px;
+      font-weight: 600;
+      line-height: normal;
+      padding: 7px 8px;
+    }
+  }
+}
+
+.badge__nav--relative {
+  order: 1;
+  display: inline-block;
+  margin-left: 5px;
+  transform: translateY(-4px);
+  //width: 100%;
+
+  .badge {
+    text-transform: none;
+    font-size: 11px;
+    line-height: 12px; /* 109.091% */
+    white-space: nowrap;
+    padding: 5px 8px;
+
+    @include media-query ($small) {
+      padding: 3px 8px;
+    }
+  }
+
+  + .navtext {
+    display: inline-block;
+  }
+}
+
+.sliderow__links {
+  .badge__nav--relative {
+    order: unset;
+    margin-left: 0;
+  }
+}
+
+.badge__nav--inline {
+  line-height: 10px;
+  display: inline-block;
+
+  .badge {
+    font-family: 'MohaveSemibold';
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 10px;
+    text-transform: uppercase;
+    color: var(--text-color-sub, #005261);
+    background-color: transparent;
+    border-radius: unset;
+    padding: unset;
+    margin-top: 5px;
+
+    @include media-query($small) {
+      transform: translateY(-5px);
+      margin-top: 0;
+      display: inline-block;
+    }
+  }
+}
+
+.sliderow--back {
+  .badge__nav--inline {
+    display: none;
+  }
+}

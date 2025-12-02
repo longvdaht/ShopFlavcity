@@ -1,0 +1,447 @@
+// Timeline
+
+@import "../tools/mixins.scss";
+@import "../settings/variables.scss";
+
+timeline-component { display: block; }
+
+.timeline {
+  --height: calc(100vh - var(--header-sticky-height));
+  --top: 0;
+  --dot-margin: 6px;
+  --dot-margin-offset: calc(var(--dot-margin) * -1);
+  --dot-width: 23px;
+  --width-indicator: calc(var(--dot-width) + (var(--dot-margin) * 2));
+  --padding: calc(var(--width-indicator) + var(--inner));
+  --width-line: 1px;
+  --counter: 1;
+
+  body.has-header-sticky & { --top: var(--header-height); }
+
+  @include media-query($medium-up) {
+    --height: var(--full-screen);
+
+    body.has-header-sticky .main-content > .shopify-section:first-of-type & { --height: calc(var(--full-screen) + var(--announcement-height)); }
+    body:not(.has-header-sticky) .main-content > .shopify-section:first-of-type & { --height: var(--full-height); }
+  }
+}
+
+.wrapper--full .timeline__head {
+  @include media-query($medium-up) {
+    padding-left: var(--outer);
+    padding-right: var(--outer);
+  }
+}
+
+.wrapper--full .timeline__wrapper {
+  @include media-query($small) {
+    padding-left: var(--outer);
+    padding-right: var(--outer);
+  }
+}
+
+.timeline__head { overflow: unset; }
+.timeline__head:not(:last-child) { margin-bottom: var(--gap); }
+
+.timeline__body {
+  position: relative;
+
+  @include media-query($medium-up) {
+    min-height: calc(var(--height) * var(--counter));
+  }
+}
+
+.timeline__inner {
+  @include media-query($medium-up) {
+    flex: 0 1 100%;
+    position: sticky;
+    top: var(--top);
+    display: block;
+    min-height: calc(var(--height) * (min(var(--counter), 1)));
+  }
+
+  @include media-query($small) {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-left: var(--outer);
+    padding-right: var(--outer);
+    margin-left: var(--outer-offset);
+    margin-right: var(--outer-offset);
+
+    @include hide-scrollbar;
+  }
+}
+
+.timeline__row {
+  --part-width: 50px;
+  --dot-position: ((5% + var(--outer)) / 2) - (var(--width-indicator) / 2);
+
+  flex: 0 0 auto;
+  position: relative;
+  width: 100%;
+  padding-top: var(--padding);
+
+  &:not(:last-child) { margin-right: var(--gap); }
+
+  &:not(:only-child) { width: calc(100% - var(--part-width)); }
+
+  @include media-query($medium-up) {
+    position: static;
+    padding-top: var(--inner);
+
+    &:not(:last-child) { margin-right: 0; }
+
+    &:not(:only-child) { width: auto; }
+  }
+}
+
+.timeline__row__editor {
+  --row-count: 0;
+  --row-height-min: 0px;
+  --row-height: max(var(--row-height-min), var(--height));
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  @include media-query($medium-up) {
+    top: calc(var(--row-count) * var(--row-height) + 1px);
+    height: var(--row-height);
+  }
+}
+
+.timeline__image {
+  @include media-query($medium-up) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    bottom: 0;
+    right: 0;
+  }
+
+  @include media-query($small) {
+    opacity: 0.5;
+    transition: opacity 0.5s;
+  }
+}
+
+.timeline__image-inner {
+  @include media-query($medium-up) {
+    position: sticky;
+    top: var(--top);
+    max-height: var(--height);
+    overflow: hidden;
+    height: 100%;
+    padding-top: 0;
+  }
+}
+
+.timeline__row:first-child .timeline__image-figure {
+  @include media-query($medium-up) {
+    transform: translateY(0);
+  }
+}
+
+.timeline__image-figure {
+  @include media-query($medium-up) {
+    overflow: hidden;
+    height: 100%;
+    padding-top: 0;
+    transform: translateY(100%);
+    transition: transform 0.5s;
+
+    img { object-fit: cover; }
+  }
+}
+
+.timeline__content {
+  padding: 0 0 calc(var(--outer) * 2);
+
+  @include media-query($medium-up) {
+    position: relative;
+    z-index: 1;
+    padding: 0 0 var(--outer);
+  }
+}
+
+.timeline--images .timeline__content {
+  @include media-query($medium-up) { width: 50%; }
+
+  @include media-query($small) { padding-top: var(--outer); }
+}
+
+.timeline__content__inner {
+  padding-top: calc(var(--dot-margin) + 2px);
+  margin: 0 auto;
+
+  @include media-query($widescreen) { max-width: 76%; }
+
+  @include media-query($large) { max-width: 84%; }
+
+  @include media-query($medium) { max-width: 90%; }
+
+  @include media-query($medium-up) { padding-right: var(--outer); }
+}
+
+.wrapper--narrow .timeline__content__inner,
+.wrapper--full .timeline__content__inner {
+  @include media-query($medium-up) { padding-left: var(--outer); }
+}
+
+.timeline--images .timeline__content__inner {
+  @include media-query($small) { padding-top: 0; }
+}
+
+.timeline__content__inner > *:first-child { margin-top: 0; }
+.timeline__content__inner > *:last-child { margin-bottom: 0; }
+
+/* Timeline indicator */
+.timeline__indicator {
+  --bg: var(--COLOR-BG);
+
+  position: absolute;
+  top: calc((var(--width-indicator) / 2) - (var(--width-line) / 2));
+  left: var(--dot-margin);
+  right: 0;
+  bottom: auto;
+  display: block;
+  width: auto;
+  height: var(--width-line);
+  font-size: 0;
+
+  @include media-query($medium-up) {
+    top: 29px;
+    left: calc((var(--width-indicator) / 2) - (var(--width-line) / 2));
+    bottom: calc(var(--dot-margin-offset) - var(--inner));
+    right: auto;
+    width: var(--width-line);
+    height: auto;
+
+    .wrapper--full-padded & { margin-left: calc(5% - var(--dot-position)); }
+    .wrapper--full & { margin-left: calc(var(--dot-position)); }
+  }
+
+  @include media-query($large-up) {
+    .wrapper--full-padded & { margin-left: 0; }
+    .wrapper--full & { margin-left: var(--outer); }
+  }
+}
+
+.timeline__row:first-child .timeline__indicator {
+  @include media-query($small) {
+    left: 0;
+    right: auto;
+    width: calc(((100% + var(--gap)) * var(--counter)) - var(--gap));
+  }
+}
+
+.timeline__row:first-child .timeline__indicator__line {
+  @include media-query($small) {
+    width: calc(100% / var(--counter) + var(--part-width) - (var(--gap) - (var(--gap) / var(--counter))));
+  }
+}
+
+.timeline__row:last-child .timeline__indicator {
+  background: var(--bg);
+  // Prevent the black line being visible while animating on page load
+  opacity: 1;
+  transition: none;
+  animation: none;
+
+  @include media-query($medium-up) {
+    display: none;
+  }
+}
+
+.timeline__row:only-child .timeline__indicator {
+  @include media-query($small) { display: none; }
+}
+
+.timeline__indicator__line::before,
+.timeline__indicator::before,
+.timeline__indicator::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  background: var(--text);
+  content: "";
+}
+
+.timeline__indicator::after {
+  @include media-query($medium-up) {
+    height: var(--percent-desktop, 0%);
+    opacity: 0;
+  }
+
+  @include media-query($small) {
+    width: var(--dot-width);
+    background: var(--bg);
+  }
+}
+
+.timeline__indicator::before { opacity: 0.2; }
+
+.timeline__dot__holder,
+.timeline__content__outer {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+
+.timeline__row.is-selected {
+  .timeline__indicator::after,
+  .timeline__dot__holder,
+  .timeline__content__outer { opacity: 1; }
+
+  .timeline__image-figure {
+    @include media-query($medium-up) {
+      transform: translateY(0);
+    }
+  }
+
+  .timeline__image {
+    @include media-query($small) {
+      opacity: 1;
+    }
+  }
+}
+
+.timeline__row:not(.is-selected) .timeline__image { pointer-events: none; }
+
+.timeline__indicator__line {
+  position: sticky;
+  top: 0;
+  left: var(--outer-offset);
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  max-height: 100%;
+  height: var(--height);
+
+  @include media-query($medium-up) { display: none; }
+}
+
+.timeline__indicator__line::before {
+  width: var(--percent-mobile, 0%);
+  height: 100%;
+}
+
+.timeline__row:not(:first-child) .timeline__indicator::before,
+.timeline__row:not(:first-child) .timeline__indicator__line::before {
+  @include media-query($small) {
+    content: none;
+  }
+}
+
+/* Timeline dot */
+.timeline__dot__wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--width-indicator);
+
+  @include media-query($medium-up) {
+    width: var(--width-indicator);
+    height: 100%;
+
+    .wrapper--full-padded & { margin-left: calc(5% - var(--dot-position)); }
+    .wrapper--full & { margin-left: calc(var(--dot-position)); }
+  }
+
+  @include media-query($large-up) {
+    .wrapper--full-padded & { margin-left: 0; }
+    .wrapper--full & { margin-left: var(--outer); }
+  }
+}
+
+.timeline__dot__holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  @include media-query($medium-up) {
+    max-height: 100%;
+    height: var(--height);
+  }
+}
+
+.timeline__dot__button {
+  --bg: var(--COLOR-BG);
+
+  position: absolute;
+  top: 50%;
+  left: var(--dot-margin);
+  width: var(--dot-width);
+  height: var(--dot-width);
+  padding: 0;
+  margin-top: calc((var(--dot-width) / 2) * -1);
+  cursor: pointer;
+
+  @include media-query($medium-up) {
+    left: 50%;
+    top: var(--dot-margin);
+    margin: 0 0 0 calc((var(--dot-width) / 2) * -1);
+  }
+}
+
+@media (hover: hover) {
+  .timeline__dot__button.is-selected .timeline__dot::before { animation: pulseDot 2.5s linear infinite; }
+  .timeline__dot__button:hover .timeline__dot::after { animation: pulseDotHover 1.5s linear infinite; }
+}
+
+.timeline__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: var(--text);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+
+  &::after,
+  &::before {
+    content: "";
+    background-color: inherit;
+    border-radius: inherit;
+    opacity: 0.3;
+    position: absolute;
+    top: var(--dot-margin-offset);
+    left: var(--dot-margin-offset);
+    bottom: var(--dot-margin-offset);
+    right: var(--dot-margin-offset);
+    will-change: transform;
+  }
+
+  &::before { opacity: 0; }
+}
+
+.timeline__dot__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  border-radius: var(--radius);
+}

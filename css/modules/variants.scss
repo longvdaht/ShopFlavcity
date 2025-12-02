@@ -1,0 +1,614 @@
+.selector-wrapper {
+  select { width: 100%; }
+
+  label { font-size: var(--font-body-x-small); }
+}
+
+.no-js .product__selectors { display: none; }
+
+.product__selectors .select__fieldset,
+.product__selectors .radio__fieldset {
+  //padding-top: calc(var(--form-margin) / 2);
+  padding-top: 0;
+  padding-bottom: calc(var(--form-margin) / 2);
+}
+.product__selectors > .selector-wrapper:last-child .radio__fieldset { padding-bottom: 0; }
+
+.product__block--lines {
+  padding-top: calc(var(--form-margin) / 2);
+  padding-bottom: calc(var(--form-margin) / 2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  & + .product__block--lines {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .selector-wrapper .select__fieldset,
+  .selector-wrapper .radio__fieldset {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .selector-wrapper:first-child .select__fieldset,
+  .selector-wrapper:first-child .radio__fieldset {
+    padding-top: 0;
+  }
+
+  .selector-wrapper:last-child .select__fieldset,
+  .selector-wrapper:last-child .radio__fieldset {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+.select__fieldset,
+.radio__fieldset {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 7.5rem) minmax(0, 100%);
+}
+
+.select__fieldset .select__label {
+  display: block;
+  padding-right: 0;
+  margin: 5px 0;
+  align-self: center;
+  font-size: var(--font-body-medium);
+  font-weight: var(--FONT-WEIGHT-BODY-BOLD);
+
+  &.is-hidden {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* = both radio and swatch = */
+
+.radio__legend {
+  display: block;
+  padding: 0;
+  width: 100%;
+  font-weight: var(--FONT-WEIGHT-BODY);
+  font-size: var(--font-body-medium);
+}
+
+.radio__legend__label {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  align-items: center;
+
+  @include media-query($medium-up) {
+    padding-top: 0;
+  }
+}
+
+.radio__legend.is-hidden {
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+
+.radio__fieldset--single {
+  display: block;
+  padding: calc(var(--form-margin) / 2) 0;
+}
+
+.radio__fieldset--single .radio__legend__link {
+  display: inline;
+  color: var(--link);
+  font-weight: var(--FONT-WEIGHT-BODY-BOLD);
+  font-size: var(--font-body-medium);
+}
+
+.radio__legend__link {
+  display: flex;
+  align-items: center;
+  font-weight: var(--FONT-WEIGHT-BODY);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.radio__legend__option-name {
+  flex-basis: auto;
+  font-family: var(--FONT-STACK-BTN);
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  overflow-wrap: anywhere;
+}
+
+.btn-size-chart,
+.product__final-sale-question {
+  --icon-size: 0.938rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  text-align: center;
+  background: var(--bg-accent);
+  border-radius: var(--RADIUS);
+  min-width: calc(var(--font-body-small) * 1.375);
+  line-height: 1.0715;
+}
+
+.radio__legend__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+  background-color: var(--text-dark);
+  opacity: 0.4;
+}
+
+.radio__fieldset__label { display: block; }
+
+.radio__legend__label,
+.radio__fieldset__label {
+  font-size: var(--font-body-medium);
+  font-weight: var(--FONT-WEIGHT-BODY-BOLD);
+}
+
+.form__wrapper--classic .radio__legend__label--text { justify-content: space-between; }
+
+.radio__legend__value {
+  flex-basis: 100%;
+  display: block;
+  padding-top: 4px;
+  font-size: var(--font-body-x-small);
+}
+
+.swatch__button label:hover,
+.radio__button label:hover { cursor: pointer; }
+
+/* = radio button specific = */
+.radio__button {
+  position: relative;
+  display: inline-block;
+  min-width: var(--option-image-width, 0);
+}
+
+.radio__fieldset {
+  .radio__button label {
+    display: block;
+    font-family: var(--FONT-STACK-BTN);
+    font-size: var(--BTN-FONT-SIZE);
+    font-style: var(--FONT-STYLE-BTN);
+    font-weight: var(--FONT-WEIGHT-BTN);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--BTN-LETTER-SPACING);
+    text-transform: var(--BTN-UPPERCASE);
+    position: relative;
+    margin: 0;
+    padding: var(--btn-top);
+    min-width: calc(var(--BTN-FONT-SIZE) * var(--line-height-normal) + var(--btn-top) * 2 + 2px); // Add 2px for borders
+    text-align: center;
+    color: inherit;
+    background-color: var(--COLOR-BG-ACCENT);
+    border: 2px solid var(--border);
+    border-radius: min(var(--RADIUS), 20px);
+    transition: color 0.5s $ease-out-fast, background 0.5s $ease-out-fast, border 0.5s $ease-out-fast;
+
+    &:hover,
+    &:active,
+    &:focus { border: 2px solid var(--accent); }
+  }
+
+  .radio__button input:disabled + label,
+  .radio__button input.sold-out + label,
+  .radio__button input.unavailable + label {
+    background-color: var(--text-a5);
+    color: var(--text-a35);
+  }
+
+  .radio__button input:checked ~ label { border-color: var(--accent); }
+  .radio__button label:has(input:checked)  { border-color: var(--accent); }
+
+  .radio__button label:has(input.sold-out),
+  .radio__button label:has(input.unavailable),
+  .radio__button label:has(input:disabled) { opacity: 0.5 }
+}
+
+//.radio__fieldset .radio__buttons { margin: -4px; }
+//.radio__fieldset--swatches .radio__buttons { margin: 0 -2px; }
+
+.radio__fieldset--swatches .swatch__button,
+.radio__button {
+  padding: 4px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.radio__fieldset--swatches.is-visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.radio__fieldset--swatches.is-visible .swatch__button { animation: fadeIn 0.5s var(--animation-delay) both; }
+
+.radio__fieldset--swatches.is-visible + .product-item__swatches__count {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.radio__fieldset--variant-option-image {
+  .radio__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .radio__button {
+    padding: 0;
+
+    label {
+      display: grid;
+      grid-template-columns: 60px minmax(0, 1fr);
+      align-content: center;
+      justify-items: center;
+      min-height: 100%;
+      gap: var(--btn-top);
+    }
+  }
+
+  .option-image,
+  .option-title {
+    display: flex;
+    align-items: center;
+  }
+
+  .option-image {
+    height: 60px;
+    border-radius: var(--radius);
+    overflow: hidden;
+
+    // Override object-fit to make the image fit in its container
+    img.fit-cover { object-fit: contain; }
+  }
+
+  .option-title { margin-right: calc(var(--BTN-LETTER-SPACING) * -1); }
+}
+
+.radio__fieldset--variant-option-image-inline img {
+  width: 60px;
+  height: auto;
+}
+
+.radio__fieldset--variant-option-image-stacked .radio__button label { grid-template-columns: minmax(0, 1fr); }
+
+.radio__fieldset--pgi {
+  --bg: var(--COLOR-BG);
+  --bg-arrow: var(--COLOR-BG);
+
+  display: block;
+  padding: var(--form-margin) 0;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 calc(var(--inner) / 2);
+  background-color: var(--bg);
+  transition: opacity 0.3s ease, visibility 0.3s;
+
+  .radio__button label {
+    padding: 5px;
+    font-size: var(--font-body-x-small);
+    line-height: 26px;
+  }
+
+  .radio__legend__label {
+    font-size: var(--font-body-x-small);
+    padding-right: 0;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    p {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .swatch__button {
+    padding: 5px 0;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  .swatch__button input:checked ~ label { margin: 0; }
+  .swatch__button input:checked + label::after { border-color: var(--border); }
+
+  .radio__fieldset__arrow { pointer-events: initial; }
+
+  .no-js & {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.radio__fieldset__arrow {
+  --icon-size: 24px;
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 10px;
+  height: 100%;
+  min-height: inherit;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transition: opacity 0.2s ease;
+  pointer-events: auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 12px;
+    height: 100%;
+
+    @include media-query($small) {
+      width: 24px;
+    }
+  }
+
+  .icon {
+    position: relative;
+    flex: 1 0 var(--icon-size);
+  }
+}
+
+.radio__fieldset__arrow--prev {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.radio__fieldset__arrow--prev .icon {
+  margin-left: -8px;
+
+  @include media-query($small) {
+    margin-left: 0;
+  }
+}
+
+.radio__fieldset__arrow--prev::before {
+  left: 3px;
+  background: linear-gradient(to right, var(--bg-arrow) 50%, transparent 100%);
+}
+
+.radio__fieldset__arrow--next {
+  right: 0;
+  justify-content: flex-end;
+}
+
+.radio__fieldset__arrow--next .icon {
+  margin-right: -8px;
+
+  @include media-query($small) {
+    margin-right: 0;
+  }
+}
+
+.radio__fieldset__arrow--next::before {
+  right: 3px;
+  background: linear-gradient(to left, var(--bg-arrow) 50%, transparent 100%);
+}
+
+.selector-wrapper__actions {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  padding: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--swatch-size);
+  min-height: 36px; // To match swatches size
+  pointer-events: none;
+
+  .no-js & {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    transform: none;
+  }
+}
+
+.selector-wrapper__scrollbar {
+  position: relative;
+  margin: -5px; // Needs negative margin + padding to prevent active swatches borders being cut off
+  padding: 5px;
+  width: calc(100% + 10px);
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  @include hide-scrollbar;
+}
+
+/* = swatch button specific = */
+
+.swatches { --swatch-default: #CCC; }
+
+.swatch__button {
+  --swatch-outline-offset: 3px;
+
+  display: inline-block;
+  padding: 5px 0;
+  margin: 0 10px 10px 0;
+  position: relative;
+  z-index: 0;
+  pointer-events: initial;
+}
+
+.swatch__button--empty {
+  border: 1px dashed var(--text);
+}
+
+.swatch__button.sale::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin-top: 4px;
+  background-color: var(--COLOR-SALE);
+  transform: translateX(-50%);
+}
+
+.swatch__button input,
+.radio__button input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  pointer-events: none;
+  display: block;
+}
+
+.selector-wrapper fieldset label { margin-top: unset; }
+
+.swatch__button .swatch__link,
+.swatch__button input ~ label {
+  display: block;
+  position: relative;
+  margin: 0;
+  background: var(--swatch, var(--swatch-default));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+}
+
+.swatch__button input ~ label::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  z-index: -1;
+  background: var(--swatch, var(--swatch-default)) no-repeat center center / cover;
+  overflow: initial;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.95);
+}
+
+.swatch__button input ~ label::after { opacity: 0; }
+
+.swatch__button input:checked ~ label {
+  overflow: initial;
+  box-shadow: 0 0 0 2px var(--bg);
+}
+
+.swatch__button input:checked ~ label::after {
+  opacity: 1;
+  transform: translateZ(0);
+  overflow: hidden;
+}
+
+.swatch__button input.sold-out ~ label::before,
+.swatch__button input.unavailable ~ label::before,
+.swatch__button input:disabled + label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 1px;
+  background-color: var(--text-dark);
+  transform-origin: left top;
+}
+
+/* Prevent tooltip showing up while product quick add drawer is in a loading state */
+.is-loading .swatch__button { pointer-events: none; }
+
+/*=== White/Black color swatches ===*/
+.swatch-white input ~ label,
+.swatch-white .swatch__link {
+  --swatch: #FAFAFA;
+
+  box-shadow: inset 0 0 0 1px var(--border);
+  &::after { border-color: var(--accent); }
+}
+
+.swatch__button input.sold-out ~ label[data-swatch="black" i]::before,
+.swatch__button input.unavailable ~ label[data-swatch="black" i]::before,
+.swatch__button input:disabled ~ label[data-swatch="black" i]::before { background-color: #FFF; }
+
+.swatch__button input.sold-out ~ label[data-swatch="white" i]::before,
+.swatch__button input.unavailable ~ label[data-swatch="white" i]::before,
+.swatch__button input:disabled ~ label[data-swatch="white" i]::before { background-color: var(--text-dark); }
+
+/*=== Circle swatch style ===*/
+.swatch__button--circle .swatch__link,
+.swatch__button--circle input ~ label {
+  height: var(--swatch-size);
+  width: var(--swatch-size);
+  border-radius: 50%;
+  background: var(--swatch, var(--swatch-default));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.swatch__button--circle input ~ label::after {
+  top: calc(var(--swatch-outline-offset) * -1);
+  left: calc(var(--swatch-outline-offset) * -1);
+  width: calc(var(--swatch-size) + var(--swatch-outline-offset) * 2);
+  height: calc(var(--swatch-size) + var(--swatch-outline-offset) * 2);
+  border-radius: 50%;
+}
+
+.swatch__button--circle input.sold-out ~ label::before,
+.swatch__button--circle input.unavailable ~ label::before,
+.swatch__button--circle input:disabled + label::before {
+  height: var(--swatch-size);
+  transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+/*=== Square swatch style ===*/
+
+.swatch__button--square input ~ label,
+.swatch__button--square .swatch__link {
+  height: var(--swatch-size);
+  width: var(--swatch-size);
+}
+
+.swatch__button--square input ~ label::after {
+  top: calc(var(--swatch-outline-offset) * -1);
+  left: calc(var(--swatch-outline-offset) * -1);
+  height: calc(var(--swatch-size) + var(--swatch-outline-offset) * 2);
+  width: calc(var(--swatch-size) + var(--swatch-outline-offset) * 2);
+}
+
+.swatch__button--square input:checked ~ label { margin: 0; }
+
+.swatch__button--square input.sold-out ~ label::before,
+.swatch__button--square input.unavailable ~ label::before,
+.swatch__button--square input:disabled + label::before {
+  transform: rotate(-45deg) translate(-50%, -50%);
+  height: calc(1.375 * var(--swatch-size));
+}
+
+.is-focused .swatch__button:focus-within,
+.is-focused .radio__button:focus-within {
+  outline: 5px auto var(--accent);
+}

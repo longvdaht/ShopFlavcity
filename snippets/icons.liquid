@@ -1,0 +1,188 @@
+{% comment %}
+  {% render 'icons' with 'icon-name' %}
+{% endcomment %}
+
+{%- capture icon_class -%}icon icon--{{ icons }}{%- endcapture -%}
+
+{%- case icons -%}
+	{% when 'hamburger' %}
+		<svg class="{{ icon_class }}" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_2462)">
+				<path d="M3.75 12H20.25" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M3.75 6H20.25" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M3.75 18H20.25" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_2305_2462">
+					<rect width="24" height="24" fill="white"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	{% when 'close' %}
+		<svg class="{{ icon_class }}" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_4885)">
+				<path d="M18.75 5.25L5.25 18.75" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M18.75 18.75L5.25 5.25" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_2305_4885">
+					<rect width="24" height="24" fill="white"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	{% when 'account' %}
+		<svg class="{{ icon_class }}" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_1944)">
+				<path d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M3 20.25C4.81594 17.1122 8.11406 15 12 15C15.8859 15 19.1841 17.1122 21 20.25" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+		</svg>
+
+	{% when 'search' %}
+		<svg class="{{ icon_class }}" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_1956)">
+				<path d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M15.8037 15.8035L21.0003 21" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_2305_1956">
+					<rect width="24" height="24" fill="white"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	{% when 'filter' %}
+		<svg class="{{ icon_class }}" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_5784)">
+				<path d="M5 10.625H15" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M1.875 6.875H18.125" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M8.125 14.375H11.875" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_2305_5784">
+					<rect width="20" height="20" fill="white"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	{% when 'plus' %}
+		<svg class="{{ icon_class }}" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_414)">
+				<path d="M3.125 10H16.875" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M10 3.125V16.875" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_2305_414">
+					<rect width="20" height="20" fill="white"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	{% when 'minus' %}
+		<svg class="{{ icon_class }}" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_410)">
+				<path d="M3.125 10H16.875" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_2305_410">
+					<rect width="20" height="20" fill="white"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	{% when 'cart' %}
+		<svg class="{{ icon_class }}" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_1948)">
+				<path d="M8.25 21.75C9.07843 21.75 9.75 21.0784 9.75 20.25C9.75 19.4216 9.07843 18.75 8.25 18.75C7.42157 18.75 6.75 19.4216 6.75 20.25C6.75 21.0784 7.42157 21.75 8.25 21.75Z" fill="#005261"/>
+				<path d="M18 21.75C18.8284 21.75 19.5 21.0784 19.5 20.25C19.5 19.4216 18.8284 18.75 18 18.75C17.1716 18.75 16.5 19.4216 16.5 20.25C16.5 21.0784 17.1716 21.75 18 21.75Z" fill="#005261"/>
+				<path d="M1.5 3H3.75L7.19531 15.4012C7.28299 15.7171 7.47171 15.9955 7.73261 16.1939C7.99351 16.3924 8.31222 16.4999 8.64 16.5H17.9062C18.2342 16.5001 18.5531 16.3927 18.8142 16.1942C19.0753 15.9958 19.2642 15.7172 19.3519 15.4012L21.75 6.75H4.79156" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_2305_1948">
+					<rect width="24" height="24" fill="white"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	{% when 'caret-right' %}
+		<svg class="{{ icon_class }}" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M2.25 2.375L7.875 8L2.25 13.625" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+
+	{% when 'caret-left' %}
+		<svg class="{{ icon_class }}" width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M8 2.375L2.375 8L8 13.625" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+
+	{% when 'caret-down' %}
+		<svg class="{{ icon_class }}" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M16.25 7.5L10 13.75L3.75 7.5" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+
+	{% when 'caret-up' %}
+		<svg class="{{ icon_class }}" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M16.25 7.5L10 1.75L3.75 7.5" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+
+	{% when 'arrow-right' %}
+		<svg class="{{ icon_class }}" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_2073)">
+				<path d="M3.75 12.5H20.25" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M13.5 5.75L20.25 12.5L13.5 19.25" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_2305_2073">
+					<rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	{% when 'arrow-left' %}
+		<svg class="{{ icon_class }}" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_2305_2059)">
+				<path d="M20.25 12.5H3.75" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M10.5 5.75L3.75 12.5L10.5 19.25" stroke="#005261" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_2305_2059">
+					<rect width="24" height="24" fill="white" transform="matrix(-1 0 0 1 24 0.5)"/>
+				</clipPath>
+			</defs>
+		</svg>
+
+	{% when 'timer' %}
+		<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+			<path
+				d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z"
+				stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M16 9V16H23" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+						stroke-linejoin="round"/>
+		</svg>
+
+	{% when 'icon-arrow-circle' %}
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<ellipse cx="16" cy="16" rx="16" ry="16" fill="currentColor"/>
+			<path d="M8.70573 16L23.2891 16L8.70573 16ZM23.2891 16L16.2891 23L23.2891 16ZM23.2891 16L16.2891 9L23.2891 16Z" fill="white"/>
+			<path d="M8.70573 16L23.2891 16M23.2891 16L16.2891 23M23.2891 16L16.2891 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+
+	{% when 'icon-back-arrow-circle' %}
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_15217_439)">
+				<circle cx="12" cy="12" r="12" transform="rotate(180 12 12)" fill="currentColor"/>
+				<path d="M17.4688 12L6.53125 12L17.4688 12ZM6.53125 12L11.7813 6.75L6.53125 12ZM6.53125 12L11.7812 17.25L6.53125 12Z" fill="white"/>
+				<path d="M17.4688 12L6.53125 12M6.53125 12L11.7813 6.75M6.53125 12L11.7812 17.25" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+			</g>
+		</svg>
+
+	{% when 'icon-plus-circle' %}
+		<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#clip0_18862_338)">
+				<circle cx="16" cy="16" r="16" fill="#0E5261"/>
+				<path d="M14.8162 17.1853H8.89027C8.55446 17.1853 8.27318 17.0716 8.04642 16.844C7.81965 16.6165 7.70587 16.3352 7.70508 16.0002C7.70429 15.6651 7.81807 15.3839 8.04642 15.1563C8.27476 14.9288 8.55605 14.815 8.89027 14.815H14.8162V8.88905C14.8162 8.55324 14.93 8.27196 15.1575 8.04519C15.3851 7.81843 15.6664 7.70465 16.0014 7.70386C16.3364 7.70307 16.6181 7.81685 16.8464 8.04519C17.0748 8.27354 17.1881 8.55482 17.1866 8.88905V14.815H23.1125C23.4483 14.815 23.73 14.9288 23.9575 15.1563C24.1851 15.3839 24.2985 15.6651 24.2977 16.0002C24.2969 16.3352 24.1831 16.6168 23.9563 16.8452C23.7296 17.0735 23.4483 17.1869 23.1125 17.1853H17.1866V23.1113C17.1866 23.4471 17.0728 23.7288 16.8452 23.9563C16.6177 24.1839 16.3364 24.2972 16.0014 24.2965C15.6664 24.2957 15.3851 24.1819 15.1575 23.9551C14.93 23.7284 14.8162 23.4471 14.8162 23.1113V17.1853Z" fill="currentColor"/>
+			</g>
+		</svg>
+
+{%- endcase -%}

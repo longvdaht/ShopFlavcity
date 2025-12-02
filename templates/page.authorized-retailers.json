@@ -1,0 +1,298 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "subheading": "",
+        "show_title": true,
+        "heading_font_size": "heading-large",
+        "show_content": true,
+        "text_font_size": "body-medium",
+        "align_text": "text-center",
+        "width": "wrapper",
+        "color_scheme": "",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_rich_text_aTDYTG": {
+      "type": "section-rich-text",
+      "blocks": {
+        "text_7rwg8c": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>ShopFlavCity.com</strong></p><ul><li>The FlavCity Official Website (you are here)</li><li>Subscribe & save on best-selling products, get exclusive recipes and be the first to get limited edition flavors.</li></ul><p><strong>Amazon</strong></p><ul><li>Shop FlavCity on <a href=\"https://www.amazon.com/stores/page/DA4D4386-975D-4DB1-9580-C21842555523?maas=maas_adg_988782F688EE2F05034E44309918FB39_afap_abs&ref_=aa_maas&tag=maas&ingress=2&lp_context_asin=B0C5FXH9K1&visitId=8b553aad-69bd-4204-8c6b-513cdeb939ba&store_\" target=\"_blank\" title=\"https://www.amazon.com/stores/page/DA4D4386-975D-4DB1-9580-C21842555523?maas=maas_adg_988782F688EE2F05034E44309918FB39_afap_abs&ref_=aa_maas&tag=maas&ingress=2&lp_context_asin=B0C5FXH9K1&visitId=8b553aad-69bd-4204-8c6b-513cdeb939ba&store_\">Amazon.com</a> </li><li>From packing to porch, all orders ship fast and securely.</li></ul><p><strong>Target</strong></p><ul><li>Shop in-store and online at <a href=\"https://www.target.com/b/flavcity/-/N-q643le82y3c\" target=\"_blank\" title=\"https://www.target.com/b/flavcity/-/N-q643le82y3c\">Target.com</a></li><li>Find FlavCity Protein Smoothies and an exclusive flavor only available at Target.</li></ul><p><strong>TikTok Shop</strong></p><ul><li>Our verified shop on <a href=\"https://www.tiktok.com/@flavcity\" target=\"_blank\" title=\"https://www.tiktok.com/@flavcity\">TikTok</a></li><li>Join us live to shop and ask questions</li></ul>",
+            "text_font_size": "body-medium",
+            "padding_bottom": 0
+          }
+        },
+        "subheading_3J34gt": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Introducing",
+            "padding_bottom": 16
+          }
+        },
+        "heading_qb6kCy": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "title": "Rich text",
+            "heading_font_size": "heading-large",
+            "padding_bottom": 16,
+            "heading_tag": "automatic"
+          }
+        },
+        "buttons_GLAzrc": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_text": "Learn more",
+            "button_url": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "padding_bottom": 16
+          }
+        }
+      },
+      "block_order": [
+        "text_7rwg8c",
+        "subheading_3J34gt",
+        "heading_qb6kCy",
+        "buttons_GLAzrc"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-left",
+        "width": "wrapper",
+        "color_scheme": "",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "team-0": {
+      "type": "section-multicolumn",
+      "blocks": {
+        "person-0": {
+          "type": "text",
+          "settings": {
+            "column_width": 33,
+            "title": "ShopFlavCity.com",
+            "heading_font_size": "heading-small",
+            "text": "<ul><li>Our official store (you are here)</li><li>Full product line up and launches</li></ul>",
+            "text_font_size": "body-medium",
+            "button_text": "Shop Here",
+            "button_url": "shopify://collections/featured",
+            "button_type": "btn--primary",
+            "button_style": "btn--solid",
+            "show_arrow": false,
+            "heading_tag": "automatic"
+          }
+        },
+        "person-1": {
+          "type": "text",
+          "settings": {
+            "column_width": 33,
+            "title": "Amazon",
+            "heading_font_size": "heading-small",
+            "text": "<ul><li>Ships from FlavCity</li><li>Fast and secure through Amazon</li></ul>",
+            "text_font_size": "body-medium",
+            "button_text": "Shop Amazon",
+            "button_url": "https://www.amazon.com/stores/page/DA4D4386-975D-4DB1-9580-C21842555523?",
+            "button_type": "btn--primary",
+            "button_style": "",
+            "show_arrow": false,
+            "heading_tag": "automatic"
+          }
+        },
+        "person-2": {
+          "type": "text",
+          "settings": {
+            "column_width": 33,
+            "title": "TikTok Shop",
+            "heading_font_size": "heading-small",
+            "text": "<ul><li>Our verified shop on TikTok</li><li>Join us live to shop and ask questions</li></ul>",
+            "text_font_size": "body-medium",
+            "button_text": "Shop TikTok",
+            "button_url": "https://www.tiktok.com/@flavcity",
+            "button_type": "btn--primary",
+            "button_style": "",
+            "show_arrow": false,
+            "heading_tag": "automatic"
+          }
+        }
+      },
+      "block_order": [
+        "person-0",
+        "person-1",
+        "person-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_font_size": "heading-medium",
+        "description": "",
+        "align_heading": "text-center",
+        "align_text": "text-left",
+        "width": "wrapper",
+        "align_columns": "flex-align-center",
+        "layout_mobile": "1",
+        "hide_arrows": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "heading_tag": "automatic"
+      }
+    },
+    "section_rich_text_Jggqam": {
+      "type": "section-rich-text",
+      "blocks": {
+        "subheading_WPcBdp": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Introducing",
+            "padding_bottom": 16
+          }
+        },
+        "heading_TnJ9y4": {
+          "type": "heading",
+          "settings": {
+            "title": "Find FlavCity Near You",
+            "heading_font_size": "heading-large",
+            "padding_bottom": 16,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_yB7rCx": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>We made your in-store shopping experience as easy as it is to make our protein smoothies.</li><li>Find a retailer nearby that has FlavCity classics and exclusive products</li></ul>",
+            "text_font_size": "body-medium",
+            "padding_bottom": 16
+          }
+        },
+        "buttons_DVt4jq": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "Store Locator",
+            "button_url": "shopify://pages/where-to-buy",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "padding_bottom": 16
+          }
+        }
+      },
+      "block_order": [
+        "subheading_WPcBdp",
+        "heading_TnJ9y4",
+        "text_yB7rCx",
+        "buttons_DVt4jq"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-left",
+        "width": "wrapper",
+        "color_scheme": "",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "section_rich_text_AGG3n6": {
+      "type": "section-rich-text",
+      "blocks": {
+        "subheading_Dhff8Y": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Introducing",
+            "padding_bottom": 16
+          }
+        },
+        "heading_6fHQUf": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "title": "Rich text",
+            "heading_font_size": "heading-large",
+            "padding_bottom": 16,
+            "heading_tag": "automatic"
+          }
+        },
+        "text_HPE4tV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Need a hand or have a question? Our team is here for you and happy to help.  <a href=\"/pages/contact-us\" title=\"Contact Us\">Get in touch with us</a> and we'll take care of you.</p>",
+            "text_font_size": "body-medium",
+            "padding_bottom": 16
+          }
+        },
+        "buttons_TQHFBn": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_text": "Learn more",
+            "button_url": "",
+            "button_type": "btn--primary",
+            "button_size": "",
+            "button_style": "",
+            "show_arrow": false,
+            "padding_bottom": 16
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Dhff8Y",
+        "heading_6fHQUf",
+        "text_HPE4tV",
+        "buttons_TQHFBn"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "align_text": "text-left",
+        "width": "wrapper",
+        "color_scheme": "",
+        "overlay_opacity": 0,
+        "show_overlay_text": false,
+        "padding_top": 0,
+        "padding_bottom": 30,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_rich_text_aTDYTG",
+    "team-0",
+    "section_rich_text_Jggqam",
+    "section_rich_text_AGG3n6"
+  ]
+}

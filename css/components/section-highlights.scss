@@ -1,0 +1,181 @@
+// Highlights
+
+@import "../tools/mixins.scss";
+@import "../settings/variables.scss";
+
+.highlights {
+  position: relative;
+  padding-top: var(--PT);
+  padding-bottom: var(--PB);
+}
+
+.highlights .grid__heading-holder {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.highlights__container { overflow: hidden; }
+
+.highlights__items {
+  --gap-half: calc(var(--gap) / 2);
+  --gap-half-offset: calc(var(--gap-offset) / 2);
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 var(--gap-half-offset) var(--gap-offset);
+}
+
+.highlights__items--mobile-slider {
+  @include media-query ($small) {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-left: var(--outer);
+    margin: 0 var(--outer-offset);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding: var(--outer);
+
+    @include hide-scrollbar;
+
+    &::after {
+      content: "";
+      min-height: 1px;
+      display: block;
+      position: relative;
+      padding-right: var(--outer);
+    }
+  }
+}
+
+.highlights__items--mobile-slider .highlights__item {
+  @include media-query ($small) {
+    flex: 0 0 auto;
+    width: calc(100% - 50px);
+    padding: 0;
+    margin: 0 var(--gap) 0 0;
+    scroll-snap-align: start;
+    &:last-child { margin-right: 0; }
+    &:only-child { width: 100%; }
+  }
+}
+
+.highlights__item {
+  --btn-bg: var(--bg);
+  --btn-text: var(--text);
+  --btn-border: var(--border);
+  --btn-bg-hover: var(--bg-brighter, transparent);
+  --btn-text-hover: var(--text);
+  --btn-border-hover: transparent;
+  --column-default: 1;
+  --width-desktop: 100% / var(--columns-desktop, var(--column-default));
+  --width-tablet: 100% / var(--columns-medium, var(--column-default));
+  --width-mobile: 100% / var(--columns-mobile, var(--column-default));
+  --width-small: 100% / var(--columns-small, var(--column-default));
+  --width: var(--width-desktop);
+
+  flex-basis: calc(var(--width, 100%));
+  position: relative;
+  padding: 0 var(--gap-half);
+  margin-bottom: var(--gap);
+  text-align: center;
+
+  @include media-query ($large-up) { --width: var(--width-desktop); }
+
+  @include media-query ($medium) { --width: var(--width-tablet); }
+
+  @include media-query ($small) { --width: var(--width-small); }
+
+  @include media-query ($mobile) { --width: var(--width-mobile); }
+}
+
+.highlights__item-inner {
+  min-height: 100%;
+  color: var(--btn-text);
+}
+
+.highlights__item--button { overflow: hidden; }
+
+.highlights__item__background {
+  position: relative;
+  width: 100%;
+  min-height: inherit;
+  padding-bottom: 100%;
+  overflow: hidden;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+}
+
+.highlights__item--rectangle .highlights__item__background { padding-bottom: 75%; }
+
+.highlights__item--circle .highlights__item__background {
+  z-index: 0;
+  border-radius: 50%;
+}
+
+.highlights__item--button .btn {
+  --btn-border: transparent;
+  --btn-border-hover: transparent;
+
+  min-width: 100%;
+}
+.highlights__item--button .btn::after { z-index: 1; }
+.highlights__item--button .btn.is-disabled::after { content: none; }
+
+.highlights__item--button .highlights__item__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: auto;
+  left: auto;
+  overflow: visible;
+  width: auto;
+  padding: 0;
+  transform: none;
+}
+
+.highlights__item--button .highlights__item__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.highlights__item .image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.highlights__item__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  max-width: 100%;
+  width: max-content;
+  margin: 0;
+  padding: var(--inner);
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+}
+
+.highlights__item-link {
+  --link: var(--btn-text);
+  --link-hover: var(--btn-text);
+
+  transition: none;
+}
+.highlights__item-link span { @include animate-underline-from-center-on-hover; }
+
+@media (hover: hover) {
+  .highlights__item-link:hover span { background-size: 100% 1px; }
+}

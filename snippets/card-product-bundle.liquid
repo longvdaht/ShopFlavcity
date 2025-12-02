@@ -1,0 +1,85 @@
+{%- assign gift_product = false -%}
+{%- assign price_over_threshold = variant.price | minus: threshold_value | at_least: 0 -%}
+{% if variant.product.tags contains 'bundle_free_product' %}
+	{%- assign gift_product = true -%}
+{% endif %}
+
+<card-product-bundle
+	data='{
+    "quantity": {{ initial_quantity | default: 0 }},
+    "parentQuantity": 1,
+    "productTitle": {{ variant.product.title | json }},
+    "ifGiftProduct": {{ gift_product }},
+    "index": {{ index }},
+    "productFormId": {{ product_form_id | json }},
+    "variantId": {{ variant.id }},
+    "variantAvailable":{{ variant.available | json }},
+    "definedProductState": {{ defined_product | default: false | json }},
+    "variantPrice": {{ variant.price }},
+    "variantPriceOverThreshold": "{% if variant.price > threshold_value and threshold_value > 0 %}{{ variant.price | minus: threshold_value }}{% else %}0{% endif %}",
+    "productDiscount": {%if bundle_discount_percent != nil %}{{ bundle_discount_percent }}{% else %}{{ variant.product.metafields.bundle.discount_percent | default: 0 }}{% endif %}
+		{% if selection_type contains "single" %},
+			"selectionType":"single",
+			"group": "single-selection"
+    {% elsif selection_type contains "limitation" %},
+    	"selectionType":"limitation",
+			"bundleVariantsLimit": {{ bundle_variants_limit }}
+    {% endif %}
+  }'
+
+	{% if selection_type contains "single" %}
+		group="single-selection"
+	 {% elsif selection_type contains "limitation" %},
+		data-bundle-variants-limit="{{ bundle_variants_limit }}"
+   {% endif %}
+	class="card-bundle__wrapper"
+>
+
+	<div class="card-bundle__content {%- unless variant.available %} card-bundle__content--disabled{%- endunless -%}" slot="content">
+		<div class="card-bundle__media">
+			{%- assign media = variant.product.metafields.bundle.image | default: variant.featured_media | default: variant.product.featured_image -%}
+
+			{%- if media -%}
+					<div class="lazy-image is-loading">
+						{{
+						media
+						| image_url: width: 120
+						| image_tag:
+						widths: '120, 180',
+						sizes: '120px',
+						class: 'is-loading',
+						loading: 'lazy',
+						fetchpriority: fetchpriority
+						}}
+					</div>
+			{%- else -%}
+				<div
+					class="svg-placeholder"
+					role="img"
+				>
+					{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+				</div>
+			{%- endif -%}
+
+			{%- comment -%}
+				{%- if variant.price > threshold_value and threshold_value > 0 -%}
+					<span class="product-bundle__badge">+{{ variant.price | minus: threshold_value | money_without_trailing_zeros }}</span>
+				{%- endif -%}
+			{%- endcomment -%}
+		</div>
+
+		<div class="card-bundle__information">
+			<span class="card-bundle__heading">
+				{{ variant.product.metafields.bundle.title | default: variant.product.title }}
+			</span>
+			{%- if variant.price > threshold_value and threshold_value > 0 -%}
+				<span class="card-bundle__additional-info">
+					Plant-based (+{{ price_over_threshold | money_without_trailing_zeros }})
+				</span>
+			{%- endif -%}
+		</div>
+	</div>
+
+	<div class="custom-controls" slot="controls">
+	</div>
+</card-product-bundle>

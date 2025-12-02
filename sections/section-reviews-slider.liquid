@@ -1,0 +1,406 @@
+<!-- /sections/section-reviews.liquid -->
+
+{%- liquid
+	assign section_mode = section.settings.section_mode
+  assign enable_sticky_position = section.settings.enable_sticky_position
+
+  if section_mode != 'flavcity-cafe'
+    assign enable_sticky_position = false
+  endif
+
+	assign animation_anchor = '#Reviews--' | append: section.id
+	assign animation_order = 0
+
+	assign block_count = section.blocks.size | plus: 0
+	assign color_scheme = 'color-' | append: section.settings.color_scheme
+	assign columns_desktop = 1
+	assign columns_medium = 3
+	assign title = section.settings.title
+	assign enable_loop = section.settings.enable_loop
+
+	if columns_desktop == 2 or columns_desktop == 4
+		assign columns_medium = 2
+	endif
+
+	capture section_classes
+		echo 'reviews reviews--no-images reviews-slider__section wrapper--full-padded '
+		echo section.settings.text_align
+	endcapture
+
+	capture sizes
+		if settings.block.size == 1
+			echo '(min-width: 750px) 50vw, calc(100vw - 82px)'
+		else
+			echo '(min-width: 750px) 25vw, calc(100vw - 82px)'
+		endif
+	endcapture
+-%}
+
+{{ 'section-reviews.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  {% if enable_sticky_position -%}
+    #shopify-section-{{ section.id }} {
+      bottom: 0;
+      position: relative;
+      z-index: 1;
+    }
+    
+    #shopify-section-{{ section.id }} .reviews-slider__section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 100px;
+    }
+
+    @media only screen and (max-width: 749px) {
+      #shopify-section-{{ section.id }} .reviews-slider__section {
+        padding-top: 50px;
+      }
+    }
+
+    #shopify-section-{{ section.id }} .reviews-slider__section .reviews-slider__wrapper {
+      width: 100%;
+      height: 100%;
+    }
+  {%- endif %}
+
+	#Reviews--{{ section.id }} {
+	--PT: {{ section.settings.padding_top }}px;
+	--PB: {{ section.settings.padding_bottom }}px;
+	--COLUMNS: {{ columns_desktop }};
+	--COLUMNS-MEDIUM: {{ columns_medium }};
+	}
+
+	@media only screen and (max-width: 749px) {
+    #Reviews--{{ section.id }} {
+      --PT: {{ section.settings.padding_top_mobile }}px;
+      --PB: {{ section.settings.padding_bottom_mobile }}px;
+    }
+	}
+{%- endstyle -%}
+
+<div
+	id="Reviews--{{ section.id }}"
+	class="{{ section_classes }} {{ color_scheme }} {{ section_mode }}"
+	data-section-id="{{ section.id }}"
+	data-section-type="reviews"
+>
+	<div class="section-padding reviews-slider__wrapper"
+			 data-aos="hero"
+			 data-aos-anchor="{{ animation_anchor }}"
+			 data-aos-order="{{ animation_order }}"
+	>
+		{% if title != blank %}
+			<h6 class="reviews-slider__section-title {{ section.settings.text_align }}">{{ title }}</h6>
+		{% endif %}
+		{%- if section.blocks.size > 0 -%}
+
+		<div class="swiper-inner reviews-slider__container" style="--overflow-state: visible;">
+			<swiper-container
+				class="swiper-container"
+				init="true"
+				slides-per-view="1"
+				space-between="16"
+				speed="600"
+				loop="{{ enable_loop }}"
+				mousewheel-force-to-axis="true"
+				space-between="0"
+				free-mode="false"
+				css-mode="false"
+				pagination="false"
+				navigation={"nextEl":".swiper-button-next-{{ section.id }}","prevEl":".swiper-button-prev-{{ section.id }}"}
+				breakpoints={"750":{"spaceBetween":0,"slidesPerView":1}}
+			>
+
+				{%- for block in section.blocks -%}
+					{%- liquid
+						assign stars = block.settings.stars
+						assign block_title = block.settings.title
+						assign review = block.settings.review_content
+						assign review_url = block.settings.review_url
+						assign animation_order = animation_order | plus: 1
+
+						assign review_block_classes = 'review'
+					-%}
+
+				<swiper-slide class="swiper-slide {{ section.settings.text_align }}" {{ block.shopify_attributes }}>
+				{%- if review_url != blank -%}
+					<a href="{{ review_url }}" class="{{ review_block_classes }}" rel="noopener" target="_blank">
+						{%- else -%}
+						<div class="{{ review_block_classes }}">
+							{%- endif -%}
+							<div
+								class="review__content swiper-slide__content">
+								<div class="review__stars">
+									{%- for i in (0..stars)  -%}
+										{% if i != 0 %}
+											<svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M15 0L18.5267 10.1459L29.2658 10.3647L20.7063 16.8541L23.8168 27.1353L15 21L6.18322 27.1353L9.29366 16.8541L0.734152 10.3647L11.4733 10.1459L15 0Z" fill="#00B9B9"/>
+											</svg>
+										{% endif %}
+									{%- endfor -%}
+								</div>
+								{%- if review != blank -%}
+									<div class="h2">
+										<p>{{ review | truncatewords: 200 }}</p>
+									</div>
+								{%- endif -%}
+
+								{%- if block_title != blank -%}
+									<div class="review__author">
+										<div class="review__author__content">
+											<p>{{ block_title }}</p>
+										</div>
+									</div>
+								{%- endif -%}
+							</div>
+							{%- if review_url != blank -%}
+									</a>
+									{%- else -%}
+						</div>
+					{%- endif -%}
+				</swiper-slide>
+			{%- endfor -%}
+			</swiper-container>
+
+			<div class="swiper-button-prev swiper-button-rounded swiper-button-prev-{{ section.id }}"
+					 data-aos="hero"
+					 data-aos-anchor="{{ animation_anchor }}"
+					 data-aos-order="{{ animation_order }}"
+			>
+				{% render 'icons' with 'arrow-left' %}
+			</div>
+
+			<div class="swiper-button-next swiper-button-rounded swiper-button-next-{{ section.id }}"
+					 data-aos="hero"
+					 data-aos-anchor="{{ animation_anchor }}"
+					 data-aos-order="{{ animation_order }}"
+			>
+				{% render 'icons' with 'arrow-right' %}
+			</div>
+		</div>
+	{%- else -%}
+		{%- render 'no-blocks' -%}
+	{%- endif -%}
+</div>
+</div>
+
+{%- if enable_sticky_position -%}
+  <script>
+    const reviewsSliderSection = document.getElementById(`shopify-section-{{ section.id }}`);
+    const reviewsSliderSentinel = document.createElement('div');
+
+    reviewsSliderSentinel.style.height = '1px';
+    reviewsSliderSentinel.style.width = '100%';
+    reviewsSliderSentinel.style.visibility = 'hidden';
+    reviewsSliderSentinel.style.position = 'relative';
+
+    reviewsSliderSection.insertAdjacentElement('beforebegin', reviewsSliderSentinel);
+
+    const reviewsSliderObserver = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+
+      if (entry.isIntersecting) {
+        reviewsSliderSection.style.position = 'sticky';
+      } else {
+        reviewsSliderSection.style.position = 'relative';
+      }
+    }, {
+      threshold: [0],
+      rootMargin: "500px"
+    });
+    reviewsSliderObserver.observe(reviewsSliderSentinel);
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Testimonials slider",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_mode",
+      "label": "Section mode",
+      "default": "flavcity-shop",
+      "options": [
+        {"value": "flavcity-shop", "label": "Flavcity Shop"},
+        {"value": "flavcity-cafe", "label": "Flavcity Cafe"}
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_position",
+      "label": "Enable sticky position",
+      "visible_if": "{{ section.settings.section_mode == 'flavcity-cafe' }}",
+      "default": false
+    },    
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "label": "Enable infinity loop",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment",
+      "default": "text-left",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "Left"
+        },
+        {
+          "value": "text-center",
+          "label": "Centered"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Stars",
+          "default": 5
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Customer name",
+          "default": "Example Customer"
+        },
+        {
+          "type": "richtext",
+          "id": "review_content",
+          "label": "Testimonial",
+          "default": "<p>Use this text to showcase a review from one of your customers. A great review is honest and speaks to the concerns of your customers.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Review link",
+          "info": "Whole block turns into a link"
+        },
+        {
+          "type": "url",
+          "id": "review_url",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials slider",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "title": "Jeremy Usborne"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Willy Bridge"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Kenneth Powell"
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "aside", "footer"]
+  }
+}
+{% endschema %}

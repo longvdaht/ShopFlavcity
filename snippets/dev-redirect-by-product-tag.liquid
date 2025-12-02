@@ -1,0 +1,5 @@
+{%- if template.name == 'product' and  product.tags contains 'dev_product' or product.tags contains 'hidden' -%}
+	<script type="application/javascript" async>
+    if (Shopify?.theme.role === 'main') window.location.href = '/';
+	</script>
+{%- endif -%}

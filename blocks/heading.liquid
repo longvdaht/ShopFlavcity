@@ -1,0 +1,138 @@
+{%- liquid
+  assign heading_tag = 'h2'
+	assign heading_font_family = block.settings.heading_font_family
+	assign text_mobile = block.settings.text_mobile
+
+  unless block.settings.heading_tag == 'automatic' or block.settings.heading_tag == blank
+    assign heading_tag = block.settings.heading_tag
+  endunless
+-%}
+
+<style>
+	.hero__title {
+    --block-padding-bottom: {{ block.settings.padding_bottom }}px;
+	}
+  @media only screen and (max-width: 749px) {
+    .hero__title {
+      --block-padding-bottom: {{ block.settings.padding_bottom_mobile }}px;
+    }
+	}
+</style>
+
+<{{ heading_tag }}
+	style="--color-heading: {{ block.settings.color }}"
+  class="hero__title {{ block.settings.heading_font_size }} {{ heading_font_family }}"
+  data-aos="hero"
+  data-aos-order="auto"
+  data-aos-anchor="{{ section.id }}"
+  {{ block.shopify_attributes }}
+>
+	{% if text_mobile != blank %}
+		<span class="desktop">{{ block.settings.text | newline_to_br }}</span>
+		<span class="mobile">{{ block.settings.text_mobile | newline_to_br }}</span>
+	{% else %}
+		<span>{{ block.settings.text | newline_to_br }}</span>
+	{% endif %}
+</{{ heading_tag }}>
+
+{% schema %}
+{
+  "name": "Heading",
+  "tag": null,
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Image slide"
+    },
+    {
+      "type": "textarea",
+      "id": "text_mobile",
+      "label": "Text (mobile)"
+    },
+    {
+      "type": "select",
+      "id": "heading_font_family",
+      "label": "Heading font family",
+      "default": "primary-heading__font",
+      "options": [
+        {"value": "primary-heading__font", "label": "SoulSister"},
+        {"value": "secondary-heading__font", "label": "Fetzav"},
+        {"value": "ternary-heading__font", "label": "Courgette"}
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_font_size",
+      "label": "Heading size",
+      "default": "heading-x-large",
+      "options": [
+        {"value": "heading-mini", "label": "Mini"},
+        {"value": "heading-x-small", "label": "Extra small"},
+        {"value": "heading-small", "label": "Small"},
+        {"value": "heading-medium", "label": "Medium"},
+        {"value": "heading-large", "label": "Large"},
+        {"value": "heading-x-large", "label": "Extra large"}
+      ]
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Color",
+      "default": "#005261"
+    },
+    {
+      "type": "header",
+      "content": "Padding bottom"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading SEO tag",
+      "default": "automatic",
+      "options": [
+        {"value": "automatic", "label": "Automatic"},
+        {"value": "h1", "label": "H1"},
+        {"value": "h2", "label": "H2"},
+        {"value": "h3", "label": "H3"},
+        {"value": "h4", "label": "H4"},
+        {"value": "h5", "label": "H5"},
+        {"value": "h6", "label": "H6"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Heading",
+      "settings": {
+        "text": "Image slide"
+      }
+    }
+  ]
+}
+{% endschema %}

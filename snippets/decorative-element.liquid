@@ -1,0 +1,88 @@
+{%- comment -%}
+  {%- render 'decorative-element' block: block -%}
+{%- endcomment -%}
+
+{%- liquid
+  assign shown_on = block.settings.shown_on
+  assign z_index = block.settings.z_index
+  assign animation = block.settings.aos_animation
+  assign overflow_hidden = block.settings.overflow_hidden
+
+  assign image = block.settings.image
+	assign image_scale = block.settings.image_scale
+	assign aspect_ratio = image.aspect_ratio
+
+  assign max_width_desktop = block.settings.max_width_desktop
+  assign desktop_x_position = block.settings.desktop_x_position
+  assign desktop_x_transform = block.settings.desktop_x_transform
+  assign desktop_y_position = block.settings.desktop_y_position
+  assign desktop_y_transform = block.settings.desktop_y_transform
+
+  assign image_mobile = block.settings.image_mobile
+
+  assign max_width_mobile = block.settings.max_width_mobile
+  assign mobile_x_position = block.settings.mobile_x_position
+  assign mobile_x_transform = block.settings.mobile_x_transform
+  assign mobile_y_position = block.settings.mobile_y_position
+  assign mobile_y_transform = block.settings.mobile_y_transform
+
+  assign animation_delay = animation_delay | default: 500
+  assign parallax_value = block.settings.parallax_value | default: 0
+  assign scroll_animation = block.settings.scroll_animation | default: 'none'
+  assign scroll_direction = block.settings.scroll_direction | default: 'down'
+  assign scroll_percentage = block.settings.scroll_percentage | default: 0
+  assign rotate_effect = block.settings.rotate_effect
+	assign rotate_effect_from = block.settings.rotate_effect_from
+	assign rotate_effect_to = block.settings.rotate_effect_to
+-%}
+
+{%- capture aos_animation -%}
+  {%- if animation != 'unset' -%}
+    data-aos="{{ animation }}"
+    data-aos-delay="{{ animation_delay | times: 50 }}"
+    data-aos-duration="800"
+    data-aos-easing="ease-out-quart"
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if image or image_mobile -%}
+    <decorative-element
+            {{ block.shopify_attributes }}
+            class="{{ shown_on }}"
+            data-animation-layout="{{ shown_on }}"
+            data-animation="{{ animation }}"
+            data-scroll-animation="{{ scroll_animation }}"
+            data-scroll-direction="{{ scroll_direction }}"
+            data-scroll-percentage="{{ scroll_percentage }}"
+            data-rotate-effect="{{ rotate_effect }}"
+						data-rotate-effect-from="{{ rotate_effect_from }}"
+						data-rotate-effect-to="{{ rotate_effect_to }}"
+            style="
+                    --max-width-desktop: {{ max_width_desktop | append: '%' }};
+                    --max-width-mobile: {{ max_width_mobile | append: '%' }};
+                    --desktop-x-position: {{ desktop_x_position | append: '%' }};
+                    --desktop-x-transform: {{ desktop_x_transform | append: '%' }};
+                    --desktop-y-position: {{ desktop_y_position | append: '%' }};
+                    --desktop-y-transform: {{ desktop_y_transform | append: '%' }};
+                    --mobile-x-position: {{ mobile_x_position | append: '%' }};
+                    --mobile-x-transform: {{ mobile_x_transform | append: '%' }};
+                    --mobile-y-position: {{ mobile_y_position | append: '%' }};
+                    --mobile-y-transform: {{ mobile_y_transform | append: '%' }};
+                    --z-index: {{ z_index }};
+										--image-scale: {{ image_scale }};
+                    {% if overflow_hidden %} overflow: hidden; {% endif %}
+                    ">
+      <div id="{{ block.id }}" {{ aos_animation }} data-animation-element>
+        {%- if image -%}
+          <img src="{{ image | image_url | width: max_width_desktop }}"
+               class="desktop"
+               alt="{{ image.alt }}"/>
+        {%- endif -%}
+        {%- if image_mobile -%}
+          <img src="{{ image_mobile | image_url | width: max_width_mobile }}"
+               class="mobile"
+               alt="{{ image_mobile.alt }}"/>
+        {%- endif -%}
+      </div>
+    </decorative-element>
+{%- endif -%}

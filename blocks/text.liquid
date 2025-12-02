@@ -1,0 +1,100 @@
+{%- assign text_font_family = block.settings.text_font_family -%}
+
+<style>
+  .hero__description {
+    --block-padding-bottom: {{ block.settings.padding_bottom }}px;
+  }
+  @media only screen and (max-width: 749px) {
+    .hero__description {
+      --block-padding-bottom: {{ block.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<div
+	style="--color-text: {{ block.settings.color }}"
+  class="hero__description {{ block.settings.text_font_size }} {{ text_font_family }}"
+  data-aos="hero"
+  data-aos-order="auto"
+  data-aos-anchor="{{ section.id }}"
+  {{ block.shopify_attributes }}
+>
+  {{ block.settings.text }}
+</div>
+
+{% schema %}
+{
+  "name": "Text",
+  "tag": null,
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Tell your brand's story through images.<\/p>"
+    },
+		{
+			"type": "select",
+			"id": "text_font_family",
+			"label": "Text font family",
+			"default": "primary-text__font",
+			"options": [
+				{"value": "primary-text__font", "label": "Poppins"},
+				{"value": "secondary-text__font", "label": "MohaveSemibold"},
+				{"value": "ternary-text__font", "label": "Courgette"}
+			]
+		},
+    {
+      "type": "select",
+      "id": "text_font_size",
+      "label": "Text size",
+      "default": "body-large",
+      "options": [
+        {"value": "body-x-small", "label": "Extra small"},
+        {"value": "body-small", "label": "Small"},
+        {"value": "body-medium", "label": "Medium"},
+        {"value": "body-large", "label": "Large"},
+        {"value": "body-x-large", "label": "Extra large"}
+      ]
+    },
+		{
+			"type": "color",
+			"id": "color",
+			"label": "Color",
+			"default": "#005261"
+		},
+		{
+			"type": "header",
+			"content": "Padding bottom"
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom",
+			"min": 0,
+			"max": 50,
+			"step": 1,
+			"unit": "px",
+			"label": "Desktop",
+			"default": 12
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom_mobile",
+			"min": 0,
+			"max": 50,
+			"step": 1,
+			"unit": "px",
+			"label": "Mobile",
+			"default": 8
+		}
+  ],
+  "presets": [
+    {
+      "name": "Text",
+      "settings": {
+        "text": "<p>Tell your brand's story through images.<\/p>"
+      }
+    }
+  ]
+}
+{% endschema %}

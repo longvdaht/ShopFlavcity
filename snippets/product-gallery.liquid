@@ -1,0 +1,223 @@
+{%- comment -%}
+{%- render 'product-gallery',
+  section: section,
+  unique: unique,
+  product: product,
+  badges_content: badges_content,
+  product_images_classlist: product_images_classlist,
+  enable_thumbs: enable_thumbs,
+  enable_thumbs_mobile: enable_thumbs_mobile,
+  show_thumbnails: show_thumbnails
+-%}
+{%- endcomment -%}
+
+{%- liquid
+  assign badge_block = section.blocks | where: 'type', 'badges'
+  assign current_variant = product.selected_or_first_available_variant
+  assign is_variant_selected = product.selected_variant
+  assign featured_product = featured_product | default: false
+  assign onboarding_product = false
+  assign enable_video_looping = section.settings.enable_video_looping
+  assign featured_media = current_variant.featured_media | default: product.featured_media
+  assign featured_media_aspect_ratio = featured_media.aspect_ratio | default: 1
+	assign variant_badge = current_variant.metafields.custom.specific_badge.value
+-%}
+
+<product-images
+        class="{{ product_images_classlist }}"
+        data-active-media="{{ section.id }}-{{ featured_media.id }}"
+        data-product-gallery
+        {% if enable_thumbs %}
+          data-fader-desktop
+        {% endif %}
+        {% if enable_thumbs_mobile %}
+          data-fader-mobile
+        {% endif %}
+>
+  {%- if featured_media -%}
+  {%- capture product_slides_attributes -%}
+    class="product__slides product-single__photos"
+    style="--featured-media-aspect-ratio: {{ featured_media_aspect_ratio | round: 2 }};"
+    data-product-media-list
+  {%- endcapture -%}
+
+  <{%- if section.settings.enable_zoom -%}zoom-images {%- else -%}div{% endif %}  {{ product_slides_attributes }}>
+
+    {%- if badges_content != blank and badge_block[0].settings.product_badges_over_image -%}
+      <div class="badge--container badge--container-over-image">
+        {{ badges_content }}
+      </div>
+    {%- endif -%}
+
+    {%- if product.metafields.additional.content_media_badge -%}
+      <div class="product__images-badge">
+        {%- render 'image',
+          image: product.metafields.additional.content_media_badge.value,
+          aspect_ratio: product.metafields.additional.content_media_badge.aspect_ratio,
+          widths: '120, 180, 240, 300, 360',
+          width: '240',
+          sizes: '120px',
+          loading: 'lazy',
+          fetchpriority: 'auto'
+        -%}
+      </div>
+    {%- endif -%}
+
+		{% if variant_badge != blank %}
+			<div class="product-variant__images-badge">
+				{%- render 'image',
+					image: variant_badge,
+					aspect_ratio: variant_badge.aspect_ratio,
+					widths: '120, 180, 240, 300, 360',
+					width: '240',
+					sizes: '120px',
+					loading: 'lazy',
+					fetchpriority: 'auto'
+				-%}
+			</div>
+		{% endif %}
+
+    {%- if product.has_only_default_variant -%}
+      {%- for media in product.media -%}
+        {%- render 'media',
+          media: media,
+          featured_media: featured_media,
+          enable_video_looping: enable_video_looping,
+          sectionkey: unique,
+          image_width: image_width,
+          cover: false,
+          forloop: forloop,
+          badges_content: badges_content,
+          badge_block: badge_block
+        -%}
+      {%- endfor -%}
+    {%- else -%}
+      {%- if product.featured_media -%}
+        {%- render 'media',
+          media: product.featured_media,
+          featured_media: featured_media,
+          enable_video_looping: enable_video_looping,
+          sectionkey: unique,
+          image_width: image_width,
+          cover: false,
+          forloop: forloop,
+          badges_content: badges_content,
+          badge_block: badge_block
+        -%}
+      {%- endif -%}
+
+
+      {%- if current_variant.featured_media -%}
+        {%- render 'media',
+          media: current_variant.featured_media,
+          featured_media: featured_media,
+          enable_video_looping: enable_video_looping,
+          sectionkey: unique,
+          image_width: image_width,
+          cover: false,
+          forloop: forloop,
+          badges_content: badges_content,
+          badge_block: badge_block
+        -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.enable_zoom -%}
+      <script src="{{ 'load-photoswipe.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'zoom.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+    </{%- if section.settings.enable_zoom -%}zoom-images{%- endif -%}div>
+
+    {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
+    {%- if first_3d_model -%}
+      <button
+              class="btn btn--outline btn--black btn--ar product-single__view-in-space"
+              data-shopify-xr
+              data-shopify-model3d-id="{{ first_3d_model.id }}"
+              data-shopify-title="{{ product.title | strip_html }}"
+              data-shopify-xr-hidden
+      >
+        {%- render 'icon-media-model' -%}
+
+        <span class="product-single__view-in-space-text">{{ 'products.general.view_space' | t }}</span>
+      </button>
+    {%- endif -%}
+
+    {%- if show_thumbnails -%}
+      <product-thumbs class="product__thumbs" data-product-thumbs>
+        <div class="product__thumbs__holder" data-thumbs-slider>
+
+          {%- if product.has_only_default_variant -%}
+            {%- for media in product.media -%}
+              <div class="product__thumb{% if media == featured_media %} is-active{% endif %}" data-thumb-item>
+                <a
+                        class="product__thumb__link{% if settings.show_image_bg != 'none' %} show-gray-bg{% endif %}"
+                        href="{{ media.preview_image.src | image_url }}"
+                        aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+                        data-media-id="{{ section.id }}-{{ media.id }}"
+                        data-thumb-link
+                >
+                  {%- liquid
+                    render 'image', image: media.preview_image, width: 225, height: 225, sizes: '225px', widths: '75, 100, 150, 225, 300', aspect_ratio: 1
+
+                    if media.media_type == 'video' or media.media_type == 'external_video'
+                    render 'icon-media-video'
+                    elsif media.media_type == 'model'
+                    render 'icon-media-model'
+                    endif
+                  -%}
+                </a>
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- if product.featured_media -%}
+              {%- render 'thumbs-slide',
+                featured_media: featured_media,
+                show_image_bg: show_image_bg,
+                media: product.featured_media
+              -%}
+            {%- endif -%}
+
+            {%- if current_variant.featured_media -%}
+              {%- render 'thumbs-slide',
+                featured_media: featured_media,
+                show_image_bg: show_image_bg,
+                media: current_variant.featured_media
+              -%}
+            {%- endif -%}
+          {%- endif -%}
+
+        </div>
+      </product-thumbs>
+
+      <script src="{{ 'product-thumbs.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- comment -%} Thumbnails template for Photoswipe {%- endcomment -%}
+    {%- if section.settings.enable_zoom -%}
+      <template data-pswp-thumbs-template>
+        {%- liquid
+          assign images = product.media | where: 'media_type', 'image'
+          assign image_class = 'pswp__thumb'
+          if settings.show_image_bg != 'none'
+          assign image_class = image_class | append: ' show-gray-bg'
+          endif
+
+          for image in images
+          render 'image', image: image, width: 160, height: 160, sizes: '80px', widths: '80, 120, 160', aspect_ratio: 1, modifier: image_class
+          endfor
+        -%}
+      </template>
+    {%- endif -%}
+    {%- else -%}
+      <div class="product__slides product__slides--normal product-single__photos">
+        <div
+                class="product__photo product__slide{% if onboarding_product %} svg-placeholder{% else %} product__photo--blank{% endif %} {% if settings.show_image_bg != 'none' %} show-gray-bg{% endif %}"
+        >
+          {%- if onboarding_product -%}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+</product-images>

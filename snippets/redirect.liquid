@@ -1,0 +1,16 @@
+<script async>
+  (function() {
+    const hash = window.location.hash; // e.g. "#redirect=collections/influencer"
+
+    setTimeout(()=> {
+      console.log(hash);
+    }, 6000)
+
+    if (hash.startsWith('#redirect=')) {
+      const redirectPath = hash.replace('#redirect=', '');
+      const finalPath = redirectPath.startsWith('/') ? redirectPath : '/' + redirectPath;
+
+      window.location.replace(finalPath);
+    }
+  })();
+</script>

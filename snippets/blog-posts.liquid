@@ -1,0 +1,467 @@
+{% comment %}
+  Renders blog posts in Blog page and Featured blog posts section
+
+  Accepts:
+  - blog_articles: {Array} blog articles (required)
+  - is_blog_page: {Boolean} product (required)
+
+  Usage:
+  {% render 'blog-posts', blog_articles: blog.articles, is_blog_page: true %}
+{% endcomment %}
+
+{%- liquid
+  assign articles_per_row = section.settings.grid
+  assign article_limit = articles_per_row | times: section.settings.rows
+	assign show_description = section.settings.show_description
+  assign show_author = section.settings.show_author
+  assign show_date = section.settings.show_date
+  assign show_button = section.settings.show_button
+  assign show_tags = section.settings.show_tags
+  assign show_comments = section.settings.show_comments
+	assign show_category = section.settings.show_category
+	assign show_cook_badges = section.settings.show_cook_badges
+	assign show_add_info = section.settings.show_add_info
+	assign aspect_ratio = 1 | divided_by: section.settings.aspect_ratio
+  assign onboarding = true
+  assign animation_anchor = '#Blog--' | append: section.id
+  assign animation_duration = 800
+  assign animation_order = 0
+  assign title_tag = 'h2'
+  assign max_current_excerpt_size = 0
+
+  unless section.settings.title_tag == 'automatic'
+    assign title_tag = section.settings.title_tag
+  endunless
+
+  if is_blog_page
+    assign onboarding = false
+  endif
+
+  if section.settings.blog_name != blank and blogs[section.settings.blog_name].articles.size > 0
+    assign onboarding = false
+    assign blog_articles = blogs[section.settings.blog_name].articles
+  endif
+
+  assign eager_images_limit = articles_per_row
+  if articles_per_row > 3
+    assign eager_images_limit = articles_per_row | times: 2
+  endif
+-%}
+
+<grid-slider class="grid-outer" align-arrows>
+  <div class="grid blog-listing grid--mobile-slider {% if section.settings.section_mode == 'flavcity-cafe' %}grid--mobile-slider{% endif %}"
+       data-grid-slider
+    {% if request.design_mode %}
+      data-block-scroll
+    {% endif %}>
+    {%- if onboarding -%}
+      {%- for i in (1..article_limit) -%}
+        {%- assign animation_order = animation_order | plus: 1 -%}
+
+        <article class="article article--onboarding grid-item">
+          <div class="article__image__outer">
+            <div class="article__image svg-placeholder">
+              <a
+                class="article__image-link"
+                href="#"
+                aria-label="Article title"
+                data-aos="img-in"
+                data-aos-anchor="{{ animation_anchor }}"
+                data-aos-order="{{ animation_order }}"
+                data-aos-duration="{{ animation_duration }}"
+                data-aos-easing="ease-out-quart"
+              >
+                <div class="image-wrapper" style="--aspect-ratio: {{ aspect_ratio }};">
+                  {{ 'image' | placeholder_svg_tag }}
+                </div>
+              </a>
+
+              {%- if show_tags -%}
+                <div class="article__tags h6 caps">
+                  <span class="article__tag">tag</span><span class="article__tag">tag</span>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <div
+            class="article__text-wrapper grid-item__content"
+            data-aos="hero"
+            data-aos-anchor="{{ animation_anchor }}"
+            data-aos-order="{{ animation_order }}"
+            data-aos-duration="{{ animation_duration }}"
+          >
+            <div>
+              <{{ title_tag }} class="article__title {{ section.settings.title_font_size }}"
+                ><a href="#" title="Article title">Blog post title</a></{{ title_tag }}
+              >
+
+              {%- if show_date or show_author or show_comments -%}
+                <p class="article__meta">
+                  {%- if show_date -%}
+                    <time datetime="{{ 'now' | date: format: 'full_date' }}">
+                      {{- 'now' | date: format: 'full_date' -}}
+                    </time>
+                  {%- endif -%}
+
+                  {%- if show_author -%}
+                    <span class="article__meta__author">by Author Name</span>
+                  {%- endif -%}
+
+                  {%- if show_comments and article.comments_count > 0 -%}
+                    <span class="comment-count">
+                      {{- 'blogs.comments.comments_with_count' | t: count: article.comments_count -}}
+                    </span>
+                  {%- endif -%}
+                </p>
+              {%- endif -%}
+
+              {% if show_description %}
+                <p class="article__excerpt">
+                  Once you create a blog post, the content will appear here. It will display the first few lines of text
+                  here or a summary of the post that could be added from the Excerpt section in Blog posts editor.
+                </p>
+              {% endif %}
+            </div>
+
+            {%- if show_button -%}
+              <div class="article__link">
+                <a href="#" class="btn btn--text" aria-label="{{ 'blogs.article.read_more' | t }}">
+                  <span>{{ 'blogs.article.read_more' | t }}</span>
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    {%- else -%}
+      {%- for article in blog_articles limit: article_limit -%}
+        {%- liquid
+					assign recipe_category = article.metafields.custom.recipe_category.value
+					assign recipe_prep_time = article.metafields.custom.recipe_prep_time.value
+					assign recipe_cook_time = article.metafields.custom.recipe_cook_time.value
+					assign additional_info = article.metafields.custom.additional_info.value
+          assign animation_order = animation_order | plus: 1
+
+          if forloop.index > eager_images_limit
+            assign loading = 'lazy'
+          endif
+        -%}
+
+        {%- capture tags -%}
+          {%- assign filter_all_categories = article.metafields.custom.filter_by_category.value -%}
+          {%- assign filter_all_products = article.metafields.custom.filter_by_product.value -%}
+          {%- assign filter_all_diets = article.metafields.custom.filter_by_diet.value -%}
+
+          {%- capture tag_content -%}
+            {%- if filter_all_categories.size > 0 -%}
+              {%- for filter_product in filter_all_categories -%}
+                {%- if filter_product != blank -%}
+                  <span class="article__tag badge">{{ filter_product }}</span>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+
+            {%- if filter_all_products.size > 0 -%}
+              {%- for filter_product in filter_all_products -%}
+                {%- if filter_product != blank -%}
+                  <span class="article__tag badge">{{ filter_product }}</span>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+
+            {%- if filter_all_diets.size > 0 -%}
+              {%- for filter_product in filter_all_diets -%}
+                {%- if filter_product != blank -%}
+                  <span class="article__tag badge">{{ filter_product }}</span>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endcapture -%}
+
+
+          {%- if show_tags and tag_content != blank -%}
+            <div class="article__tags h6 caps">
+              {{ tag_content }}
+
+              {%- comment -%}
+                {%- for tag in article.tags limit: 3 -%}
+                  <a href="{{ blog.url }}/tagged/{{ tag | handle }}" title="{{ blog.title }} tagged {{ tag | escape }}" class="article__tag badge">{{ tag }}</a>
+                {%- endfor -%}
+              {%- endcomment -%}
+            </div>
+          {%- endif -%}
+        {%- endcapture -%}
+
+        <article class="article grid-item" data-grid-item>
+          {%- if article.image -%}
+            <div class="article__image__outer">
+              <div class="article__image">
+                <a
+                  class="article__image-link"
+                  href="{{ article.url }}"
+                  aria-label="{{ article.title | strip_html | escape }}"
+                >
+                  {%- capture sizes -%}
+                    (min-width: 990px) calc((100vw - 100px) / {{ section.settings.grid }}), (min-width: 750px) calc((100vw - 60px) / 3), calc(100vw - 32px)
+                  {%- endcapture -%}
+
+                  {%- capture attributes -%}
+                    data-aos="img-in"
+                    data-aos-anchor="{{ animation_anchor }}"
+                    data-aos-order="{{ animation_order }}"
+                    data-aos-duration="{{ animation_duration }}"
+                    data-aos-easing="ease-out-quart"
+                  {%- endcapture -%}
+                  {%- render 'image',
+                    image: article.image,
+                    widths: '250, 280, 360, 480, 560, 640, 720, 840, 960, 1280, 1440, 1600, 1840, 2100, 2400',
+                    sizes: sizes,
+                    aspect_ratio: aspect_ratio,
+                    loading: loading,
+                    attributes: attributes,
+                    show_backfill: true
+                  -%}
+                </a>
+              </div>
+            </div>
+          {%- endif -%}
+
+          <div
+            class="article__text-wrapper"
+            data-aos="hero"
+            data-aos-anchor="{{ animation_anchor }}"
+            data-aos-order="{{ animation_order }}"
+            data-aos-duration="{{ animation_duration }}"
+          >
+
+            <div class="article__text-inner">
+              {{ tags }}
+
+							{% if show_category and recipe_category != blank %}
+								<p class="article__category">
+									{%- for value in recipe_category -%}
+										{{ value }}{%- unless forloop.last -%} , {% endunless -%}
+									{%- endfor -%}
+								</p>
+							{% endif %}
+
+              {%- assign excerpt_placeholder = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." -%}
+
+              <{{ title_tag }} class="article__title frame {{ section.settings.title_font_size }}">
+                <a href="{{ article.url }}"
+                   title="{{ article.title | strip_html | escape }}"
+                   class="frame__item article__title-link">
+                  {{ article.title }}
+                </a>
+                <span class="frame__item article__title-link article__title-link--placeholder">
+                  {{ excerpt_placeholder }}
+                </span>
+              </{{ title_tag }}>
+
+              {% capture recipe_info %}
+                {%- if article.metafields.custom.recipe_category.value != blank -%}
+                  <div>
+                    <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                        <g clip-path="url(#clip0_2305_1653)">
+                          <path d="M10.5 5V11" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M10.5 16V28" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M26.5 21H19.5C19.5 21 19.5 8 26.5 5V28" stroke="#00B9B9" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round"/>
+                          <path
+                            d="M6 5L5.5 11C5.5 12.3261 6.02678 13.5979 6.96447 14.5355C7.90215 15.4732 9.17392 16 10.5 16C11.8261 16 13.0979 15.4732 14.0355 14.5355C14.9732 13.5979 15.5 12.3261 15.5 11L15 5"
+                            stroke="#00B9B9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_2305_1653">
+                            <rect width="32" height="32" fill="white" transform="translate(0.5)"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p>
+                      {%- for value in article.metafields.custom.recipe_category.value -%}
+                        {{ value }}{%- unless forloop.last -%} , {% endunless -%}
+                      {%- endfor -%}
+                    </p>
+                  </div>
+                {%- endif -%}
+
+                {%- if article.metafields.custom.recipe_prep_time.value != blank -%}
+                  <div>
+                    <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <g clip-path="url(#clip0_2305_1663)">
+                          <path
+                            d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z"
+                            stroke="#00B9B9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M16 9V16H23" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_2305_1663">
+                            <rect width="32" height="32" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p>{{ article.metafields.custom.recipe_prep_time.value }}</p>
+                  </div>
+                {%- endif -%}
+
+                {%- if article.metafields.custom.recipe_cook_time.value != blank -%}
+                  <div>
+                    <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                        <g clip-path="url(#clip0_2305_1671)">
+                          <path
+                            d="M5.5 10H27.5V23C27.5 23.7956 27.1839 24.5587 26.6213 25.1213C26.0587 25.6839 25.2956 26 24.5 26H8.5C7.70435 26 6.94129 25.6839 6.37868 25.1213C5.81607 24.5587 5.5 23.7956 5.5 23V10Z"
+                            stroke="#00B9B9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M31 12.5L27.5 15" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M2 12.5L5.5 15" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M11.5 2V5" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M16.5 2V5" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M21.5 2V5" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_2305_1671">
+                            <rect width="32" height="32" fill="white" transform="translate(0.5)"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p>{{ article.metafields.custom.recipe_cook_time.value }}</p>
+                  </div>
+                {%- endif -%}
+
+                {%- if article.metafields.custom.recipe_chill_time.value != blank -%}
+                  <div>
+                    <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <g clip-path="url(#clip0_2305_1683)">
+                          <path d="M16 8V24" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M13 5L16 8L19 5" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M13 27L16 24L19 27" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M9.07031 12L22.9278 20" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M5 13L9.07125 12L8 8" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M24.0009 24L22.9297 20L27.0009 19" stroke="#00B9B9" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M9.07031 20L22.9278 12" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M8 24L9.07125 20L5 19" stroke="#00B9B9" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                          <path d="M27.0009 13L22.9297 12L24.0009 8" stroke="#00B9B9" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_2305_1683">
+                            <rect width="32" height="32" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p>{{ article.metafields.custom.recipe_chill_time.value }}</p>
+                  </div>
+                {%- endif -%}
+              {% endcapture %}
+
+              {%- if recipe_info != blank and section.settings.show_info_icons -%}
+                <div class="article__recipe-wrapper">
+                  <div class="article__recipe-info">
+                    {{ recipe_info }}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- if show_date or show_author or show_comments -%}
+                <p class="article__meta">
+                  {%- if show_date -%}
+                    {%- assign published_at = article.published_at | date: format: 'full_date' -%}
+                    <time datetime="{{ published_at }}">{{ published_at }}</time>
+                  {%- endif -%}
+
+                  {%- if show_author -%}
+                    <span class="article__meta__author">
+                      {{- 'blogs.article.by_author' | t: author: article.author }}
+                    </span>
+                  {%- endif -%}
+
+                  {%- if show_comments and article.comments_count > 0 -%}
+                    <span class="comment-count">
+                      {{- 'blogs.comments.comments_with_count' | t: count: article.comments_count -}}
+                    </span>
+                  {%- endif -%}
+                </p>
+              {%- endif -%}
+
+              {% if show_description %}
+                {%- assign excerpt_placeholder = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." -%}
+                {%- assign excerpt_or_content_size = article.excerpt_or_content.size | at_most: 30 -%}
+
+                {%- if excerpt_or_content_size > max_current_excerpt_size -%}
+                  {%- assign max_current_excerpt_size = excerpt_or_content_size -%}
+                {%- endif -%}
+
+                <div class="article__excerpt--wrapper frame">
+                  {%- if article.excerpt_or_content != blank -%}
+                    <p class="article__excerpt frame__item">{{ article.excerpt_or_content | strip_html | truncatewords: 30 }}</p>
+                  {%- endif -%}
+
+                  <p class="article__excerpt article__excerpt--placeholder frame__item">{{ excerpt_placeholder | truncatewords: max_current_excerpt_size }}</p>
+                </div>
+              {% endif %}
+
+							{% if show_cook_badges and recipe_prep_time != blank or recipe_cook_time != blank %}
+								<div class="article__cook-badges">
+									{%- if recipe_prep_time != blank -%}
+										<div class="article__cook-badge">
+											{% render 'icons' with 'timer' %}
+											<span>
+												{{ recipe_prep_time }}
+											</span>
+										</div>
+									{%- endif -%}
+									{%- if recipe_cook_time != blank -%}
+										<div class="article__cook-badge">
+											{% render 'icons' with 'timer' %}
+											<span>
+												{{ recipe_cook_time }}
+											</span>
+										</div>
+									{%- endif -%}
+								</div>
+							{% endif %}
+
+							{% if show_add_info and additional_info != blank %}
+								<div class="article__add-info">
+									<p>{{ additional_info }}</p>
+								</div>
+							{% endif %}
+            </div>
+
+            {%- if show_button -%}
+              <div class="article__link">
+                <a href="{{ article.url }}" class="btn btn--text" aria-label="{{ 'blogs.article.view_recipe' | t }}">
+                  <span>{{ 'blogs.article.view_recipe' | t }}</span>
+                </a>
+              </div>
+            {%- endif -%}
+          </grid-slider>
+        </article>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</grid-slider>

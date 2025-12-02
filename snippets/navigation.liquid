@@ -1,0 +1,40 @@
+{%- capture subheading_option_content -%}
+	{%- case block.settings.subheading_option -%}
+	{%- when 'type' -%}
+		{% capture tag_type_content %}
+			{%- for tag in product.tags -%}
+				{%- if tag contains '_type' -%}
+					{{- tag | replace: '_type:' -}}
+					{%- break -%}
+				{%- endif -%}
+			{%- endfor -%}
+		{% endcapture %}
+		{%- if tag_type_content != blank -%}
+			<span class="product-item__type heading-mini">
+           {{ tag_type_content }}
+          </span>
+		{%- endif -%}
+	{%- when 'vendor' -%}
+		{%- if product.vendor -%}
+			<nav class="breadcrumbs breadcrumbs--no-padding product__breadcrumbs">
+				<a href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
+			</nav>
+		{%- endif -%}
+	{%- when 'collection' -%}
+		{%- if collection or product.collections.size > 0 -%}
+			{%- assign current_collection = collection | default: product.collections[0] -%}
+
+			<nav class="breadcrumbs breadcrumbs--no-padding product__breadcrumbs">
+				<a href="{{ current_collection.url }}">Back to {{ current_collection.title }}</a>
+			</nav>
+		{%- endif -%}
+	{%- when 'breadcrumb' -%}
+	{% render 'breadcrumbs', breadcrumbs_modifier: 'breadcrumbs--no-padding product__breadcrumbs' %}
+	{%- endcase -%}
+{% endcapture %}
+
+{%- if subheading_option_content != blank -%}
+	<div class="block-padding">
+		{{ subheading_option_content }}
+	</div>
+{%- endif -%}

@@ -1,0 +1,26 @@
+<script async>
+  let isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  function initMonkCartUpdate() {
+    document.addEventListener("cart:refresh", () => {
+      cartUpdateTrigger();
+    });
+
+    const cartUpdateTrigger = () => {
+      const event = new Event('theme:cart:refresh');
+      document.dispatchEvent(event);
+    };
+  }
+
+  if (isMobile) {
+    document.addEventListener("DOMContentLoaded", initMonkCartUpdate);
+  } else {
+    initMonkCartUpdate();
+  }
+</script>
+
+<style>
+  #mr-div-embedded-cp-cvb-drawer:not(:empty) {
+    padding: 12px 20px;
+  }
+</style>
