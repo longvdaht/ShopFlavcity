@@ -1,13 +1,6 @@
 <!doctype html>
 <html class="no-js no-touch supports-no-cookies" lang="{{ request.locale.iso_code }}">
   <head>
-    <!-- Google Tag Manager -->
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-PGJD266');</script>
-    <!-- End Google Tag Manager -->
 <!-- Start of Shoplift scripts -->
 {% render 'shoplift' %}
 <!-- End of Shoplift scripts -->
@@ -20,7 +13,6 @@
 
     {%- render 'luckyorange' -%}
     {%- render 'monk-app' -%}
-    <script>(function(){var dbpr=100;if(Math.random()*100>100-dbpr){var d="dbbRum",w=window,o=document,a=addEventListener,scr=o.createElement("script");scr.async=!0;w[d]=w[d]||[];w[d].push(["presampling",dbpr]);["error","unhandledrejection"].forEach(function(t){a(t,function(e){w[d].push([t,e])});});scr.src="https://cdn.debugbear.com/ed1xy84kt7JR.js";o.head.appendChild(scr);}})()</script>
   </head>
 
   <body
@@ -28,12 +20,8 @@
     class="template-{{ template.name | handle }} {% if template.suffix contains 'cafe' %}template-cafe-product{% endif %} {% if customer %} customer-logged-in{% endif %}{% if settings.animations_enable %} aos-initialized{% endif %}"
     data-animations="{{ settings.animations_enable }}"
   >
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGJD266"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    {%- render 'loading' -%}
-    {%- render 'redirect' -%}
+    {% comment %} {%- render 'loading' -%}
+    {%- render 'redirect' -%} {% endcomment %}
 
     <a class="in-page-link visually-hidden skip-link" data-skip-content href="#MainContent">
       {{- 'general.accessibility.skip_to_content' | t -}}
@@ -87,14 +75,5 @@
 			render 'product-upsell-popup', product: product
 		endif
 	%}
-
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        customerEmail: "{{ customer.email }}",
-        customerPhone: "{{ customer.phone }}",
-        orderSubtotal: "{{ order.subtotal_price | money_without_currency }}"
-      });
-		</script>
   </body>
 </html>
